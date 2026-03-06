@@ -2,7 +2,7 @@
 ## (rpmautospec version 0.8.3)
 ## RPMAUTOSPEC: autorelease, autochangelog
 %define autorelease(e:s:pb:n) %{?-p:0.}%{lua:
-    release_number = 11;
+    release_number = 12;
     base_release_number = tonumber(rpm.expand("%{?-b*}%{!?-b:1}"));
     print(release_number + base_release_number - 1);
 }%{?-e:.%{-e*}}%{?-s:.%{-s*}}%{!?-n:%{?dist}}
@@ -16,7 +16,7 @@
 
 Name:    qt6ct
 Version: 0.11
-Release: %autorelease -b2
+Release: %autorelease
 Summary: Qt6 - Configuration Tool
 
 License: BSD-2-Clause
