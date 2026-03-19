@@ -4,7 +4,7 @@
 
 0.51.0+ → would require Fedora 43
 
-A collection of Hyprland and related packages:
+A collection of Hyprland and related packages with auto update workflow (wip)
 
 * **[hyprland](https://wiki.hyprland.org/)** – A highly customizable dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 * **[xdg-desktop-portal-hyprland](https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/)** [(spec)](https://github.com/solopasha/hyprlandRPM/blob/master/xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland.spec) – xdg-desktop-portal backend for hyprland.
@@ -40,14 +40,3 @@ A collection of Hyprland and related packages:
 * **[qt6ct-kde](https://github.com/ilya-fedin/qt6ct)** [(spec)](https://github.com/solopasha/hyprlandRPM/blob/master/qt6ct-kde/qt6ct.spec) - Qt6 Configuration Utility, patched for proper integration with KDE applications.
 * **[hyprqt6engine](https://github.com/hyprwm/hyprqt6engine)** [(spec)](https://github.com/solopasha/hyprlandRPM/blob/master/hyprqt6engine/hyprqt6engine.spec) - Qt6 Theme Provider for Hyprland.
 
-## If you find this repository helpful, please consider supporting it with a donation
-
-TJWXhcsoGQbbJTe9uxHd5QjdDu9yU7b2S3 (USDT TRC20)
-
-TJWXhcsoGQbbJTe9uxHd5QjdDu9yU7b2S3 (Tron)
-
-0x03b1C69d364119441c6a6B41Aeb4859E62dFc366 (USDT Ethereum)
-
-bc1qna5rg328tdufshjhtjtkq69nraclqy4x77jr7w (BTC)
-
-0x03b1C69d364119441c6a6B41Aeb4859E62dFc366 (ETH)
