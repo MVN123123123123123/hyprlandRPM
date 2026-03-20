@@ -77,8 +77,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/colors/*.conf
 %dir %{_datadir}/%{name}/qss/
 %{_datadir}/%{name}/qss/*.qss
-%{_libdir}/libqt6ct-common.so.9
-%{_libdir}/libqt6ct-common.so.0.9
 %{_libdir}/libqt6ct-common.so.%{version}
 %{_qt6_plugindir}/platformthemes/libqt6ct.so
 %{_qt6_plugindir}/styles/libqt6ct-style.so
