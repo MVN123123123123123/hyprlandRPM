@@ -3,8 +3,8 @@
 %global bumpver 81
 
 Name:           hyprland-contrib
-Version:        0.1%{?bumpver:^%{bumpver}.git%{shortcommit0}}
-Release:        %autorelease
+Version:        0.1
+Release:        1%{?dist}
 Summary:        Community scripts and utilities for Hypr projects
 BuildArch:      noarch
 

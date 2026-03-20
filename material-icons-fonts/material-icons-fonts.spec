@@ -2,8 +2,8 @@
 %global shortcommit0 %{sub %{commit0} 1 7}
 %global bumpver 1
 
-Version:        4.0.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
-Release:        %autorelease
+Version:        4.0.0
+Release:        1%{?dist}
 URL:            https://google.github.io/material-design-icons/
 
 %global fontlicense     Apache-2.0

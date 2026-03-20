@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           glaze
-Version:        6.1.0
-Release:        %autorelease
+Version:        7.2.1
+Release:        1%{?dist}
 Summary:        Extremely fast, in memory, JSON and interface library
 
 License:        MIT
