@@ -71,6 +71,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %doc AUTHORS README.md ChangeLog
 %license COPYING
 %{_bindir}/%{name}
+%{_bindir}/libqt6ct-common.so
 %{_datadir}/applications/%{name}.desktop
 %dir %{_datadir}/%{name}/
 %dir %{_datadir}/%{name}/colors/
