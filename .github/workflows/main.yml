@@ -14,20 +14,70 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        
       - name: Check upstreams and update specs
         run: |
           # Set up git right away
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           CHANGES_MADE=0
 
           # --- MODIFY THIS ARRAY ---
           # Format: "upstream_owner/upstream_repo|path/to/subdirectory/package.spec"
           TARGETS=(
-            "fastfetch-cli/fastfetch|fastfetch-dir/fastfetch.spec"
-            "neovim/neovim|nvim-folder/neovim.spec"
-            "zellij-org/zellij|packages/zellij/zellij.spec"
+          "InTheCloudDan/matugen|matugen/matugen.spec"
+          "GhostNaN/mpvpaper|mpvpaper/mpvpaper.spec"
+          "nwg-piotr/nwg-clipman|nwg-clipman/nwg-clipman.spec"
+          "nwg-piotr/nwg-look|nwg-look/nwg-look.spec"
+          "hyprland-community/pyprland|pyprland/pyprland.spec"
+          "imageio/imageio-ffmpeg|python-imageio-ffmpeg/python-imageio-ffmpeg.spec"
+          "trialuser02/qt6ct|qt6ct/qt6ct.spec"
+          "gabm/Satty|satty/satty.spec"
+          "mortie/swaylock-effects|swaylock-effects/swaylock-effects.spec"
+          "LGFae/swww|swww/swww.spec"
+          "Vladimir-csp/uwsm|uwsm/uwsm.spec"
+          "Alexays/Waybar|waybar-git/waybar-git.spec"
+          "anufrievroman/waypaper|waypaper/waypaper.spec"
+          "eworm-de/xcur2png|xcur2png/xcur2png.spec"
+          "hyprwm/xdg-desktop-portal-hyprland|xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland.spec"
+          "hyprwm/hyprlock|hyprlock/hyprlock.spec"
+          "donovanglover/hyprnome|hyprnome/hyprnome.spec"
+          "hyprwm/hyprpaper|hyprpaper/hyprpaper.spec"
+          "hyprwm/hyprpicker|hyprpicker/hyprpicker.spec"
+          "hyprwm/hyprpolkitagent|hyprpolkitagent/hyprpolkitagent.spec"
+          "[OWNER]/hyprpwcenter|hyprpwcenter/hyprpwcenter.spec"
+          "[OWNER]/hyprqt6engine|hyprqt6engine/hyprqt6engine.spec"
+          "Gustash/Hyprshot|hyprshot/hyprshot.spec"
+          "[OWNER]/hyprshutdown|hyprshutdown/hyprshutdown.spec"
+          "hyprwm/hyprsunset|hyprsunset/hyprsunset.spec"
+          "hyprwm/hyprsysteminfo|hyprsysteminfo/hyprsysteminfo.spec"
+          "[OWNER]/hyprtoolkit|hyprtoolkit/hyprtoolkit.spec"
+          "hyprwm/hyprutils|hyprutils/hyprutils.spec"
+          "hyprwm/hyprwayland-scanner|hyprwayland-scanner/hyprwayland-scanner.spec"
+          "[OWNER]/hyprwire|hyprwire/hyprwire.spec"
+          "google/material-design-icons|material-icons-fonts/material-icons-fonts.spec"
+          "[OWNER]/hellwal|hellwal/hellwal.spec"
+          "hyprwm/hyprcursor|hyprcursor/hyprcursor.spec"
+          "s0la1337/hyprdim|hyprdim/hyprdim.spec"
+          "hyprwm/hyprgraphics|hyprgraphics/hyprgraphics.spec"
+          "hyprwm/hypridle|hypridle/hypridle.spec"
+          "flick0/hyprland-autoname-workspaces|hyprland-autoname-workspaces/hyprland-autoname-workspaces.spec"
+          "hyprwm/contrib|hyprland-contrib/hyprland-contrib.spec"
+          "hyprwm/Hyprland|hyprland-git/hyprland-git.spec"
+          "[OWNER]/hyprland-guiutils|hyprland-guiutils/hyprland-guiutils.spec"
+          "hyprwm/hyprland-plugins|hyprland-plugins/hyprland-plugins.spec"
+          "hyprwm/hyprland-protocols|hyprland-protocols/hyprland-protocols.spec"
+          "hyprwm/hyprland-qt-support|hyprland-qt-support/hyprland-qt-support.spec"
+          "hyprwm/hyprland-qtutils|hyprland-qtutils/hyprland-qtutils.spec"
+          "hyprwm/hyprlang|hyprlang/hyprlang.spec"
+          "[OWNER]/hyprlauncher|hyprlauncher/hyprlauncher.spec"
+          "hyprwm/aquamarine|aquamarine/aquamarine.spec"
+          "Aylur/astal|astal/astal.spec"
+          "Aylur/ags|aylurs-gtk-shell/aylurs-gtk-shell.spec"
+          "sentriz/cliphist|cliphist/cliphist.spec"
+          "elkowar/eww|eww-git/eww-git.spec"
+          "stephenberry/glaze|glaze/glaze.spec"
           )
 
           # Loop through each target
@@ -81,7 +131,11 @@ jobs:
           if [ "$CHANGES_MADE" -eq 1 ]; then
             echo "Committing and pushing all updated spec files..."
             git commit -m "chore: auto-update spec file versions"
-            git push
+            
+            # Pull any new remote changes (rebase) before pushing to avoid conflicts
+            git pull --rebase origin master
+            git push origin master
+            
             echo "Successfully pushed updates."
           else
             echo "No updates needed across all spec files."
