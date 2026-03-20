@@ -71,14 +71,16 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %doc AUTHORS README.md ChangeLog
 %license COPYING
 %{_bindir}/%{name}
-%{_bindir}/libqt6ct-common.so
 %{_datadir}/applications/%{name}.desktop
 %dir %{_datadir}/%{name}/
 %dir %{_datadir}/%{name}/colors/
 %{_datadir}/%{name}/colors/*.conf
 %dir %{_datadir}/%{name}/qss/
 %{_datadir}/%{name}/qss/*.qss
-%{_libdir}/libqt6ct-common.so.%{version}
+
+# Change this line to use a wildcard:
+%{_libdir}/libqt6ct-common.so*
+
 %{_qt6_plugindir}/platformthemes/libqt6ct.so
 %{_qt6_plugindir}/styles/libqt6ct-style.so
 
