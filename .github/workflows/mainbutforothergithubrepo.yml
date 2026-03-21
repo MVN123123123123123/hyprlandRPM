@@ -49,7 +49,7 @@ jobs:
             else
               echo "Repository is already up to date."
             fi
-        echo "Committing and pushing all updated spec files..."
-        git commit -m "chore: auto-update spec file versions for some other github repo"
-        git pull --rebase origin master
-        git push origin master
+          echo "Committing and pushing all updated spec files..."
+          git commit -m "chore: auto-update spec file versions for some other github repo"
+          git pull --rebase origin master
+          git push origin master
