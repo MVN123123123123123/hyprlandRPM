@@ -13,6 +13,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  gtkmm4.0
 BuildRequires:  gtksourceview5
+BuildRequires:  tinyxml2
 
 %description
 It is a dynamic, cross-platform, and embeddable LaTeX rendering library.
