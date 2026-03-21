@@ -1,0 +1,51 @@
+name: Update COPR Spec Versions
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+jobs:
+  update-specs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check upstreams and update specs
+        run: |
+          # Set up git right away
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          CHANGES_MADE=0
+          TARGETS=(
+          "NanoMichael/MicroTeX|MicroTex/MicroTex.spec"
+          )
+          for TARGET in "${TARGETS[@]}"; do
+            # Split the string by the '|' character
+            IFS='|' read -r UPSTREAM_REPO SPEC_FILE <<< "$TARGET"
+            
+            echo "----------------------------------------"
+            echo "Checking: $SPEC_FILE"
+            if [ ! -f "$SPEC_FILE" ]; then
+              echo "Warning: File $SPEC_FILE not found! Skipping..."
+              continue
+            fi
+            LATEST_COMMIT=$(curl -s "https://api.github.com/repos/$UPSTREAM_REPO/commits/main" | jq -r '.sha')
+            if [ "$LATEST_COMMIT" == "null" ] || [ -z "$LATEST_COMMIT" ]; then
+              echo "Error fetching commit data from GitHub."  
+              exit 1
+            fi
+            CURRENT_COMMIT=$(grep "^%global commit " "$SPEC_FILE" | awk '{print $3}'
+            if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ]; then
+              echo "New commit found: ${LATEST_COMMIT:0:7}"
+              TODAY=$(date +%Y%m%d)
+              sed -i "s/^%global commit .*/%global commit $LATEST_COMMIT/" "$SPEC_FILE"
+              sed -i "s/^%global commitdate .*/%global commitdate $TODAY/" "$SPEC_FILE"
+              echo "Spec file updated successfully."
+              # Add your build commands here (e.g., fedpkg mockbuild, rpmbuild -ba, etc.)
+            else
+              echo "Repository is already up to date."
+            fi
