@@ -11,9 +11,9 @@ Source0:        https://github.com/NanoMichael/MicroTeX/archive/refs/heads/maste
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
-BuildRequires:  gtkmm4.0
-BuildRequires:  gtksourceview5
-BuildRequires:  tinyxml2
+BuildRequires:  gtkmm4.0-devel
+BuildRequires:  gtksourceview5-devel
+BuildRequires:  tinyxml2-devel
 
 %description
 It is a dynamic, cross-platform, and embeddable LaTeX rendering library.
