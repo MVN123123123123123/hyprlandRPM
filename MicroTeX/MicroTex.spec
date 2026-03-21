@@ -26,13 +26,20 @@ Its main purpose is to display mathematical formulas written in LaTeX. It can be
 
 %build
 # Disabling HAVE_LOG and GRAPHICS_DEBUG for a cleaner release build
-%cmake -DHAVE_LOG=OFF -DGRAPHICS_DEBUG=OFF
+# We also skip RPATH so the manual install doesn't fail the check-rpaths test
+%cmake -DHAVE_LOG=OFF -DGRAPHICS_DEBUG=OFF -DCMAKE_SKIP_RPATH=ON
 %cmake_build
 
 %install
-%cmake_install
+# Upstream CMakeLists.txt has no install rules, so we must install manually
+install -D -p -m 0755 %{_vpath_builddir}/LaTeX %{buildroot}%{_bindir}/LaTeX
+install -D -p -m 0755 %{_vpath_builddir}/libLaTeX.so %{buildroot}%{_libdir}/libLaTeX.so
 
 %files
+%license LICENSE
+%doc README.md
+%{_bindir}/LaTeX
+%{_libdir}/libLaTeX.so
 %license LICENSE
 %doc README.md
 %{_bindir}/LaTeX
