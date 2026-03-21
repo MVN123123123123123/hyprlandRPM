@@ -1,10 +1,6 @@
-
-%global commit <INSERT_LATEST_HASH_HERE>
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commitdate <INSERT_DATE_HERE>
 Name:           microtex
 Version:        0
-Release:        1.%{commitdate}git%{shortcommit}%{?dist}
+Release:        1.1
 Summary:        A dynamic, cross-platform, and embeddable LaTeX rendering library
 
 # The core project is MIT, but resources/fonts are under different licenses.
