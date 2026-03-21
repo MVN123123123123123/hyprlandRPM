@@ -11,8 +11,8 @@ Source0:        https://github.com/NanoMichael/MicroTeX/archive/refs/heads/maste
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
-BuildRequires:  gtkmm4.0-devel
-BuildRequires:  gtksourceview5-devel
+BuildRequires:  gtkmm3.0-devel
+BuildRequires:  gtksourceview3-devel
 BuildRequires:  tinyxml2-devel
 
 %description
