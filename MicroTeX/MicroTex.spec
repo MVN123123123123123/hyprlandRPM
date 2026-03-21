@@ -9,7 +9,7 @@ Summary:        A dynamic, cross-platform, and embeddable LaTeX rendering librar
 
 # The core project is MIT, but resources/fonts are under different licenses.
 License:        MIT and others
-URL:            https://github.com/NanoMichael/MicroTex
+URL:            https://github.com/NanoMichael/MicroTeX
 Source0:        https://github.com/NanoMichael/MicroTeX
 
 BuildRequires:  gcc-c++
