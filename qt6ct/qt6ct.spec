@@ -15,7 +15,7 @@
 %forgemeta
 
 Name:    qt6ct
-Version:        0.11
+Version:        0.9
 Release:        1%{?dist}
 Summary: Qt6 - Configuration Tool
 
