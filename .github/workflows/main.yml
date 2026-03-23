@@ -32,7 +32,6 @@ jobs:
           "nwg-piotr/nwg-look|nwg-look/nwg-look.spec"
           "hyprland-community/pyprland|pyprland/pyprland.spec"
           "imageio/imageio-ffmpeg|python-imageio-ffmpeg/python-imageio-ffmpeg.spec"
-          "trialuser02/qt6ct|qt6ct/qt6ct.spec"
           "gabm/Satty|satty/satty.spec"
           "mortie/swaylock-effects|swaylock-effects/swaylock-effects.spec"
           "LGFae/swww|swww/swww.spec"
