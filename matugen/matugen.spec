@@ -21,6 +21,9 @@ BuildRequires:  cargo-rpm-macros >= 24
 cargo vendor
 %cargo_prep -v vendor
 
+# Fix executable permissions on vendored Rust files to avoid brp-mangle-shebangs errors
+find vendor -type f -name '*.rs' -exec chmod a-x {} +
+
 %build
 %cargo_build
 %{cargo_license_summary}
