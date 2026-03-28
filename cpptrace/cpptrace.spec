@@ -16,8 +16,6 @@ BuildRequires:  gcc-c++
 BuildRequires:  libdwarf-devel
 BuildRequires:  libcxxabi-devel
 BuildRequires:  libzstd-devel
-BuildRequires:  qt6-qtbase-private-devel
-BuildRequires:  qt6-qtdeclarative-private-devel
 
 %description
 Cpptrace is a simple and portable C++ stacktrace library supporting

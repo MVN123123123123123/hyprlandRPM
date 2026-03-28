@@ -43,6 +43,8 @@ BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
 BuildRequires:  qt6-qtsvg-devel
 BuildRequires:  qt6-qtwayland-devel
+BuildRequires:  qt6-qtbase-private-devel
+BuildRequires:  qt6-qtdeclarative-private-devel
 
 # ─── Runtime dependencies (from PKGBUILD depends) ────────────────────────────
 Requires:       cpptrace%{?_isa}
