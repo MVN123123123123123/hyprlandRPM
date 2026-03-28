@@ -11,19 +11,11 @@ Source0:        https://github.com/jeremy-rifkin/cpptrace/archive/refs/tags/v%{v
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch: %{ix86}
 
-#
-#           DEPENDENCIES
-#
-
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  libdwarf-devel
 BuildRequires:  libcxxabi-devel
 BuildRequires:  libzstd-devel
-
-#
-#           DESCRIPTIONS
-#
 
 %description
 Cpptrace is a simple and portable C++ stacktrace library supporting
@@ -40,22 +32,11 @@ Summary: Development files for cpptrace
 %description devel
 Development files for cpptrace
 
-
-#
-#           PREP
-#
-
 %prep
 %autosetup -C -p1
 
-#
-#           BUILD
-#
-
 %build
 
-# testing requires googletest
-# but cmake only supports downloading
 %cmake \
     -DCPPTRACE_DEMANGLE_WITH_CXXABI=ON \
     -DCPPTRACE_USE_EXTERNAL_ZSTD=ON \
@@ -66,27 +47,11 @@ Development files for cpptrace
 
 %cmake_build
 
-
-#
-#           INSTALL
-#
-
 %install
 
 %cmake_install
 
-
-#
-#           CHECK
-#
-
 %check
-
-# %%ctest
-
-#
-#           FILES SECTION
-#
 
 %files
 %{_libdir}/libcpptrace.so.1.0.4
@@ -99,12 +64,6 @@ Development files for cpptrace
 %{_includedir}/ctrace
 %{_includedir}/cpptrace
 %license LICENSE
-
-
-
-#
-#           CHANGELOG
-#
 
 %changelog
 %autochangelog

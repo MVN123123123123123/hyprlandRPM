@@ -77,6 +77,7 @@ jobs:
           "sentriz/cliphist|cliphist/cliphist.spec"
           "elkowar/eww|eww-git/eww-git.spec"
           "stephenberry/glaze|glaze/glaze.spec"
+          "jeremy-rifkin/cpptrace|cpptrace/cpptrace.spec"
           )
 
           # Loop through each target
