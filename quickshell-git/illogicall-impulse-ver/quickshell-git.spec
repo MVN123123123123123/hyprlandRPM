@@ -38,6 +38,7 @@ BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  cpptrace-devel
+BuildRequires:  libzstd-devel
 BuildRequires:  jemalloc-devel
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
