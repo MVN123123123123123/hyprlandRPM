@@ -16,6 +16,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  libdwarf-devel
 BuildRequires:  libcxxabi-devel
 BuildRequires:  libzstd-devel
+BuildRequires:  libunwind-devel
 
 %description
 Cpptrace is a simple and portable C++ stacktrace library supporting
@@ -45,7 +46,7 @@ Development files for cpptrace
     -DBUILD_TESTING=OFF \
     -DBUILD_SHARED_LIBS=ON \
     -DCPPTRACE_UNWIND_WITH_LIBUNWIND=ON
-    
+
 
 %cmake_build
 
