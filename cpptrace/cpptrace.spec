@@ -1,73 +1,38 @@
-#partly ai generated 
+%global commit      91b6b78e408a8b1c0b7146c9034a03156c082da2
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
 Name:           cpptrace
 Version:        1.0.4
-Release:        %autorelease
-Summary:        Cpptrace is a simple and portable C++ stacktrace library 
+Release:        1%{?dist}
+Summary:        Simple, portable, and self-contained stacktrace library for C++11 and newer
 
 License:        MIT
-URL:            https://boutproject.github.io/
-Source0:        https://github.com/jeremy-rifkin/cpptrace/archive/refs/tags/v%{version}.tar.gz
-
-# https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
-ExcludeArch: %{ix86}
+URL:            https://github.com/jeremy-rifkin/cpptrace
+Source0:        %{url}/archive/%{commit}/cpptrace-%{shortcommit}.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
-BuildRequires:  libdwarf-devel
-BuildRequires:  libcxxabi-devel
-BuildRequires:  libzstd-devel
-BuildRequires:  libunwind-devel
+BuildRequires:  make
+BuildRequires:  ninja-build
 
 %description
-Cpptrace is a simple and portable C++ stacktrace library supporting
-C++11 and greater on Linux, macOS, and Windows including MinGW and
-Cygwin environments. The goal: Make stack traces simple for once.
-
-In addition to providing access to stack traces, cpptrace also
-provides a mechanism for getting stacktraces from thrown exceptions
-which is immensely valuable for debugging and triaging.
-
-%package devel
-Summary: Development files for cpptrace
-
-%description devel
-Development files for cpptrace
+C++ lightweight logging library used by Quickshell.
 
 %prep
-%autosetup -C -p1
+%autosetup -n cpptrace-%{commit} -p1
 
 %build
-
-%cmake \
-    -DCPPTRACE_DEMANGLE_WITH_CXXABI=ON \
-    -DCPPTRACE_UNWIND_WITH_LIBUNWIND=true \
-    -DCPPTRACE_USE_EXTERNAL_ZSTD=ON \
-    -DCPPTRACE_USE_EXTERNAL_LIBDWARF=ON \
-    -DCPPTRACE_FIND_LIBDWARF_WITH_PKGCONFIG=ON \
-    -DBUILD_TESTING=OFF \
-    -DBUILD_SHARED_LIBS=ON \
-
-
-
-%cmake_build
+mkdir -p build
+cd build
+cmake .. -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DCPPTRACE_UNWIND_WITH_LIBUNWIND=true
+cmake --build .
 
 %install
-
-%cmake_install
-
-%check
+cd build
+DESTDIR=%{buildroot} cmake --install .
 
 %files
-%{_libdir}/libcpptrace.so.1.0.4
+%{_prefix}/local/include/*
+%{_prefix}/local/lib64/*
 %license LICENSE
-
-%files devel
-%{_libdir}/libcpptrace.so
-%{_libdir}/libcpptrace.so.1
-%{_libdir}/cmake/cpptrace
-%{_includedir}/ctrace
-%{_includedir}/cpptrace
-%license LICENSE
-
-%changelog
-%autochangelog
+%doc README.md
