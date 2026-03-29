@@ -31,6 +31,7 @@ BuildRequires:  vulkan-headers
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  qt6-qtshadertools-devel
+BuildRequires:  pkgconfig(polkit-agent-1)
 # ─── Build dependencies (from PKGBUILD depends, needed at build time) ────────
 BuildRequires:  glib2-devel
 BuildRequires:  pkgconfig(libdrm)
