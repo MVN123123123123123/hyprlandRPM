@@ -91,7 +91,8 @@ Hyprland rice.
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
     -DDISTRIBUTOR="COPR (package: quickshell-git)" \
     -DDISTRIBUTOR_DEBUGINFO_AVAILABLE=NO \
-    -DINSTALL_QML_PREFIX=%{_lib}/qt6/qml
+    -DINSTALL_QML_PREFIX=%{_lib}/qt6/qml \
+    -VENDOR_CPPTRACE=ON
 
 %cmake_build
 

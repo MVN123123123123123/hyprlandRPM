@@ -45,7 +45,7 @@ Development files for cpptrace
     -DCPPTRACE_FIND_LIBDWARF_WITH_PKGCONFIG=ON \
     -DBUILD_TESTING=OFF \
     -DBUILD_SHARED_LIBS=ON \
-    -CPPTRACE_UNWIND_WITH_LIBUNWIND=ON
+    
 
 
 %cmake_build
