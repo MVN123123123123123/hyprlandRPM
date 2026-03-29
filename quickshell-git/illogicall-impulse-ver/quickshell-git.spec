@@ -92,7 +92,7 @@ Hyprland rice.
     -DDISTRIBUTOR="COPR (package: quickshell-git)" \
     -DDISTRIBUTOR_DEBUGINFO_AVAILABLE=NO \
     -DINSTALL_QML_PREFIX=%{_lib}/qt6/qml \
-    -VENDOR_CPPTRACE=ON
+    -VENDOR_CPPTRACE=TRUE
 
 %cmake_build
 
