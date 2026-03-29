@@ -31,9 +31,9 @@ BuildRequires:  vulkan-headers
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  qt6-qtshadertools-devel
-BuildRequires:  egl-gbm
 # ─── Build dependencies (from PKGBUILD depends, needed at build time) ────────
 BuildRequires:  pkgconfig(libdrm)
+BuildRequires:  pkgconfig(gbm)
 BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  mesa-libEGL-devel
