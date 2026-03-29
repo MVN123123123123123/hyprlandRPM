@@ -37,6 +37,7 @@ install -Dpm0755 client/pypr-client -t %{buildroot}%{_bindir}
 %doc README.md
 %{_bindir}/pypr
 %{_bindir}/pypr-client
+%{_bindir}/pypr-gui
 %{_bindir}/pypr-quickstart
 
 %changelog
