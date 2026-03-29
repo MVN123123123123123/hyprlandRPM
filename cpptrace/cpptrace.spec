@@ -1,4 +1,4 @@
-
+#partly ai generated 
 Name:           cpptrace
 Version:        1.0.4
 Release:        %autorelease
