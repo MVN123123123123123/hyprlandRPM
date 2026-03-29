@@ -46,7 +46,4 @@ install -D -p -m 0755 %{_vpath_builddir}/libLaTeX.so %{buildroot}%{_libdir}/libL
 # Note: Add %%{_libdir}/*.so and %%{_includedir}/* if the CMake install target exports the library/headers.
 
 %changelog
-* Sat Mar 21 2026 Your Name <your.email@example.com> - 0-1.1
-- Fixed Source0 URL to point to a valid tar archive
-- Escaped macros in comments
-- Added initial changelog section
+%autochangelog

@@ -1,7 +1,7 @@
 %global __provides_exclude_from ^(%{_libdir}/ags/.*\\.so)$
 
-%global gvc_commit 8e7a5a4c3e51007ce6579292642517e3d3eb9c50
-%global gvc_shortcommit %(c=%{gvc_commit}; echo ${c:0:7})
+%global commit 8e7a5a4c3e51007ce6579292642517e3d3eb9c50
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aylurs-gtk-shell
 Version:        3.1.1
@@ -11,7 +11,7 @@ Summary:        A customizable and extensible shell
 License:        GPL-3.0-or-later
 URL:            https://github.com/Aylur/ags
 Source0:        %{url}/archive/v%{version_no_tilde}/%{name}-%{version_no_tilde}.tar.gz
-Source2:        https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/%{gvc_commit}/gvc-%{gvc_shortcommit}.tar.gz
+Source2:        https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/%{commit}/gvc-%{shortcommit}.tar.gz
 
 BuildRequires:  gcc
 BuildRequires:  meson
@@ -33,7 +33,7 @@ Requires:       libsoup3%{?_isa}
 Recommends:     libdbusmenu-gtk3%{?_isa}
 Recommends:     gnome-bluetooth-libs%{?_isa}
 
-Provides:       bundled(libgnome-volume-control) = 0^1.git%{gvc_shortcommit}
+Provides:       bundled(libgnome-volume-control) = 0^1.git%{shortcommit}
 
 %description
 This program is essentially a library for gjs which allows defining GTK widgets

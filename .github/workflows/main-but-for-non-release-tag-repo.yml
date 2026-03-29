@@ -1,0 +1,93 @@
+name: Update COPR Spec Commits
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-commits:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check upstreams and update specs
+        run: |
+          # Set up git right away
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          CHANGES_MADE=0
+
+          # --- MODIFY THIS ARRAY ---
+          # Format: "upstream_owner/upstream_repo|path/to/subdirectory/package.spec"
+          TARGETS=(
+          "hyprwm/Hyprland|hyprland-git/hyprland-git.spec"
+          "Alexays/Waybar|waybar-git/waybar-git.spec"
+          "elkowar/eww|eww-git/eww-git.spec"
+          )
+
+          # Loop through each target
+          for TARGET in "${TARGETS[@]}"; do
+            # Split the string by the '|' character
+            IFS='|' read -r UPSTREAM_REPO SPEC_FILE <<< "$TARGET"
+            
+            echo "----------------------------------------"
+            echo "Checking: $SPEC_FILE"
+            
+            # Check if the spec file actually exists in that subdirectory
+            if [ ! -f "$SPEC_FILE" ]; then
+              echo "⚠️  Warning: File $SPEC_FILE not found! Skipping..."
+              continue
+            fi
+
+            # Fetch the latest commit on the default branch
+            LATEST_COMMIT=$(curl -sL "https://api.github.com/repos/$UPSTREAM_REPO/commits" | jq -r '.[0].sha')
+            
+            # Safety check for API limits or missing commits
+            if [ "$LATEST_COMMIT" == "null" ] || [ -z "$LATEST_COMMIT" ]; then
+              echo "⚠️  Warning: Could not fetch latest commit for $UPSTREAM_REPO. Skipping..."
+              continue
+            fi
+
+            # Extract the current commit hash (assumes standard '%global commit <hash>' format)
+            CURRENT_COMMIT=$(grep -E "^%global\s+commit\s+" "$SPEC_FILE" | awk '{print $3}')
+
+            echo "Upstream Commit: $LATEST_COMMIT"
+            echo "Current Commit:  $CURRENT_COMMIT"
+
+            # Compare and update
+            if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ] && [ -n "$CURRENT_COMMIT" ]; then
+              echo "🚀 New commit detected! Updating $SPEC_FILE..."
+
+              # Replace %global commit and reset Release
+              sed -i "s/^%global commit.*/%global commit          $LATEST_COMMIT/" "$SPEC_FILE"
+              sed -i "s/^Release:.*/Release:        1%{?dist}/" "$SPEC_FILE"
+
+              # Stage the changed file
+              git add "$SPEC_FILE"
+              CHANGES_MADE=1
+            else
+              echo "✅ Already up to date."
+            fi
+          done
+
+          echo "----------------------------------------"
+
+          # Commit and push if any files were changed
+          if [ "$CHANGES_MADE" -eq 1 ]; then
+            echo "Committing and pushing all updated spec files..."
+            git commit -m "chore: auto-update spec file commits"
+            
+            # Pull any new remote changes (rebase) before pushing to avoid conflicts
+            git pull --rebase origin master
+            git push origin master
+            
+            echo "Successfully pushed updates."
+          else
+            echo "No updates needed across all spec files."
+          fi
