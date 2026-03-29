@@ -49,6 +49,7 @@ BuildRequires:  qt6-qtwayland-devel
 BuildRequires:  qt6-qtbase-private-devel
 BuildRequires:  qt6-qtdeclarative-private-devel
 BuildRequires:  libunwind-devel
+BuildRequires:  pam-devel
 
 # ─── Runtime dependencies (from PKGBUILD depends) ────────────────────────────
 Requires:       cpptrace%{?_isa}
