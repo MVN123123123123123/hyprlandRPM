@@ -1,6 +1,6 @@
 
 Name:           cpptrace
-Version:        1.0.4.1
+Version:        1.0.4
 Release:        %autorelease
 Summary:        Cpptrace is a simple and portable C++ stacktrace library 
 
