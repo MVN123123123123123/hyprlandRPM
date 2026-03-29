@@ -4,11 +4,11 @@
 %global shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 # The upstream project version in CMakeLists.txt at pinned commit
-%global upstream_ver    0.1.0
+%global upstream_ver    2.1.0
 
 Name:           quickshell-git
 Version:        %{upstream_ver}^1.git%{shortcommit}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        quickshell-git pinned commit and extra deps for illogical-impulse
 
 License:        LGPL-3.0-only

@@ -1,4 +1,4 @@
-#partly ai generated 
+#partly ai generated, this shit is hard to compile
 Name:           cpptrace
 Version:        1.0.4
 Release:        2%{?dist}
