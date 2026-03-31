@@ -1,6 +1,6 @@
 Name:           microtex
-Version:        0
-Release:        1.1
+Version:        0.0.1
+Release:        0
 Summary:        A dynamic, cross-platform, and embeddable LaTeX rendering library
 
 # The core project is MIT, but resources/fonts are under different licenses.
