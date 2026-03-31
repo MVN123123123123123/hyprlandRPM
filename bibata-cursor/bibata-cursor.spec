@@ -10,7 +10,7 @@ Source1:        %{url}/releases/download/v%{version}/bitmaps.zip
 
 BuildArch:      noarch
 
-BuildRequires:  python3-clickgen >= 2.0.0
+BuildRequires:  python3 >= 3.14
 BuildRequires:  bsdtar
 
 %description
@@ -19,7 +19,9 @@ Original (sharp) cursor variants in Amber, Classic, and Ice color schemes,
 with left-hand and right-hand options.
 
 %prep
+
 %autosetup -n Bibata_Cursor-%{version}
+pip3 install clickgen
 bsdtar xvf %{SOURCE1}
 rm -rf themes bin
 
