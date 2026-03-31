@@ -21,7 +21,6 @@ with left-hand and right-hand options.
 %prep
 
 %autosetup -n Bibata_Cursor-%{version}
-pip install clickgen
 bsdtar xvf %{SOURCE1}
 rm -rf themes bin
 
