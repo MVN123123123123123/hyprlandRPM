@@ -11,13 +11,11 @@ Source1:        %{url}/releases/download/v%{version}/bitmaps.zip
 BuildArch:      noarch
 
 BuildRequires:  python3 >= 3.14
+BuildRequires:  python3-pip
 BuildRequires:  bsdtar
 
 %description
-Material Based Cursor Theme. Includes Bibata Modern (rounded) and Bibata
-Original (sharp) cursor variants in Amber, Classic, and Ice color schemes,
-with left-hand and right-hand options.
-
+Material Based Cursor Theme. 
 %prep
 
 %autosetup -n Bibata_Cursor-%{version}
