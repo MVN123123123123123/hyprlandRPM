@@ -1,6 +1,6 @@
 Name:           waypaper
-Version:        2.7
-Release:        %autorelease -b1
+Version:        2.8
+Release:        1%{?dist}
 Summary:        GUI wallpaper setter for Wayland
 
 License:        GPL-3.0-or-later
