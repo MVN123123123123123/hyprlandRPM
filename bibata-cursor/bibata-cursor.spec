@@ -10,7 +10,7 @@ Source1:        %{url}/releases/download/v%{version}/bitmaps.zip
 
 BuildArch:      noarch
 
-BuildRequires:  python3 >= 3.14
+BuildRequires:  python3 >= 3.11
 BuildRequires:  python3-pip
 BuildRequires:  bsdtar
 
@@ -56,6 +56,11 @@ names["Bibata-Original-Classic"]=$(_with_version "Black and sharp edge Bibata")
 names["Bibata-Original-Classic-Right"]=$(_with_version "Black and sharp edge right-hand Bibata")
 names["Bibata-Original-Ice"]=$(_with_version "White and sharp edge Bibata")
 names["Bibata-Original-Ice-Right"]=$(_with_version "White and sharp edge right-hand Bibata")
+
+# Install clickgen in a python virtual environment to provide the ctgen command
+python3 -m venv .venv
+source .venv/bin/activate
+pip install clickgen
 
 for key in "${!names[@]}"; do
   comment="${names[$key]}"
