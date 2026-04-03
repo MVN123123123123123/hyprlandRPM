@@ -3,8 +3,8 @@
 %global bumpver 38
 
 Name:           eww-git
-Version:        0.6.0-%{shortcommit}
-Release:        1%{?dist}
+Version:        0.6.0
+Release:        1%{?dist}.%{shortcommit}
 Summary:        ElKowars wacky widgets
 
 License:        MIT
