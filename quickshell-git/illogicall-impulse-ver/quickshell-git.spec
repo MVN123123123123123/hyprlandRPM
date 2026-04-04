@@ -52,7 +52,6 @@ BuildRequires:  libunwind-devel
 BuildRequires:  pam-devel
 
 # ─── Runtime dependencies (from PKGBUILD depends) ────────────────────────────
-Requires:       cpptrace%{?_isa}
 Requires:       jemalloc%{?_isa}
 Requires:       mesa-libEGL%{?_isa}
 Requires:       qt6-qtdeclarative%{?_isa}
@@ -61,7 +60,6 @@ Requires:       qt6-qtsvg%{?_isa}
 Requires:       libdrm%{?_isa}
 Requires:       pipewire-libs%{?_isa}
 Requires:       libxcb%{?_isa}
-Requires:       wayland%{?_isa}
 
 # ─── illogical-impulse custom runtime dependencies ───────────────────────────
 Requires:       qt6-qt5compat%{?_isa}
