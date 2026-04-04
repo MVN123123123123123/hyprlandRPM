@@ -11,7 +11,7 @@ Summary:        An open-source multi-platform crash reporting system
 License:        BSD
 URL:            https://github.com/google/breakpad
 Source0:        https://github.com/google/breakpad/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
-Source1:        https://chromium.googlesource.com/linux-syscall-support/+archive/%{lss_commit}.tar.gz #/lss-%{lss_shortcommit}.tar.gz
+Source1:        https://chromium.googlesource.com/linux-syscall-support/+archive/%{lss_commit}.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:  make
