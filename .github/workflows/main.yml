@@ -33,7 +33,6 @@ jobs:
           "hyprland-community/pyprland|pyprland/pyprland.spec"
           "imageio/imageio-ffmpeg|python-imageio-ffmpeg/python-imageio-ffmpeg.spec"
           "gabm/Satty|satty/satty.spec"
-          "mortie/swaylock-effects|swaylock-effects/swaylock-effects.spec"
           "LGFae/swww|swww/swww.spec"
           "Vladimir-csp/uwsm|uwsm/uwsm.spec"
           "Alexays/Waybar|waybar-git/waybar-git.spec"
