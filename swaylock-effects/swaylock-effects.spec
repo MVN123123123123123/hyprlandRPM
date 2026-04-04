@@ -1,7 +1,7 @@
 %global program_name swaylock
 
 Name:           swaylock-effects
-Version:        1.6-4
+Version:        1.7.0.0
 Release:        1%{?dist}
 Summary:        Swaylock, with fancy effects
 
