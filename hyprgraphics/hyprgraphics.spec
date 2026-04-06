@@ -31,6 +31,7 @@ BuildRequires:  pkgconfig(librsvg-2.0)
 BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  libdrm
 
 
 %description
