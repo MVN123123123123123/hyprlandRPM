@@ -4,7 +4,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aylurs-gtk-shell
-Version:        3.1.1
+Version:        3.1.2
 Release:        1%{?dist}
 Summary:        A customizable and extensible shell
 
