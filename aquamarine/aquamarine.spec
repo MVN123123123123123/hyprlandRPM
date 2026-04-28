@@ -12,7 +12,6 @@ ExcludeArch:    %{ix86}
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  mesa-libEGL-devel
-
 BuildRequires:  pkgconfig(gbm)
 BuildRequires:  pkgconfig(hwdata)
 BuildRequires:  pkgconfig(hyprutils)
