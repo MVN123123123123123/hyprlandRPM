@@ -1,29 +1,29 @@
-Warning: Permanently added '98.81.32.115' (ED25519) to the list of known hosts.
+Warning: Permanently added '54.226.100.255' (ED25519) to the list of known hosts.
 
 You can reproduce this build on your computer by running:
 
   sudo dnf install copr-rpmbuild
-  /usr/bin/copr-rpmbuild --verbose --drop-resultdir --task-url https://copr.fedorainfracloud.org/backend/get-build-task/10399108-fedora-rawhide-x86_64 --chroot fedora-rawhide-x86_64
+  /usr/bin/copr-rpmbuild --verbose --drop-resultdir --task-url https://copr.fedorainfracloud.org/backend/get-build-task/10399342-fedora-rawhide-x86_64 --chroot fedora-rawhide-x86_64
 
 
 Version: 1.8
-PID: 12648
-Logging PID: 12650
+PID: 12665
+Logging PID: 12667
 Task:
 {'allow_user_ssh': False,
  'appstream': False,
- 'background': False,
- 'build_id': 10399108,
+ 'background': True,
+ 'build_id': 10399342,
  'buildroot_pkgs': [],
  'chroot': 'fedora-rawhide-x86_64',
  'enable_net': True,
  'fedora_review': False,
- 'git_hash': '548242f32a2123af68f3de8dabff335aed954769',
- 'git_repo': 'https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/hyprlauncher',
+ 'git_hash': '93d05795d6dcb2122f33bae74534d7215789a6bc',
+ 'git_repo': 'https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/hyprsysteminfo',
  'isolation': 'default',
  'memory_reqs': 2048,
- 'package_name': 'hyprlauncher',
- 'package_version': '0.1.6-1',
+ 'package_name': 'hyprsysteminfo',
+ 'package_version': '0.2.0-1',
  'project_dirname': 'hyprlandthingswithautoupdater',
  'project_name': 'hyprlandthingswithautoupdater',
  'project_owner': 'noclog',
@@ -32,34 +32,34 @@ Task:
             'id': 'copr_base',
             'name': 'Copr repository',
             'priority': None}],
- 'sandbox': 'noclog/hyprlandthingswithautoupdater--noclog',
+ 'sandbox': 'noclog/hyprlandthingswithautoupdater--https://api.github.com/users/MVN123123123123123',
  'source_json': {},
  'source_type': None,
  'ssh_public_keys': None,
  'storage': 0,
- 'submitter': 'noclog',
+ 'submitter': 'https://api.github.com/users/MVN123123123123123',
  'tags': [],
- 'task_id': '10399108-fedora-rawhide-x86_64',
+ 'task_id': '10399342-fedora-rawhide-x86_64',
  'timeout': 18000,
  'uses_devel_repo': False,
  'with_opts': [],
  'without_opts': []}
 
-Running: git clone https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/hyprlauncher /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher --depth 500 --no-single-branch --recursive
+Running: git clone https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/hyprsysteminfo /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo --depth 500 --no-single-branch --recursive
 
-cmd: ['git', 'clone', 'https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/hyprlauncher', '/var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher', '--depth', '500', '--no-single-branch', '--recursive']
+cmd: ['git', 'clone', 'https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/hyprsysteminfo', '/var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo', '--depth', '500', '--no-single-branch', '--recursive']
 cwd: .
 rc: 0
 stdout: 
-stderr: Cloning into '/var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher'...
+stderr: Cloning into '/var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo'...
 
-Running: git checkout 548242f32a2123af68f3de8dabff335aed954769 --
+Running: git checkout 93d05795d6dcb2122f33bae74534d7215789a6bc --
 
-cmd: ['git', 'checkout', '548242f32a2123af68f3de8dabff335aed954769', '--']
-cwd: /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher
+cmd: ['git', 'checkout', '93d05795d6dcb2122f33bae74534d7215789a6bc', '--']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo
 rc: 0
 stdout: 
-stderr: Note: switching to '548242f32a2123af68f3de8dabff335aed954769'.
+stderr: Note: switching to '93d05795d6dcb2122f33bae74534d7215789a6bc'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -76,28 +76,28 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 548242f automatic import of hyprlauncher
+HEAD is now at 93d0579 automatic import of hyprsysteminfo
 
 Running: dist-git-client sources
 
 cmd: ['dist-git-client', 'sources']
-cwd: /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo
 rc: 0
 stdout: 
 stderr: INFO: Reading stdout from command: git rev-parse --abbrev-ref HEAD
 INFO: Reading stdout from command: git rev-parse HEAD
 INFO: Reading sources specification file: sources
-INFO: Downloading hyprlauncher-0.1.6.tar.gz
+INFO: Downloading hyprsysteminfo-0.2.0.tar.gz
 INFO: Reading stdout from command: curl --help all
-INFO: Calling: curl -H Pragma: -H 'Accept-Encoding: identity' -o hyprlauncher-0.1.6.tar.gz --location --connect-timeout 60 --retry 3 --retry-delay 10 --remote-time --show-error --fail --retry-all-errors https://copr-dist-git.fedorainfracloud.org/repo/pkgs/noclog/hyprlandthingswithautoupdater/hyprlauncher/hyprlauncher-0.1.6.tar.gz/md5/b14f8a07472f586cad222f96496fd871/hyprlauncher-0.1.6.tar.gz
+INFO: Calling: curl -H Pragma: -H 'Accept-Encoding: identity' -o hyprsysteminfo-0.2.0.tar.gz --location --connect-timeout 60 --retry 3 --retry-delay 10 --remote-time --show-error --fail --retry-all-errors https://copr-dist-git.fedorainfracloud.org/repo/pkgs/noclog/hyprlandthingswithautoupdater/hyprsysteminfo/hyprsysteminfo-0.2.0.tar.gz/md5/d79ab90449e4b3372b0ae48c46e9d7ba/hyprsysteminfo-0.2.0.tar.gz
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 45754  100 45754    0     0  3510k      0 --:--:-- --:--:-- --:--:-- 3723k
-INFO: Reading stdout from command: md5sum hyprlauncher-0.1.6.tar.gz
+100  104k  100  104k    0     0  3807k      0 --:--:-- --:--:-- --:--:-- 3883k
+INFO: Reading stdout from command: md5sum hyprsysteminfo-0.2.0.tar.gz
 
 tail: /var/lib/copr-rpmbuild/main.log: file truncated
-Running (timeout=18000): unbuffer mock --spec /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher/hyprlauncher.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1777375978.637734 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
-INFO: mock.py version 6.7 starting (python version = 3.14.2, NVR = mock-6.7-1.fc43), args: /usr/libexec/mock/mock --spec /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher/hyprlauncher.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1777375978.637734 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
+Running (timeout=18000): unbuffer mock --spec /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo/hyprsysteminfo.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1777378520.549170 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
+INFO: mock.py version 6.7 starting (python version = 3.14.2, NVR = mock-6.7-1.fc43), args: /usr/libexec/mock/mock --spec /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo/hyprsysteminfo.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1777378520.549170 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
 Start(bootstrap): init plugins
 INFO: tmpfs initialized
 INFO: selinux enabled
@@ -112,13 +112,13 @@ INFO: compress_logs: initialized
 Finish: init plugins
 INFO: Signal handler active
 Start: run
-INFO: Start(/var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher/hyprlauncher.spec)  Config(fedora-rawhide-x86_64)
+INFO: Start(/var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo/hyprsysteminfo.spec)  Config(fedora-rawhide-x86_64)
 Start: clean chroot
 Finish: clean chroot
 Mock Version: 6.7
 INFO: Mock Version: 6.7
 Start(bootstrap): chroot init
-INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777375978.637734/root.
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777378520.549170/root.
 INFO: calling preinit hooks
 INFO: enabled root cache
 INFO: enabled package manager cache
@@ -127,20 +127,20 @@ Finish(bootstrap): cleaning package manager metadata
 INFO: Guessed host environment type: unknown
 INFO: Using container image: registry.fedoraproject.org/fedora:rawhide
 INFO: Pulling image: registry.fedoraproject.org/fedora:rawhide
-INFO: Tagging container image as mock-bootstrap-a81389af-5891-479b-b33f-a036557df1a1
+INFO: Tagging container image as mock-bootstrap-dd3ab61c-730b-48a1-961c-1f8b1d91546b
 INFO: Checking that 748d4071be12267e057d10ce61110c533d26b98df7c02fe696d2a651c07d08ef image matches host's architecture
-INFO: Copy content of container 748d4071be12267e057d10ce61110c533d26b98df7c02fe696d2a651c07d08ef to /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777375978.637734/root
+INFO: Copy content of container 748d4071be12267e057d10ce61110c533d26b98df7c02fe696d2a651c07d08ef to /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777378520.549170/root
 INFO: mounting 748d4071be12267e057d10ce61110c533d26b98df7c02fe696d2a651c07d08ef with podman image mount
 INFO: image 748d4071be12267e057d10ce61110c533d26b98df7c02fe696d2a651c07d08ef as /var/lib/containers/storage/overlay/7dc74afbf5ab5c2959bd3f1685475d8b88b140d3d1a68070b80c7ec04c312179/merged
 INFO: umounting image 748d4071be12267e057d10ce61110c533d26b98df7c02fe696d2a651c07d08ef (/var/lib/containers/storage/overlay/7dc74afbf5ab5c2959bd3f1685475d8b88b140d3d1a68070b80c7ec04c312179/merged) with podman image umount
-INFO: Removing image mock-bootstrap-a81389af-5891-479b-b33f-a036557df1a1
+INFO: Removing image mock-bootstrap-dd3ab61c-730b-48a1-961c-1f8b1d91546b
 INFO: Package manager dnf5 detected and used (fallback)
 INFO: Not updating bootstrap chroot, bootstrap_image_ready=True
 Start(bootstrap): creating root cache
 Finish(bootstrap): creating root cache
 Finish(bootstrap): chroot init
 Start: chroot init
-INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-1777375978.637734/root.
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-1777378520.549170/root.
 INFO: calling preinit hooks
 INFO: enabled root cache
 INFO: enabled package manager cache
@@ -155,14 +155,14 @@ INFO: Buildroot is handled by package management downloaded with a bootstrap ima
   dnf5-plugins-5.4.2.0-1.fc45.x86_64
 Start: installing minimal buildroot with dnf5
 Updating and loading repositories:
- Copr repository                        100% |  68.8 KiB/s |  84.0 KiB |  00m01s
- fedora                                 100% |   8.0 MiB/s |  22.4 MiB |  00m03s
+ fedora                                 100% |   4.4 MiB/s |  21.6 MiB |  00m05s
+ Copr repository                        100% |   3.6 KiB/s |  84.5 KiB |  00m23s
 Repositories loaded.
 Package                            Arch   Version                      Repository      Size
 Installing group/module packages:
  bash                              x86_64 0:5.3.9-3.fc44               fedora       8.5 MiB
  bzip2                             x86_64 0:1.0.8-23.fc44              fedora      95.0 KiB
- coreutils                         x86_64 0:9.10-3.fc45                fedora       5.6 MiB
+ coreutils                         x86_64 0:9.11-1.fc45                fedora       6.3 MiB
  cpio                              x86_64 0:2.15-9.fc44                fedora       1.1 MiB
  diffutils                         x86_64 0:3.12-5.fc44                fedora       1.6 MiB
  fedora-release-common             noarch 0:45-0.5                     fedora       4.2 KiB
@@ -193,7 +193,7 @@ Installing dependencies:
  bzip2-libs                        x86_64 0:1.0.8-23.fc44              fedora      80.5 KiB
  ca-certificates                   noarch 0:2025.2.80_v9.0.304-7.fc45  fedora       2.7 MiB
  cmake-srpm-macros                 noarch 0:4.3.0-1.fc45               fedora     524.0   B
- coreutils-common                  x86_64 0:9.10-3.fc45                fedora      10.7 MiB
+ coreutils-common                  x86_64 0:9.11-1.fc45                fedora      10.9 MiB
  crypto-policies                   noarch 0:20251128-3.git19878fe.fc44 fedora     132.6 KiB
  curl                              x86_64 0:8.20.0~rc2-1.fc45          fedora     482.7 KiB
  cyrus-sasl-lib                    x86_64 0:2.1.28-35.fc44             fedora       2.3 MiB
@@ -332,10 +332,10 @@ Installing dependencies:
  rpm-sequoia                       x86_64 0:1.10.2-1.fc45              fedora       2.4 MiB
  rpm-sign-libs                     x86_64 0:6.0.1-5.fc45               fedora      39.6 KiB
  rust-srpm-macros                  noarch 0:28.4-3.fc44                fedora       5.5 KiB
- selinux-policy                    noarch 0:45.1-1.fc45                fedora      32.0 KiB
- selinux-policy-targeted           noarch 0:45.1-1.fc45                fedora      18.6 MiB
+ selinux-policy                    noarch 0:45.2-1.fc45                fedora      32.1 KiB
+ selinux-policy-targeted           noarch 0:45.2-1.fc45                fedora      18.6 MiB
  setup                             noarch 0:2.15.0-29.fc45             fedora     724.9 KiB
- sqlite-libs                       x86_64 0:3.52.0-1.fc45              fedora       1.6 MiB
+ sqlite-libs                       x86_64 0:3.53.0-1.fc45              fedora       1.6 MiB
  systemd-libs                      x86_64 0:260.1-2.fc45               fedora       2.5 MiB
  systemd-standalone-sysusers       x86_64 0:260.1-2.fc45               fedora     841.2 KiB
  tpm2-tss                          x86_64 0:4.1.3-9.fc44               fedora       1.6 MiB
@@ -354,195 +354,195 @@ Transaction Summary:
  Installing:       186 packages
 
 Total size of inbound packages is 70 MiB. Need to download 70 MiB.
-After this operation, 226 MiB extra will be used (install 226 MiB, remove 0 B).
-[  1/186] bzip2-0:1.0.8-23.fc44.x86_64  100% | 377.6 KiB/s |  52.1 KiB |  00m00s
-[  2/186] cpio-0:2.15-9.fc44.x86_64     100% |   2.6 MiB/s | 293.4 KiB |  00m00s
-[  3/186] coreutils-0:9.10-3.fc45.x86_6 100% |   4.7 MiB/s |   1.2 MiB |  00m00s
-[  4/186] bash-0:5.3.9-3.fc44.x86_64    100% |   6.3 MiB/s |   1.9 MiB |  00m00s
-[  5/186] diffutils-0:3.12-5.fc44.x86_6 100% |   7.9 MiB/s | 395.3 KiB |  00m00s
-[  6/186] fedora-release-common-0:45-0. 100% | 402.9 KiB/s |  18.5 KiB |  00m00s
-[  7/186] glibc-minimal-langpack-0:2.43 100% |   2.0 MiB/s |  96.3 KiB |  00m00s
-[  8/186] findutils-1:4.10.0-7.fc44.x86 100% |  11.0 MiB/s | 552.5 KiB |  00m00s
-[  9/186] grep-0:3.12-3.fc44.x86_64     100% |   5.9 MiB/s | 301.6 KiB |  00m00s
-[ 10/186] gzip-0:1.14-2.fc44.x86_64     100% |   3.7 MiB/s | 179.1 KiB |  00m00s
-[ 11/186] patch-0:2.8-4.fc44.x86_64     100% |   2.4 MiB/s | 115.2 KiB |  00m00s
-[ 12/186] info-0:7.3-1.fc45.x86_64      100% |   3.2 MiB/s | 190.8 KiB |  00m00s
-[ 13/186] redhat-rpm-config-0:344-1.fc4 100% |   1.6 MiB/s |  78.4 KiB |  00m00s
-[ 14/186] sed-0:4.10-1.fc45.x86_64      100% |   7.5 MiB/s | 359.1 KiB |  00m00s
-[ 15/186] rpm-build-0:6.0.1-5.fc45.x86_ 100% |   2.1 MiB/s | 139.9 KiB |  00m00s
-[ 16/186] shadow-utils-2:4.19.3-2.fc45. 100% |  19.0 MiB/s |   1.3 MiB |  00m00s
-[ 17/186] unzip-0:6.0-69.fc44.x86_64    100% |   4.1 MiB/s | 199.6 KiB |  00m00s
-[ 18/186] tar-2:1.35-8.fc44.x86_64      100% |  12.1 MiB/s | 868.2 KiB |  00m00s
-[ 19/186] which-0:2.23-4.fc44.x86_64    100% | 917.3 KiB/s |  42.2 KiB |  00m00s
-[ 20/186] xz-1:5.8.3-1.fc45.x86_64      100% |  13.1 MiB/s | 655.2 KiB |  00m00s
-[ 21/186] util-linux-0:2.42-7.fc45.x86_ 100% |  24.4 MiB/s |   1.3 MiB |  00m00s
-[ 22/186] filesystem-0:3.18-56.fc45.x86 100% |  25.5 MiB/s |   1.8 MiB |  00m00s
-[ 23/186] gawk-0:5.4.0-2.fc45.x86_64    100% |   8.7 MiB/s |   1.2 MiB |  00m00s
-[ 24/186] glibc-0:2.43.9000-12.fc45.x86 100% |  41.4 MiB/s |   2.4 MiB |  00m00s
-[ 25/186] ncurses-libs-0:6.6-1.fc44.x86 100% |   7.0 MiB/s | 344.1 KiB |  00m00s
-[ 26/186] bzip2-libs-0:1.0.8-23.fc44.x8 100% | 951.8 KiB/s |  43.8 KiB |  00m00s
-[ 27/186] coreutils-common-0:9.10-3.fc4 100% |  37.4 MiB/s |   2.1 MiB |  00m00s
-[ 28/186] gmp-1:6.3.0-5.fc44.x86_64     100% |   6.7 MiB/s | 322.5 KiB |  00m00s
-[ 29/186] libacl-0:2.3.2-6.fc44.x86_64  100% | 539.7 KiB/s |  24.8 KiB |  00m00s
-[ 30/186] libattr-0:2.5.2-8.fc44.x86_64 100% | 389.8 KiB/s |  17.9 KiB |  00m00s
-[ 31/186] libcap-0:2.78-1.fc45.x86_64   100% |   1.9 MiB/s |  89.4 KiB |  00m00s
-[ 32/186] libselinux-0:3.10-1.fc44.x86_ 100% |   2.2 MiB/s | 102.0 KiB |  00m00s
-[ 33/186] openssl-libs-1:3.5.6-1.fc45.x 100% |  45.8 MiB/s |   2.7 MiB |  00m00s
-[ 34/186] fedora-repos-0:45-0.1.noarch  100% | 205.0 KiB/s |   9.2 KiB |  00m00s
-[ 35/186] redhat-systemd-presets-0:102- 100% | 185.0 KiB/s |   8.3 KiB |  00m00s
-[ 36/186] systemd-libs-0:260.1-2.fc45.x 100% |   7.3 MiB/s | 886.2 KiB |  00m00s
-[ 37/186] glibc-common-0:2.43.9000-12.f 100% |   7.7 MiB/s | 387.3 KiB |  00m00s
-[ 38/186] pcre2-0:10.47-1.fc44.1.x86_64 100% |   5.8 MiB/s | 277.7 KiB |  00m00s
-[ 39/186] ed-0:1.22.5-2.fc45.x86_64     100% |   1.8 MiB/s |  85.4 KiB |  00m00s
-[ 40/186] R-srpm-macros-0:1.3.7-1.fc45. 100% | 238.2 KiB/s |  11.0 KiB |  00m00s
-[ 41/186] ansible-srpm-macros-0:1-20.1. 100% | 437.0 KiB/s |  20.1 KiB |  00m00s
-[ 42/186] build-reproducibility-srpm-ma 100% | 284.0 KiB/s |  13.3 KiB |  00m00s
-[ 43/186] cmake-srpm-macros-0:4.3.0-1.f 100% | 222.0 KiB/s |  10.4 KiB |  00m00s
-[ 44/186] efi-srpm-macros-0:6-6.fc44.no 100% | 490.3 KiB/s |  22.6 KiB |  00m00s
-[ 45/186] erlang-srpm-macros-0:0.3.11-1 100% | 216.5 KiB/s |  10.0 KiB |  00m00s
-[ 46/186] dwz-0:0.16-3.fc44.x86_64      100% |   1.9 MiB/s | 138.9 KiB |  00m00s
-[ 47/186] file-0:5.47-2.fc45.x86_64     100% |   1.0 MiB/s |  49.4 KiB |  00m00s
-[ 48/186] filesystem-srpm-macros-0:3.18 100% | 583.3 KiB/s |  26.8 KiB |  00m00s
-[ 49/186] fonts-srpm-macros-1:5.0.0-3.f 100% | 591.6 KiB/s |  27.2 KiB |  00m00s
-[ 50/186] forge-srpm-macros-0:0.4.0-4.f 100% | 425.2 KiB/s |  20.0 KiB |  00m00s
-[ 51/186] fpc-srpm-macros-0:1.3-16.fc44 100% | 168.9 KiB/s |   7.9 KiB |  00m00s
-[ 52/186] gap-srpm-macros-0:2-2.fc44.no 100% | 198.7 KiB/s |   9.1 KiB |  00m00s
-[ 53/186] ghc-srpm-macros-0:1.10-1.fc44 100% | 191.1 KiB/s |   8.8 KiB |  00m00s
-[ 54/186] gnat-srpm-macros-0:7-2.fc44.n 100% | 190.0 KiB/s |   8.7 KiB |  00m00s
-[ 55/186] go-srpm-macros-0:3.8.0-2.fc44 100% | 613.5 KiB/s |  28.2 KiB |  00m00s
-[ 56/186] java-srpm-macros-0:1-8.fc44.n 100% | 172.7 KiB/s |   8.1 KiB |  00m00s
-[ 57/186] kernel-srpm-macros-0:1.0-29.f 100% | 173.6 KiB/s |   8.2 KiB |  00m00s
-[ 58/186] lua-srpm-macros-0:1-17.fc44.n 100% | 193.0 KiB/s |   8.9 KiB |  00m00s
-[ 59/186] ocaml-srpm-macros-0:11-3.fc44 100% | 201.6 KiB/s |   9.3 KiB |  00m00s
-[ 60/186] openblas-srpm-macros-0:2-21.f 100% | 169.7 KiB/s |   7.8 KiB |  00m00s
-[ 61/186] package-notes-srpm-macros-0:0 100% | 210.8 KiB/s |   9.7 KiB |  00m00s
-[ 62/186] perl-srpm-macros-0:1-61.fc44. 100% | 183.2 KiB/s |   8.4 KiB |  00m00s
-[ 63/186] pyproject-srpm-macros-0:1.20. 100% | 288.4 KiB/s |  13.6 KiB |  00m00s
-[ 64/186] python-srpm-macros-0:3.14-12. 100% | 492.3 KiB/s |  24.1 KiB |  00m00s
-[ 65/186] qt5-srpm-macros-0:5.15.18-2.f 100% | 184.8 KiB/s |   8.7 KiB |  00m00s
-[ 66/186] qt6-srpm-macros-0:6.11.0-1.fc 100% | 194.8 KiB/s |   9.2 KiB |  00m00s
-[ 67/186] rpm-0:6.0.1-5.fc45.x86_64     100% |  11.5 MiB/s | 578.3 KiB |  00m00s
-[ 68/186] rust-srpm-macros-0:28.4-3.fc4 100% | 240.5 KiB/s |  11.1 KiB |  00m00s
-[ 69/186] tree-sitter-srpm-macros-0:0.4 100% | 292.8 KiB/s |  13.5 KiB |  00m00s
-[ 70/186] zig-srpm-macros-0:1-8.fc44.no 100% | 191.5 KiB/s |   8.8 KiB |  00m00s
-[ 71/186] debugedit-0:5.3-2.fc45.x86_64 100% |   1.8 MiB/s |  88.5 KiB |  00m00s
-[ 72/186] zip-0:3.0-45.fc44.x86_64      100% |   3.6 MiB/s | 264.4 KiB |  00m00s
-[ 73/186] elfutils-libelf-0:0.195-1.fc4 100% |   4.4 MiB/s | 210.2 KiB |  00m00s
-[ 74/186] elfutils-0:0.195-1.fc45.x86_6 100% |   6.5 MiB/s | 588.9 KiB |  00m00s
-[ 75/186] libarchive-0:3.8.7-1.fc45.x86 100% |   9.0 MiB/s | 442.9 KiB |  00m00s
-[ 76/186] libgcc-0:16.0.1-0.11.fc45.x86 100% |   2.7 MiB/s | 129.1 KiB |  00m00s
-[ 77/186] libstdc++-0:16.0.1-0.11.fc45. 100% |  19.5 MiB/s |   1.0 MiB |  00m00s
-[ 78/186] popt-0:1.19-10.fc44.x86_64    100% |   1.4 MiB/s |  66.9 KiB |  00m00s
-[ 79/186] readline-0:8.3-4.fc44.x86_64  100% |   4.8 MiB/s | 229.8 KiB |  00m00s
-[ 80/186] rpm-libs-0:6.0.1-5.fc45.x86_6 100% |   8.6 MiB/s | 415.5 KiB |  00m00s
-[ 81/186] rpm-build-libs-0:6.0.1-5.fc45 100% |   2.0 MiB/s | 132.1 KiB |  00m00s
-[ 82/186] zstd-0:1.5.7-5.fc44.x86_64    100% |   4.1 MiB/s | 192.5 KiB |  00m00s
-[ 83/186] audit-libs-0:4.1.4-1.fc45.x86 100% |   3.0 MiB/s | 141.7 KiB |  00m00s
-[ 84/186] libeconf-0:0.7.9-3.fc44.x86_6 100% | 804.8 KiB/s |  36.2 KiB |  00m00s
-[ 85/186] libsemanage-0:3.10-1.fc44.x86 100% |   2.7 MiB/s | 127.3 KiB |  00m00s
-[ 86/186] libxcrypt-0:4.5.2-3.fc44.x86_ 100% |   2.8 MiB/s | 131.2 KiB |  00m00s
-[ 87/186] pam-libs-0:1.7.2-1.fc44.x86_6 100% |   1.3 MiB/s |  59.1 KiB |  00m00s
-[ 88/186] setup-0:2.15.0-29.fc45.noarch 100% |   3.3 MiB/s | 157.3 KiB |  00m00s
-[ 89/186] xz-libs-1:5.8.3-1.fc45.x86_64 100% |   2.5 MiB/s | 116.4 KiB |  00m00s
-[ 90/186] libblkid-0:2.42-7.fc45.x86_64 100% |   2.8 MiB/s | 133.0 KiB |  00m00s
-[ 91/186] mpfr-0:4.2.2-3.fc44.x86_64    100% |   4.5 MiB/s | 357.8 KiB |  00m00s
-[ 92/186] libcap-ng-0:0.9.3-1.fc45.x86_ 100% | 763.3 KiB/s |  34.3 KiB |  00m00s
-[ 93/186] libfdisk-0:2.42-7.fc45.x86_64 100% |   3.6 MiB/s | 168.7 KiB |  00m00s
-[ 94/186] liblastlog2-0:2.42-7.fc45.x86 100% | 517.2 KiB/s |  23.8 KiB |  00m00s
-[ 95/186] libmount-0:2.42-7.fc45.x86_64 100% |   3.7 MiB/s | 175.6 KiB |  00m00s
-[ 96/186] libsmartcols-0:2.42-7.fc45.x8 100% |   1.9 MiB/s |  87.8 KiB |  00m00s
-[ 97/186] libuuid-0:2.42-7.fc45.x86_64  100% | 593.6 KiB/s |  26.7 KiB |  00m00s
-[ 98/186] util-linux-core-0:2.42-7.fc45 100% |  11.6 MiB/s | 580.9 KiB |  00m00s
-[ 99/186] zlib-ng-compat-0:2.3.3-5.fc45 100% |   1.9 MiB/s |  91.2 KiB |  00m00s
-[100/186] ncurses-base-0:6.6-1.fc44.noa 100% |   1.9 MiB/s |  88.0 KiB |  00m00s
-[101/186] gnulib-l10n-0:20241231-2.fc44 100% |   3.1 MiB/s | 150.3 KiB |  00m00s
-[102/186] libsepol-0:3.10-1.fc44.x86_64 100% |   7.5 MiB/s | 367.6 KiB |  00m00s
-[103/186] ca-certificates-0:2025.2.80_v 100% |  18.9 MiB/s | 968.8 KiB |  00m00s
-[104/186] crypto-policies-0:20251128-3. 100% |   2.1 MiB/s |  98.3 KiB |  00m00s
-[105/186] fedora-gpg-keys-0:45-0.1.noar 100% |   3.0 MiB/s | 141.3 KiB |  00m00s
-[106/186] fedora-repos-rawhide-0:45-0.1 100% | 191.2 KiB/s |   8.8 KiB |  00m00s
-[107/186] redhat-systemd-presets-common 100% | 281.5 KiB/s |  12.9 KiB |  00m00s
-[108/186] pcre2-syntax-0:10.47-1.fc44.1 100% |   3.4 MiB/s | 164.7 KiB |  00m00s
-[109/186] linkdupes-0:0.7.3-2.fc45.x86_ 100% |   4.1 MiB/s | 344.7 KiB |  00m00s
-[110/186] add-determinism-0:0.7.3-2.fc4 100% |   6.4 MiB/s | 854.6 KiB |  00m00s
-[111/186] file-libs-0:5.47-2.fc45.x86_6 100% |  17.0 MiB/s | 872.0 KiB |  00m00s
-[112/186] curl-0:8.20.0~rc2-1.fc45.x86_ 100% |   4.7 MiB/s | 241.5 KiB |  00m00s
-[113/186] elfutils-libs-0:0.195-1.fc45. 100% |   5.9 MiB/s | 283.2 KiB |  00m00s
-[114/186] elfutils-debuginfod-client-0: 100% |   1.0 MiB/s |  46.5 KiB |  00m00s
-[115/186] glibc-gconv-extra-0:2.43.9000 100% |   3.5 MiB/s |   1.7 MiB |  00m00s
-[116/186] libzstd-0:1.5.7-5.fc44.x86_64 100% |   7.4 MiB/s | 364.2 KiB |  00m00s
-[117/186] libxml2-0:2.12.10-6.fc44.x86_ 100% |  14.2 MiB/s | 724.6 KiB |  00m00s
-[118/186] lz4-libs-0:1.10.0-4.fc44.x86_ 100% |   1.6 MiB/s |  77.7 KiB |  00m00s
-[119/186] lua-libs-0:5.5.0-1.fc45.x86_6 100% |   3.0 MiB/s | 143.6 KiB |  00m00s
-[120/186] libgomp-0:16.0.1-0.11.fc45.x8 100% |   4.4 MiB/s | 390.8 KiB |  00m00s
-[121/186] rpm-sign-libs-0:6.0.1-5.fc45. 100% | 607.1 KiB/s |  27.9 KiB |  00m00s
-[122/186] rpm-sequoia-0:1.10.2-1.fc45.x 100% |  17.5 MiB/s | 911.4 KiB |  00m00s
-[123/186] json-c-0:0.18-8.fc44.x86_64   100% |   1.0 MiB/s |  46.3 KiB |  00m00s
-[124/186] sqlite-libs-0:3.52.0-1.fc45.x 100% |  15.4 MiB/s | 802.7 KiB |  00m00s
-[125/186] ima-evm-utils-libs-0:1.6.2-10 100% | 660.2 KiB/s |  30.4 KiB |  00m00s
-[126/186] libfsverity-0:1.7-1.fc45.x86_ 100% | 414.0 KiB/s |  19.0 KiB |  00m00s
-[127/186] gpgverify-0:2.2-4.fc44.noarch 100% | 244.1 KiB/s |  11.2 KiB |  00m00s
-[128/186] gnupg2-dirmngr-0:2.4.9-7.fc45 100% |   3.7 MiB/s | 282.1 KiB |  00m00s
-[129/186] gnupg2-gpg-agent-0:2.4.9-7.fc 100% |   4.2 MiB/s | 282.1 KiB |  00m00s
-[130/186] gnupg2-0:2.4.9-7.fc45.x86_64  100% |   9.0 MiB/s |   1.7 MiB |  00m00s
-[131/186] gnupg2-gpgconf-0:2.4.9-7.fc45 100% |   2.5 MiB/s | 117.4 KiB |  00m00s
-[132/186] gnupg2-keyboxd-0:2.4.9-7.fc45 100% |   2.1 MiB/s |  97.3 KiB |  00m00s
-[133/186] libassuan-0:2.5.7-5.fc44.x86_ 100% |   1.5 MiB/s |  68.9 KiB |  00m00s
-[134/186] gnupg2-verify-0:2.4.9-7.fc45. 100% |   3.0 MiB/s | 177.0 KiB |  00m00s
-[135/186] libgcrypt-0:1.12.2-1.fc45.x86 100% |  12.6 MiB/s | 629.8 KiB |  00m00s
-[136/186] libgpg-error-0:1.60-1.fc45.x8 100% |   5.3 MiB/s | 255.9 KiB |  00m00s
-[137/186] npth-0:1.8-4.fc44.x86_64      100% | 559.8 KiB/s |  25.8 KiB |  00m00s
-[138/186] tpm2-tss-0:4.1.3-9.fc44.x86_6 100% |   9.0 MiB/s | 440.9 KiB |  00m00s
-[139/186] gnutls-0:3.8.12-1.fc45.x86_64 100% |  26.5 MiB/s |   1.4 MiB |  00m00s
-[140/186] libksba-0:1.6.8-1.fc45.x86_64 100% |   2.7 MiB/s | 168.9 KiB |  00m00s
-[141/186] libusb1-0:1.0.29-5.fc44.x86_6 100% |   1.8 MiB/s |  82.8 KiB |  00m00s
-[142/186] libidn2-0:2.3.8-3.fc44.x86_64 100% |   3.7 MiB/s | 175.5 KiB |  00m00s
-[143/186] openldap-0:2.6.13-1.fc45.x86_ 100% |   2.8 MiB/s | 272.0 KiB |  00m00s
-[144/186] libtasn1-0:4.21.0-1.fc45.x86_ 100% |   1.6 MiB/s |  76.0 KiB |  00m00s
-[145/186] libunistring-0:1.1-11.fc44.x8 100% |  10.9 MiB/s | 547.8 KiB |  00m00s
-[146/186] nettle-0:3.10.1-3.fc44.x86_64 100% |   8.7 MiB/s | 428.0 KiB |  00m00s
-[147/186] p11-kit-0:0.26.2-1.fc45.x86_6 100% |  11.1 MiB/s | 555.9 KiB |  00m00s
-[148/186] libtool-ltdl-0:2.5.4-10.fc44. 100% | 787.9 KiB/s |  37.0 KiB |  00m00s
-[149/186] libevent-0:2.1.12-17.fc44.x86 100% |   3.2 MiB/s | 287.4 KiB |  00m00s
-[150/186] libffi-0:3.5.2-2.fc44.x86_64  100% | 921.1 KiB/s |  42.4 KiB |  00m00s
-[151/186] cyrus-sasl-lib-0:2.1.28-35.fc 100% |   5.6 MiB/s | 800.7 KiB |  00m00s
-[152/186] gdbm-libs-1:1.23-11.fc44.x86_ 100% |   1.2 MiB/s |  58.8 KiB |  00m00s
-[153/186] alternatives-0:1.33-5.fc44.x8 100% | 888.0 KiB/s |  40.8 KiB |  00m00s
-[154/186] jansson-0:2.14-4.fc44.x86_64  100% |   1.0 MiB/s |  47.1 KiB |  00m00s
-[155/186] binutils-0:2.46.50-7.fc45.x86 100% |  58.3 MiB/s |   6.2 MiB |  00m00s
-[156/186] pkgconf-pkg-config-0:2.5.1-1. 100% | 205.8 KiB/s |   9.5 KiB |  00m00s
-[157/186] pkgconf-0:2.5.1-1.fc45.x86_64 100% | 954.6 KiB/s |  48.7 KiB |  00m00s
-[158/186] pkgconf-m4-0:2.5.1-1.fc45.noa 100% | 299.0 KiB/s |  13.8 KiB |  00m00s
-[159/186] libpkgconf-0:2.5.1-1.fc45.x86 100% | 927.7 KiB/s |  42.7 KiB |  00m00s
-[160/186] p11-kit-trust-0:0.26.2-1.fc45 100% |   3.1 MiB/s | 146.4 KiB |  00m00s
-[161/186] fedora-release-0:45-0.5.noarc 100% | 273.6 KiB/s |  12.6 KiB |  00m00s
-[162/186] xxhash-libs-0:0.8.3-4.fc44.x8 100% | 896.1 KiB/s |  41.2 KiB |  00m00s
-[163/186] systemd-standalone-sysusers-0 100% |   2.9 MiB/s | 367.4 KiB |  00m00s
-[164/186] fedora-release-identity-basic 100% | 290.3 KiB/s |  13.4 KiB |  00m00s
-[165/186] krb5-libs-0:1.22.2-6.fc45.x86 100% |  15.7 MiB/s | 803.7 KiB |  00m00s
-[166/186] libcurl-0:8.20.0~rc2-1.fc45.x 100% |   5.1 MiB/s | 467.4 KiB |  00m00s
-[167/186] libnghttp2-0:1.69.0-1.fc45.x8 100% |   1.6 MiB/s |  77.2 KiB |  00m00s
-[168/186] libbrotli-0:1.2.0-3.fc44.x86_ 100% |   4.0 MiB/s | 347.8 KiB |  00m00s
-[169/186] libnghttp3-0:1.15.0-1.fc44.x8 100% |   1.3 MiB/s |  73.9 KiB |  00m00s
-[170/186] libpsl-0:0.21.5-7.fc44.x86_64 100% | 945.7 KiB/s |  65.3 KiB |  00m00s
-[171/186] libssh-0:0.12.0-1.fc45.x86_64 100% |   3.6 MiB/s | 293.7 KiB |  00m00s
-[172/186] ngtcp2-0:1.22.1-1.fc45.x86_64 100% |   1.7 MiB/s | 157.4 KiB |  00m00s
-[173/186] ngtcp2-crypto-ossl-0:1.22.1-1 100% | 603.2 KiB/s |  27.7 KiB |  00m00s
-[174/186] gdb-minimal-0:17.1-5.fc45.x86 100% |  10.4 MiB/s |   4.7 MiB |  00m00s
-[175/186] keyutils-libs-0:1.6.3-7.fc44. 100% | 685.4 KiB/s |  31.5 KiB |  00m00s
-[176/186] libcom_err-0:1.47.4-1.fc45.x8 100% | 579.2 KiB/s |  26.6 KiB |  00m00s
-[177/186] libverto-0:0.3.2-12.fc44.x86_ 100% | 459.3 KiB/s |  21.1 KiB |  00m00s
-[178/186] publicsuffix-list-dafsa-0:202 100% |   1.0 MiB/s |  60.3 KiB |  00m00s
-[179/186] libfido2-0:1.17.0-1.fc45.x86_ 100% |   2.3 MiB/s | 106.8 KiB |  00m00s
-[180/186] libcbor-0:0.13.0-2.fc44.x86_6 100% | 781.7 KiB/s |  36.0 KiB |  00m00s
-[181/186] libssh-config-0:0.12.0-1.fc45 100% | 149.5 KiB/s |   9.4 KiB |  00m00s
-[182/186] selinux-policy-0:45.1-1.fc45. 100% |   1.6 MiB/s |  73.3 KiB |  00m00s
-[183/186] policycoreutils-0:3.10-3.fc45 100% |   3.1 MiB/s | 261.7 KiB |  00m00s
-[184/186] libselinux-utils-0:3.10-1.fc4 100% |   2.5 MiB/s | 119.6 KiB |  00m00s
-[185/186] rpm-plugin-selinux-0:6.0.1-5. 100% | 416.2 KiB/s |  19.1 KiB |  00m00s
-[186/186] selinux-policy-targeted-0:45. 100% |  22.2 MiB/s |   6.8 MiB |  00m00s
+After this operation, 227 MiB extra will be used (install 227 MiB, remove 0 B).
+[  1/186] bzip2-0:1.0.8-23.fc44.x86_64  100% |  12.7 MiB/s |  52.1 KiB |  00m00s
+[  2/186] coreutils-0:9.11-1.fc45.x86_6 100% | 107.9 MiB/s |   1.3 MiB |  00m00s
+[  3/186] cpio-0:2.15-9.fc44.x86_64     100% |  23.9 MiB/s | 293.4 KiB |  00m00s
+[  4/186] bash-0:5.3.9-3.fc44.x86_64    100% |  94.7 MiB/s |   1.9 MiB |  00m00s
+[  5/186] diffutils-0:3.12-5.fc44.x86_6 100% |  35.1 MiB/s | 395.3 KiB |  00m00s
+[  6/186] fedora-release-common-0:45-0. 100% |   6.0 MiB/s |  18.5 KiB |  00m00s
+[  7/186] findutils-1:4.10.0-7.fc44.x86 100% | 134.9 MiB/s | 552.5 KiB |  00m00s
+[  8/186] glibc-minimal-langpack-0:2.43 100% |  23.5 MiB/s |  96.3 KiB |  00m00s
+[  9/186] grep-0:3.12-3.fc44.x86_64     100% |  58.9 MiB/s | 301.6 KiB |  00m00s
+[ 10/186] gzip-0:1.14-2.fc44.x86_64     100% |  87.4 MiB/s | 179.1 KiB |  00m00s
+[ 11/186] info-0:7.3-1.fc45.x86_64      100% |  62.1 MiB/s | 190.8 KiB |  00m00s
+[ 12/186] patch-0:2.8-4.fc44.x86_64     100% |  37.5 MiB/s | 115.2 KiB |  00m00s
+[ 13/186] redhat-rpm-config-0:344-1.fc4 100% |  38.3 MiB/s |  78.4 KiB |  00m00s
+[ 14/186] rpm-build-0:6.0.1-5.fc45.x86_ 100% |  68.3 MiB/s | 139.9 KiB |  00m00s
+[ 15/186] sed-0:4.10-1.fc45.x86_64      100% | 116.9 MiB/s | 359.1 KiB |  00m00s
+[ 16/186] shadow-utils-2:4.19.3-2.fc45. 100% | 147.5 MiB/s |   1.3 MiB |  00m00s
+[ 17/186] tar-2:1.35-8.fc44.x86_64      100% |  84.8 MiB/s | 868.2 KiB |  00m00s
+[ 18/186] unzip-0:6.0-69.fc44.x86_64    100% |  21.7 MiB/s | 199.6 KiB |  00m00s
+[ 19/186] which-0:2.23-4.fc44.x86_64    100% |  13.7 MiB/s |  42.2 KiB |  00m00s
+[ 20/186] xz-1:5.8.3-1.fc45.x86_64      100% | 160.0 MiB/s | 655.2 KiB |  00m00s
+[ 21/186] util-linux-0:2.42-7.fc45.x86_ 100% | 115.3 MiB/s |   1.3 MiB |  00m00s
+[ 22/186] gawk-0:5.4.0-2.fc45.x86_64    100% |  97.3 MiB/s |   1.2 MiB |  00m00s
+[ 23/186] filesystem-0:3.18-56.fc45.x86 100% | 114.6 MiB/s |   1.8 MiB |  00m00s
+[ 24/186] ncurses-libs-0:6.6-1.fc44.x86 100% |  24.0 MiB/s | 344.1 KiB |  00m00s
+[ 25/186] glibc-0:2.43.9000-12.fc45.x86 100% | 126.4 MiB/s |   2.4 MiB |  00m00s
+[ 26/186] bzip2-libs-0:1.0.8-23.fc44.x8 100% |   3.6 MiB/s |  43.8 KiB |  00m00s
+[ 27/186] coreutils-common-0:9.11-1.fc4 100% | 197.0 MiB/s |   2.2 MiB |  00m00s
+[ 28/186] gmp-1:6.3.0-5.fc44.x86_64     100% |  35.0 MiB/s | 322.5 KiB |  00m00s
+[ 29/186] libacl-0:2.3.2-6.fc44.x86_64  100% |   3.0 MiB/s |  24.8 KiB |  00m00s
+[ 30/186] libattr-0:2.5.2-8.fc44.x86_64 100% |   4.4 MiB/s |  17.9 KiB |  00m00s
+[ 31/186] libcap-0:2.78-1.fc45.x86_64   100% |  21.8 MiB/s |  89.4 KiB |  00m00s
+[ 32/186] libselinux-0:3.10-1.fc44.x86_ 100% |  19.9 MiB/s | 102.0 KiB |  00m00s
+[ 33/186] openssl-libs-1:3.5.6-1.fc45.x 100% | 249.7 MiB/s |   2.7 MiB |  00m00s
+[ 34/186] systemd-libs-0:260.1-2.fc45.x 100% |  72.1 MiB/s | 886.2 KiB |  00m00s
+[ 35/186] fedora-repos-0:45-0.1.noarch  100% | 838.6 KiB/s |   9.2 KiB |  00m00s
+[ 36/186] redhat-systemd-presets-0:102- 100% |   2.7 MiB/s |   8.3 KiB |  00m00s
+[ 37/186] glibc-common-0:2.43.9000-12.f 100% |  94.5 MiB/s | 387.3 KiB |  00m00s
+[ 38/186] pcre2-0:10.47-1.fc44.1.x86_64 100% |  67.8 MiB/s | 277.7 KiB |  00m00s
+[ 39/186] ed-0:1.22.5-2.fc45.x86_64     100% |  20.8 MiB/s |  85.4 KiB |  00m00s
+[ 40/186] R-srpm-macros-0:1.3.7-1.fc45. 100% |   3.6 MiB/s |  11.0 KiB |  00m00s
+[ 41/186] ansible-srpm-macros-0:1-20.1. 100% |   9.8 MiB/s |  20.1 KiB |  00m00s
+[ 42/186] build-reproducibility-srpm-ma 100% |   6.5 MiB/s |  13.3 KiB |  00m00s
+[ 43/186] cmake-srpm-macros-0:4.3.0-1.f 100% |   3.4 MiB/s |  10.4 KiB |  00m00s
+[ 44/186] dwz-0:0.16-3.fc44.x86_64      100% |  45.2 MiB/s | 138.9 KiB |  00m00s
+[ 45/186] efi-srpm-macros-0:6-6.fc44.no 100% |   7.3 MiB/s |  22.6 KiB |  00m00s
+[ 46/186] erlang-srpm-macros-0:0.3.11-1 100% |   4.9 MiB/s |  10.0 KiB |  00m00s
+[ 47/186] file-0:5.47-2.fc45.x86_64     100% |  12.1 MiB/s |  49.4 KiB |  00m00s
+[ 48/186] filesystem-srpm-macros-0:3.18 100% |   6.6 MiB/s |  26.8 KiB |  00m00s
+[ 49/186] fonts-srpm-macros-1:5.0.0-3.f 100% |   8.9 MiB/s |  27.2 KiB |  00m00s
+[ 50/186] forge-srpm-macros-0:0.4.0-4.f 100% |   9.8 MiB/s |  20.0 KiB |  00m00s
+[ 51/186] fpc-srpm-macros-0:1.3-16.fc44 100% |   3.9 MiB/s |   7.9 KiB |  00m00s
+[ 52/186] gap-srpm-macros-0:2-2.fc44.no 100% |   4.5 MiB/s |   9.1 KiB |  00m00s
+[ 53/186] ghc-srpm-macros-0:1.10-1.fc44 100% |   4.3 MiB/s |   8.8 KiB |  00m00s
+[ 54/186] gnat-srpm-macros-0:7-2.fc44.n 100% |   4.3 MiB/s |   8.7 KiB |  00m00s
+[ 55/186] go-srpm-macros-0:3.8.0-2.fc44 100% |  13.8 MiB/s |  28.2 KiB |  00m00s
+[ 56/186] java-srpm-macros-0:1-8.fc44.n 100% |   4.0 MiB/s |   8.1 KiB |  00m00s
+[ 57/186] kernel-srpm-macros-0:1.0-29.f 100% |   4.0 MiB/s |   8.2 KiB |  00m00s
+[ 58/186] lua-srpm-macros-0:1-17.fc44.n 100% |   4.3 MiB/s |   8.9 KiB |  00m00s
+[ 59/186] ocaml-srpm-macros-0:11-3.fc44 100% |   4.5 MiB/s |   9.3 KiB |  00m00s
+[ 60/186] openblas-srpm-macros-0:2-21.f 100% |   2.5 MiB/s |   7.8 KiB |  00m00s
+[ 61/186] package-notes-srpm-macros-0:0 100% |   2.4 MiB/s |   9.7 KiB |  00m00s
+[ 62/186] perl-srpm-macros-0:1-61.fc44. 100% |   2.7 MiB/s |   8.4 KiB |  00m00s
+[ 63/186] pyproject-srpm-macros-0:1.20. 100% |   6.6 MiB/s |  13.6 KiB |  00m00s
+[ 64/186] python-srpm-macros-0:3.14-12. 100% |   7.9 MiB/s |  24.1 KiB |  00m00s
+[ 65/186] qt5-srpm-macros-0:5.15.18-2.f 100% |   2.1 MiB/s |   8.7 KiB |  00m00s
+[ 66/186] qt6-srpm-macros-0:6.11.0-1.fc 100% |   4.5 MiB/s |   9.2 KiB |  00m00s
+[ 67/186] rpm-0:6.0.1-5.fc45.x86_64     100% | 188.3 MiB/s | 578.3 KiB |  00m00s
+[ 68/186] rust-srpm-macros-0:28.4-3.fc4 100% |   3.6 MiB/s |  11.1 KiB |  00m00s
+[ 69/186] tree-sitter-srpm-macros-0:0.4 100% |   6.6 MiB/s |  13.5 KiB |  00m00s
+[ 70/186] zig-srpm-macros-0:1-8.fc44.no 100% |   4.3 MiB/s |   8.8 KiB |  00m00s
+[ 71/186] zip-0:3.0-45.fc44.x86_64      100% |  86.1 MiB/s | 264.4 KiB |  00m00s
+[ 72/186] debugedit-0:5.3-2.fc45.x86_64 100% |  28.8 MiB/s |  88.5 KiB |  00m00s
+[ 73/186] elfutils-0:0.195-1.fc45.x86_6 100% | 143.8 MiB/s | 588.9 KiB |  00m00s
+[ 74/186] elfutils-libelf-0:0.195-1.fc4 100% |  51.3 MiB/s | 210.2 KiB |  00m00s
+[ 75/186] libarchive-0:3.8.7-1.fc45.x86 100% |  86.5 MiB/s | 442.9 KiB |  00m00s
+[ 76/186] libgcc-0:16.0.1-0.11.fc45.x86 100% |  42.0 MiB/s | 129.1 KiB |  00m00s
+[ 77/186] libstdc++-0:16.0.1-0.11.fc45. 100% | 199.1 MiB/s |   1.0 MiB |  00m00s
+[ 78/186] popt-0:1.19-10.fc44.x86_64    100% |  16.3 MiB/s |  66.9 KiB |  00m00s
+[ 79/186] readline-0:8.3-4.fc44.x86_64  100% |  56.1 MiB/s | 229.8 KiB |  00m00s
+[ 80/186] rpm-build-libs-0:6.0.1-5.fc45 100% |  64.5 MiB/s | 132.1 KiB |  00m00s
+[ 81/186] rpm-libs-0:6.0.1-5.fc45.x86_6 100% | 135.3 MiB/s | 415.5 KiB |  00m00s
+[ 82/186] zstd-0:1.5.7-5.fc44.x86_64    100% |  47.0 MiB/s | 192.5 KiB |  00m00s
+[ 83/186] audit-libs-0:4.1.4-1.fc45.x86 100% |  46.1 MiB/s | 141.7 KiB |  00m00s
+[ 84/186] libeconf-0:0.7.9-3.fc44.x86_6 100% |  17.7 MiB/s |  36.2 KiB |  00m00s
+[ 85/186] libsemanage-0:3.10-1.fc44.x86 100% |  62.1 MiB/s | 127.3 KiB |  00m00s
+[ 86/186] libxcrypt-0:4.5.2-3.fc44.x86_ 100% |  42.7 MiB/s | 131.2 KiB |  00m00s
+[ 87/186] pam-libs-0:1.7.2-1.fc44.x86_6 100% |  19.2 MiB/s |  59.1 KiB |  00m00s
+[ 88/186] setup-0:2.15.0-29.fc45.noarch 100% |  76.8 MiB/s | 157.3 KiB |  00m00s
+[ 89/186] xz-libs-1:5.8.3-1.fc45.x86_64 100% |  37.9 MiB/s | 116.4 KiB |  00m00s
+[ 90/186] mpfr-0:4.2.2-3.fc44.x86_64    100% |  87.4 MiB/s | 357.8 KiB |  00m00s
+[ 91/186] libblkid-0:2.42-7.fc45.x86_64 100% |  43.3 MiB/s | 133.0 KiB |  00m00s
+[ 92/186] libcap-ng-0:0.9.3-1.fc45.x86_ 100% |  16.8 MiB/s |  34.3 KiB |  00m00s
+[ 93/186] libfdisk-0:2.42-7.fc45.x86_64 100% |  54.9 MiB/s | 168.7 KiB |  00m00s
+[ 94/186] liblastlog2-0:2.42-7.fc45.x86 100% |  11.6 MiB/s |  23.8 KiB |  00m00s
+[ 95/186] libmount-0:2.42-7.fc45.x86_64 100% |  57.2 MiB/s | 175.6 KiB |  00m00s
+[ 96/186] libsmartcols-0:2.42-7.fc45.x8 100% |  42.9 MiB/s |  87.8 KiB |  00m00s
+[ 97/186] libuuid-0:2.42-7.fc45.x86_64  100% |   8.7 MiB/s |  26.7 KiB |  00m00s
+[ 98/186] util-linux-core-0:2.42-7.fc45 100% | 141.8 MiB/s | 580.9 KiB |  00m00s
+[ 99/186] zlib-ng-compat-0:2.3.3-5.fc45 100% |  29.7 MiB/s |  91.2 KiB |  00m00s
+[100/186] glibc-gconv-extra-0:2.43.9000 100% | 278.2 MiB/s |   1.7 MiB |  00m00s
+[101/186] ncurses-base-0:6.6-1.fc44.noa 100% |  12.3 MiB/s |  88.0 KiB |  00m00s
+[102/186] gnulib-l10n-0:20241231-2.fc44 100% |  24.5 MiB/s | 150.3 KiB |  00m00s
+[103/186] libsepol-0:3.10-1.fc44.x86_64 100% |  71.8 MiB/s | 367.6 KiB |  00m00s
+[104/186] ca-certificates-0:2025.2.80_v 100% | 157.7 MiB/s | 968.8 KiB |  00m00s
+[105/186] crypto-policies-0:20251128-3. 100% |  19.2 MiB/s |  98.3 KiB |  00m00s
+[106/186] fedora-gpg-keys-0:45-0.1.noar 100% |  46.0 MiB/s | 141.3 KiB |  00m00s
+[107/186] fedora-repos-rawhide-0:45-0.1 100% |   2.9 MiB/s |   8.8 KiB |  00m00s
+[108/186] redhat-systemd-presets-common 100% |   4.2 MiB/s |  12.9 KiB |  00m00s
+[109/186] pcre2-syntax-0:10.47-1.fc44.1 100% |  53.6 MiB/s | 164.7 KiB |  00m00s
+[110/186] add-determinism-0:0.7.3-2.fc4 100% | 166.9 MiB/s | 854.6 KiB |  00m00s
+[111/186] linkdupes-0:0.7.3-2.fc45.x86_ 100% |  56.1 MiB/s | 344.7 KiB |  00m00s
+[112/186] file-libs-0:5.47-2.fc45.x86_6 100% |  85.2 MiB/s | 872.0 KiB |  00m00s
+[113/186] curl-0:8.20.0~rc2-1.fc45.x86_ 100% |  33.7 MiB/s | 241.5 KiB |  00m00s
+[114/186] elfutils-libs-0:0.195-1.fc45. 100% |  39.5 MiB/s | 283.2 KiB |  00m00s
+[115/186] elfutils-debuginfod-client-0: 100% |  11.3 MiB/s |  46.5 KiB |  00m00s
+[116/186] libzstd-0:1.5.7-5.fc44.x86_64 100% | 118.5 MiB/s | 364.2 KiB |  00m00s
+[117/186] libxml2-0:2.12.10-6.fc44.x86_ 100% | 141.5 MiB/s | 724.6 KiB |  00m00s
+[118/186] lz4-libs-0:1.10.0-4.fc44.x86_ 100% |  19.0 MiB/s |  77.7 KiB |  00m00s
+[119/186] libgomp-0:16.0.1-0.11.fc45.x8 100% |  95.4 MiB/s | 390.8 KiB |  00m00s
+[120/186] lua-libs-0:5.5.0-1.fc45.x86_6 100% |  70.1 MiB/s | 143.6 KiB |  00m00s
+[121/186] rpm-sign-libs-0:6.0.1-5.fc45. 100% |   9.1 MiB/s |  27.9 KiB |  00m00s
+[122/186] rpm-sequoia-0:1.10.2-1.fc45.x 100% | 222.5 MiB/s | 911.4 KiB |  00m00s
+[123/186] sqlite-libs-0:3.53.0-1.fc45.x 100% | 112.6 MiB/s | 806.9 KiB |  00m00s
+[124/186] json-c-0:0.18-8.fc44.x86_64   100% |   7.5 MiB/s |  46.3 KiB |  00m00s
+[125/186] gnupg2-0:2.4.9-7.fc45.x86_64  100% | 206.8 MiB/s |   1.7 MiB |  00m00s
+[126/186] ima-evm-utils-libs-0:1.6.2-10 100% |   4.9 MiB/s |  30.4 KiB |  00m00s
+[127/186] libfsverity-0:1.7-1.fc45.x86_ 100% |   3.1 MiB/s |  19.0 KiB |  00m00s
+[128/186] gpgverify-0:2.2-4.fc44.noarch 100% |   3.7 MiB/s |  11.2 KiB |  00m00s
+[129/186] gnupg2-dirmngr-0:2.4.9-7.fc45 100% |  68.9 MiB/s | 282.1 KiB |  00m00s
+[130/186] gnupg2-gpg-agent-0:2.4.9-7.fc 100% |  55.1 MiB/s | 282.1 KiB |  00m00s
+[131/186] gnupg2-gpgconf-0:2.4.9-7.fc45 100% |  22.9 MiB/s | 117.4 KiB |  00m00s
+[132/186] gnupg2-keyboxd-0:2.4.9-7.fc45 100% |  23.8 MiB/s |  97.3 KiB |  00m00s
+[133/186] gnupg2-verify-0:2.4.9-7.fc45. 100% |  43.2 MiB/s | 177.0 KiB |  00m00s
+[134/186] libassuan-0:2.5.7-5.fc44.x86_ 100% |  22.4 MiB/s |  68.9 KiB |  00m00s
+[135/186] libgcrypt-0:1.12.2-1.fc45.x86 100% | 153.7 MiB/s | 629.8 KiB |  00m00s
+[136/186] libgpg-error-0:1.60-1.fc45.x8 100% |  62.5 MiB/s | 255.9 KiB |  00m00s
+[137/186] npth-0:1.8-4.fc44.x86_64      100% |   4.2 MiB/s |  25.8 KiB |  00m00s
+[138/186] tpm2-tss-0:4.1.3-9.fc44.x86_6 100% |  86.1 MiB/s | 440.9 KiB |  00m00s
+[139/186] gnutls-0:3.8.12-1.fc45.x86_64 100% | 175.3 MiB/s |   1.4 MiB |  00m00s
+[140/186] libksba-0:1.6.8-1.fc45.x86_64 100% |  23.6 MiB/s | 168.9 KiB |  00m00s
+[141/186] openldap-0:2.6.13-1.fc45.x86_ 100% |  44.3 MiB/s | 272.0 KiB |  00m00s
+[142/186] libusb1-0:1.0.29-5.fc44.x86_6 100% |  20.2 MiB/s |  82.8 KiB |  00m00s
+[143/186] libidn2-0:2.3.8-3.fc44.x86_64 100% |  42.9 MiB/s | 175.5 KiB |  00m00s
+[144/186] libtasn1-0:4.21.0-1.fc45.x86_ 100% |  18.6 MiB/s |  76.0 KiB |  00m00s
+[145/186] libunistring-0:1.1-11.fc44.x8 100% |  89.2 MiB/s | 547.8 KiB |  00m00s
+[146/186] nettle-0:3.10.1-3.fc44.x86_64 100% |  69.7 MiB/s | 428.0 KiB |  00m00s
+[147/186] p11-kit-0:0.26.2-1.fc45.x86_6 100% |  67.9 MiB/s | 555.9 KiB |  00m00s
+[148/186] cyrus-sasl-lib-0:2.1.28-35.fc 100% |  86.9 MiB/s | 800.7 KiB |  00m00s
+[149/186] libevent-0:2.1.12-17.fc44.x86 100% |  40.1 MiB/s | 287.4 KiB |  00m00s
+[150/186] libtool-ltdl-0:2.5.4-10.fc44. 100% |   7.2 MiB/s |  37.0 KiB |  00m00s
+[151/186] libffi-0:3.5.2-2.fc44.x86_64  100% |  20.7 MiB/s |  42.4 KiB |  00m00s
+[152/186] gdbm-libs-1:1.23-11.fc44.x86_ 100% |  28.7 MiB/s |  58.8 KiB |  00m00s
+[153/186] alternatives-0:1.33-5.fc44.x8 100% |   3.1 MiB/s |  40.8 KiB |  00m00s
+[154/186] jansson-0:2.14-4.fc44.x86_64  100% |   3.8 MiB/s |  47.1 KiB |  00m00s
+[155/186] pkgconf-pkg-config-0:2.5.1-1. 100% |   1.3 MiB/s |   9.5 KiB |  00m00s
+[156/186] pkgconf-0:2.5.1-1.fc45.x86_64 100% |   6.8 MiB/s |  48.7 KiB |  00m00s
+[157/186] binutils-0:2.46.50-7.fc45.x86 100% | 220.7 MiB/s |   6.2 MiB |  00m00s
+[158/186] pkgconf-m4-0:2.5.1-1.fc45.noa 100% |   2.7 MiB/s |  13.8 KiB |  00m00s
+[159/186] libpkgconf-0:2.5.1-1.fc45.x86 100% |   8.3 MiB/s |  42.7 KiB |  00m00s
+[160/186] p11-kit-trust-0:0.26.2-1.fc45 100% |  47.6 MiB/s | 146.4 KiB |  00m00s
+[161/186] fedora-release-0:45-0.5.noarc 100% |   4.1 MiB/s |  12.6 KiB |  00m00s
+[162/186] systemd-standalone-sysusers-0 100% |  89.7 MiB/s | 367.4 KiB |  00m00s
+[163/186] xxhash-libs-0:0.8.3-4.fc44.x8 100% |   4.5 MiB/s |  41.2 KiB |  00m00s
+[164/186] gdb-minimal-0:17.1-5.fc45.x86 100% | 236.8 MiB/s |   4.7 MiB |  00m00s
+[165/186] fedora-release-identity-basic 100% | 702.8 KiB/s |  13.4 KiB |  00m00s
+[166/186] libcurl-0:8.20.0~rc2-1.fc45.x 100% |  41.5 MiB/s | 467.4 KiB |  00m00s
+[167/186] krb5-libs-0:1.22.2-6.fc45.x86 100% | 130.8 MiB/s | 803.7 KiB |  00m00s
+[168/186] libbrotli-0:1.2.0-3.fc44.x86_ 100% |  56.6 MiB/s | 347.8 KiB |  00m00s
+[169/186] libnghttp2-0:1.69.0-1.fc45.x8 100% |  12.6 MiB/s |  77.2 KiB |  00m00s
+[170/186] libnghttp3-0:1.15.0-1.fc44.x8 100% |   9.0 MiB/s |  73.9 KiB |  00m00s
+[171/186] libpsl-0:0.21.5-7.fc44.x86_64 100% |   9.1 MiB/s |  65.3 KiB |  00m00s
+[172/186] libssh-0:0.12.0-1.fc45.x86_64 100% |  35.9 MiB/s | 293.7 KiB |  00m00s
+[173/186] ngtcp2-0:1.22.1-1.fc45.x86_64 100% |  38.4 MiB/s | 157.4 KiB |  00m00s
+[174/186] ngtcp2-crypto-ossl-0:1.22.1-1 100% |   6.8 MiB/s |  27.7 KiB |  00m00s
+[175/186] keyutils-libs-0:1.6.3-7.fc44. 100% |  10.3 MiB/s |  31.5 KiB |  00m00s
+[176/186] libcom_err-0:1.47.4-1.fc45.x8 100% |   8.7 MiB/s |  26.6 KiB |  00m00s
+[177/186] libverto-0:0.3.2-12.fc44.x86_ 100% |   5.2 MiB/s |  21.1 KiB |  00m00s
+[178/186] publicsuffix-list-dafsa-0:202 100% |  14.7 MiB/s |  60.3 KiB |  00m00s
+[179/186] libfido2-0:1.17.0-1.fc45.x86_ 100% |  26.1 MiB/s | 106.8 KiB |  00m00s
+[180/186] libssh-config-0:0.12.0-1.fc45 100% |   2.3 MiB/s |   9.4 KiB |  00m00s
+[181/186] libcbor-0:0.13.0-2.fc44.x86_6 100% |   8.8 MiB/s |  36.0 KiB |  00m00s
+[182/186] policycoreutils-0:3.10-3.fc45 100% |  31.9 MiB/s | 261.7 KiB |  00m00s
+[183/186] selinux-policy-0:45.2-1.fc45. 100% |   6.0 MiB/s |  73.8 KiB |  00m00s
+[184/186] libselinux-utils-0:3.10-1.fc4 100% |  11.7 MiB/s | 119.6 KiB |  00m00s
+[185/186] rpm-plugin-selinux-0:6.0.1-5. 100% |   2.1 MiB/s |  19.1 KiB |  00m00s
+[186/186] selinux-policy-targeted-0:45. 100% | 200.7 MiB/s |   6.8 MiB |  00m00s
 --------------------------------------------------------------------------------
-[186/186] Total                         100% |  17.1 MiB/s |  70.1 MiB |  00m04s
+[186/186] Total                         100% | 173.1 MiB/s |  70.3 MiB |  00m00s
 Running transaction
 Importing OpenPGP key 0xF577861E:
  UserID     : "Fedora (45) <fedora-45-primary@fedoraproject.org>"
@@ -564,19 +564,19 @@ Importing OpenPGP key 0x91211FCE:
  Fingerprint: D924B10D3E810DABDD8B56B596E7E91491211FCE
  From       : file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-46-primary
 The key was successfully imported.
-[  1/188] Verify package files          100% | 650.0   B/s | 186.0   B |  00m00s
-[  2/188] Prepare transaction           100% |   3.0 KiB/s | 186.0   B |  00m00s
+[  1/188] Verify package files          100% | 720.0   B/s | 186.0   B |  00m00s
+[  2/188] Prepare transaction           100% |   3.4 KiB/s | 186.0   B |  00m00s
 [  3/188] Installing libgcc-0:16.0.1-0. 100% | 266.0 MiB/s | 272.3 KiB |  00m00s
 [  4/188] Installing redhat-systemd-pre 100% |   0.0   B/s |   1.5 KiB |  00m00s
 [  5/188] Installing redhat-systemd-pre 100% |   0.0   B/s |  17.8 KiB |  00m00s
 [  6/188] Installing libssh-config-0:0. 100% |   0.0   B/s | 816.0   B |  00m00s
 [  7/188] Installing publicsuffix-list- 100% |   0.0   B/s |  71.1 KiB |  00m00s
 [  8/188] Installing fedora-release-ide 100% |   0.0   B/s | 920.0   B |  00m00s
-[  9/188] Installing fedora-gpg-keys-0: 100% |  44.5 MiB/s | 182.1 KiB |  00m00s
+[  9/188] Installing fedora-gpg-keys-0: 100% |  59.3 MiB/s | 182.1 KiB |  00m00s
 [ 10/188] Installing fedora-repos-rawhi 100% |   0.0   B/s |   2.4 KiB |  00m00s
 [ 11/188] Installing fedora-repos-0:45- 100% |   0.0   B/s |   5.7 KiB |  00m00s
-[ 12/188] Installing fedora-release-com 100% |   7.3 MiB/s |   7.4 KiB |  00m00s
-[ 13/188] Installing fedora-release-0:4 100% |  12.1 KiB/s | 124.0   B |  00m00s
+[ 12/188] Installing fedora-release-com 100% |   0.0   B/s |   7.4 KiB |  00m00s
+[ 13/188] Installing fedora-release-0:4 100% |  13.5 KiB/s | 124.0   B |  00m00s
 >>> Running sysusers scriptlet: setup-0:2.15.0-29.fc45.noarch
 >>> Finished sysusers scriptlet: setup-0:2.15.0-29.fc45.noarch
 >>> Scriptlet output:
@@ -624,31 +624,31 @@ The key was successfully imported.
 >>> Creating user 'shutdown' (shutdown) with UID 6 and GID 0.
 >>> Creating user 'sync' (sync) with UID 5 and GID 0.
 >>> 
-[ 14/188] Installing setup-0:2.15.0-29. 100% |  35.7 MiB/s | 730.6 KiB |  00m00s
-[ 15/188] Installing filesystem-0:3.18- 100% |   2.6 MiB/s | 289.4 KiB |  00m00s
+[ 14/188] Installing setup-0:2.15.0-29. 100% |  42.0 MiB/s | 730.6 KiB |  00m00s
+[ 15/188] Installing filesystem-0:3.18- 100% |   2.9 MiB/s | 289.4 KiB |  00m00s
 [ 16/188] Installing pkgconf-m4-0:2.5.1 100% |   0.0   B/s |  14.7 KiB |  00m00s
 [ 17/188] Installing pcre2-syntax-0:10. 100% | 277.7 MiB/s | 284.3 KiB |  00m00s
-[ 18/188] Installing gnulib-l10n-0:2024 100% | 161.6 MiB/s | 661.9 KiB |  00m00s
-[ 19/188] Installing coreutils-common-0 100% | 368.5 MiB/s |  10.7 MiB |  00m00s
+[ 18/188] Installing gnulib-l10n-0:2024 100% | 215.5 MiB/s | 661.9 KiB |  00m00s
+[ 19/188] Installing coreutils-common-0 100% | 405.8 MiB/s |  11.0 MiB |  00m00s
 [ 20/188] Installing ncurses-base-0:6.6 100% |  86.7 MiB/s | 355.3 KiB |  00m00s
-[ 21/188] Installing bash-0:5.3.9-3.fc4 100% | 223.2 MiB/s |   8.5 MiB |  00m00s
-[ 22/188] Installing glibc-common-0:2.4 100% |  46.8 MiB/s |   1.0 MiB |  00m00s
-[ 23/188] Installing glibc-gconv-extra- 100% | 287.5 MiB/s |   7.8 MiB |  00m00s
-[ 24/188] Installing glibc-0:2.43.9000- 100% | 158.9 MiB/s |   7.0 MiB |  00m00s
-[ 25/188] Installing ncurses-libs-0:6.6 100% | 238.1 MiB/s | 975.4 KiB |  00m00s
+[ 21/188] Installing bash-0:5.3.9-3.fc4 100% | 257.0 MiB/s |   8.5 MiB |  00m00s
+[ 22/188] Installing glibc-common-0:2.4 100% |  51.5 MiB/s |   1.0 MiB |  00m00s
+[ 23/188] Installing glibc-gconv-extra- 100% | 323.4 MiB/s |   7.8 MiB |  00m00s
+[ 24/188] Installing glibc-0:2.43.9000- 100% | 183.9 MiB/s |   7.0 MiB |  00m00s
+[ 25/188] Installing ncurses-libs-0:6.6 100% | 317.5 MiB/s | 975.4 KiB |  00m00s
 [ 26/188] Installing glibc-minimal-lang 100% |   0.0   B/s | 124.0   B |  00m00s
 [ 27/188] Installing zlib-ng-compat-0:2 100% | 162.5 MiB/s | 166.4 KiB |  00m00s
 [ 28/188] Installing bzip2-libs-0:1.0.8 100% |  79.7 MiB/s |  81.6 KiB |  00m00s
-[ 29/188] Installing libgpg-error-0:1.6 100% |  44.4 MiB/s | 954.6 KiB |  00m00s
+[ 29/188] Installing libgpg-error-0:1.6 100% |  51.8 MiB/s | 954.6 KiB |  00m00s
 [ 30/188] Installing libstdc++-0:16.0.1 100% | 386.6 MiB/s |   3.1 MiB |  00m00s
 [ 31/188] Installing libassuan-0:2.5.7- 100% | 161.8 MiB/s | 165.7 KiB |  00m00s
-[ 32/188] Installing libgcrypt-0:1.12.2 100% | 331.7 MiB/s |   1.7 MiB |  00m00s
+[ 32/188] Installing libgcrypt-0:1.12.2 100% | 414.7 MiB/s |   1.7 MiB |  00m00s
 [ 33/188] Installing readline-0:8.3-4.f 100% | 254.7 MiB/s | 521.6 KiB |  00m00s
-[ 34/188] Installing gmp-1:6.3.0-5.fc44 100% | 266.1 MiB/s | 817.5 KiB |  00m00s
-[ 35/188] Installing systemd-libs-0:260 100% | 363.9 MiB/s |   2.5 MiB |  00m00s
+[ 34/188] Installing gmp-1:6.3.0-5.fc44 100% | 399.2 MiB/s | 817.5 KiB |  00m00s
+[ 35/188] Installing systemd-libs-0:260 100% | 424.6 MiB/s |   2.5 MiB |  00m00s
 [ 36/188] Installing xz-libs-1:5.8.3-1. 100% | 213.7 MiB/s | 218.8 KiB |  00m00s
 [ 37/188] Installing libuuid-0:2.42-7.f 100% |   0.0   B/s |  38.2 KiB |  00m00s
-[ 38/188] Installing libzstd-0:1.5.7-5. 100% | 311.6 MiB/s | 957.4 KiB |  00m00s
+[ 38/188] Installing libzstd-0:1.5.7-5. 100% | 467.5 MiB/s | 957.4 KiB |  00m00s
 [ 39/188] Installing elfutils-libelf-0: 100% | 387.3 MiB/s |   1.2 MiB |  00m00s
 [ 40/188] Installing popt-0:1.19-10.fc4 100% |  68.0 MiB/s | 139.3 KiB |  00m00s
 [ 41/188] Installing npth-0:1.8-4.fc44. 100% |   0.0   B/s |  50.6 KiB |  00m00s
@@ -656,70 +656,70 @@ The key was successfully imported.
 [ 43/188] Installing libblkid-0:2.42-7. 100% | 276.6 MiB/s | 283.2 KiB |  00m00s
 [ 44/188] Installing libattr-0:2.5.2-8. 100% |   0.0   B/s |  25.2 KiB |  00m00s
 [ 45/188] Installing libacl-0:2.3.2-6.f 100% |   0.0   B/s |  36.6 KiB |  00m00s
-[ 46/188] Installing libsepol-0:3.10-1. 100% | 283.5 MiB/s | 871.0 KiB |  00m00s
-[ 47/188] Installing sqlite-libs-0:3.52 100% | 320.6 MiB/s |   1.6 MiB |  00m00s
-[ 48/188] Installing gnupg2-gpgconf-0:2 100% |  13.7 MiB/s | 251.8 KiB |  00m00s
+[ 46/188] Installing libsepol-0:3.10-1. 100% | 425.3 MiB/s | 871.0 KiB |  00m00s
+[ 47/188] Installing sqlite-libs-0:3.53 100% | 401.7 MiB/s |   1.6 MiB |  00m00s
+[ 48/188] Installing gnupg2-gpgconf-0:2 100% |  15.4 MiB/s | 251.8 KiB |  00m00s
 [ 49/188] Installing pcre2-0:10.47-1.fc 100% | 351.6 MiB/s | 720.0 KiB |  00m00s
 [ 50/188] Installing libselinux-0:3.10- 100% | 197.5 MiB/s | 202.3 KiB |  00m00s
-[ 51/188] Installing grep-0:3.12-3.fc44 100% |  47.7 MiB/s |   1.0 MiB |  00m00s
-[ 52/188] Installing sed-0:4.10-1.fc45. 100% |  44.1 MiB/s | 947.8 KiB |  00m00s
-[ 53/188] Installing findutils-1:4.10.0 100% |  81.3 MiB/s |   1.9 MiB |  00m00s
-[ 54/188] Installing libxcrypt-0:4.5.2- 100% | 144.5 MiB/s | 295.9 KiB |  00m00s
+[ 51/188] Installing grep-0:3.12-3.fc44 100% |  52.8 MiB/s |   1.0 MiB |  00m00s
+[ 52/188] Installing sed-0:4.10-1.fc45. 100% |  48.7 MiB/s | 947.8 KiB |  00m00s
+[ 53/188] Installing findutils-1:4.10.0 100% |  93.5 MiB/s |   1.9 MiB |  00m00s
+[ 54/188] Installing libxcrypt-0:4.5.2- 100% | 289.0 MiB/s | 295.9 KiB |  00m00s
 [ 55/188] Installing libtasn1-0:4.21.0- 100% | 178.2 MiB/s | 182.4 KiB |  00m00s
-[ 56/188] Installing libunistring-0:1.1 100% | 346.9 MiB/s |   1.7 MiB |  00m00s
+[ 56/188] Installing libunistring-0:1.1 100% | 433.6 MiB/s |   1.7 MiB |  00m00s
 [ 57/188] Installing libidn2-0:2.3.8-3. 100% |  54.9 MiB/s | 562.6 KiB |  00m00s
-[ 58/188] Installing crypto-policies-0: 100% |  30.8 MiB/s | 157.7 KiB |  00m00s
-[ 59/188] Installing xz-1:5.8.3-1.fc45. 100% |  56.2 MiB/s |   1.4 MiB |  00m00s
-[ 60/188] Installing libmount-0:2.42-7. 100% | 196.2 MiB/s | 401.9 KiB |  00m00s
-[ 61/188] Installing gnupg2-verify-0:2. 100% |  19.6 MiB/s | 361.7 KiB |  00m00s
-[ 62/188] Installing dwz-0:0.16-3.fc44. 100% |  15.9 MiB/s | 292.3 KiB |  00m00s
+[ 58/188] Installing crypto-policies-0: 100% |  38.5 MiB/s | 157.7 KiB |  00m00s
+[ 59/188] Installing xz-1:5.8.3-1.fc45. 100% |  63.9 MiB/s |   1.4 MiB |  00m00s
+[ 60/188] Installing libmount-0:2.42-7. 100% | 392.5 MiB/s | 401.9 KiB |  00m00s
+[ 61/188] Installing gnupg2-verify-0:2. 100% |  20.8 MiB/s | 361.7 KiB |  00m00s
+[ 62/188] Installing dwz-0:0.16-3.fc44. 100% |  17.8 MiB/s | 292.3 KiB |  00m00s
 [ 63/188] Installing mpfr-0:4.2.2-3.fc4 100% | 276.9 MiB/s | 850.8 KiB |  00m00s
-[ 64/188] Installing gawk-0:5.4.0-2.fc4 100% |  92.7 MiB/s |   2.2 MiB |  00m00s
+[ 64/188] Installing gawk-0:5.4.0-2.fc4 100% | 106.0 MiB/s |   2.2 MiB |  00m00s
 [ 65/188] Installing libksba-0:1.6.8-1. 100% | 207.2 MiB/s | 424.4 KiB |  00m00s
-[ 66/188] Installing unzip-0:6.0-69.fc4 100% |  24.4 MiB/s | 449.3 KiB |  00m00s
-[ 67/188] Installing file-libs-0:5.47-2 100% | 641.6 MiB/s |  12.2 MiB |  00m00s
-[ 68/188] Installing file-0:5.47-2.fc45 100% |   5.6 MiB/s | 102.6 KiB |  00m00s
-[ 69/188] Installing diffutils-0:3.12-5 100% |  71.5 MiB/s |   1.6 MiB |  00m00s
+[ 66/188] Installing unzip-0:6.0-69.fc4 100% |  25.8 MiB/s | 449.3 KiB |  00m00s
+[ 67/188] Installing file-libs-0:5.47-2 100% | 717.1 MiB/s |  12.2 MiB |  00m00s
+[ 68/188] Installing file-0:5.47-2.fc45 100% |   6.3 MiB/s | 102.6 KiB |  00m00s
+[ 69/188] Installing diffutils-0:3.12-5 100% |  78.6 MiB/s |   1.6 MiB |  00m00s
 [ 70/188] Installing libeconf-0:0.7.9-3 100% |  64.9 MiB/s |  66.4 KiB |  00m00s
 [ 71/188] Installing libcap-ng-0:0.9.3- 100% |  69.0 MiB/s |  70.6 KiB |  00m00s
 [ 72/188] Installing audit-libs-0:4.1.4 100% | 191.9 MiB/s | 393.0 KiB |  00m00s
 [ 73/188] Installing pam-libs-0:1.7.2-1 100% | 129.8 MiB/s | 132.9 KiB |  00m00s
-[ 74/188] Installing libcap-0:2.78-1.fc 100% |  11.8 MiB/s | 217.2 KiB |  00m00s
+[ 74/188] Installing libcap-0:2.78-1.fc 100% |  12.5 MiB/s | 217.2 KiB |  00m00s
 [ 75/188] Installing libsemanage-0:3.10 100% | 306.7 MiB/s | 314.1 KiB |  00m00s
 [ 76/188] Installing libsmartcols-0:2.4 100% | 188.9 MiB/s | 193.4 KiB |  00m00s
 [ 77/188] Installing lua-libs-0:5.5.0-1 100% | 292.4 MiB/s | 299.4 KiB |  00m00s
 [ 78/188] Installing json-c-0:0.18-8.fc 100% |  81.9 MiB/s |  83.9 KiB |  00m00s
 [ 79/188] Installing libffi-0:3.5.2-2.f 100% |  87.0 MiB/s |  89.1 KiB |  00m00s
-[ 80/188] Installing p11-kit-0:0.26.2-1 100% |  99.8 MiB/s |   2.6 MiB |  00m00s
-[ 81/188] Installing alternatives-0:1.3 100% |   3.5 MiB/s |  63.6 KiB |  00m00s
-[ 82/188] Installing p11-kit-trust-0:0. 100% |  17.4 MiB/s | 480.0 KiB |  00m00s
+[ 80/188] Installing p11-kit-0:0.26.2-1 100% | 112.8 MiB/s |   2.6 MiB |  00m00s
+[ 81/188] Installing alternatives-0:1.3 100% |   3.9 MiB/s |  63.6 KiB |  00m00s
+[ 82/188] Installing p11-kit-trust-0:0. 100% |  19.5 MiB/s | 480.0 KiB |  00m00s
 [ 83/188] Installing ngtcp2-0:1.22.1-1. 100% | 165.9 MiB/s | 339.7 KiB |  00m00s
-[ 84/188] Installing openssl-libs-1:3.5 100% | 367.5 MiB/s |   9.2 MiB |  00m00s
-[ 85/188] Installing coreutils-0:9.10-3 100% | 135.5 MiB/s |   5.7 MiB |  00m00s
-[ 86/188] Installing ca-certificates-0: 100% |   1.9 MiB/s |   2.5 MiB |  00m01s
-[ 87/188] Installing gzip-0:1.14-2.fc44 100% |  19.9 MiB/s | 407.1 KiB |  00m00s
-[ 88/188] Installing rpm-sequoia-0:1.10 100% | 337.6 MiB/s |   2.4 MiB |  00m00s
-[ 89/188] Installing libfsverity-0:1.7- 100% |  28.7 MiB/s |  29.4 KiB |  00m00s
+[ 84/188] Installing openssl-libs-1:3.5 100% | 399.5 MiB/s |   9.2 MiB |  00m00s
+[ 85/188] Installing coreutils-0:9.11-1 100% | 166.3 MiB/s |   6.3 MiB |  00m00s
+[ 86/188] Installing ca-certificates-0: 100% |   2.1 MiB/s |   2.5 MiB |  00m01s
+[ 87/188] Installing gzip-0:1.14-2.fc44 100% |  22.1 MiB/s | 407.1 KiB |  00m00s
+[ 88/188] Installing rpm-sequoia-0:1.10 100% | 393.9 MiB/s |   2.4 MiB |  00m00s
+[ 89/188] Installing libfsverity-0:1.7- 100% |   0.0   B/s |  29.4 KiB |  00m00s
 [ 90/188] Installing libevent-0:2.1.12- 100% | 319.8 MiB/s | 982.4 KiB |  00m00s
-[ 91/188] Installing systemd-standalone 100% |  41.1 MiB/s | 841.8 KiB |  00m00s
+[ 91/188] Installing systemd-standalone 100% |  45.7 MiB/s | 841.8 KiB |  00m00s
 [ 92/188] Installing rpm-libs-0:6.0.1-5 100% | 313.4 MiB/s | 962.8 KiB |  00m00s
 [ 93/188] Installing ngtcp2-crypto-ossl 100% |  51.3 MiB/s |  52.5 KiB |  00m00s
-[ 94/188] Installing util-linux-core-0: 100% |  63.7 MiB/s |   1.5 MiB |  00m00s
-[ 95/188] Installing liblastlog2-0:2.42 100% |   5.3 MiB/s |  43.6 KiB |  00m00s
-[ 96/188] Installing zip-0:3.0-45.fc44. 100% |  32.6 MiB/s | 701.9 KiB |  00m00s
-[ 97/188] Installing gnupg2-keyboxd-0:2 100% |  28.2 MiB/s | 202.5 KiB |  00m00s
+[ 94/188] Installing util-linux-core-0: 100% |  72.8 MiB/s |   1.5 MiB |  00m00s
+[ 95/188] Installing liblastlog2-0:2.42 100% |   6.1 MiB/s |  43.6 KiB |  00m00s
+[ 96/188] Installing zip-0:3.0-45.fc44. 100% |  36.1 MiB/s | 701.9 KiB |  00m00s
+[ 97/188] Installing gnupg2-keyboxd-0:2 100% |  33.0 MiB/s | 202.5 KiB |  00m00s
 [ 98/188] Installing libpsl-0:0.21.5-7. 100% |  75.6 MiB/s |  77.4 KiB |  00m00s
-[ 99/188] Installing tar-2:1.35-8.fc44. 100% | 106.4 MiB/s |   3.0 MiB |  00m00s
-[100/188] Installing linkdupes-0:0.7.3- 100% |  38.2 MiB/s | 782.3 KiB |  00m00s
-[101/188] Installing libselinux-utils-0 100% |  15.6 MiB/s | 320.1 KiB |  00m00s
-[102/188] Installing libfdisk-0:2.42-7. 100% | 126.7 MiB/s | 389.3 KiB |  00m00s
-[103/188] Installing util-linux-0:2.42- 100% |  86.3 MiB/s |   3.7 MiB |  00m00s
-[104/188] Installing policycoreutils-0: 100% |  27.9 MiB/s | 912.9 KiB |  00m00s
-[105/188] Installing selinux-policy-0:4 100% |   1.5 MiB/s |  34.5 KiB |  00m00s
-[106/188] Installing selinux-policy-tar 100% | 181.7 MiB/s |  14.9 MiB |  00m00s
-[107/188] Installing zstd-0:1.5.7-5.fc4 100% |  22.5 MiB/s | 506.0 KiB |  00m00s
-[108/188] Installing libxml2-0:2.12.10- 100% |  77.0 MiB/s |   1.8 MiB |  00m00s
-[109/188] Installing libusb1-0:1.0.29-5 100% |  17.3 MiB/s | 176.9 KiB |  00m00s
+[ 99/188] Installing tar-2:1.35-8.fc44. 100% | 124.1 MiB/s |   3.0 MiB |  00m00s
+[100/188] Installing linkdupes-0:0.7.3- 100% |  44.9 MiB/s | 782.3 KiB |  00m00s
+[101/188] Installing libselinux-utils-0 100% |  18.4 MiB/s | 320.1 KiB |  00m00s
+[102/188] Installing libfdisk-0:2.42-7. 100% | 190.1 MiB/s | 389.3 KiB |  00m00s
+[103/188] Installing util-linux-0:2.42- 100% |  97.7 MiB/s |   3.7 MiB |  00m00s
+[104/188] Installing policycoreutils-0: 100% |  31.8 MiB/s | 912.9 KiB |  00m00s
+[105/188] Installing selinux-policy-0:4 100% |   1.7 MiB/s |  34.6 KiB |  00m00s
+[106/188] Installing selinux-policy-tar 100% | 206.9 MiB/s |  14.9 MiB |  00m00s
+[107/188] Installing zstd-0:1.5.7-5.fc4 100% |  24.7 MiB/s | 506.0 KiB |  00m00s
+[108/188] Installing libxml2-0:2.12.10- 100% |  88.5 MiB/s |   1.8 MiB |  00m00s
+[109/188] Installing libusb1-0:1.0.29-5 100% |  19.2 MiB/s | 176.9 KiB |  00m00s
 >>> Running sysusers scriptlet: tpm2-tss-0:4.1.3-9.fc44.x86_64
 >>> Finished sysusers scriptlet: tpm2-tss-0:4.1.3-9.fc44.x86_64
 >>> Scriptlet output:
@@ -728,55 +728,55 @@ The key was successfully imported.
 >>> 
 [110/188] Installing tpm2-tss-0:4.1.3-9 100% | 272.2 MiB/s |   1.6 MiB |  00m00s
 [111/188] Installing ima-evm-utils-libs 100% |  60.5 MiB/s |  61.9 KiB |  00m00s
-[112/188] Installing gnupg2-gpg-agent-0 100% |  25.0 MiB/s | 690.6 KiB |  00m00s
+[112/188] Installing gnupg2-gpg-agent-0 100% |  27.0 MiB/s | 690.6 KiB |  00m00s
 [113/188] Installing nettle-0:3.10.1-3. 100% | 259.6 MiB/s | 797.4 KiB |  00m00s
-[114/188] Installing gnutls-0:3.8.12-1. 100% | 339.6 MiB/s |   3.7 MiB |  00m00s
-[115/188] Installing bzip2-0:1.0.8-23.f 100% |   4.9 MiB/s |  99.5 KiB |  00m00s
-[116/188] Installing add-determinism-0: 100% |  94.9 MiB/s |   2.2 MiB |  00m00s
+[114/188] Installing gnutls-0:3.8.12-1. 100% | 415.1 MiB/s |   3.7 MiB |  00m00s
+[115/188] Installing bzip2-0:1.0.8-23.f 100% |   5.7 MiB/s |  99.5 KiB |  00m00s
+[116/188] Installing add-determinism-0: 100% | 103.9 MiB/s |   2.2 MiB |  00m00s
 [117/188] Installing build-reproducibil 100% |   0.0   B/s |   1.5 KiB |  00m00s
-[118/188] Installing cpio-0:2.15-9.fc44 100% |  52.5 MiB/s |   1.1 MiB |  00m00s
-[119/188] Installing ed-0:1.22.5-2.fc45 100% |   8.2 MiB/s | 152.0 KiB |  00m00s
-[120/188] Installing patch-0:2.8-4.fc44 100% |  12.4 MiB/s | 228.1 KiB |  00m00s
+[118/188] Installing cpio-0:2.15-9.fc44 100% |  58.1 MiB/s |   1.1 MiB |  00m00s
+[119/188] Installing ed-0:1.22.5-2.fc45 100% |   9.3 MiB/s | 152.0 KiB |  00m00s
+[120/188] Installing patch-0:2.8-4.fc44 100% |  13.9 MiB/s | 228.1 KiB |  00m00s
 [121/188] Installing lz4-libs-0:1.10.0- 100% | 154.6 MiB/s | 158.4 KiB |  00m00s
 [122/188] Installing libarchive-0:3.8.7 100% | 326.0 MiB/s |   1.0 MiB |  00m00s
 [123/188] Installing libgomp-0:16.0.1-0 100% | 284.6 MiB/s | 582.8 KiB |  00m00s
-[124/188] Installing libtool-ltdl-0:2.5 100% |  69.5 MiB/s |  71.1 KiB |  00m00s
+[124/188] Installing libtool-ltdl-0:2.5 100% |   0.0   B/s |  71.1 KiB |  00m00s
 [125/188] Installing gdbm-libs-1:1.23-1 100% | 128.3 MiB/s | 131.3 KiB |  00m00s
-[126/188] Installing cyrus-sasl-lib-0:2 100% |  96.3 MiB/s |   2.3 MiB |  00m00s
-[127/188] Installing openldap-0:2.6.13- 100% | 219.3 MiB/s | 673.7 KiB |  00m00s
-[128/188] Installing gnupg2-dirmngr-0:2 100% |  23.0 MiB/s | 636.7 KiB |  00m00s
-[129/188] Installing gnupg2-0:2.4.9-7.f 100% | 180.7 MiB/s |   6.5 MiB |  00m00s
+[126/188] Installing cyrus-sasl-lib-0:2 100% | 110.0 MiB/s |   2.3 MiB |  00m00s
+[127/188] Installing openldap-0:2.6.13- 100% | 328.9 MiB/s | 673.7 KiB |  00m00s
+[128/188] Installing gnupg2-dirmngr-0:2 100% |  25.9 MiB/s | 636.7 KiB |  00m00s
+[129/188] Installing gnupg2-0:2.4.9-7.f 100% | 209.8 MiB/s |   6.5 MiB |  00m00s
 [130/188] Installing rpm-sign-libs-0:6. 100% |  39.4 MiB/s |  40.3 KiB |  00m00s
 [131/188] Installing rpm-build-libs-0:6 100% | 270.7 MiB/s | 277.2 KiB |  00m00s
 [132/188] Installing gpgverify-0:2.2-4. 100% |   0.0   B/s |   9.4 KiB |  00m00s
 [133/188] Installing jansson-0:2.14-4.f 100% |  88.2 MiB/s |  90.3 KiB |  00m00s
-[134/188] Installing libpkgconf-0:2.5.1 100% |  89.1 MiB/s |  91.3 KiB |  00m00s
-[135/188] Installing pkgconf-0:2.5.1-1. 100% |   5.2 MiB/s |  95.2 KiB |  00m00s
-[136/188] Installing pkgconf-pkg-config 100% | 104.3 KiB/s |   1.8 KiB |  00m00s
+[134/188] Installing libpkgconf-0:2.5.1 100% |   0.0   B/s |  91.3 KiB |  00m00s
+[135/188] Installing pkgconf-0:2.5.1-1. 100% |   5.8 MiB/s |  95.2 KiB |  00m00s
+[136/188] Installing pkgconf-pkg-config 100% | 118.2 KiB/s |   1.8 KiB |  00m00s
 [137/188] Installing xxhash-libs-0:0.8. 100% |  93.2 MiB/s |  95.4 KiB |  00m00s
 [138/188] Installing libbrotli-0:1.2.0- 100% | 282.3 MiB/s | 867.3 KiB |  00m00s
 [139/188] Installing libnghttp2-0:1.69. 100% | 163.3 MiB/s | 167.3 KiB |  00m00s
 [140/188] Installing libnghttp3-0:1.15. 100% | 156.8 MiB/s | 160.6 KiB |  00m00s
-[141/188] Installing keyutils-libs-0:1. 100% |  54.3 MiB/s |  55.6 KiB |  00m00s
-[142/188] Installing libcom_err-0:1.47. 100% |  62.5 MiB/s |  64.0 KiB |  00m00s
+[141/188] Installing keyutils-libs-0:1. 100% |   0.0   B/s |  55.6 KiB |  00m00s
+[142/188] Installing libcom_err-0:1.47. 100% |   0.0   B/s |  64.0 KiB |  00m00s
 [143/188] Installing libverto-0:0.3.2-1 100% |  26.4 MiB/s |  27.1 KiB |  00m00s
-[144/188] Installing krb5-libs-0:1.22.2 100% | 299.3 MiB/s |   2.4 MiB |  00m00s
+[144/188] Installing krb5-libs-0:1.22.2 100% | 342.1 MiB/s |   2.4 MiB |  00m00s
 [145/188] Installing libcbor-0:0.13.0-2 100% |  79.0 MiB/s |  80.9 KiB |  00m00s
 [146/188] Installing libfido2-0:1.17.0- 100% | 255.9 MiB/s | 262.0 KiB |  00m00s
-[147/188] Installing libssh-0:0.12.0-1. 100% | 234.8 MiB/s | 721.2 KiB |  00m00s
+[147/188] Installing libssh-0:0.12.0-1. 100% | 352.1 MiB/s | 721.2 KiB |  00m00s
 [148/188] Installing libcurl-0:8.20.0~r 100% | 340.7 MiB/s |   1.0 MiB |  00m00s
-[149/188] Installing elfutils-debuginfo 100% |   4.7 MiB/s |  86.1 KiB |  00m00s
-[150/188] Installing elfutils-0:0.195-1 100% | 114.5 MiB/s |   3.0 MiB |  00m00s
-[151/188] Installing binutils-0:2.46.50 100% | 300.8 MiB/s |  28.3 MiB |  00m00s
-[152/188] Installing gdb-minimal-0:17.1 100% | 249.0 MiB/s |  14.2 MiB |  00m00s
-[153/188] Installing debugedit-0:5.3-2. 100% |  11.5 MiB/s | 224.1 KiB |  00m00s
-[154/188] Installing curl-0:8.20.0~rc2- 100% |  16.3 MiB/s | 485.3 KiB |  00m00s
-[155/188] Installing rpm-0:6.0.1-5.fc45 100% |  63.8 MiB/s |   2.6 MiB |  00m00s
+[149/188] Installing elfutils-debuginfo 100% |   5.3 MiB/s |  86.1 KiB |  00m00s
+[150/188] Installing elfutils-0:0.195-1 100% | 129.4 MiB/s |   3.0 MiB |  00m00s
+[151/188] Installing binutils-0:2.46.50 100% | 328.8 MiB/s |  28.3 MiB |  00m00s
+[152/188] Installing gdb-minimal-0:17.1 100% | 267.8 MiB/s |  14.2 MiB |  00m00s
+[153/188] Installing debugedit-0:5.3-2. 100% |  12.9 MiB/s | 224.1 KiB |  00m00s
+[154/188] Installing curl-0:8.20.0~rc2- 100% |  18.2 MiB/s | 485.3 KiB |  00m00s
+[155/188] Installing rpm-0:6.0.1-5.fc45 100% |  70.9 MiB/s |   2.6 MiB |  00m00s
 [156/188] Installing cmake-srpm-macros- 100% |   0.0   B/s | 804.0   B |  00m00s
-[157/188] Installing efi-srpm-macros-0: 100% |  40.2 MiB/s |  41.2 KiB |  00m00s
+[157/188] Installing efi-srpm-macros-0: 100% |   0.0   B/s |  41.2 KiB |  00m00s
 [158/188] Installing java-srpm-macros-0 100% |   0.0   B/s |   1.1 KiB |  00m00s
-[159/188] Installing lua-srpm-macros-0: 100% |   0.0   B/s |   1.9 KiB |  00m00s
-[160/188] Installing tree-sitter-srpm-m 100% |   1.8 MiB/s |   9.3 KiB |  00m00s
+[159/188] Installing lua-srpm-macros-0: 100% | 380.5 KiB/s |   1.9 KiB |  00m00s
+[160/188] Installing tree-sitter-srpm-m 100% |   0.0   B/s |   9.3 KiB |  00m00s
 [161/188] Installing zig-srpm-macros-0: 100% |   0.0   B/s |   1.9 KiB |  00m00s
 [162/188] Installing filesystem-srpm-ma 100% |   0.0   B/s |  38.9 KiB |  00m00s
 [163/188] Installing rust-srpm-macros-0 100% |   0.0   B/s |   6.4 KiB |  00m00s
@@ -792,19 +792,19 @@ The key was successfully imported.
 [173/188] Installing gap-srpm-macros-0: 100% |   0.0   B/s |   2.7 KiB |  00m00s
 [174/188] Installing fpc-srpm-macros-0: 100% |   0.0   B/s | 420.0   B |  00m00s
 [175/188] Installing ansible-srpm-macro 100% |   0.0   B/s |  36.2 KiB |  00m00s
-[176/188] Installing redhat-rpm-config- 100% |  92.7 MiB/s | 189.9 KiB |  00m00s
+[176/188] Installing redhat-rpm-config- 100% | 185.5 MiB/s | 189.9 KiB |  00m00s
 [177/188] Installing forge-srpm-macros- 100% |  39.3 MiB/s |  40.3 KiB |  00m00s
-[178/188] Installing rpm-build-0:6.0.1- 100% |  14.8 MiB/s | 303.7 KiB |  00m00s
+[178/188] Installing rpm-build-0:6.0.1- 100% |  16.5 MiB/s | 303.7 KiB |  00m00s
 [179/188] Installing erlang-srpm-macros 100% |   0.0   B/s |   2.5 KiB |  00m00s
 [180/188] Installing pyproject-srpm-mac 100% |   0.0   B/s |   2.5 KiB |  00m00s
-[181/188] Installing fonts-srpm-macros- 100% |  55.7 MiB/s |  57.0 KiB |  00m00s
-[182/188] Installing go-srpm-macros-0:3 100% |  61.6 MiB/s |  63.0 KiB |  00m00s
+[181/188] Installing fonts-srpm-macros- 100% |   0.0   B/s |  57.0 KiB |  00m00s
+[182/188] Installing go-srpm-macros-0:3 100% |   0.0   B/s |  63.0 KiB |  00m00s
 [183/188] Installing R-srpm-macros-0:1. 100% |   0.0   B/s |   4.4 KiB |  00m00s
 [184/188] Installing python-srpm-macros 100% |   0.0   B/s |  52.9 KiB |  00m00s
 [185/188] Installing rpm-plugin-selinux 100% |   0.0   B/s |  12.9 KiB |  00m00s
-[186/188] Installing which-0:2.23-4.fc4 100% |   4.4 MiB/s |  85.6 KiB |  00m00s
-[187/188] Installing shadow-utils-2:4.1 100% | 115.1 MiB/s |   4.0 MiB |  00m00s
-[188/188] Installing info-0:7.3-1.fc45. 100% |  50.3 KiB/s | 372.8 KiB |  00m07s
+[186/188] Installing which-0:2.23-4.fc4 100% |   4.9 MiB/s |  85.6 KiB |  00m00s
+[187/188] Installing shadow-utils-2:4.1 100% | 130.0 MiB/s |   4.0 MiB |  00m00s
+[188/188] Installing info-0:7.3-1.fc45. 100% |  56.3 KiB/s | 372.8 KiB |  00m07s
 Complete!
 Finish: installing minimal buildroot with dnf5
 Start: creating root cache
@@ -823,8 +823,8 @@ bzip2-1.0.8-23.fc44.x86_64
 bzip2-libs-1.0.8-23.fc44.x86_64
 ca-certificates-2025.2.80_v9.0.304-7.fc45.noarch
 cmake-srpm-macros-4.3.0-1.fc45.noarch
-coreutils-9.10-3.fc45.x86_64
-coreutils-common-9.10-3.fc45.x86_64
+coreutils-9.11-1.fc45.x86_64
+coreutils-common-9.11-1.fc45.x86_64
 cpio-2.15-9.fc44.x86_64
 crypto-policies-20251128-3.git19878fe.fc44.noarch
 curl-8.20.0~rc2-1.fc45.x86_64
@@ -979,11 +979,11 @@ rpm-sequoia-1.10.2-1.fc45.x86_64
 rpm-sign-libs-6.0.1-5.fc45.x86_64
 rust-srpm-macros-28.4-3.fc44.noarch
 sed-4.10-1.fc45.x86_64
-selinux-policy-45.1-1.fc45.noarch
-selinux-policy-targeted-45.1-1.fc45.noarch
+selinux-policy-45.2-1.fc45.noarch
+selinux-policy-targeted-45.2-1.fc45.noarch
 setup-2.15.0-29.fc45.noarch
 shadow-utils-4.19.3-2.fc45.x86_64
-sqlite-libs-3.52.0-1.fc45.x86_64
+sqlite-libs-3.53.0-1.fc45.x86_64
 systemd-libs-260.1-2.fc45.x86_64
 systemd-standalone-sysusers-260.1-2.fc45.x86_64
 tar-1.35-8.fc44.x86_64
@@ -1005,23 +1005,23 @@ Start: rpmbuild -bs
 Building target platforms: x86_64
 Building for target x86_64
 setting SOURCE_DATE_EPOCH=1777334400
-Wrote: /builddir/build/SRPMS/hyprlauncher-0.1.6-1.fc45.src.rpm
+Wrote: /builddir/build/SRPMS/hyprsysteminfo-0.2.0-1.fc45.src.rpm
 Finish: rpmbuild -bs
 INFO: chroot_scan: 1 files copied to /var/lib/copr-rpmbuild/results/chroot_scan
-INFO: /var/lib/mock/fedora-rawhide-x86_64-1777375978.637734/root/var/log/dnf5.log
+INFO: /var/lib/mock/fedora-rawhide-x86_64-1777378520.549170/root/var/log/dnf5.log
 INFO: chroot_scan: creating tarball /var/lib/copr-rpmbuild/results/chroot_scan.tar.gz
 /bin/tar: Removing leading `/' from member names
 Finish: buildsrpm
-INFO: Done(/var/lib/copr-rpmbuild/workspace/workdir-a0c40k8i/hyprlauncher/hyprlauncher.spec) Config(child) 0 minutes 30 seconds
+INFO: Done(/var/lib/copr-rpmbuild/workspace/workdir-_xjjw5a0/hyprsysteminfo/hyprsysteminfo.spec) Config(child) 0 minutes 42 seconds
 INFO: Results and/or logs in: /var/lib/copr-rpmbuild/results
 INFO: Cleaning up build root ('cleanup_on_success=True')
 Start: clean chroot
 INFO: unmounting tmpfs.
 Finish: clean chroot
-INFO: Start(/var/lib/copr-rpmbuild/results/hyprlauncher-0.1.6-1.fc45.src.rpm)  Config(fedora-rawhide-x86_64)
+INFO: Start(/var/lib/copr-rpmbuild/results/hyprsysteminfo-0.2.0-1.fc45.src.rpm)  Config(fedora-rawhide-x86_64)
 Start(bootstrap): chroot init
-INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777375978.637734/root.
-INFO: reusing tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777375978.637734/root.
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777378520.549170/root.
+INFO: reusing tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1777378520.549170/root.
 INFO: calling preinit hooks
 INFO: enabled root cache
 INFO: enabled package manager cache
@@ -1029,7 +1029,7 @@ Start(bootstrap): cleaning package manager metadata
 Finish(bootstrap): cleaning package manager metadata
 Finish(bootstrap): chroot init
 Start: chroot init
-INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-1777375978.637734/root.
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-1777378520.549170/root.
 INFO: calling preinit hooks
 INFO: enabled root cache
 Start: unpacking root cache
@@ -1044,629 +1044,874 @@ INFO: Buildroot is handled by package management downloaded with a bootstrap ima
   dnf5-5.4.2.0-1.fc45.x86_64
   dnf5-plugins-5.4.2.0-1.fc45.x86_64
 Finish: chroot init
-Start: build phase for hyprlauncher-0.1.6-1.fc45.src.rpm
-Start: build setup for hyprlauncher-0.1.6-1.fc45.src.rpm
+Start: build phase for hyprsysteminfo-0.2.0-1.fc45.src.rpm
+Start: build setup for hyprsysteminfo-0.2.0-1.fc45.src.rpm
 Building target platforms: x86_64
 Building for target x86_64
 setting SOURCE_DATE_EPOCH=1777334400
-Wrote: /builddir/build/SRPMS/hyprlauncher-0.1.6-1.fc45.src.rpm
+Wrote: /builddir/build/SRPMS/hyprsysteminfo-0.2.0-1.fc45.src.rpm
 Updating and loading repositories:
- fedora                                 100% | 122.2 KiB/s |  24.8 KiB |  00m00s
- Copr repository                        100% |  17.2 KiB/s |   2.1 KiB |  00m00s
+ fedora                                 100% |   4.0 KiB/s |  24.8 KiB |  00m06s
+ Copr repository                        100% | 354.0   B/s |   2.1 KiB |  00m06s
 Repositories loaded.
 Package                     Arch   Version                   Repository      Size
 Installing:
  cmake                      x86_64 0:4.3.0-1.fc45            fedora      40.5 MiB
- fontconfig-devel           x86_64 0:2.17.0-4.fc44           fedora     123.6 KiB
+ desktop-file-utils         x86_64 0:0.28-5.fc44             fedora     218.0 KiB
  gcc-c++                    x86_64 0:16.0.1-0.11.fc45        fedora      46.3 MiB
- hyprlang-devel             x86_64 0:0.6.8-1.fc45            copr_base   16.3 KiB
- hyprtoolkit-devel          x86_64 0:0.5.3-1.fc45            copr_base   60.0 KiB
  hyprutils-devel            x86_64 0:0.12.0-1.fc45           copr_base  103.8 KiB
- hyprwire-devel             x86_64 0:0.3.1-1.fc45            copr_base  212.0 KiB
- libdrm-devel               x86_64 0:2.4.131-1.fc44          fedora     741.5 KiB
- libicu-devel               x86_64 0:77.1-2.fc44             fedora       5.0 MiB
- libqalculate-devel         x86_64 0:5.9.0-1.fc44            fedora     305.2 KiB
- libxkbcommon-devel         x86_64 0:1.13.1-2.fc44           fedora     393.4 KiB
- ninja-build                x86_64 0:1.13.2-2.fc44           fedora     496.5 KiB
- pixman-devel               x86_64 0:0.46.2-3.fc44           fedora      56.1 KiB
+ qt6-qtbase-devel           x86_64 0:6.11.0-2.fc45           fedora      22.7 MiB
+ qt6-qtbase-private-devel   x86_64 0:6.11.0-2.fc45           fedora       5.9 MiB
+ qt6-qtdeclarative-devel    x86_64 0:6.11.0-1.fc45           fedora      25.6 MiB
+ wayland-devel              x86_64 0:1.24.0-3.fc44           fedora     691.8 KiB
 Installing dependencies:
+ SDL3                       x86_64 0:3.4.0-3.fc44            fedora       3.2 MiB
  abattis-cantarell-vf-fonts noarch 0:0.301-17.fc44           fedora     192.7 KiB
+ adwaita-cursor-theme       noarch 0:50.0-1.fc45             fedora      11.4 MiB
+ adwaita-icon-theme         noarch 0:50.0-1.fc45             fedora       1.1 MiB
+ adwaita-icon-theme-legacy  noarch 0:46.2-7.fc45             fedora       2.1 MiB
  annobin-docs               noarch 0:13.12-1.fc45            fedora      99.3 KiB
  annobin-plugin-gcc         x86_64 0:13.12-1.fc45            fedora     699.5 KiB
- aquamarine                 x86_64 0:0.11.0-1.fc45           copr_base    1.2 MiB
- aquamarine-devel           x86_64 0:0.11.0-1.fc45           copr_base   93.3 KiB
- brotli                     x86_64 0:1.2.0-3.fc44            fedora      33.4 KiB
- brotli-devel               x86_64 0:1.2.0-3.fc44            fedora      65.9 KiB
+ at-spi2-atk                x86_64 0:2.60.2-1.fc45           fedora     284.1 KiB
+ at-spi2-core               x86_64 0:2.60.2-1.fc45           fedora       1.6 MiB
+ atk                        x86_64 0:2.60.2-1.fc45           fedora     252.6 KiB
+ avahi                      x86_64 0:0.9~rc2-8.fc44          fedora       1.6 MiB
+ avahi-devel                x86_64 0:0.9~rc2-8.fc44          fedora     130.6 KiB
+ avahi-glib                 x86_64 0:0.9~rc2-8.fc44          fedora      19.5 KiB
+ avahi-libs                 x86_64 0:0.9~rc2-8.fc44          fedora     179.2 KiB
  bubblewrap                 x86_64 0:0.11.0-4.fc44           fedora     134.8 KiB
- bzip2-devel                x86_64 0:1.0.8-23.fc44           fedora     309.8 KiB
  cairo                      x86_64 0:1.18.4-6.fc44           fedora       1.8 MiB
- cairo-devel                x86_64 0:1.18.4-6.fc44           fedora       2.3 MiB
  cairo-gobject              x86_64 0:1.18.4-6.fc44           fedora      31.0 KiB
- cln                        x86_64 0:1.3.6-10.fc44           fedora       1.5 MiB
- cln-devel                  x86_64 0:1.3.6-10.fc44           fedora       1.1 MiB
  cmake-data                 noarch 0:4.3.0-1.fc45            fedora       9.4 MiB
  cmake-filesystem           x86_64 0:4.3.0-1.fc45            fedora       0.0   B
  cmake-rpm-macros           noarch 0:4.3.0-1.fc45            fedora       8.4 KiB
+ colord-libs                x86_64 0:1.4.8-4.fc44            fedora     830.4 KiB
  cpp                        x86_64 0:16.0.1-0.11.fc45        fedora      42.1 MiB
+ cups-devel                 x86_64 1:2.4.18-1.fc45           fedora     185.8 KiB
+ cups-filesystem            noarch 1:2.4.18-1.fc45           fedora       0.0   B
+ cups-libs                  x86_64 1:2.4.18-1.fc45           fedora     634.6 KiB
+ dbus                       x86_64 1:1.16.2-1.fc45           fedora       0.0   B
+ dbus-devel                 x86_64 1:1.16.2-1.fc45           fedora     131.7 KiB
+ dbus-libs                  x86_64 1:1.16.2-1.fc45           fedora     357.5 KiB
  default-fonts-core-sans    noarch 0:4.3-1.fc45              fedora      11.9 KiB
+ dns-root-data              noarch 0:2026260100-2.fc44       fedora      10.9 KiB
+ double-conversion          x86_64 0:3.4.0-3.fc44            fedora     101.8 KiB
+ duktape                    x86_64 0:2.7.0-11.fc44           fedora     623.6 KiB
  emacs-filesystem           x86_64 1:30.2-2.fc44             fedora       0.0   B
  expat                      x86_64 0:2.7.5-1.fc45            fedora     322.9 KiB
  fontconfig                 x86_64 0:2.17.0-4.fc44           fedora     776.4 KiB
  fonts-filesystem           noarch 1:5.0.0-3.fc45            fedora       0.0   B
  freetype                   x86_64 0:2.14.3-1.fc45           fedora     918.3 KiB
- freetype-devel             x86_64 0:2.14.3-1.fc45           fedora       8.6 MiB
  fribidi                    x86_64 0:1.0.16-4.fc44           fedora     190.0 KiB
  gcc                        x86_64 0:16.0.1-0.11.fc45        fedora     120.7 MiB
  gcc-plugin-annobin         x86_64 0:16.0.1-0.11.fc45        fedora      57.2 KiB
  gdk-pixbuf2                x86_64 0:2.44.6-1.fc45           fedora       2.6 MiB
- gettext                    x86_64 0:1.0-1.fc45              fedora      17.8 MiB
- gettext-envsubst           x86_64 0:1.0-1.fc45              fedora      74.6 KiB
- gettext-libs               x86_64 0:1.0-1.fc45              fedora       2.3 MiB
- gettext-runtime            x86_64 0:1.0-1.fc45              fedora     716.0 KiB
- glfw                       x86_64 1:3.4-7.fc45              fedora     386.0 KiB
  glib2                      x86_64 0:2.88.0-1.fc45           fedora      15.3 MiB
- glib2-devel                x86_64 0:2.88.0-1.fc45           fedora      15.8 MiB
  glibc-devel                x86_64 0:2.43.9000-12.fc45       fedora       2.3 MiB
+ glx-utils                  x86_64 0:9.0.0-11.fc44           fedora     418.0 KiB
  glycin-libs                x86_64 0:2.1.1-1.fc45            fedora       4.3 MiB
  glycin-loaders             x86_64 0:2.1.1-1.fc45            fedora      14.0 MiB
  gmp-c++                    x86_64 1:6.3.0-5.fc44            fedora      31.5 KiB
  gmp-devel                  x86_64 1:6.3.0-5.fc44            fedora     352.3 KiB
+ gnutls-c++                 x86_64 0:3.8.12-1.fc45           fedora      72.3 KiB
+ gnutls-dane                x86_64 0:3.8.12-1.fc45           fedora      60.8 KiB
+ gnutls-devel               x86_64 0:3.8.12-1.fc45           fedora       5.7 MiB
  google-noto-fonts-common   noarch 0:20260401-1.fc45         fedora      17.7 KiB
  google-noto-sans-vf-fonts  noarch 0:20260401-1.fc45         fedora       1.4 MiB
  graphite2                  x86_64 0:1.3.14-20.fc44          fedora     191.5 KiB
- graphite2-devel            x86_64 0:1.3.14-20.fc44          fedora      49.3 KiB
+ gtk-update-icon-cache      x86_64 0:3.24.52-3.fc45          fedora      62.0 KiB
+ gtk3                       x86_64 0:3.24.52-3.fc45          fedora      22.8 MiB
  harfbuzz                   x86_64 0:14.2.0-1.fc45           fedora       2.8 MiB
- harfbuzz-cairo             x86_64 0:14.2.0-1.fc45           fedora      48.0 KiB
- harfbuzz-devel             x86_64 0:14.2.0-1.fc45           fedora       6.4 MiB
- harfbuzz-gpu               x86_64 0:14.2.0-1.fc45           fedora     176.3 KiB
- harfbuzz-icu               x86_64 0:14.2.0-1.fc45           fedora      15.3 KiB
- harfbuzz-raster            x86_64 0:14.2.0-1.fc45           fedora     104.3 KiB
- harfbuzz-vector            x86_64 0:14.2.0-1.fc45           fedora     113.1 KiB
+ hicolor-icon-theme         noarch 0:0.18-3.fc44             fedora      72.4 KiB
  highway                    x86_64 0:1.3.0-2.fc44            fedora       5.5 MiB
+ hiredis                    x86_64 0:1.2.0-8.fc44            fedora     105.7 KiB
  hwdata                     noarch 0:0.406-1.fc45            fedora       9.9 MiB
- hyprgraphics               x86_64 0:0.5.1-1.fc45            copr_base  228.6 KiB
- hyprgraphics-devel         x86_64 0:0.5.1-1.fc45            copr_base   13.8 KiB
- hyprlang                   x86_64 0:0.6.8-1.fc45            copr_base  288.7 KiB
- hyprtoolkit                x86_64 0:0.5.3-1.fc45            copr_base    1.3 MiB
  hyprutils                  x86_64 0:0.12.0-1.fc45           copr_base  378.9 KiB
- hyprwire                   x86_64 0:0.3.1-1.fc45            copr_base  346.3 KiB
- iniparser                  x86_64 0:4.2.6-4.fc44            fedora      37.5 KiB
+ json-glib                  x86_64 0:1.10.8-5.fc45           fedora     596.2 KiB
  jsoncpp                    x86_64 0:1.9.6-3.fc44            fedora     285.6 KiB
  kernel-headers             x86_64 0:7.1.0-0.rc1.9.fc45      fedora       6.9 MiB
+ keyutils-libs-devel        x86_64 0:1.6.3-7.fc44            fedora      48.2 KiB
+ krb5-devel                 x86_64 0:1.22.2-6.fc45           fedora     709.9 KiB
  lcms2                      x86_64 0:2.16-7.fc44             fedora     445.7 KiB
- libGLEW                    x86_64 0:2.2.0-12.fc44           fedora     760.2 KiB
+ libICE                     x86_64 0:1.1.2-4.fc44            fedora     198.3 KiB
+ libSM                      x86_64 0:1.2.5-4.fc44            fedora     100.9 KiB
  libX11                     x86_64 0:1.8.13-1.fc45           fedora       1.3 MiB
  libX11-common              noarch 0:1.8.13-1.fc45           fedora       1.1 MiB
  libX11-devel               x86_64 0:1.8.13-1.fc45           fedora       1.0 MiB
  libX11-xcb                 x86_64 0:1.8.13-1.fc45           fedora      10.8 KiB
  libXau                     x86_64 0:1.0.12-4.fc44           fedora      72.8 KiB
  libXau-devel               x86_64 0:1.0.12-4.fc44           fedora       7.3 KiB
+ libXcomposite              x86_64 0:0.4.6-7.fc44            fedora      40.3 KiB
+ libXcursor                 x86_64 0:1.2.3-4.fc44            fedora      53.3 KiB
+ libXdamage                 x86_64 0:1.1.6-7.fc44            fedora      39.5 KiB
  libXext                    x86_64 0:1.3.6-5.fc44            fedora      89.8 KiB
- libXext-devel              x86_64 0:1.3.6-5.fc44            fedora      97.7 KiB
+ libXfixes                  x86_64 0:6.0.1-7.fc44            fedora      34.0 KiB
  libXft                     x86_64 0:2.3.8-10.fc44           fedora     168.3 KiB
+ libXi                      x86_64 0:1.8.2-4.fc44            fedora      80.6 KiB
+ libXinerama                x86_64 0:1.1.5-10.fc44           fedora      14.8 KiB
+ libXrandr                  x86_64 0:1.5.4-7.fc44            fedora      55.6 KiB
  libXrender                 x86_64 0:0.9.12-4.fc44           fedora      49.9 KiB
- libXrender-devel           x86_64 0:0.9.12-4.fc44           fedora      50.1 KiB
+ libXtst                    x86_64 0:1.2.5-4.fc44            fedora      33.4 KiB
  libXxf86vm                 x86_64 0:1.1.6-4.fc44            fedora      25.1 KiB
  libaom                     x86_64 0:3.13.3-2.fc45           fedora       5.1 MiB
  libatomic                  x86_64 0:16.0.1-0.11.fc45        fedora      45.5 KiB
- libblkid-devel             x86_64 0:2.42-7.fc45             fedora      45.0 KiB
+ libb2                      x86_64 0:0.98.1-15.fc44          fedora      41.9 KiB
+ libcloudproviders          x86_64 0:0.4.0-1.fc45            fedora     124.4 KiB
+ libcom_err-devel           x86_64 0:1.47.4-1.fc45           fedora      16.7 KiB
+ libdaemon                  x86_64 0:0.14-33.fc44            fedora      64.2 KiB
  libdatrie                  x86_64 0:0.2.14-2.fc44           fedora      61.7 KiB
  libdav1d                   x86_64 0:1.5.3-1.fc45            fedora       1.7 MiB
- libdisplay-info            x86_64 0:0.3.0-1.fc45            fedora     226.5 KiB
+ libdecor                   x86_64 0:0.2.5-2.fc44            fedora     168.9 KiB
  libdrm                     x86_64 0:2.4.131-1.fc44          fedora     404.1 KiB
  libedit                    x86_64 0:3.1-58.20251016cvs.fc44 fedora     248.1 KiB
+ libepoxy                   x86_64 0:1.5.10-12.fc44          fedora       1.1 MiB
  libevdev                   x86_64 0:1.13.6-2.fc44           fedora      89.9 KiB
+ libevent-devel             x86_64 0:2.1.12-17.fc44          fedora     426.0 KiB
+ libfbclient2               x86_64 0:5.0.4.1812-1.fc45       fedora       3.3 MiB
  libffi-devel               x86_64 0:3.5.2-2.fc44            fedora      33.9 KiB
  libglvnd                   x86_64 1:1.7.0-9.fc44            fedora     526.5 KiB
+ libglvnd-core-devel        x86_64 1:1.7.0-9.fc44            fedora      40.3 KiB
+ libglvnd-devel             x86_64 1:1.7.0-9.fc44            fedora       2.1 MiB
  libglvnd-egl               x86_64 1:1.7.0-9.fc44            fedora      68.6 KiB
+ libglvnd-gles              x86_64 1:1.7.0-9.fc44            fedora      97.7 KiB
  libglvnd-glx               x86_64 1:1.7.0-9.fc44            fedora     601.0 KiB
  libglvnd-opengl            x86_64 1:1.7.0-9.fc44            fedora     144.7 KiB
  libgudev                   x86_64 0:238-9.fc44              fedora      91.7 KiB
+ libgusb                    x86_64 0:0.4.9-5.fc44            fedora     157.9 KiB
  libheif                    x86_64 0:1.21.2-3.fc45           fedora       1.8 MiB
  libicu                     x86_64 0:77.1-2.fc44             fedora      36.6 MiB
+ libidn2-devel              x86_64 0:2.3.8-3.fc44            fedora     149.1 KiB
  libinput                   x86_64 0:1.31.1-1.fc45           fedora     695.1 KiB
  libjpeg-turbo              x86_64 0:3.1.4.1-1.fc45          fedora     825.7 KiB
  libjxl                     x86_64 1:0.11.1-8.fc44           fedora       4.1 MiB
- libmount-devel             x86_64 0:2.42-7.fc45             fedora      66.5 KiB
+ libkadm5                   x86_64 0:1.22.2-6.fc45           fedora     217.8 KiB
  libmpc                     x86_64 0:1.4.1-1.fc45            fedora     168.7 KiB
  libopenjph                 x86_64 0:0.26.3-1.fc45           fedora     482.1 KiB
  libpciaccess               x86_64 0:0.16-17.fc44            fedora      48.4 KiB
- libpciaccess-devel         x86_64 0:0.16-17.fc44            fedora      15.3 KiB
  libpng                     x86_64 2:1.6.56-1.fc45           fedora     249.6 KiB
- libpng-devel               x86_64 2:1.6.56-1.fc45           fedora     905.1 KiB
- libqalculate               x86_64 0:5.9.0-1.fc44            fedora       9.7 MiB
+ libpq                      x86_64 0:18.0-4.fc44             fedora       1.0 MiB
+ libproxy                   x86_64 0:0.5.12-2.fc44           fedora     102.1 KiB
  librsvg2                   x86_64 0:2.62.0-1.fc45           fedora       5.0 MiB
- libseat                    x86_64 0:0.9.3-1.fc45            fedora      51.4 KiB
  libseccomp                 x86_64 0:2.6.0-3.fc44            fedora     224.8 KiB
  libselinux-devel           x86_64 0:3.10-1.fc44             fedora     122.2 KiB
  libsepol-devel             x86_64 0:3.10-1.fc44             fedora     121.5 KiB
+ libsoup3                   x86_64 0:3.6.6-8.fc45            fedora       1.2 MiB
  libstdc++-devel            x86_64 0:16.0.1-0.11.fc45        fedora      39.2 MiB
- libtextstyle               x86_64 0:1.0-1.fc45              fedora     211.4 KiB
+ libstemmer                 x86_64 0:3.0.1-11.fc44           fedora     641.3 KiB
+ libtasn1-devel             x86_64 0:4.21.0-1.fc45           fedora      76.1 KiB
+ libtasn1-tools             x86_64 0:4.21.0-1.fc45           fedora      60.6 KiB
  libthai                    x86_64 0:0.1.30-2.fc44           fedora     800.9 KiB
+ libtinysparql              x86_64 0:3.11.1-1.fc45           fedora       1.0 MiB
+ libtommath                 x86_64 0:1.3.1~rc1-7.fc44        fedora     130.2 KiB
  libuv                      x86_64 1:1.52.1-1.fc45           fedora     593.2 KiB
+ libverto-devel             x86_64 0:0.3.2-12.fc44           fedora      25.7 KiB
  libvmaf                    x86_64 0:3.1.0-1.fc45            fedora     975.0 KiB
  libwacom                   x86_64 0:2.18.0-1.fc44           fedora     109.8 KiB
  libwacom-data              noarch 0:2.18.0-1.fc44           fedora       1.4 MiB
  libwayland-client          x86_64 0:1.24.0-3.fc44           fedora      61.9 KiB
+ libwayland-cursor          x86_64 0:1.24.0-3.fc44           fedora      37.2 KiB
+ libwayland-egl             x86_64 0:1.24.0-3.fc44           fedora      12.3 KiB
+ libwayland-server          x86_64 0:1.24.0-3.fc44           fedora      86.4 KiB
  libwebp                    x86_64 0:1.6.0-3.fc44            fedora     968.0 KiB
  libxcb                     x86_64 0:1.17.0-7.fc44           fedora       1.1 MiB
  libxcb-devel               x86_64 0:1.17.0-7.fc44           fedora       2.6 MiB
  libxcrypt-devel            x86_64 0:4.5.2-3.fc44            fedora      31.0 KiB
  libxkbcommon               x86_64 0:1.13.1-2.fc44           fedora     432.2 KiB
+ libxkbcommon-devel         x86_64 0:1.13.1-2.fc44           fedora     393.4 KiB
+ libxkbcommon-x11           x86_64 0:1.13.1-2.fc44           fedora      35.4 KiB
  libxml2-devel              x86_64 0:2.12.10-6.fc44          fedora       3.4 MiB
  libxshmfence               x86_64 0:1.3.2-8.fc44            fedora      12.3 KiB
  llvm-filesystem            x86_64 0:22.1.4-1.fc45           fedora       0.0   B
  llvm-libs                  x86_64 0:22.1.4-1.fc45           fedora     140.5 MiB
  lm_sensors-libs            x86_64 0:3.6.0-24.fc44           fedora      85.7 KiB
  lzo                        x86_64 0:2.10-16.fc44            fedora     174.8 KiB
- lzo-devel                  x86_64 0:2.10-16.fc44            fedora     212.2 KiB
- lzo-minilzo                x86_64 0:2.10-16.fc44            fedora      36.6 KiB
  make                       x86_64 1:4.4.1-12.fc44           fedora       1.8 MiB
+ mariadb-connector-c        x86_64 0:3.4.8-3.fc44            fedora     523.0 KiB
+ mariadb-connector-c-config noarch 0:3.4.8-3.fc44            fedora     497.0   B
  mesa-dri-drivers           x86_64 0:26.1.0~rc2-1.fc45       fedora      52.3 MiB
  mesa-filesystem            x86_64 0:26.1.0~rc2-1.fc45       fedora       3.6 KiB
  mesa-libEGL                x86_64 0:26.1.0~rc2-1.fc45       fedora     394.4 KiB
  mesa-libGL                 x86_64 0:26.1.0~rc2-1.fc45       fedora     370.0 KiB
  mesa-libgbm                x86_64 0:26.1.0~rc2-1.fc45       fedora      19.5 KiB
  mpdecimal                  x86_64 0:4.0.1-3.fc44            fedora     217.1 KiB
- mpfr-devel                 x86_64 0:4.2.2-3.fc44            fedora      62.9 KiB
  mtdev                      x86_64 0:1.1.6-12.fc44           fedora      29.1 KiB
+ nettle-devel               x86_64 0:3.10.1-3.fc44           fedora       1.5 MiB
+ ninja-build                x86_64 0:1.13.2-2.fc44           fedora     496.5 KiB
  noopenh264                 x86_64 0:2.6.0-4.fc44            fedora      39.0 KiB
  openjpeg                   x86_64 0:2.5.4-3.fc44            fedora     464.2 KiB
+ p11-kit-devel              x86_64 0:0.26.2-1.fc45           fedora     634.8 KiB
  pango                      x86_64 0:1.57.1-1.fc45           fedora       1.0 MiB
  pcre2-devel                x86_64 0:10.47-1.fc44.1          fedora       2.1 MiB
  pcre2-utf16                x86_64 0:10.47-1.fc44.1          fedora     655.2 KiB
  pcre2-utf32                x86_64 0:10.47-1.fc44.1          fedora     623.1 KiB
  pixman                     x86_64 0:0.46.2-3.fc44           fedora     718.2 KiB
- pugixml                    x86_64 0:1.15-2.fc44             fedora     278.6 KiB
+ protobuf-c                 x86_64 0:1.5.2-2.fc44            fedora      53.7 KiB
  python-pip-wheel           noarch 0:26.0.1-2.fc45           fedora       1.2 MiB
  python3                    x86_64 0:3.14.4-2.fc45           fedora      28.7 KiB
  python3-libs               x86_64 0:3.14.4-2.fc45           fedora      43.8 MiB
- python3-packaging          noarch 0:26.1-1.fc45             fedora     958.1 KiB
+ qt6-filesystem             x86_64 0:6.11.0-1.fc45           fedora       0.0   B
+ qt6-qtbase                 x86_64 0:6.11.0-2.fc45           fedora      13.9 MiB
+ qt6-qtbase-common          noarch 0:6.11.0-2.fc45           fedora      76.0   B
+ qt6-qtbase-gui             x86_64 0:6.11.0-2.fc45           fedora      27.5 MiB
+ qt6-qtbase-ibase           x86_64 0:6.11.0-2.fc45           fedora     161.7 KiB
+ qt6-qtbase-mysql           x86_64 0:6.11.0-2.fc45           fedora     117.6 KiB
+ qt6-qtbase-odbc            x86_64 0:6.11.0-2.fc45           fedora     153.1 KiB
+ qt6-qtbase-postgresql      x86_64 0:6.11.0-2.fc45           fedora     137.4 KiB
+ qt6-qtdeclarative          x86_64 0:6.11.0-1.fc45           fedora      59.2 MiB
+ qt6-qtsvg                  x86_64 0:6.11.0-1.fc45           fedora     931.5 KiB
+ qt6-rpm-macros             noarch 0:6.11.0-1.fc45           fedora       3.0 KiB
  rav1e-libs                 x86_64 0:0.8.1-3.fc44            fedora       3.1 MiB
  rhash                      x86_64 0:1.4.5-4.fc44            fedora     354.8 KiB
+ sdl2-compat                x86_64 0:2.32.64-1.fc45          fedora     408.2 KiB
  shared-mime-info           x86_64 0:2.4-3.fc44              fedora       5.2 MiB
  spirv-tools-libs           x86_64 0:2026.1-1.fc45           fedora       6.1 MiB
  svt-av1-libs               x86_64 0:3.1.2-2.fc44            fedora       5.6 MiB
- sysprof-capture-devel      x86_64 0:50.0-1.fc45             fedora     813.8 KiB
+ systemd-devel              x86_64 0:260.1-2.fc45            fedora     601.4 KiB
+ systemd-rpm-macros         noarch 0:260.1-2.fc45            fedora       8.5 KiB
+ tslib                      x86_64 0:1.24-2.fc44             fedora     402.7 KiB
  tzdata                     noarch 0:2026a-1.fc45            fedora       1.2 MiB
+ unbound-libs               x86_64 0:1.24.2-11.fc45          fedora       1.5 MiB
+ unixODBC                   x86_64 0:2.3.14-5.fc45           fedora       1.0 MiB
  vim-filesystem             noarch 2:9.2.390-1.fc45          fedora      40.0   B
+ vulkan-headers             noarch 0:1.4.341.0-1.fc45        fedora      36.1 MiB
+ vulkan-loader              x86_64 0:1.4.341.0-1.fc45        fedora     577.6 KiB
+ vulkan-loader-devel        x86_64 0:1.4.341.0-1.fc45        fedora       8.0 KiB
+ xcb-util                   x86_64 0:0.4.1-9.fc44            fedora      26.1 KiB
+ xcb-util-cursor            x86_64 0:0.1.6-2.fc44            fedora      23.1 KiB
+ xcb-util-image             x86_64 0:0.4.1-9.fc44            fedora      22.0 KiB
+ xcb-util-keysyms           x86_64 0:0.4.1-9.fc44            fedora      16.6 KiB
+ xcb-util-renderutil        x86_64 0:0.3.10-9.fc44           fedora      24.2 KiB
+ xcb-util-wm                x86_64 0:0.4.2-9.fc44            fedora      81.0 KiB
  xkeyboard-config           noarch 0:2.47-1.fc45             fedora       6.4 MiB
  xml-common                 noarch 0:0.6.3-68.fc44           fedora      78.4 KiB
  xorg-x11-proto-devel       noarch 0:2025.1-2.fc44           fedora       1.8 MiB
+ xprop                      x86_64 0:1.2.8-5.fc44            fedora      54.5 KiB
  xz-devel                   x86_64 1:5.8.3-1.fc45            fedora     258.8 KiB
  zlib-ng-compat-devel       x86_64 0:2.3.3-5.fc45            fedora     107.0 KiB
 
 Transaction Summary:
- Installing:       178 packages
+ Installing:       231 packages
 
-Total size of inbound packages is 225 MiB. Need to download 225 MiB.
-After this operation, 805 MiB extra will be used (install 805 MiB, remove 0 B).
-[  1/178] ninja-build-0:1.13.2-2.fc44.x 100% |   1.9 MiB/s | 203.9 KiB |  00m00s
-[  2/178] fontconfig-devel-0:2.17.0-4.f 100% |   4.0 MiB/s | 169.0 KiB |  00m00s
-[  3/178] hyprlang-devel-0:0.6.8-1.fc45 100% |   3.7 MiB/s |  11.4 KiB |  00m00s
-[  4/178] hyprtoolkit-devel-0:0.5.3-1.f 100% | 238.0 KiB/s |  19.8 KiB |  00m00s
-[  5/178] hyprutils-devel-0:0.12.0-1.fc 100% |   9.6 MiB/s |  29.5 KiB |  00m00s
-[  6/178] cmake-0:4.3.0-1.fc45.x86_64   100% |  52.7 MiB/s |  14.4 MiB |  00m00s
-[  7/178] gcc-c++-0:16.0.1-0.11.fc45.x8 100% |  49.4 MiB/s |  17.2 MiB |  00m00s
-[  8/178] libdrm-devel-0:2.4.131-1.fc44 100% |   8.3 MiB/s | 186.5 KiB |  00m00s
-[  9/178] libicu-devel-0:77.1-2.fc44.x8 100% |   7.5 MiB/s | 794.4 KiB |  00m00s
-[ 10/178] libqalculate-devel-0:5.9.0-1. 100% |   3.0 MiB/s |  64.8 KiB |  00m00s
-[ 11/178] pixman-devel-0:0.46.2-3.fc44. 100% | 854.0 KiB/s |  17.9 KiB |  00m00s
-[ 12/178] libxkbcommon-devel-0:1.13.1-2 100% |   3.5 MiB/s |  74.8 KiB |  00m00s
-[ 13/178] vim-filesystem-2:9.2.390-1.fc 100% | 745.0 KiB/s |  15.6 KiB |  00m00s
-[ 14/178] cmake-data-0:4.3.0-1.fc45.noa 100% |  70.5 MiB/s |   2.7 MiB |  00m00s
-[ 15/178] cmake-filesystem-0:4.3.0-1.fc 100% | 416.4 KiB/s |  15.0 KiB |  00m00s
-[ 16/178] jsoncpp-0:1.9.6-3.fc44.x86_64 100% |   5.1 MiB/s | 110.0 KiB |  00m00s
-[ 17/178] expat-0:2.7.5-1.fc45.x86_64   100% |   5.2 MiB/s | 128.1 KiB |  00m00s
-[ 18/178] libuv-1:1.52.1-1.fc45.x86_64  100% |  11.6 MiB/s | 273.9 KiB |  00m00s
-[ 19/178] make-1:4.4.1-12.fc44.x86_64   100% |  19.8 MiB/s | 588.7 KiB |  00m00s
-[ 20/178] rhash-0:1.4.5-4.fc44.x86_64   100% |   9.0 MiB/s | 201.9 KiB |  00m00s
-[ 21/178] hyprwire-devel-0:0.3.1-1.fc45 100% | 329.3 KiB/s |  95.8 KiB |  00m00s
-[ 22/178] libmpc-0:1.4.1-1.fc45.x86_64  100% |   3.7 MiB/s |  75.6 KiB |  00m00s
-[ 23/178] fontconfig-0:2.17.0-4.fc44.x8 100% |  12.3 MiB/s | 278.2 KiB |  00m00s
-[ 24/178] hyprlang-0:0.6.8-1.fc45.x86_6 100% |  30.7 MiB/s | 125.7 KiB |  00m00s
-[ 25/178] gettext-0:1.0-1.fc45.x86_64   100% |  65.6 MiB/s |   2.0 MiB |  00m00s
-[ 26/178] pugixml-0:1.15-2.fc44.x86_64  100% |   5.2 MiB/s | 112.1 KiB |  00m00s
-[ 27/178] libicu-0:77.1-2.fc44.x86_64   100% | 133.6 MiB/s |  10.8 MiB |  00m00s
-[ 28/178] gcc-0:16.0.1-0.11.fc45.x86_64 100% | 124.8 MiB/s |  43.0 MiB |  00m00s
-[ 29/178] libdrm-0:2.4.131-1.fc44.x86_6 100% | 625.2 KiB/s | 166.3 KiB |  00m00s
-[ 30/178] libqalculate-0:5.9.0-1.fc44.x 100% |  12.7 MiB/s |   2.6 MiB |  00m00s
-[ 31/178] pixman-0:0.46.2-3.fc44.x86_64 100% |  13.2 MiB/s | 297.4 KiB |  00m00s
-[ 32/178] libxkbcommon-0:1.13.1-2.fc44. 100% |   7.9 MiB/s | 185.8 KiB |  00m00s
-[ 33/178] emacs-filesystem-1:30.2-2.fc4 100% | 402.1 KiB/s |   8.0 KiB |  00m00s
-[ 34/178] cpp-0:16.0.1-0.11.fc45.x86_64 100% | 140.4 MiB/s |  14.5 MiB |  00m00s
-[ 35/178] default-fonts-core-sans-0:4.3 100% | 288.7 KiB/s |  29.2 KiB |  00m00s
-[ 36/178] fonts-filesystem-1:5.0.0-3.fc 100% |  87.3 KiB/s |   8.7 KiB |  00m00s
-[ 37/178] gettext-libs-0:1.0-1.fc45.x86 100% |  33.8 MiB/s | 831.1 KiB |  00m00s
-[ 38/178] xml-common-0:0.6.3-68.fc44.no 100% |   1.2 MiB/s |  31.1 KiB |  00m00s
-[ 39/178] freetype-0:2.14.3-1.fc45.x86_ 100% |  16.7 MiB/s | 444.2 KiB |  00m00s
-[ 40/178] gettext-runtime-0:1.0-1.fc45. 100% |   8.3 MiB/s | 179.3 KiB |  00m00s
-[ 41/178] libtextstyle-0:1.0-1.fc45.x86 100% |   4.5 MiB/s |  96.6 KiB |  00m00s
-[ 42/178] libpciaccess-0:0.16-17.fc44.x 100% |   1.3 MiB/s |  27.2 KiB |  00m00s
-[ 43/178] xkeyboard-config-0:2.47-1.fc4 100% |  39.1 MiB/s |   1.0 MiB |  00m00s
-[ 44/178] abattis-cantarell-vf-fonts-0: 100% |   4.7 MiB/s | 120.4 KiB |  00m00s
-[ 45/178] google-noto-sans-vf-fonts-0:2 100% |  20.7 MiB/s | 614.2 KiB |  00m00s
-[ 46/178] harfbuzz-0:14.2.0-1.fc45.x86_ 100% |  42.9 MiB/s |   1.1 MiB |  00m00s
-[ 47/178] libpng-2:1.6.56-1.fc45.x86_64 100% |   4.9 MiB/s | 129.2 KiB |  00m00s
-[ 48/178] gettext-envsubst-0:1.0-1.fc45 100% |   1.7 MiB/s |  38.5 KiB |  00m00s
-[ 49/178] glib2-0:2.88.0-1.fc45.x86_64  100% |  77.2 MiB/s |   3.2 MiB |  00m00s
-[ 50/178] google-noto-fonts-common-0:20 100% | 403.3 KiB/s |  16.9 KiB |  00m00s
-[ 51/178] hwdata-0:0.406-1.fc45.noarch  100% |  33.8 MiB/s |   1.7 MiB |  00m00s
-[ 52/178] graphite2-0:1.3.14-20.fc44.x8 100% |   4.7 MiB/s |  96.5 KiB |  00m00s
-[ 53/178] python3-0:3.14.4-2.fc45.x86_6 100% |   1.4 MiB/s |  28.6 KiB |  00m00s
-[ 54/178] python3-libs-0:3.14.4-2.fc45. 100% | 120.5 MiB/s |  10.1 MiB |  00m00s
-[ 55/178] mpdecimal-0:4.0.1-3.fc44.x86_ 100% |   1.3 MiB/s |  99.1 KiB |  00m00s
-[ 56/178] python-pip-wheel-0:26.0.1-2.f 100% |  15.7 MiB/s |   1.1 MiB |  00m00s
-[ 57/178] tzdata-0:2026a-1.fc45.noarch  100% |  27.9 MiB/s | 713.3 KiB |  00m00s
-[ 58/178] libxml2-devel-0:2.12.10-6.fc4 100% |  18.9 MiB/s | 523.6 KiB |  00m00s
-[ 59/178] xz-devel-1:5.8.3-1.fc45.x86_6 100% |   2.5 MiB/s |  66.5 KiB |  00m00s
-[ 60/178] zlib-ng-compat-devel-0:2.3.3- 100% |   1.8 MiB/s |  38.2 KiB |  00m00s
-[ 61/178] cln-devel-0:1.3.6-10.fc44.x86 100% |  19.7 MiB/s | 485.0 KiB |  00m00s
-[ 62/178] cln-0:1.3.6-10.fc44.x86_64    100% |  18.5 MiB/s | 569.1 KiB |  00m00s
-[ 63/178] gmp-devel-1:6.3.0-5.fc44.x86_ 100% |   7.4 MiB/s | 174.4 KiB |  00m00s
-[ 64/178] gmp-c++-1:6.3.0-5.fc44.x86_64 100% | 971.0 KiB/s |  19.4 KiB |  00m00s
-[ 65/178] glib2-devel-0:2.88.0-1.fc45.x 100% |  53.8 MiB/s |   1.5 MiB |  00m00s
-[ 66/178] python3-packaging-0:26.1-1.fc 100% |  10.7 MiB/s | 229.3 KiB |  00m00s
-[ 67/178] mpfr-devel-0:4.2.2-3.fc44.x86 100% |   1.1 MiB/s |  21.6 KiB |  00m00s
-[ 68/178] kernel-headers-0:7.1.0-0.rc1. 100% |  58.1 MiB/s |   1.7 MiB |  00m00s
-[ 69/178] libpciaccess-devel-0:0.16-17. 100% | 520.5 KiB/s |  12.5 KiB |  00m00s
-[ 70/178] libffi-devel-0:3.5.2-2.fc44.x 100% |   1.3 MiB/s |  29.7 KiB |  00m00s
-[ 71/178] libsepol-devel-0:3.10-1.fc44. 100% |   2.4 MiB/s |  48.2 KiB |  00m00s
-[ 72/178] libmount-devel-0:2.42-7.fc45. 100% |   1.2 MiB/s |  24.8 KiB |  00m00s
-[ 73/178] libselinux-devel-0:3.10-1.fc4 100% |   7.1 MiB/s | 151.7 KiB |  00m00s
-[ 74/178] pcre2-utf16-0:10.47-1.fc44.1. 100% |  11.9 MiB/s | 256.3 KiB |  00m00s
-[ 75/178] pcre2-devel-0:10.47-1.fc44.1. 100% |  22.4 MiB/s | 550.9 KiB |  00m00s
-[ 76/178] pcre2-utf32-0:10.47-1.fc44.1. 100% |   9.9 MiB/s | 242.2 KiB |  00m00s
-[ 77/178] sysprof-capture-devel-0:50.0- 100% |   8.1 MiB/s | 174.1 KiB |  00m00s
-[ 78/178] libstdc++-devel-0:16.0.1-0.11 100% | 100.2 MiB/s |   5.6 MiB |  00m00s
-[ 79/178] libxcrypt-devel-0:4.5.2-3.fc4 100% | 790.0 KiB/s |  30.0 KiB |  00m00s
-[ 80/178] glibc-devel-0:2.43.9000-12.fc 100% |  10.8 MiB/s | 632.0 KiB |  00m00s
-[ 81/178] libatomic-0:16.0.1-0.11.fc45. 100% |   1.7 MiB/s |  48.2 KiB |  00m00s
-[ 82/178] freetype-devel-0:2.14.3-1.fc4 100% |  37.2 MiB/s |   1.0 MiB |  00m00s
-[ 83/178] hyprgraphics-devel-0:0.5.1-1. 100% |   4.1 MiB/s |  12.5 KiB |  00m00s
-[ 84/178] hyprutils-0:0.12.0-1.fc45.x86 100% |  26.9 MiB/s | 165.3 KiB |  00m00s
-[ 85/178] hyprgraphics-0:0.5.1-1.fc45.x 100% |  19.7 MiB/s | 100.7 KiB |  00m00s
-[ 86/178] cairo-0:1.18.4-6.fc44.x86_64  100% |  28.4 MiB/s | 756.8 KiB |  00m00s
-[ 87/178] libheif-0:1.21.2-3.fc45.x86_6 100% |  25.2 MiB/s | 669.9 KiB |  00m00s
-[ 88/178] hyprwire-0:0.3.1-1.fc45.x86_6 100% |   1.7 MiB/s | 146.8 KiB |  00m00s
-[ 89/178] libjpeg-turbo-0:3.1.4.1-1.fc4 100% |  10.8 MiB/s | 244.3 KiB |  00m00s
-[ 90/178] libjxl-1:0.11.1-8.fc44.x86_64 100% |  43.3 MiB/s |   1.2 MiB |  00m00s
-[ 91/178] libwebp-0:1.6.0-3.fc44.x86_64 100% |  15.3 MiB/s | 329.9 KiB |  00m00s
-[ 92/178] librsvg2-0:2.62.0-1.fc45.x86_ 100% |  53.7 MiB/s |   1.9 MiB |  00m00s
-[ 93/178] pango-0:1.57.1-1.fc45.x86_64  100% |  13.2 MiB/s | 365.7 KiB |  00m00s
-[ 94/178] libX11-0:1.8.13-1.fc45.x86_64 100% |  27.5 MiB/s | 676.2 KiB |  00m00s
-[ 95/178] libXext-0:1.3.6-5.fc44.x86_64 100% |   1.9 MiB/s |  40.7 KiB |  00m00s
-[ 96/178] libXrender-0:0.9.12-4.fc44.x8 100% |   1.4 MiB/s |  27.9 KiB |  00m00s
-[ 97/178] libxcb-0:1.17.0-7.fc44.x86_64 100% |  11.1 MiB/s | 238.0 KiB |  00m00s
-[ 98/178] libaom-0:3.13.3-2.fc45.x86_64 100% |  58.8 MiB/s |   1.9 MiB |  00m00s
-[ 99/178] lzo-0:2.10-16.fc44.x86_64     100% |   2.1 MiB/s |  69.7 KiB |  00m00s
-[100/178] libdav1d-0:1.5.3-1.fc45.x86_6 100% |  27.2 MiB/s | 641.2 KiB |  00m00s
-[101/178] libopenjph-0:0.26.3-1.fc45.x8 100% |   7.5 MiB/s | 161.0 KiB |  00m00s
-[102/178] noopenh264-0:2.6.0-4.fc44.x86 100% |   1.0 MiB/s |  22.0 KiB |  00m00s
-[103/178] openjpeg-0:2.5.4-3.fc44.x86_6 100% |   9.2 MiB/s | 198.1 KiB |  00m00s
-[104/178] svt-av1-libs-0:3.1.2-2.fc44.x 100% |  59.6 MiB/s |   2.0 MiB |  00m00s
-[105/178] rav1e-libs-0:0.8.1-3.fc44.x86 100% |  28.1 MiB/s |   1.1 MiB |  00m00s
-[106/178] highway-0:1.3.0-2.fc44.x86_64 100% |  17.4 MiB/s | 694.6 KiB |  00m00s
-[107/178] shared-mime-info-0:2.4-3.fc44 100% |  17.8 MiB/s | 402.0 KiB |  00m00s
-[108/178] cairo-gobject-0:1.18.4-6.fc44 100% | 809.7 KiB/s |  17.0 KiB |  00m00s
-[109/178] gdk-pixbuf2-0:2.44.6-1.fc45.x 100% |  22.4 MiB/s | 505.2 KiB |  00m00s
-[110/178] fribidi-0:1.0.16-4.fc44.x86_6 100% |   2.6 MiB/s |  53.8 KiB |  00m00s
-[111/178] libXft-0:2.3.8-10.fc44.x86_64 100% |   3.6 MiB/s |  74.3 KiB |  00m00s
-[112/178] libthai-0:0.1.30-2.fc44.x86_6 100% |  10.0 MiB/s | 216.1 KiB |  00m00s
-[113/178] libX11-common-0:1.8.13-1.fc45 100% |   8.2 MiB/s | 175.5 KiB |  00m00s
-[114/178] libXau-0:1.0.12-4.fc44.x86_64 100% |   1.6 MiB/s |  33.7 KiB |  00m00s
-[115/178] libvmaf-0:3.1.0-1.fc45.x86_64 100% |  12.1 MiB/s | 260.9 KiB |  00m00s
-[116/178] glycin-libs-0:2.1.1-1.fc45.x8 100% |  55.3 MiB/s |   1.5 MiB |  00m00s
-[117/178] libdatrie-0:0.2.14-2.fc44.x86 100% |   1.2 MiB/s |  33.1 KiB |  00m00s
-[118/178] glycin-loaders-0:2.1.1-1.fc45 100% |  74.5 MiB/s |   3.3 MiB |  00m00s
-[119/178] libseccomp-0:2.6.0-3.fc44.x86 100% |   3.4 MiB/s |  77.1 KiB |  00m00s
-[120/178] lcms2-0:2.16-7.fc44.x86_64    100% |   8.1 MiB/s | 191.4 KiB |  00m00s
-[121/178] aquamarine-devel-0:0.11.0-1.f 100% |   7.6 MiB/s |  23.3 KiB |  00m00s
-[122/178] bubblewrap-0:0.11.0-4.fc44.x8 100% |   3.1 MiB/s |  66.3 KiB |  00m00s
-[123/178] iniparser-0:4.2.6-4.fc44.x86_ 100% |   1.2 MiB/s |  26.4 KiB |  00m00s
-[124/178] libglvnd-egl-1:1.7.0-9.fc44.x 100% |   1.7 MiB/s |  37.2 KiB |  00m00s
-[125/178] libglvnd-opengl-1:1.7.0-9.fc4 100% |   1.7 MiB/s |  37.2 KiB |  00m00s
-[126/178] libwayland-client-0:1.24.0-3. 100% |   1.7 MiB/s |  34.3 KiB |  00m00s
-[127/178] mesa-libgbm-0:26.1.0~rc2-1.fc 100% | 878.8 KiB/s |  18.5 KiB |  00m00s
-[128/178] libglvnd-1:1.7.0-9.fc44.x86_6 100% |   5.1 MiB/s | 114.7 KiB |  00m00s
-[129/178] mesa-libEGL-0:26.1.0~rc2-1.fc 100% |   6.3 MiB/s | 142.9 KiB |  00m00s
-[130/178] libX11-xcb-0:1.8.13-1.fc45.x8 100% | 524.3 KiB/s |  11.0 KiB |  00m00s
-[131/178] mesa-dri-drivers-0:26.1.0~rc2 100% | 126.3 MiB/s |  13.5 MiB |  00m00s
-[132/178] libxshmfence-0:1.3.2-8.fc44.x 100% | 146.8 KiB/s |  13.2 KiB |  00m00s
-[133/178] hyprtoolkit-0:0.5.3-1.fc45.x8 100% |   2.1 MiB/s | 425.5 KiB |  00m00s
-[134/178] lm_sensors-libs-0:3.6.0-24.fc 100% |   2.0 MiB/s |  41.9 KiB |  00m00s
-[135/178] llvm-libs-0:22.1.4-1.fc45.x86 100% | 158.6 MiB/s |  34.1 MiB |  00m00s
-[136/178] mesa-filesystem-0:26.1.0~rc2- 100% |  59.0 KiB/s |  12.4 KiB |  00m00s
-[137/178] spirv-tools-libs-0:2026.1-1.f 100% |   8.8 MiB/s |   1.7 MiB |  00m00s
-[138/178] llvm-filesystem-0:22.1.4-1.fc 100% | 460.4 KiB/s |   9.2 KiB |  00m00s
-[139/178] libedit-0:3.1-58.20251016cvs. 100% |   4.9 MiB/s | 109.7 KiB |  00m00s
-[140/178] cairo-devel-0:1.18.4-6.fc44.x 100% |   8.9 MiB/s | 191.8 KiB |  00m00s
-[141/178] aquamarine-0:0.11.0-1.fc45.x8 100% |  50.8 MiB/s | 415.9 KiB |  00m00s
-[142/178] libdisplay-info-0:0.3.0-1.fc4 100% |   4.2 MiB/s |  89.6 KiB |  00m00s
-[143/178] libinput-0:1.31.1-1.fc45.x86_ 100% |  12.2 MiB/s | 275.8 KiB |  00m00s
-[144/178] libseat-0:0.9.3-1.fc45.x86_64 100% |   1.5 MiB/s |  30.8 KiB |  00m00s
-[145/178] libevdev-0:1.13.6-2.fc44.x86_ 100% |   1.8 MiB/s |  39.2 KiB |  00m00s
-[146/178] libwacom-0:2.18.0-1.fc44.x86_ 100% |   2.5 MiB/s |  51.6 KiB |  00m00s
-[147/178] mtdev-0:1.1.6-12.fc44.x86_64  100% |   1.0 MiB/s |  21.2 KiB |  00m00s
-[148/178] libgudev-0:238-9.fc44.x86_64  100% |   1.6 MiB/s |  35.2 KiB |  00m00s
-[149/178] libwacom-data-0:2.18.0-1.fc44 100% |  15.2 MiB/s | 342.4 KiB |  00m00s
-[150/178] libblkid-devel-0:2.42-7.fc45. 100% |   1.2 MiB/s |  23.6 KiB |  00m00s
-[151/178] brotli-devel-0:1.2.0-3.fc44.x 100% |   1.7 MiB/s |  34.6 KiB |  00m00s
-[152/178] brotli-0:1.2.0-3.fc44.x86_64  100% |   1.2 MiB/s |  24.1 KiB |  00m00s
-[153/178] bzip2-devel-0:1.0.8-23.fc44.x 100% |   9.9 MiB/s | 213.7 KiB |  00m00s
-[154/178] harfbuzz-devel-0:14.2.0-1.fc4 100% |  26.9 MiB/s | 633.4 KiB |  00m00s
-[155/178] glfw-1:3.4-7.fc45.x86_64      100% |   6.1 MiB/s | 131.5 KiB |  00m00s
-[156/178] harfbuzz-cairo-0:14.2.0-1.fc4 100% |   1.5 MiB/s |  30.0 KiB |  00m00s
-[157/178] harfbuzz-icu-0:14.2.0-1.fc45. 100% | 834.7 KiB/s |  16.7 KiB |  00m00s
-[158/178] harfbuzz-gpu-0:14.2.0-1.fc45. 100% |   2.4 MiB/s |  51.1 KiB |  00m00s
-[159/178] harfbuzz-raster-0:14.2.0-1.fc 100% |   2.9 MiB/s |  59.2 KiB |  00m00s
-[160/178] libGLEW-0:2.2.0-12.fc44.x86_6 100% |   7.9 MiB/s | 170.8 KiB |  00m00s
-[161/178] harfbuzz-vector-0:14.2.0-1.fc 100% |   2.7 MiB/s |  58.5 KiB |  00m00s
-[162/178] libglvnd-glx-1:1.7.0-9.fc44.x 100% |   5.9 MiB/s | 132.5 KiB |  00m00s
-[163/178] mesa-libGL-0:26.1.0~rc2-1.fc4 100% |   6.2 MiB/s | 139.6 KiB |  00m00s
-[164/178] libXxf86vm-0:1.1.6-4.fc44.x86 100% | 825.4 KiB/s |  18.2 KiB |  00m00s
-[165/178] libpng-devel-2:1.6.56-1.fc45. 100% |  13.5 MiB/s | 303.0 KiB |  00m00s
-[166/178] xorg-x11-proto-devel-0:2025.1 100% |  12.8 MiB/s | 302.2 KiB |  00m00s
-[167/178] libX11-devel-0:1.8.13-1.fc45. 100% |  35.0 MiB/s |   1.1 MiB |  00m00s
-[168/178] libXext-devel-0:1.3.6-5.fc44. 100% |   2.8 MiB/s |  85.2 KiB |  00m00s
-[169/178] libXrender-devel-0:0.9.12-4.f 100% | 951.4 KiB/s |  19.0 KiB |  00m00s
-[170/178] lzo-devel-0:2.10-16.fc44.x86_ 100% |   1.9 MiB/s |  39.1 KiB |  00m00s
-[171/178] libxcb-devel-0:1.17.0-7.fc44. 100% |  46.2 MiB/s |   1.4 MiB |  00m00s
-[172/178] lzo-minilzo-0:2.10-16.fc44.x8 100% |   1.2 MiB/s |  24.3 KiB |  00m00s
-[173/178] libXau-devel-0:1.0.12-4.fc44. 100% | 697.7 KiB/s |  14.0 KiB |  00m00s
-[174/178] graphite2-devel-0:1.3.14-20.f 100% |   1.0 MiB/s |  20.6 KiB |  00m00s
-[175/178] annobin-plugin-gcc-0:13.12-1. 100% |  27.9 MiB/s | 684.6 KiB |  00m00s
-[176/178] gcc-plugin-annobin-0:16.0.1-0 100% |   2.5 MiB/s |  51.7 KiB |  00m00s
-[177/178] annobin-docs-0:13.12-1.fc45.n 100% |   4.0 MiB/s |  86.8 KiB |  00m00s
-[178/178] cmake-rpm-macros-0:4.3.0-1.fc 100% | 690.7 KiB/s |  13.8 KiB |  00m00s
+Total size of inbound packages is 274 MiB. Need to download 274 MiB.
+After this operation, 992 MiB extra will be used (install 992 MiB, remove 0 B).
+[  1/231] desktop-file-utils-0:0.28-5.f 100% |   9.7 MiB/s |  69.8 KiB |  00m00s
+[  2/231] cmake-0:4.3.0-1.fc45.x86_64   100% | 267.3 MiB/s |  14.4 MiB |  00m00s
+[  3/231] qt6-qtdeclarative-devel-0:6.1 100% |  46.2 MiB/s |   4.8 MiB |  00m00s
+[  4/231] gcc-c++-0:16.0.1-0.11.fc45.x8 100% | 245.7 MiB/s |  17.2 MiB |  00m00s
+[  5/231] hyprutils-devel-0:0.12.0-1.fc 100% |   9.6 MiB/s |  29.5 KiB |  00m00s
+[  6/231] wayland-devel-0:1.24.0-3.fc44 100% |  37.7 MiB/s | 154.6 KiB |  00m00s
+[  7/231] emacs-filesystem-1:30.2-2.fc4 100% |   1.6 MiB/s |   8.0 KiB |  00m00s
+[  8/231] glib2-0:2.88.0-1.fc45.x86_64  100% | 210.9 MiB/s |   3.2 MiB |  00m00s
+[  9/231] cmake-data-0:4.3.0-1.fc45.noa 100% | 223.4 MiB/s |   2.7 MiB |  00m00s
+[ 10/231] cmake-filesystem-0:4.3.0-1.fc 100% |   3.7 MiB/s |  15.0 KiB |  00m00s
+[ 11/231] expat-0:2.7.5-1.fc45.x86_64   100% |  41.7 MiB/s | 128.1 KiB |  00m00s
+[ 12/231] jsoncpp-0:1.9.6-3.fc44.x86_64 100% |  35.8 MiB/s | 110.0 KiB |  00m00s
+[ 13/231] qt6-qtbase-devel-0:6.11.0-2.f 100% |  24.9 MiB/s |   4.3 MiB |  00m00s
+[ 14/231] libuv-1:1.52.1-1.fc45.x86_64  100% |  53.5 MiB/s | 273.9 KiB |  00m00s
+[ 15/231] rhash-0:1.4.5-4.fc44.x86_64   100% |  65.7 MiB/s | 201.9 KiB |  00m00s
+[ 16/231] make-1:4.4.1-12.fc44.x86_64   100% | 115.0 MiB/s | 588.7 KiB |  00m00s
+[ 17/231] qt6-qtbase-0:6.11.0-2.fc45.x8 100% | 102.5 MiB/s |   4.4 MiB |  00m00s
+[ 18/231] qt6-qtbase-gui-0:6.11.0-2.fc4 100% | 114.6 MiB/s |   8.7 MiB |  00m00s
+[ 19/231] pcre2-utf16-0:10.47-1.fc44.1. 100% |  62.6 MiB/s | 256.3 KiB |  00m00s
+[ 20/231] qt6-qtbase-ibase-0:6.11.0-2.f 100% |  11.6 MiB/s |  71.2 KiB |  00m00s
+[ 21/231] qt6-qtbase-mysql-0:6.11.0-2.f 100% |  10.6 MiB/s |  54.0 KiB |  00m00s
+[ 22/231] qt6-qtbase-odbc-0:6.11.0-2.fc 100% |  11.0 MiB/s |  67.5 KiB |  00m00s
+[ 23/231] qt6-qtbase-postgresql-0:6.11. 100% |  12.0 MiB/s |  61.3 KiB |  00m00s
+[ 24/231] qt6-qtbase-private-devel-0:6. 100% |   4.5 MiB/s |   1.2 MiB |  00m00s
+[ 25/231] qt6-qtdeclarative-0:6.11.0-1. 100% |  47.3 MiB/s |  14.8 MiB |  00m00s
+[ 26/231] qt6-rpm-macros-0:6.11.0-1.fc4 100% |  47.3 KiB/s |  11.8 KiB |  00m00s
+[ 27/231] libmpc-0:1.4.1-1.fc45.x86_64  100% |   7.4 MiB/s |  75.6 KiB |  00m00s
+[ 28/231] libwayland-client-0:1.24.0-3. 100% |   3.3 MiB/s |  34.3 KiB |  00m00s
+[ 29/231] gcc-0:16.0.1-0.11.fc45.x86_64 100% | 209.0 MiB/s |  43.0 MiB |  00m00s
+[ 30/231] libwayland-egl-0:1.24.0-3.fc4 100% | 319.8 KiB/s |  12.5 KiB |  00m00s
+[ 31/231] libwayland-cursor-0:1.24.0-3. 100% | 481.0 KiB/s |  19.2 KiB |  00m00s
+[ 32/231] libwayland-server-0:1.24.0-3. 100% |  10.4 MiB/s |  42.6 KiB |  00m00s
+[ 33/231] vim-filesystem-2:9.2.390-1.fc 100% |   3.8 MiB/s |  15.6 KiB |  00m00s
+[ 34/231] dbus-libs-1:1.16.2-1.fc45.x86 100% |  30.3 MiB/s | 155.2 KiB |  00m00s
+[ 35/231] double-conversion-0:3.4.0-3.f 100% |   8.8 MiB/s |  53.9 KiB |  00m00s
+[ 36/231] libb2-0:0.98.1-15.fc44.x86_64 100% |   4.3 MiB/s |  26.2 KiB |  00m00s
+[ 37/231] libproxy-0:0.5.12-2.fc44.x86_ 100% |  11.1 MiB/s |  45.4 KiB |  00m00s
+[ 38/231] qt6-filesystem-0:6.11.0-1.fc4 100% |   2.1 MiB/s |  10.5 KiB |  00m00s
+[ 39/231] cups-libs-1:2.4.18-1.fc45.x86 100% |  44.0 MiB/s | 270.3 KiB |  00m00s
+[ 40/231] fontconfig-0:2.17.0-4.fc44.x8 100% |  30.2 MiB/s | 278.2 KiB |  00m00s
+[ 41/231] freetype-0:2.14.3-1.fc45.x86_ 100% |  86.7 MiB/s | 444.2 KiB |  00m00s
+[ 42/231] harfbuzz-0:14.2.0-1.fc45.x86_ 100% | 139.4 MiB/s |   1.1 MiB |  00m00s
+[ 43/231] libicu-0:77.1-2.fc44.x86_64   100% | 208.1 MiB/s |  10.8 MiB |  00m00s
+[ 44/231] libICE-0:1.1.2-4.fc44.x86_64  100% |   7.8 MiB/s |  80.2 KiB |  00m00s
+[ 45/231] libSM-0:1.2.5-4.fc44.x86_64   100% |  14.5 MiB/s |  44.6 KiB |  00m00s
+[ 46/231] libX11-0:1.8.13-1.fc45.x86_64 100% | 132.1 MiB/s | 676.2 KiB |  00m00s
+[ 47/231] libX11-xcb-0:1.8.13-1.fc45.x8 100% |   3.6 MiB/s |  11.0 KiB |  00m00s
+[ 48/231] libdrm-0:2.4.131-1.fc44.x86_6 100% |  54.1 MiB/s | 166.3 KiB |  00m00s
+[ 49/231] libglvnd-egl-1:1.7.0-9.fc44.x 100% |  12.1 MiB/s |  37.2 KiB |  00m00s
+[ 50/231] libglvnd-glx-1:1.7.0-9.fc44.x 100% |  43.1 MiB/s | 132.5 KiB |  00m00s
+[ 51/231] libglvnd-opengl-1:1.7.0-9.fc4 100% |  12.1 MiB/s |  37.2 KiB |  00m00s
+[ 52/231] libinput-0:1.31.1-1.fc45.x86_ 100% |  53.9 MiB/s | 275.8 KiB |  00m00s
+[ 53/231] libjpeg-turbo-0:3.1.4.1-1.fc4 100% |  39.8 MiB/s | 244.3 KiB |  00m00s
+[ 54/231] libpng-2:1.6.56-1.fc45.x86_64 100% |  25.2 MiB/s | 129.2 KiB |  00m00s
+[ 55/231] libxcb-0:1.17.0-7.fc44.x86_64 100% |  46.5 MiB/s | 238.0 KiB |  00m00s
+[ 56/231] libxkbcommon-0:1.13.1-2.fc44. 100% |  45.4 MiB/s | 185.8 KiB |  00m00s
+[ 57/231] libxkbcommon-x11-0:1.13.1-2.f 100% |   5.7 MiB/s |  23.3 KiB |  00m00s
+[ 58/231] mesa-libgbm-0:26.1.0~rc2-1.fc 100% |   2.6 MiB/s |  18.5 KiB |  00m00s
+[ 59/231] mtdev-0:1.1.6-12.fc44.x86_64  100% |   4.1 MiB/s |  21.2 KiB |  00m00s
+[ 60/231] xcb-util-cursor-0:0.1.6-2.fc4 100% |   6.1 MiB/s |  18.7 KiB |  00m00s
+[ 61/231] tslib-0:1.24-2.fc44.x86_64    100% |  30.5 MiB/s | 156.0 KiB |  00m00s
+[ 62/231] xcb-util-image-0:0.4.1-9.fc44 100% |   6.1 MiB/s |  18.9 KiB |  00m00s
+[ 63/231] xcb-util-keysyms-0:0.4.1-9.fc 100% |   4.6 MiB/s |  14.2 KiB |  00m00s
+[ 64/231] xcb-util-renderutil-0:0.3.10- 100% |   5.7 MiB/s |  17.4 KiB |  00m00s
+[ 65/231] xcb-util-wm-0:0.4.2-9.fc44.x8 100% |  10.0 MiB/s |  30.6 KiB |  00m00s
+[ 66/231] qt6-qtsvg-0:6.11.0-1.fc45.x86 100% |  25.8 MiB/s | 317.4 KiB |  00m00s
+[ 67/231] mariadb-connector-c-0:3.4.8-3 100% |  29.5 MiB/s | 211.8 KiB |  00m00s
+[ 68/231] unixODBC-0:2.3.14-5.fc45.x86_ 100% |  68.6 MiB/s | 421.5 KiB |  00m00s
+[ 69/231] libpq-0:18.0-4.fc44.x86_64    100% |  38.6 MiB/s | 276.8 KiB |  00m00s
+[ 70/231] qt6-qtbase-common-0:6.11.0-2. 100% |  78.6 KiB/s |  11.4 KiB |  00m00s
+[ 71/231] libfbclient2-0:5.0.4.1812-1.f 100% |  19.6 MiB/s |   1.2 MiB |  00m00s
+[ 72/231] duktape-0:2.7.0-11.fc44.x86_6 100% |  21.0 MiB/s | 172.0 KiB |  00m00s
+[ 73/231] cups-filesystem-1:2.4.18-1.fc 100% |   2.0 MiB/s |  12.5 KiB |  00m00s
+[ 74/231] avahi-libs-0:0.9~rc2-8.fc44.x 100% |  10.0 MiB/s |  71.7 KiB |  00m00s
+[ 75/231] fonts-filesystem-1:5.0.0-3.fc 100% |   2.8 MiB/s |   8.7 KiB |  00m00s
+[ 76/231] default-fonts-core-sans-0:4.3 100% |   7.1 MiB/s |  29.2 KiB |  00m00s
+[ 77/231] graphite2-0:1.3.14-20.fc44.x8 100% |  18.9 MiB/s |  96.5 KiB |  00m00s
+[ 78/231] xml-common-0:0.6.3-68.fc44.no 100% |   5.1 MiB/s |  31.1 KiB |  00m00s
+[ 79/231] cpp-0:16.0.1-0.11.fc45.x86_64 100% | 258.2 MiB/s |  14.5 MiB |  00m00s
+[ 80/231] libpciaccess-0:0.16-17.fc44.x 100% |   2.0 MiB/s |  27.2 KiB |  00m00s
+[ 81/231] libX11-common-0:1.8.13-1.fc45 100% |  12.2 MiB/s | 175.5 KiB |  00m00s
+[ 82/231] libXext-0:1.3.6-5.fc44.x86_64 100% |   9.9 MiB/s |  40.7 KiB |  00m00s
+[ 83/231] mesa-libEGL-0:26.1.0~rc2-1.fc 100% |  27.9 MiB/s | 142.9 KiB |  00m00s
+[ 84/231] libglvnd-1:1.7.0-9.fc44.x86_6 100% |  22.4 MiB/s | 114.7 KiB |  00m00s
+[ 85/231] libevdev-0:1.13.6-2.fc44.x86_ 100% |   7.7 MiB/s |  39.2 KiB |  00m00s
+[ 86/231] mesa-libGL-0:26.1.0~rc2-1.fc4 100% |  22.7 MiB/s | 139.6 KiB |  00m00s
+[ 87/231] libwacom-0:2.18.0-1.fc44.x86_ 100% |  10.1 MiB/s |  51.6 KiB |  00m00s
+[ 88/231] libXau-0:1.0.12-4.fc44.x86_64 100% |   6.6 MiB/s |  33.7 KiB |  00m00s
+[ 89/231] xkeyboard-config-0:2.47-1.fc4 100% | 122.1 MiB/s |   1.0 MiB |  00m00s
+[ 90/231] sdl2-compat-0:2.32.64-1.fc45. 100% |  15.2 MiB/s | 139.8 KiB |  00m00s
+[ 91/231] xcb-util-0:0.4.1-9.fc44.x86_6 100% |   2.5 MiB/s |  17.9 KiB |  00m00s
+[ 92/231] libtommath-0:1.3.1~rc1-7.fc44 100% |  12.7 MiB/s |  64.8 KiB |  00m00s
+[ 93/231] mariadb-connector-c-config-0: 100% |   2.2 MiB/s |   9.2 KiB |  00m00s
+[ 94/231] abattis-cantarell-vf-fonts-0: 100% |  29.4 MiB/s | 120.4 KiB |  00m00s
+[ 95/231] google-noto-sans-vf-fonts-0:2 100% |  75.0 MiB/s | 614.2 KiB |  00m00s
+[ 96/231] hwdata-0:0.406-1.fc45.noarch  100% | 120.7 MiB/s |   1.7 MiB |  00m00s
+[ 97/231] libXxf86vm-0:1.1.6-4.fc44.x86 100% |   2.2 MiB/s |  18.2 KiB |  00m00s
+[ 98/231] libwacom-data-0:2.18.0-1.fc44 100% |  55.7 MiB/s | 342.4 KiB |  00m00s
+[ 99/231] libgudev-0:238-9.fc44.x86_64  100% |   4.9 MiB/s |  35.2 KiB |  00m00s
+[100/231] google-noto-fonts-common-0:20 100% |   3.3 MiB/s |  16.9 KiB |  00m00s
+[101/231] libxshmfence-0:1.3.2-8.fc44.x 100% |   2.2 MiB/s |  13.2 KiB |  00m00s
+[102/231] SDL3-0:3.4.0-3.fc44.x86_64    100% |  76.1 MiB/s |   1.2 MiB |  00m00s
+[103/231] lm_sensors-libs-0:3.6.0-24.fc 100% |   6.8 MiB/s |  41.9 KiB |  00m00s
+[104/231] mesa-filesystem-0:26.1.0~rc2- 100% |   1.7 MiB/s |  12.4 KiB |  00m00s
+[105/231] spirv-tools-libs-0:2026.1-1.f 100% |  87.1 MiB/s |   1.7 MiB |  00m00s
+[106/231] mesa-dri-drivers-0:26.1.0~rc2 100% | 160.9 MiB/s |  13.5 MiB |  00m00s
+[107/231] libedit-0:3.1-58.20251016cvs. 100% |  17.8 MiB/s | 109.7 KiB |  00m00s
+[108/231] llvm-filesystem-0:22.1.4-1.fc 100% |   1.8 MiB/s |   9.2 KiB |  00m00s
+[109/231] cairo-0:1.18.4-6.fc44.x86_64  100% | 105.6 MiB/s | 756.8 KiB |  00m00s
+[110/231] gtk3-0:3.24.52-3.fc45.x86_64  100% | 144.4 MiB/s |   6.1 MiB |  00m00s
+[111/231] pango-0:1.57.1-1.fc45.x86_64  100% |  51.0 MiB/s | 365.7 KiB |  00m00s
+[112/231] libXrender-0:0.9.12-4.fc44.x8 100% |   3.0 MiB/s |  27.9 KiB |  00m00s
+[113/231] lzo-0:2.10-16.fc44.x86_64     100% |   6.2 MiB/s |  69.7 KiB |  00m00s
+[114/231] pixman-0:0.46.2-3.fc44.x86_64 100% |  58.1 MiB/s | 297.4 KiB |  00m00s
+[115/231] adwaita-icon-theme-0:50.0-1.f 100% |  65.9 MiB/s | 404.8 KiB |  00m00s
+[116/231] at-spi2-atk-0:2.60.2-1.fc45.x 100% |  12.5 MiB/s |  89.5 KiB |  00m00s
+[117/231] atk-0:2.60.2-1.fc45.x86_64    100% |  13.5 MiB/s |  82.6 KiB |  00m00s
+[118/231] cairo-gobject-0:1.18.4-6.fc44 100% |   3.3 MiB/s |  17.0 KiB |  00m00s
+[119/231] colord-libs-0:1.4.8-4.fc44.x8 100% |  20.7 MiB/s | 233.7 KiB |  00m00s
+[120/231] libdecor-0:0.2.5-2.fc44.x86_6 100% | 373.4 KiB/s |  59.7 KiB |  00m00s
+[121/231] fribidi-0:1.0.16-4.fc44.x86_6 100% |   4.8 MiB/s |  53.8 KiB |  00m00s
+[122/231] gtk-update-icon-cache-0:3.24. 100% |   4.8 MiB/s |  34.3 KiB |  00m00s
+[123/231] gdk-pixbuf2-0:2.44.6-1.fc45.x 100% |  54.8 MiB/s | 505.2 KiB |  00m00s
+[124/231] hicolor-icon-theme-0:0.18-3.f 100% |   7.2 MiB/s |  66.0 KiB |  00m00s
+[125/231] libXcomposite-0:0.4.6-7.fc44. 100% |   2.4 MiB/s |  24.2 KiB |  00m00s
+[126/231] libXcursor-0:1.2.3-4.fc44.x86 100% |   5.3 MiB/s |  32.5 KiB |  00m00s
+[127/231] libXdamage-0:1.1.6-7.fc44.x86 100% |   4.5 MiB/s |  23.3 KiB |  00m00s
+[128/231] libXfixes-0:6.0.1-7.fc44.x86_ 100% |   2.1 MiB/s |  19.3 KiB |  00m00s
+[129/231] libXi-0:1.8.2-4.fc44.x86_64   100% |   3.7 MiB/s |  41.4 KiB |  00m00s
+[130/231] libXinerama-0:1.1.5-10.fc44.x 100% |   2.3 MiB/s |  14.3 KiB |  00m00s
+[131/231] libXrandr-0:1.5.4-7.fc44.x86_ 100% |   3.0 MiB/s |  27.8 KiB |  00m00s
+[132/231] libcloudproviders-0:0.4.0-1.f 100% |   6.5 MiB/s |  46.7 KiB |  00m00s
+[133/231] libepoxy-0:1.5.10-12.fc44.x86 100% |  28.1 MiB/s | 230.4 KiB |  00m00s
+[134/231] libtinysparql-0:3.11.1-1.fc45 100% |  39.5 MiB/s | 364.4 KiB |  00m00s
+[135/231] libXft-0:2.3.8-10.fc44.x86_64 100% |  10.4 MiB/s |  74.3 KiB |  00m00s
+[136/231] libthai-0:0.1.30-2.fc44.x86_6 100% |  21.1 MiB/s | 216.1 KiB |  00m00s
+[137/231] llvm-libs-0:22.1.4-1.fc45.x86 100% | 113.3 MiB/s |  34.1 MiB |  00m00s
+[138/231] adwaita-cursor-theme-0:50.0-1 100% |   9.3 MiB/s | 380.6 KiB |  00m00s
+[139/231] adwaita-icon-theme-legacy-0:4 100% |  62.0 MiB/s |   2.5 MiB |  00m00s
+[140/231] lcms2-0:2.16-7.fc44.x86_64    100% |  37.4 MiB/s | 191.4 KiB |  00m00s
+[141/231] at-spi2-core-0:2.60.2-1.fc45. 100% |  55.7 MiB/s | 399.1 KiB |  00m00s
+[142/231] libgusb-0:0.4.9-5.fc44.x86_64 100% |  10.5 MiB/s |  64.7 KiB |  00m00s
+[143/231] shared-mime-info-0:2.4-3.fc44 100% |  56.1 MiB/s | 402.0 KiB |  00m00s
+[144/231] glycin-libs-0:2.1.1-1.fc45.x8 100% | 110.6 MiB/s |   1.5 MiB |  00m00s
+[145/231] avahi-glib-0:0.9~rc2-8.fc44.x 100% |   1.7 MiB/s |  15.4 KiB |  00m00s
+[146/231] json-glib-0:1.10.8-5.fc45.x86 100% |  19.0 MiB/s | 175.5 KiB |  00m00s
+[147/231] libstemmer-0:3.0.1-11.fc44.x8 100% |  28.6 MiB/s | 146.2 KiB |  00m00s
+[148/231] libsoup3-0:3.6.6-8.fc45.x86_6 100% |  66.3 MiB/s | 407.3 KiB |  00m00s
+[149/231] libdatrie-0:0.2.14-2.fc44.x86 100% |   6.5 MiB/s |  33.1 KiB |  00m00s
+[150/231] dbus-1:1.16.2-1.fc45.x86_64   100% |   1.8 MiB/s |   7.5 KiB |  00m00s
+[151/231] libXtst-0:1.2.5-4.fc44.x86_64 100% |   4.1 MiB/s |  21.0 KiB |  00m00s
+[152/231] xprop-0:1.2.8-5.fc44.x86_64   100% |   6.9 MiB/s |  35.3 KiB |  00m00s
+[153/231] libseccomp-0:2.6.0-3.fc44.x86 100% |  18.8 MiB/s |  77.1 KiB |  00m00s
+[154/231] bubblewrap-0:0.11.0-4.fc44.x8 100% |  16.2 MiB/s |  66.3 KiB |  00m00s
+[155/231] libheif-0:1.21.2-3.fc45.x86_6 100% |  93.5 MiB/s | 669.9 KiB |  00m00s
+[156/231] glycin-loaders-0:2.1.1-1.fc45 100% | 192.8 MiB/s |   3.3 MiB |  00m00s
+[157/231] libjxl-1:0.11.1-8.fc44.x86_64 100% | 110.3 MiB/s |   1.2 MiB |  00m00s
+[158/231] libdav1d-0:1.5.3-1.fc45.x86_6 100% |  89.5 MiB/s | 641.2 KiB |  00m00s
+[159/231] libaom-0:3.13.3-2.fc45.x86_64 100% | 144.7 MiB/s |   1.9 MiB |  00m00s
+[160/231] libopenjph-0:0.26.3-1.fc45.x8 100% |  52.4 MiB/s | 161.0 KiB |  00m00s
+[161/231] noopenh264-0:2.6.0-4.fc44.x86 100% |   7.2 MiB/s |  22.0 KiB |  00m00s
+[162/231] libwebp-0:1.6.0-3.fc44.x86_64 100% |  80.5 MiB/s | 329.9 KiB |  00m00s
+[163/231] openjpeg-0:2.5.4-3.fc44.x86_6 100% |  48.4 MiB/s | 198.1 KiB |  00m00s
+[164/231] rav1e-libs-0:0.8.1-3.fc44.x86 100% | 152.6 MiB/s |   1.1 MiB |  00m00s
+[165/231] highway-0:1.3.0-2.fc44.x86_64 100% |  75.4 MiB/s | 694.6 KiB |  00m00s
+[166/231] svt-av1-libs-0:3.1.2-2.fc44.x 100% | 144.7 MiB/s |   2.0 MiB |  00m00s
+[167/231] libvmaf-0:3.1.0-1.fc45.x86_64 100% |  63.7 MiB/s | 260.9 KiB |  00m00s
+[168/231] hyprutils-0:0.12.0-1.fc45.x86 100% |  32.3 MiB/s | 165.3 KiB |  00m00s
+[169/231] libffi-devel-0:3.5.2-2.fc44.x 100% |   7.3 MiB/s |  29.7 KiB |  00m00s
+[170/231] cups-devel-1:2.4.18-1.fc45.x8 100% |  12.6 MiB/s |  51.5 KiB |  00m00s
+[171/231] glx-utils-0:9.0.0-11.fc44.x86 100% |  13.8 MiB/s |  70.4 KiB |  00m00s
+[172/231] libglvnd-devel-1:1.7.0-9.fc44 100% |  39.6 MiB/s | 162.1 KiB |  00m00s
+[173/231] libX11-devel-0:1.8.13-1.fc45. 100% | 135.6 MiB/s |   1.1 MiB |  00m00s
+[174/231] libglvnd-core-devel-1:1.7.0-9 100% |   2.8 MiB/s |  17.2 KiB |  00m00s
+[175/231] libglvnd-gles-1:1.7.0-9.fc44. 100% |   9.3 MiB/s |  28.6 KiB |  00m00s
+[176/231] xorg-x11-proto-devel-0:2025.1 100% |  49.2 MiB/s | 302.2 KiB |  00m00s
+[177/231] libxkbcommon-devel-0:1.13.1-2 100% |  12.2 MiB/s |  74.8 KiB |  00m00s
+[178/231] vulkan-loader-devel-0:1.4.341 100% |   2.4 MiB/s |  12.3 KiB |  00m00s
+[179/231] vulkan-loader-0:1.4.341.0-1.f 100% |  32.4 MiB/s | 165.8 KiB |  00m00s
+[180/231] vulkan-headers-0:1.4.341.0-1. 100% | 150.6 MiB/s |   1.7 MiB |  00m00s
+[181/231] libxml2-devel-0:2.12.10-6.fc4 100% |  85.2 MiB/s | 523.6 KiB |  00m00s
+[182/231] xz-devel-1:5.8.3-1.fc45.x86_6 100% |  21.6 MiB/s |  66.5 KiB |  00m00s
+[183/231] zlib-ng-compat-devel-0:2.3.3- 100% |   9.3 MiB/s |  38.2 KiB |  00m00s
+[184/231] python3-0:3.14.4-2.fc45.x86_6 100% |   9.3 MiB/s |  28.6 KiB |  00m00s
+[185/231] mpdecimal-0:4.0.1-3.fc44.x86_ 100% |   6.5 MiB/s |  99.1 KiB |  00m00s
+[186/231] python3-libs-0:3.14.4-2.fc45. 100% | 281.1 MiB/s |  10.1 MiB |  00m00s
+[187/231] python-pip-wheel-0:26.0.1-2.f 100% |  54.7 MiB/s |   1.1 MiB |  00m00s
+[188/231] librsvg2-0:2.62.0-1.fc45.x86_ 100% |  14.3 MiB/s |   1.9 MiB |  00m00s
+[189/231] tzdata-0:2026a-1.fc45.noarch  100% |  87.1 MiB/s | 713.3 KiB |  00m00s
+[190/231] libxcb-devel-0:1.17.0-7.fc44. 100% | 119.4 MiB/s |   1.4 MiB |  00m00s
+[191/231] glibc-devel-0:2.43.9000-12.fc 100% |  77.2 MiB/s | 632.0 KiB |  00m00s
+[192/231] libxcrypt-devel-0:4.5.2-3.fc4 100% |   7.3 MiB/s |  30.0 KiB |  00m00s
+[193/231] libatomic-0:16.0.1-0.11.fc45. 100% |   9.4 MiB/s |  48.2 KiB |  00m00s
+[194/231] avahi-devel-0:0.9~rc2-8.fc44. 100% |  10.5 MiB/s |  43.2 KiB |  00m00s
+[195/231] libdaemon-0:0.14-33.fc44.x86_ 100% |   6.3 MiB/s |  32.0 KiB |  00m00s
+[196/231] avahi-0:0.9~rc2-8.fc44.x86_64 100% |  34.1 MiB/s | 454.2 KiB |  00m00s
+[197/231] libstdc++-devel-0:16.0.1-0.11 100% | 143.9 MiB/s |   5.6 MiB |  00m00s
+[198/231] gnutls-c++-0:3.8.12-1.fc45.x8 100% |   3.2 MiB/s |  29.5 KiB |  00m00s
+[199/231] unbound-libs-0:1.24.2-11.fc45 100% |  26.6 MiB/s | 600.2 KiB |  00m00s
+[200/231] gnutls-dane-0:3.8.12-1.fc45.x 100% |   1.4 MiB/s |  39.9 KiB |  00m00s
+[201/231] gnutls-devel-0:3.8.12-1.fc45. 100% |  43.7 MiB/s |   2.4 MiB |  00m00s
+[202/231] dns-root-data-0:2026260100-2. 100% | 972.1 KiB/s |  14.6 KiB |  00m00s
+[203/231] hiredis-0:1.2.0-8.fc44.x86_64 100% |   3.7 MiB/s |  52.6 KiB |  00m00s
+[204/231] protobuf-c-0:1.5.2-2.fc44.x86 100% |   8.2 MiB/s |  33.7 KiB |  00m00s
+[205/231] libkadm5-0:1.22.2-6.fc45.x86_ 100% |  19.6 MiB/s |  80.1 KiB |  00m00s
+[206/231] krb5-devel-0:1.22.2-6.fc45.x8 100% |  28.0 MiB/s | 143.6 KiB |  00m00s
+[207/231] libevent-devel-0:2.1.12-17.fc 100% |  12.2 MiB/s | 100.0 KiB |  00m00s
+[208/231] libXau-devel-0:1.0.12-4.fc44. 100% |   1.7 MiB/s |  14.0 KiB |  00m00s
+[209/231] dbus-devel-1:1.16.2-1.fc45.x8 100% |   4.2 MiB/s |  38.8 KiB |  00m00s
+[210/231] keyutils-libs-devel-0:1.6.3-7 100% |   9.7 MiB/s |  59.7 KiB |  00m00s
+[211/231] libselinux-devel-0:3.10-1.fc4 100% |  24.7 MiB/s | 151.7 KiB |  00m00s
+[212/231] libverto-devel-0:0.3.2-12.fc4 100% |   2.8 MiB/s |  14.4 KiB |  00m00s
+[213/231] libsepol-devel-0:3.10-1.fc44. 100% |   9.4 MiB/s |  48.2 KiB |  00m00s
+[214/231] libidn2-devel-0:2.3.8-3.fc44. 100% |  20.9 MiB/s |  64.1 KiB |  00m00s
+[215/231] libtasn1-devel-0:4.21.0-1.fc4 100% |   7.5 MiB/s |  91.6 KiB |  00m00s
+[216/231] libtasn1-tools-0:4.21.0-1.fc4 100% |   2.9 MiB/s |  26.7 KiB |  00m00s
+[217/231] gmp-devel-1:6.3.0-5.fc44.x86_ 100% |  24.3 MiB/s | 174.4 KiB |  00m00s
+[218/231] nettle-devel-0:3.10.1-3.fc44. 100% |  64.4 MiB/s | 725.4 KiB |  00m00s
+[219/231] gmp-c++-1:6.3.0-5.fc44.x86_64 100% |   4.7 MiB/s |  19.4 KiB |  00m00s
+[220/231] p11-kit-devel-0:0.26.2-1.fc45 100% |  13.5 MiB/s |  96.9 KiB |  00m00s
+[221/231] kernel-headers-0:7.1.0-0.rc1. 100% | 134.1 MiB/s |   1.7 MiB |  00m00s
+[222/231] systemd-devel-0:260.1-2.fc45. 100% |  88.0 MiB/s | 721.0 KiB |  00m00s
+[223/231] pcre2-devel-0:10.47-1.fc44.1. 100% | 134.5 MiB/s | 550.9 KiB |  00m00s
+[224/231] pcre2-utf32-0:10.47-1.fc44.1. 100% |  33.8 MiB/s | 242.2 KiB |  00m00s
+[225/231] annobin-plugin-gcc-0:13.12-1. 100% |  95.5 MiB/s | 684.6 KiB |  00m00s
+[226/231] gcc-plugin-annobin-0:16.0.1-0 100% |   7.2 MiB/s |  51.7 KiB |  00m00s
+[227/231] annobin-docs-0:13.12-1.fc45.n 100% |  21.2 MiB/s |  86.8 KiB |  00m00s
+[228/231] systemd-rpm-macros-0:260.1-2. 100% |   5.3 MiB/s |  16.4 KiB |  00m00s
+[229/231] cmake-rpm-macros-0:4.3.0-1.fc 100% |   4.5 MiB/s |  13.8 KiB |  00m00s
+[230/231] ninja-build-0:1.13.2-2.fc44.x 100% |  66.4 MiB/s | 203.9 KiB |  00m00s
+[231/231] libcom_err-devel-0:1.47.4-1.f 100% | 190.6 KiB/s |  16.8 KiB |  00m00s
 --------------------------------------------------------------------------------
-[178/178] Total                         100% |  87.8 MiB/s | 225.2 MiB |  00m03s
+[231/231] Total                         100% | 178.4 MiB/s | 274.1 MiB |  00m02s
 Running transaction
-[  1/180] Verify package files          100% | 211.0   B/s | 178.0   B |  00m01s
+[  1/233] Verify package files          100% | 250.0   B/s | 231.0   B |  00m01s
 >>> Running %pretrans scriptlet: xkeyboard-config-0:2.47-1.fc45.noarch
 >>> Finished %pretrans scriptlet: xkeyboard-config-0:2.47-1.fc45.noarch
->>> [RPM] /var/lib/mock/fedora-rawhide-x86_64-1777375978.637734/root/var/cache/dnf/copr_base-053eb6238d65da98/packages/hyprlang-devel-0.6.8-1.fc45.x86_64.rpm: Header OpenPGP V4 RSA/SHA256 signature, key ID 2a24e792fa7ee482: NOKEY
-[  2/180] Prepare transaction           100% |   1.5 KiB/s | 178.0   B |  00m00s
-[  3/180] Installing glib2-0:2.88.0-1.f 100% | 254.8 MiB/s |  15.3 MiB |  00m00s
-[  4/180] Installing expat-0:2.7.5-1.fc 100% |  16.7 MiB/s | 325.0 KiB |  00m00s
-[  5/180] Installing cmake-filesystem-0 100% |   4.6 MiB/s |   9.4 KiB |  00m00s
-[  6/180] Installing zlib-ng-compat-dev 100% | 106.0 MiB/s | 108.6 KiB |  00m00s
-[  7/180] Installing libpng-2:1.6.56-1. 100% | 122.5 MiB/s | 250.9 KiB |  00m00s
-[  8/180] Installing xorg-x11-proto-dev 100% | 256.5 MiB/s |   1.8 MiB |  00m00s
-[  9/180] Installing libX11-xcb-0:1.8.1 100% |   0.0   B/s |  11.6 KiB |  00m00s
-[ 10/180] Installing pixman-0:0.46.2-3. 100% | 351.2 MiB/s | 719.3 KiB |  00m00s
-[ 11/180] Installing hyprutils-0:0.12.0 100% | 185.7 MiB/s | 380.3 KiB |  00m00s
-[ 12/180] Installing libpng-devel-2:1.6 100% |  44.4 MiB/s | 910.2 KiB |  00m00s
-[ 13/180] Installing libglvnd-1:1.7.0-9 100% | 515.4 MiB/s | 527.8 KiB |  00m00s
-[ 14/180] Installing libwayland-client- 100% |  61.6 MiB/s |  63.1 KiB |  00m00s
-[ 15/180] Installing fonts-filesystem-1 100% |   0.0   B/s | 788.0   B |  00m00s
-[ 16/180] Installing libicu-0:77.1-2.fc 100% | 377.6 MiB/s |  36.6 MiB |  00m00s
-[ 17/180] Installing libmpc-0:1.4.1-1.f 100% | 166.4 MiB/s | 170.4 KiB |  00m00s
-[ 18/180] Installing libglvnd-opengl-1: 100% | 142.1 MiB/s | 145.5 KiB |  00m00s
-[ 19/180] Installing hyprlang-0:0.6.8-1 100% | 141.7 MiB/s | 290.1 KiB |  00m00s
-[ 20/180] Installing shared-mime-info-0 100% |  78.7 MiB/s |   2.6 MiB |  00m00s
-[ 21/180] Installing libevdev-0:1.13.6- 100% |  88.8 MiB/s |  91.0 KiB |  00m00s
-[ 22/180] Installing libXau-0:1.0.12-4. 100% |  72.6 MiB/s |  74.3 KiB |  00m00s
-[ 23/180] Installing libxcb-0:1.17.0-7. 100% | 215.5 MiB/s |   1.1 MiB |  00m00s
-[ 24/180] Installing libdav1d-0:1.5.3-1 100% | 339.5 MiB/s |   1.7 MiB |  00m00s
-[ 25/180] Installing lzo-0:2.10-16.fc44 100% | 172.3 MiB/s | 176.4 KiB |  00m00s
-[ 26/180] Installing libwebp-0:1.6.0-3. 100% | 316.4 MiB/s | 972.1 KiB |  00m00s
-[ 27/180] Installing libjpeg-turbo-0:3. 100% | 161.6 MiB/s | 827.4 KiB |  00m00s
-[ 28/180] Installing kernel-headers-0:7 100% | 197.2 MiB/s |   7.1 MiB |  00m00s
-[ 29/180] Installing glibc-devel-0:2.43 100% | 170.6 MiB/s |   2.4 MiB |  00m00s
-[ 30/180] Installing libxcrypt-devel-0: 100% |  32.5 MiB/s |  33.3 KiB |  00m00s
-[ 31/180] Installing graphite2-0:1.3.14 100% |  10.0 MiB/s | 193.6 KiB |  00m00s
-[ 32/180] Installing freetype-0:2.14.3- 100% | 299.5 MiB/s | 920.0 KiB |  00m00s
-[ 33/180] Installing harfbuzz-0:14.2.0- 100% | 354.7 MiB/s |   2.8 MiB |  00m00s
-[ 34/180] Installing libtextstyle-0:1.0 100% | 207.1 MiB/s | 212.1 KiB |  00m00s
-[ 35/180] Installing gettext-libs-0:1.0 100% | 329.3 MiB/s |   2.3 MiB |  00m00s
-[ 36/180] Installing make-1:4.4.1-12.fc 100% |  78.3 MiB/s |   1.8 MiB |  00m00s
-[ 37/180] Installing vim-filesystem-2:9 100% |   4.7 MiB/s |   4.8 KiB |  00m00s
-[ 38/180] Installing harfbuzz-gpu-0:14. 100% | 173.0 MiB/s | 177.1 KiB |  00m00s
-[ 39/180] Installing harfbuzz-icu-0:14. 100% |   0.0   B/s |  16.1 KiB |  00m00s
-[ 40/180] Installing harfbuzz-raster-0: 100% | 102.7 MiB/s | 105.2 KiB |  00m00s
-[ 41/180] Installing harfbuzz-vector-0: 100% | 111.3 MiB/s | 114.0 KiB |  00m00s
-[ 42/180] Installing graphite2-devel-0: 100% |   0.0   B/s |  50.8 KiB |  00m00s
-[ 43/180] Installing libXau-devel-0:1.0 100% |   1.5 MiB/s |   9.1 KiB |  00m00s
-[ 44/180] Installing libxcb-devel-0:1.1 100% |  81.5 MiB/s |   3.0 MiB |  00m00s
-[ 45/180] Installing cpp-0:16.0.1-0.11. 100% | 314.0 MiB/s |  42.1 MiB |  00m00s
-[ 46/180] Installing libicu-devel-0:77. 100% | 164.0 MiB/s |   5.1 MiB |  00m00s
-[ 47/180] Installing libqalculate-0:5.9 100% | 405.3 MiB/s |   9.7 MiB |  00m00s
-[ 48/180] Installing abattis-cantarell- 100% | 189.9 MiB/s | 194.4 KiB |  00m00s
-[ 49/180] Installing hyprwire-0:0.3.1-1 100% | 169.8 MiB/s | 347.7 KiB |  00m00s
-[ 50/180] Installing pixman-devel-0:0.4 100% |   0.0   B/s |  56.9 KiB |  00m00s
-[ 51/180] Installing libgudev-0:238-9.f 100% |  91.0 MiB/s |  93.2 KiB |  00m00s
-[ 52/180] Installing annobin-docs-0:13. 100% |  98.1 MiB/s | 100.5 KiB |  00m00s
-[ 53/180] Installing lzo-minilzo-0:2.10 100% |  36.9 MiB/s |  37.8 KiB |  00m00s
-[ 54/180] Installing lzo-devel-0:2.10-1 100% | 210.2 MiB/s | 215.3 KiB |  00m00s
-[ 55/180] Installing glfw-1:3.4-7.fc45. 100% | 189.2 MiB/s | 387.4 KiB |  00m00s
-[ 56/180] Installing bzip2-devel-0:1.0. 100% | 303.5 MiB/s | 310.7 KiB |  00m00s
-[ 57/180] Installing brotli-0:1.2.0-3.f 100% |   1.9 MiB/s |  34.3 KiB |  00m00s
-[ 58/180] Installing brotli-devel-0:1.2 100% |  66.8 MiB/s |  68.4 KiB |  00m00s
-[ 59/180] Installing libblkid-devel-0:2 100% |  22.5 MiB/s |  46.2 KiB |  00m00s
-[ 60/180] Installing libwacom-data-0:2. 100% |  95.9 MiB/s |   1.5 MiB |  00m00s
-[ 61/180] Installing mtdev-0:1.1.6-12.f 100% |   0.0   B/s |  30.3 KiB |  00m00s
-[ 62/180] Installing libseat-0:0.9.3-1. 100% |  51.4 MiB/s |  52.7 KiB |  00m00s
-[ 63/180] Installing libdisplay-info-0: 100% | 222.6 MiB/s | 227.9 KiB |  00m00s
-[ 64/180] Installing llvm-filesystem-0: 100% |   0.0   B/s |   1.1 KiB |  00m00s
-[ 65/180] Installing libedit-0:3.1-58.2 100% | 243.9 MiB/s | 249.8 KiB |  00m00s
-[ 66/180] Installing llvm-libs-0:22.1.4 100% | 426.9 MiB/s | 140.5 MiB |  00m00s
-[ 67/180] Installing spirv-tools-libs-0 100% | 406.4 MiB/s |   6.1 MiB |  00m00s
-[ 68/180] Installing mesa-filesystem-0: 100% |   0.0   B/s |   4.3 KiB |  00m00s
-[ 69/180] Installing lm_sensors-libs-0: 100% |  84.8 MiB/s |  86.8 KiB |  00m00s
-[ 70/180] Installing libxshmfence-0:1.3 100% |   0.0   B/s |  13.4 KiB |  00m00s
-[ 71/180] Installing iniparser-0:4.2.6- 100% |  38.6 MiB/s |  39.5 KiB |  00m00s
-[ 72/180] Installing bubblewrap-0:0.11. 100% |   7.4 MiB/s | 137.1 KiB |  00m00s
-[ 73/180] Installing libseccomp-0:2.6.0 100% | 221.4 MiB/s | 226.7 KiB |  00m00s
-[ 74/180] Installing lcms2-0:2.16-7.fc4 100% | 218.4 MiB/s | 447.3 KiB |  00m00s
-[ 75/180] Installing libdatrie-0:0.2.14 100% |  61.4 MiB/s |  62.8 KiB |  00m00s
-[ 76/180] Installing libthai-0:0.1.30-2 100% | 261.3 MiB/s | 802.7 KiB |  00m00s
-[ 77/180] Installing libvmaf-0:3.1.0-1. 100% | 317.8 MiB/s | 976.4 KiB |  00m00s
-[ 78/180] Installing libaom-0:3.13.3-2. 100% | 391.5 MiB/s |   5.1 MiB |  00m00s
-[ 79/180] Installing libX11-common-0:1. 100% | 148.2 MiB/s |   1.2 MiB |  00m00s
-[ 80/180] Installing libX11-0:1.8.13-1. 100% | 337.0 MiB/s |   1.3 MiB |  00m00s
-[ 81/180] Installing libXext-0:1.3.6-5. 100% |  88.9 MiB/s |  91.1 KiB |  00m00s
-[ 82/180] Installing libXrender-0:0.9.1 100% |  16.7 MiB/s |  51.2 KiB |  00m00s
-[ 83/180] Installing libX11-devel-0:1.8 100% |  79.0 MiB/s |   1.1 MiB |  00m00s
-[ 84/180] Installing libXext-devel-0:1. 100% |  53.6 MiB/s | 109.8 KiB |  00m00s
-[ 85/180] Installing libXrender-devel-0 100% |   0.0   B/s |  51.0 KiB |  00m00s
-[ 86/180] Installing libXxf86vm-0:1.1.6 100% |   0.0   B/s |  26.4 KiB |  00m00s
-[ 87/180] Installing fribidi-0:1.0.16-4 100% |   9.9 MiB/s | 192.5 KiB |  00m00s
-[ 88/180] Installing highway-0:1.3.0-2. 100% | 503.1 MiB/s |   5.5 MiB |  00m00s
-[ 89/180] Installing libjxl-1:0.11.1-8. 100% | 411.0 MiB/s |   4.1 MiB |  00m00s
-[ 90/180] Installing svt-av1-libs-0:3.1 100% | 374.1 MiB/s |   5.6 MiB |  00m00s
-[ 91/180] Installing rav1e-libs-0:0.8.1 100% | 385.4 MiB/s |   3.1 MiB |  00m00s
-[ 92/180] Installing openjpeg-0:2.5.4-3 100% | 227.6 MiB/s | 466.1 KiB |  00m00s
-[ 93/180] Installing noopenh264-0:2.6.0 100% |  39.7 MiB/s |  40.6 KiB |  00m00s
-[ 94/180] Installing libopenjph-0:0.26. 100% | 236.0 MiB/s | 483.3 KiB |  00m00s
-[ 95/180] Installing libheif-0:1.21.2-3 100% | 362.8 MiB/s |   1.8 MiB |  00m00s
-[ 96/180] Installing libatomic-0:16.0.1 100% |  45.5 MiB/s |  46.6 KiB |  00m00s
-[ 97/180] Installing gcc-0:16.0.1-0.11. 100% | 375.1 MiB/s | 120.8 MiB |  00m00s
-[ 98/180] Installing libstdc++-devel-0: 100% | 451.9 MiB/s |  39.3 MiB |  00m00s
-[ 99/180] Installing sysprof-capture-de 100% | 398.7 MiB/s | 816.6 KiB |  00m00s
-[100/180] Installing pcre2-utf32-0:10.4 100% | 304.7 MiB/s | 623.9 KiB |  00m00s
-[101/180] Installing pcre2-utf16-0:10.4 100% | 213.6 MiB/s | 656.1 KiB |  00m00s
-[102/180] Installing pcre2-devel-0:10.4 100% |  81.5 MiB/s |   2.1 MiB |  00m00s
-[103/180] Installing libsepol-devel-0:3 100% |  63.0 MiB/s | 129.0 KiB |  00m00s
-[104/180] Installing libselinux-devel-0 100% |  51.1 MiB/s | 156.9 KiB |  00m00s
-[105/180] Installing libmount-devel-0:2 100% |   0.0   B/s |  67.4 KiB |  00m00s
-[106/180] Installing libffi-devel-0:3.5 100% |   0.0   B/s |  35.6 KiB |  00m00s
-[107/180] Installing gmp-c++-1:6.3.0-5. 100% |   0.0   B/s |  32.3 KiB |  00m00s
-[108/180] Installing gmp-devel-1:6.3.0- 100% | 345.8 MiB/s | 354.1 KiB |  00m00s
-[109/180] Installing mpfr-devel-0:4.2.2 100% |   0.0   B/s |  63.6 KiB |  00m00s
-[110/180] Installing cln-0:1.3.6-10.fc4 100% | 309.3 MiB/s |   1.5 MiB |  00m00s
-[111/180] Installing cln-devel-0:1.3.6- 100% | 266.5 MiB/s |   1.1 MiB |  00m00s
-[112/180] Installing xz-devel-1:5.8.3-1 100% | 128.2 MiB/s | 262.6 KiB |  00m00s
-[113/180] Installing libxml2-devel-0:2. 100% | 110.2 MiB/s |   3.4 MiB |  00m00s
-[114/180] Installing tzdata-0:2026a-1.f 100% |  45.8 MiB/s |   1.5 MiB |  00m00s
-[115/180] Installing python-pip-wheel-0 100% | 611.4 MiB/s |   1.2 MiB |  00m00s
-[116/180] Installing mpdecimal-0:4.0.1- 100% |  30.5 MiB/s | 218.6 KiB |  00m00s
-[117/180] Installing python3-libs-0:3.1 100% | 322.6 MiB/s |  44.2 MiB |  00m00s
-[118/180] Installing python3-0:3.14.4-2 100% |   1.6 MiB/s |  30.5 KiB |  00m00s
-[119/180] Installing ninja-build-0:1.13 100% |  24.4 MiB/s | 499.6 KiB |  00m00s
-[120/180] Installing cmake-rpm-macros-0 100% |   8.8 MiB/s |   9.0 KiB |  00m00s
-[121/180] Installing python3-packaging- 100% | 189.9 MiB/s | 972.3 KiB |  00m00s
-[122/180] Installing glib2-devel-0:2.88 100% | 310.5 MiB/s |  15.8 MiB |  00m00s
-[123/180] Installing libwacom-0:2.18.0- 100% |   5.8 MiB/s | 111.9 KiB |  00m00s
-[124/180] Installing libinput-0:1.31.1- 100% |  24.7 MiB/s | 707.9 KiB |  00m00s
-[125/180] Installing google-noto-fonts- 100% |  18.1 MiB/s |  18.5 KiB |  00m00s
-[126/180] Installing google-noto-sans-v 100% | 278.3 MiB/s |   1.4 MiB |  00m00s
-[127/180] Installing default-fonts-core 100% |  17.8 MiB/s |  18.2 KiB |  00m00s
-[128/180] Installing hwdata-0:0.406-1.f 100% | 493.5 MiB/s |   9.9 MiB |  00m00s
-[129/180] Installing libpciaccess-0:0.1 100% |  48.6 MiB/s |  49.8 KiB |  00m00s
-[130/180] Installing libdrm-0:2.4.131-1 100% | 199.2 MiB/s | 408.0 KiB |  00m00s
-[131/180] Installing mesa-dri-drivers-0 100% | 435.5 MiB/s |  52.3 MiB |  00m00s
-[132/180] Installing mesa-libgbm-0:26.1 100% |  19.9 MiB/s |  20.4 KiB |  00m00s
-[133/180] Installing mesa-libEGL-0:26.1 100% | 193.1 MiB/s | 395.4 KiB |  00m00s
-[134/180] Installing libglvnd-egl-1:1.7 100% |  68.6 MiB/s |  70.2 KiB |  00m00s
-[135/180] Installing aquamarine-0:0.11. 100% | 305.0 MiB/s |   1.2 MiB |  00m00s
-[136/180] Installing aquamarine-devel-0 100% |  95.2 MiB/s |  97.4 KiB |  00m00s
-[137/180] Installing mesa-libGL-0:26.1. 100% | 362.3 MiB/s | 371.0 KiB |  00m00s
-[138/180] Installing libglvnd-glx-1:1.7 100% | 294.1 MiB/s | 602.4 KiB |  00m00s
-[139/180] Installing libGLEW-0:2.2.0-12 100% | 371.7 MiB/s | 761.3 KiB |  00m00s
-[140/180] Installing libpciaccess-devel 100% |   0.0   B/s |  15.9 KiB |  00m00s
-[141/180] Installing gettext-envsubst-0 100% |   3.9 MiB/s |  76.0 KiB |  00m00s
-[142/180] Installing gettext-runtime-0: 100% |  27.3 MiB/s | 726.5 KiB |  00m00s
-[143/180] Installing gettext-0:1.0-1.fc 100% | 335.9 MiB/s |  17.8 MiB |  00m00s
-[144/180] Installing xkeyboard-config-0 100% | 293.9 MiB/s |   6.5 MiB |  00m00s
-[145/180] Installing libxkbcommon-0:1.1 100% |  53.0 MiB/s | 433.9 KiB |  00m00s
-[146/180] Installing xml-common-0:0.6.3 100% |  39.6 MiB/s |  81.1 KiB |  00m00s
-[147/180] Installing fontconfig-0:2.17. 100% | 763.0 KiB/s | 795.8 KiB |  00m01s
-[148/180] Installing cairo-0:1.18.4-6.f 100% | 304.5 MiB/s |   1.8 MiB |  00m00s
-[149/180] Installing cairo-gobject-0:1. 100% |   0.0   B/s |  31.8 KiB |  00m00s
-[150/180] Installing harfbuzz-cairo-0:1 100% |  47.7 MiB/s |  48.9 KiB |  00m00s
-[151/180] Installing fontconfig-devel-0 100% |  31.1 MiB/s | 159.4 KiB |  00m00s
-[152/180] Installing cairo-devel-0:1.18 100% | 381.8 MiB/s |   2.3 MiB |  00m00s
-[153/180] Installing harfbuzz-devel-0:1 100% | 188.8 MiB/s |   6.4 MiB |  00m00s
-[154/180] Installing freetype-devel-0:2 100% | 238.7 MiB/s |   8.6 MiB |  00m00s
-[155/180] Installing libXft-0:2.3.8-10. 100% | 165.8 MiB/s | 169.8 KiB |  00m00s
-[156/180] Installing pango-0:1.57.1-1.f 100% |  48.4 MiB/s |   1.0 MiB |  00m00s
-[157/180] Installing glycin-libs-0:2.1. 100% | 387.6 MiB/s |   4.3 MiB |  00m00s
-[158/180] Installing gdk-pixbuf2-0:2.44 100% |  92.3 MiB/s |   2.6 MiB |  00m00s
-[159/180] Installing librsvg2-0:2.62.0- 100% | 355.9 MiB/s |   5.0 MiB |  00m00s
-[160/180] Installing glycin-loaders-0:2 100% | 451.4 MiB/s |  14.0 MiB |  00m00s
-[161/180] Installing hyprgraphics-0:0.5 100% | 224.7 MiB/s | 230.1 KiB |  00m00s
-[162/180] Installing hyprgraphics-devel 100% |  16.3 MiB/s |  16.7 KiB |  00m00s
-[163/180] Installing hyprtoolkit-0:0.5. 100% | 336.6 MiB/s |   1.3 MiB |  00m00s
-[164/180] Installing emacs-filesystem-1 100% |   0.0   B/s | 812.0   B |  00m00s
-[165/180] Installing pugixml-0:1.15-2.f 100% | 273.5 MiB/s | 280.0 KiB |  00m00s
-[166/180] Installing rhash-0:1.4.5-4.fc 100% |  18.5 MiB/s | 360.1 KiB |  00m00s
-[167/180] Installing libuv-1:1.52.1-1.f 100% | 291.0 MiB/s | 596.0 KiB |  00m00s
-[168/180] Installing jsoncpp-0:1.9.6-3. 100% |  28.0 MiB/s | 287.1 KiB |  00m00s
-[169/180] Installing cmake-data-0:4.3.0 100% | 115.8 MiB/s |  10.1 MiB |  00m00s
-[170/180] Installing cmake-0:4.3.0-1.fc 100% | 324.0 MiB/s |  40.5 MiB |  00m00s
-[171/180] Installing hyprwire-devel-0:0 100% |  11.1 MiB/s | 215.6 KiB |  00m00s
-[172/180] Installing hyprtoolkit-devel- 100% |  64.5 MiB/s |  66.1 KiB |  00m00s
-[173/180] Installing libxkbcommon-devel 100% | 385.8 MiB/s | 395.1 KiB |  00m00s
-[174/180] Installing libdrm-devel-0:2.4 100% | 244.3 MiB/s | 750.6 KiB |  00m00s
-[175/180] Installing libqalculate-devel 100% | 300.6 MiB/s | 307.8 KiB |  00m00s
-[176/180] Installing gcc-c++-0:16.0.1-0 100% | 321.8 MiB/s |  46.3 MiB |  00m00s
-[177/180] Installing annobin-plugin-gcc 100% |  45.6 MiB/s | 701.1 KiB |  00m00s
-[178/180] Installing gcc-plugin-annobin 100% |   4.1 MiB/s |  58.6 KiB |  00m00s
-[179/180] Installing hyprlang-devel-0:0 100% |  16.4 MiB/s |  16.8 KiB |  00m00s
-[180/180] Installing hyprutils-devel-0: 100% | 297.1 KiB/s | 110.5 KiB |  00m00s
-Warning: skipped OpenPGP checks for 12 packages from repository: copr_base
+>>> [RPM] /var/lib/mock/fedora-rawhide-x86_64-1777378520.549170/root/var/cache/dnf/copr_base-053eb6238d65da98/packages/hyprutils-devel-0.12.0-1.fc45.x86_64.rpm: Header OpenPGP V4 RSA/SHA256 signature, key ID 2a24e792fa7ee482: NOKEY
+[  2/233] Prepare transaction           100% |   1.4 KiB/s | 231.0   B |  00m00s
+[  3/233] Installing glib2-0:2.88.0-1.f 100% | 278.0 MiB/s |  15.3 MiB |  00m00s
+[  4/233] Installing cmake-filesystem-0 100% |   9.1 MiB/s |   9.4 KiB |  00m00s
+[  5/233] Installing expat-0:2.7.5-1.fc 100% |  18.7 MiB/s | 325.0 KiB |  00m00s
+[  6/233] Installing dbus-libs-1:1.16.2 100% | 350.2 MiB/s | 358.6 KiB |  00m00s
+[  7/233] Installing libwayland-client- 100% |   0.0   B/s |  63.1 KiB |  00m00s
+[  8/233] Installing avahi-libs-0:0.9~r 100% | 177.6 MiB/s | 181.8 KiB |  00m00s
+[  9/233] Installing libglvnd-1:1.7.0-9 100% | 515.4 MiB/s | 527.8 KiB |  00m00s
+[ 10/233] Installing libX11-xcb-0:1.8.1 100% |   0.0   B/s |  11.6 KiB |  00m00s
+[ 11/233] Installing libwayland-cursor- 100% |   0.0   B/s |  38.3 KiB |  00m00s
+[ 12/233] Installing fonts-filesystem-1 100% |   0.0   B/s | 788.0   B |  00m00s
+[ 13/233] Installing libpng-2:1.6.56-1. 100% | 245.0 MiB/s | 250.9 KiB |  00m00s
+[ 14/233] Installing libwayland-egl-0:1 100% |   0.0   B/s |  13.4 KiB |  00m00s
+[ 15/233] Installing libmpc-0:1.4.1-1.f 100% | 166.4 MiB/s | 170.4 KiB |  00m00s
+[ 16/233] Installing pcre2-utf16-0:10.4 100% | 320.3 MiB/s | 656.1 KiB |  00m00s
+[ 17/233] Installing libglvnd-opengl-1: 100% |   0.0   B/s | 145.5 KiB |  00m00s
+[ 18/233] Installing zlib-ng-compat-dev 100% | 106.0 MiB/s | 108.6 KiB |  00m00s
+[ 19/233] Installing shared-mime-info-0 100% |  92.7 MiB/s |   2.6 MiB |  00m00s
+[ 20/233] Installing json-glib-0:1.10.8 100% | 148.5 MiB/s | 608.3 KiB |  00m00s
+[ 21/233] Installing xorg-x11-proto-dev 100% | 299.3 MiB/s |   1.8 MiB |  00m00s
+[ 22/233] Installing libdav1d-0:1.5.3-1 100% | 424.3 MiB/s |   1.7 MiB |  00m00s
+[ 23/233] Installing dbus-1:1.16.2-1.fc 100% |   0.0   B/s | 124.0   B |  00m00s
+[ 24/233] Installing lcms2-0:2.16-7.fc4 100% | 218.4 MiB/s | 447.3 KiB |  00m00s
+[ 25/233] Installing fribidi-0:1.0.16-4 100% |  11.1 MiB/s | 192.5 KiB |  00m00s
+[ 26/233] Installing pixman-0:0.46.2-3. 100% | 351.2 MiB/s | 719.3 KiB |  00m00s
+[ 27/233] Installing libXau-0:1.0.12-4. 100% |  72.6 MiB/s |  74.3 KiB |  00m00s
+[ 28/233] Installing libxcb-0:1.17.0-7. 100% | 269.4 MiB/s |   1.1 MiB |  00m00s
+[ 29/233] Installing xcb-util-renderuti 100% |   0.0   B/s |  25.7 KiB |  00m00s
+[ 30/233] Installing libevdev-0:1.13.6- 100% |  17.8 MiB/s |  91.0 KiB |  00m00s
+[ 31/233] Installing xml-common-0:0.6.3 100% |  79.2 MiB/s |  81.1 KiB |  00m00s
+[ 32/233] Installing mtdev-0:1.1.6-12.f 100% |   0.0   B/s |  30.3 KiB |  00m00s
+[ 33/233] Installing libjpeg-turbo-0:3. 100% | 404.0 MiB/s | 827.4 KiB |  00m00s
+[ 34/233] Installing libICE-0:1.1.2-4.f 100% | 195.0 MiB/s | 199.7 KiB |  00m00s
+[ 35/233] Installing libicu-0:77.1-2.fc 100% | 421.0 MiB/s |  36.6 MiB |  00m00s
+[ 36/233] Installing vim-filesystem-2:9 100% |   4.7 MiB/s |   4.8 KiB |  00m00s
+[ 37/233] Installing make-1:4.4.1-12.fc 100% |  85.7 MiB/s |   1.8 MiB |  00m00s
+[ 38/233] Installing emacs-filesystem-1 100% |   0.0   B/s | 812.0   B |  00m00s
+[ 39/233] Installing libSM-0:1.2.5-4.fc 100% |  99.9 MiB/s | 102.2 KiB |  00m00s
+[ 40/233] Installing xcb-util-keysyms-0 100% |   0.0   B/s |  17.7 KiB |  00m00s
+[ 41/233] Installing xcb-util-wm-0:0.4. 100% |  81.0 MiB/s |  83.0 KiB |  00m00s
+[ 42/233] Installing xcb-util-0:0.4.1-9 100% |   0.0   B/s |  27.5 KiB |  00m00s
+[ 43/233] Installing xcb-util-image-0:0 100% |   0.0   B/s |  23.5 KiB |  00m00s
+[ 44/233] Installing xcb-util-cursor-0: 100% |   0.0   B/s |  24.5 KiB |  00m00s
+[ 45/233] Installing libXau-devel-0:1.0 100% |   1.8 MiB/s |   9.1 KiB |  00m00s
+[ 46/233] Installing libxcb-devel-0:1.1 100% |  91.4 MiB/s |   3.0 MiB |  00m00s
+[ 47/233] Installing hyprutils-0:0.12.0 100% | 185.7 MiB/s | 380.3 KiB |  00m00s
+[ 48/233] Installing libgusb-0:0.4.9-5. 100% | 155.9 MiB/s | 159.6 KiB |  00m00s
+[ 49/233] Installing colord-libs-0:1.4. 100% | 271.3 MiB/s | 833.4 KiB |  00m00s
+[ 50/233] Installing cpp-0:16.0.1-0.11. 100% | 362.7 MiB/s |  42.1 MiB |  00m00s
+[ 51/233] Installing abattis-cantarell- 100% | 189.9 MiB/s | 194.4 KiB |  00m00s
+[ 52/233] Installing avahi-glib-0:0.9~r 100% |   0.0   B/s |  20.3 KiB |  00m00s
+[ 53/233] Installing libgudev-0:238-9.f 100% |  91.0 MiB/s |  93.2 KiB |  00m00s
+[ 54/233] Installing libcloudproviders- 100% | 123.3 MiB/s | 126.3 KiB |  00m00s
+[ 55/233] Installing libsoup3-0:3.6.6-8 100% | 197.2 MiB/s |   1.2 MiB |  00m00s
+[ 56/233] Installing annobin-docs-0:13. 100% |   0.0   B/s | 100.5 KiB |  00m00s
+[ 57/233] Installing pcre2-utf32-0:10.4 100% | 304.7 MiB/s | 623.9 KiB |  00m00s
+[ 58/233] Installing pcre2-devel-0:10.4 100% |  88.3 MiB/s |   2.1 MiB |  00m00s
+[ 59/233] Installing systemd-devel-0:26 100% |  72.1 MiB/s | 738.2 KiB |  00m00s
+[ 60/233] Installing dbus-devel-1:1.16. 100% |  44.4 MiB/s | 136.5 KiB |  00m00s
+[ 61/233] Installing kernel-headers-0:7 100% | 229.0 MiB/s |   7.1 MiB |  00m00s
+[ 62/233] Installing glibc-devel-0:2.43 100% | 199.0 MiB/s |   2.4 MiB |  00m00s
+[ 63/233] Installing libxcrypt-devel-0: 100% |   0.0   B/s |  33.3 KiB |  00m00s
+[ 64/233] Installing p11-kit-devel-0:0. 100% | 314.2 MiB/s | 643.4 KiB |  00m00s
+[ 65/233] Installing gmp-c++-1:6.3.0-5. 100% |   0.0   B/s |  32.3 KiB |  00m00s
+[ 66/233] Installing gmp-devel-1:6.3.0- 100% | 345.8 MiB/s | 354.1 KiB |  00m00s
+[ 67/233] Installing nettle-devel-0:3.1 100% | 385.4 MiB/s |   1.5 MiB |  00m00s
+[ 68/233] Installing libtasn1-tools-0:4 100% |   3.8 MiB/s |  62.6 KiB |  00m00s
+[ 69/233] Installing libtasn1-devel-0:4 100% |  81.1 MiB/s |  83.1 KiB |  00m00s
+[ 70/233] Installing libidn2-devel-0:2. 100% | 153.0 MiB/s | 156.7 KiB |  00m00s
+[ 71/233] Installing libverto-devel-0:0 100% |   0.0   B/s |  26.4 KiB |  00m00s
+[ 72/233] Installing libsepol-devel-0:3 100% |  63.0 MiB/s | 129.0 KiB |  00m00s
+[ 73/233] Installing libselinux-devel-0 100% |  51.1 MiB/s | 156.9 KiB |  00m00s
+[ 74/233] Installing libcom_err-devel-0 100% |   1.1 MiB/s |  18.3 KiB |  00m00s
+[ 75/233] Installing keyutils-libs-deve 100% |  53.9 MiB/s |  55.2 KiB |  00m00s
+[ 76/233] Installing libkadm5-0:1.22.2- 100% | 214.5 MiB/s | 219.7 KiB |  00m00s
+[ 77/233] Installing krb5-devel-0:1.22. 100% |  39.0 MiB/s | 719.2 KiB |  00m00s
+[ 78/233] Installing protobuf-c-0:1.5.2 100% |   0.0   B/s |  55.2 KiB |  00m00s
+[ 79/233] Installing hiredis-0:1.2.0-8. 100% | 104.9 MiB/s | 107.4 KiB |  00m00s
+[ 80/233] Installing dns-root-data-0:20 100% |   0.0   B/s |  12.5 KiB |  00m00s
+[ 81/233] Installing gnutls-c++-0:3.8.1 100% |   0.0   B/s |  73.1 KiB |  00m00s
+[ 82/233] Installing libdaemon-0:0.14-3 100% |   9.1 MiB/s |  65.4 KiB |  00m00s
+>>> Running sysusers scriptlet: avahi-0:0.9~rc2-8.fc44.x86_64
+>>> Finished sysusers scriptlet: avahi-0:0.9~rc2-8.fc44.x86_64
+>>> Scriptlet output:
+>>> Creating group 'avahi' with GID 70.
+>>> Creating user 'avahi' (Avahi mDNS/DNS-SD Stack) with UID 70 and GID 70.
+>>> 
+[ 83/233] Installing avahi-0:0.9~rc2-8. 100% |  56.9 MiB/s |   1.6 MiB |  00m00s
+[ 84/233] Installing libatomic-0:16.0.1 100% |  45.5 MiB/s |  46.6 KiB |  00m00s
+[ 85/233] Installing gcc-0:16.0.1-0.11. 100% | 417.9 MiB/s | 120.8 MiB |  00m00s
+[ 86/233] Installing libstdc++-devel-0: 100% | 497.6 MiB/s |  39.3 MiB |  00m00s
+[ 87/233] Installing gcc-c++-0:16.0.1-0 100% | 359.2 MiB/s |  46.3 MiB |  00m00s
+[ 88/233] Installing tzdata-0:2026a-1.f 100% |  52.2 MiB/s |   1.5 MiB |  00m00s
+[ 89/233] Installing python-pip-wheel-0 100% | 611.4 MiB/s |   1.2 MiB |  00m00s
+[ 90/233] Installing mpdecimal-0:4.0.1- 100% |  35.6 MiB/s | 218.6 KiB |  00m00s
+[ 91/233] Installing python3-libs-0:3.1 100% | 371.4 MiB/s |  44.2 MiB |  00m00s
+[ 92/233] Installing python3-0:3.14.4-2 100% |   1.7 MiB/s |  30.5 KiB |  00m00s
+[ 93/233] Installing vulkan-headers-0:1 100% | 803.0 MiB/s |  36.1 MiB |  00m00s
+[ 94/233] Installing libevent-devel-0:2 100% |  23.5 MiB/s | 432.3 KiB |  00m00s
+[ 95/233] Installing avahi-devel-0:0.9~ 100% | 132.6 MiB/s | 135.8 KiB |  00m00s
+[ 96/233] Installing ninja-build-0:1.13 100% |  27.1 MiB/s | 499.6 KiB |  00m00s
+[ 97/233] Installing cmake-rpm-macros-0 100% |   1.3 MiB/s |   9.0 KiB |  00m00s
+>>> Running sysusers scriptlet: unbound-libs-0:1.24.2-11.fc45.x86_64
+>>> Finished sysusers scriptlet: unbound-libs-0:1.24.2-11.fc45.x86_64
+>>> Scriptlet output:
+>>> Creating group 'unbound' with GID 999.
+>>> Creating user 'unbound' (Unbound DNS resolver) with UID 999 and GID 999.
+>>> 
+[ 98/233] Installing unbound-libs-0:1.2 100% | 306.1 MiB/s |   1.5 MiB |  00m00s
+[ 99/233] Installing gnutls-dane-0:3.8. 100% |  15.0 MiB/s |  61.6 KiB |  00m00s
+[100/233] Installing gnutls-devel-0:3.8 100% | 210.1 MiB/s |   5.9 MiB |  00m00s
+[101/233] Installing xz-devel-1:5.8.3-1 100% | 128.2 MiB/s | 262.6 KiB |  00m00s
+[102/233] Installing libxml2-devel-0:2. 100% | 136.7 MiB/s |   3.4 MiB |  00m00s
+[103/233] Installing vulkan-loader-0:1. 100% | 283.3 MiB/s | 580.2 KiB |  00m00s
+[104/233] Installing vulkan-loader-deve 100% |   0.0   B/s |   9.1 KiB |  00m00s
+[105/233] Installing libglvnd-core-deve 100% |   0.0   B/s |  41.1 KiB |  00m00s
+[106/233] Installing libffi-devel-0:3.5 100% |   0.0   B/s |  35.6 KiB |  00m00s
+[107/233] Installing libvmaf-0:3.1.0-1. 100% | 476.8 MiB/s | 976.4 KiB |  00m00s
+[108/233] Installing libaom-0:3.13.3-2. 100% | 424.1 MiB/s |   5.1 MiB |  00m00s
+[109/233] Installing highway-0:1.3.0-2. 100% | 614.9 MiB/s |   5.5 MiB |  00m00s
+[110/233] Installing libjxl-1:0.11.1-8. 100% | 456.7 MiB/s |   4.1 MiB |  00m00s
+[111/233] Installing svt-av1-libs-0:3.1 100% | 431.6 MiB/s |   5.6 MiB |  00m00s
+[112/233] Installing rav1e-libs-0:0.8.1 100% | 385.4 MiB/s |   3.1 MiB |  00m00s
+[113/233] Installing openjpeg-0:2.5.4-3 100% | 227.6 MiB/s | 466.1 KiB |  00m00s
+[114/233] Installing noopenh264-0:2.6.0 100% |   0.0   B/s |  40.6 KiB |  00m00s
+[115/233] Installing libwebp-0:1.6.0-3. 100% | 316.4 MiB/s | 972.1 KiB |  00m00s
+[116/233] Installing libopenjph-0:0.26. 100% | 471.9 MiB/s | 483.3 KiB |  00m00s
+[117/233] Installing libheif-0:1.21.2-3 100% | 362.8 MiB/s |   1.8 MiB |  00m00s
+[118/233] Installing bubblewrap-0:0.11. 100% |   7.9 MiB/s | 137.1 KiB |  00m00s
+[119/233] Installing libseccomp-0:2.6.0 100% | 221.4 MiB/s | 226.7 KiB |  00m00s
+[120/233] Installing libdatrie-0:0.2.14 100% |   0.0   B/s |  62.8 KiB |  00m00s
+[121/233] Installing libthai-0:0.1.30-2 100% | 391.9 MiB/s | 802.7 KiB |  00m00s
+[122/233] Installing libstemmer-0:3.0.1 100% | 313.8 MiB/s | 642.7 KiB |  00m00s
+[123/233] Installing libtinysparql-0:3. 100% | 167.9 MiB/s |   1.0 MiB |  00m00s
+[124/233] Installing adwaita-icon-theme 100% |  80.3 MiB/s |   2.4 MiB |  00m00s
+[125/233] Installing adwaita-cursor-the 100% | 672.3 MiB/s |  11.4 MiB |  00m00s
+[126/233] Installing adwaita-icon-theme 100% |  89.9 MiB/s |   1.3 MiB |  00m00s
+[127/233] Installing libepoxy-0:1.5.10- 100% | 362.0 MiB/s |   1.1 MiB |  00m00s
+[128/233] Installing hicolor-icon-theme 100% |  21.9 MiB/s | 179.7 KiB |  00m00s
+[129/233] Installing lzo-0:2.10-16.fc44 100% | 172.3 MiB/s | 176.4 KiB |  00m00s
+[130/233] Installing llvm-filesystem-0: 100% |   0.0   B/s |   1.1 KiB |  00m00s
+[131/233] Installing libedit-0:3.1-58.2 100% | 243.9 MiB/s | 249.8 KiB |  00m00s
+[132/233] Installing llvm-libs-0:22.1.4 100% | 482.7 MiB/s | 140.5 MiB |  00m00s
+[133/233] Installing spirv-tools-libs-0 100% | 435.5 MiB/s |   6.1 MiB |  00m00s
+[134/233] Installing mesa-filesystem-0: 100% |   0.0   B/s |   4.3 KiB |  00m00s
+[135/233] Installing lm_sensors-libs-0: 100% |  14.1 MiB/s |  86.8 KiB |  00m00s
+[136/233] Installing libxshmfence-0:1.3 100% |   0.0   B/s |  13.4 KiB |  00m00s
+[137/233] Installing google-noto-fonts- 100% |   0.0   B/s |  18.5 KiB |  00m00s
+[138/233] Installing google-noto-sans-v 100% | 347.8 MiB/s |   1.4 MiB |  00m00s
+[139/233] Installing default-fonts-core 100% |   5.9 MiB/s |  18.2 KiB |  00m00s
+[140/233] Installing libwacom-data-0:2. 100% | 109.7 MiB/s |   1.5 MiB |  00m00s
+[141/233] Installing libwacom-0:2.18.0- 100% |   6.1 MiB/s | 111.9 KiB |  00m00s
+[142/233] Installing libinput-0:1.31.1- 100% |  28.8 MiB/s | 707.9 KiB |  00m00s
+[143/233] Installing hwdata-0:0.406-1.f 100% | 548.3 MiB/s |   9.9 MiB |  00m00s
+[144/233] Installing libpciaccess-0:0.1 100% |  48.6 MiB/s |  49.8 KiB |  00m00s
+[145/233] Installing libdrm-0:2.4.131-1 100% | 199.2 MiB/s | 408.0 KiB |  00m00s
+[146/233] Installing mesa-dri-drivers-0 100% | 483.9 MiB/s |  52.3 MiB |  00m00s
+[147/233] Installing mesa-libgbm-0:26.1 100% |   0.0   B/s |  20.4 KiB |  00m00s
+[148/233] Installing mariadb-connector- 100% |   0.0   B/s |   1.0 KiB |  00m00s
+[149/233] Installing mariadb-connector- 100% | 258.1 MiB/s | 528.7 KiB |  00m00s
+[150/233] Installing libtommath-0:1.3.1 100% | 128.3 MiB/s | 131.4 KiB |  00m00s
+[151/233] Installing libfbclient2-0:5.0 100% | 410.8 MiB/s |   3.3 MiB |  00m00s
+[152/233] Installing xkeyboard-config-0 100% | 340.4 MiB/s |   6.5 MiB |  00m00s
+[153/233] Installing libxkbcommon-0:1.1 100% | 423.7 MiB/s | 433.9 KiB |  00m00s
+[154/233] Installing libxkbcommon-x11-0 100% |   0.0   B/s |  36.3 KiB |  00m00s
+[155/233] Installing libxkbcommon-devel 100% | 385.8 MiB/s | 395.1 KiB |  00m00s
+[156/233] Installing libX11-common-0:1. 100% | 169.3 MiB/s |   1.2 MiB |  00m00s
+[157/233] Installing libX11-0:1.8.13-1. 100% | 337.0 MiB/s |   1.3 MiB |  00m00s
+[158/233] Installing libXext-0:1.3.6-5. 100% |   0.0   B/s |  91.1 KiB |  00m00s
+[159/233] Installing libXrender-0:0.9.1 100% |   0.0   B/s |  51.2 KiB |  00m00s
+[160/233] Installing libXi-0:1.8.2-4.fc 100% |   0.0   B/s |  81.6 KiB |  00m00s
+[161/233] Installing libXfixes-0:6.0.1- 100% |   0.0   B/s |  35.4 KiB |  00m00s
+[162/233] Installing mesa-libEGL-0:26.1 100% | 386.1 MiB/s | 395.4 KiB |  00m00s
+[163/233] Installing libglvnd-egl-1:1.7 100% |  68.6 MiB/s |  70.2 KiB |  00m00s
+[164/233] Installing libglvnd-gles-1:1. 100% |  96.8 MiB/s |  99.1 KiB |  00m00s
+[165/233] Installing libXcursor-0:1.2.3 100% |   0.0   B/s |  55.0 KiB |  00m00s
+[166/233] Installing libXdamage-0:1.1.6 100% |   0.0   B/s |  41.1 KiB |  00m00s
+[167/233] Installing libXtst-0:1.2.5-4. 100% |   0.0   B/s |  34.5 KiB |  00m00s
+[168/233] Installing libXrandr-0:1.5.4- 100% |   0.0   B/s |  56.9 KiB |  00m00s
+[169/233] Installing libXxf86vm-0:1.1.6 100% |   0.0   B/s |  26.4 KiB |  00m00s
+[170/233] Installing mesa-libGL-0:26.1. 100% | 362.3 MiB/s | 371.0 KiB |  00m00s
+[171/233] Installing libglvnd-glx-1:1.7 100% | 294.1 MiB/s | 602.4 KiB |  00m00s
+[172/233] Installing glx-utils-0:9.0.0- 100% |  24.1 MiB/s | 419.2 KiB |  00m00s
+[173/233] Installing libXinerama-0:1.1. 100% |   0.0   B/s |  15.9 KiB |  00m00s
+[174/233] Installing libXcomposite-0:0. 100% |   0.0   B/s |  41.9 KiB |  00m00s
+[175/233] Installing xprop-0:1.2.8-5.fc 100% |   3.4 MiB/s |  55.9 KiB |  00m00s
+[176/233] Installing at-spi2-core-0:2.6 100% | 198.1 MiB/s |   1.6 MiB |  00m00s
+[177/233] Installing atk-0:2.60.2-1.fc4 100% | 248.0 MiB/s | 254.0 KiB |  00m00s
+[178/233] Installing at-spi2-atk-0:2.60 100% |  93.1 MiB/s | 286.1 KiB |  00m00s
+[179/233] Installing libX11-devel-0:1.8 100% |  92.1 MiB/s |   1.1 MiB |  00m00s
+[180/233] Installing libglvnd-devel-1:1 100% | 530.1 MiB/s |   2.1 MiB |  00m00s
+[181/233] Installing graphite2-0:1.3.14 100% |  11.1 MiB/s | 193.6 KiB |  00m00s
+[182/233] Installing harfbuzz-0:14.2.0- 100% | 405.4 MiB/s |   2.8 MiB |  00m00s
+[183/233] Installing freetype-0:2.14.3- 100% | 299.5 MiB/s | 920.0 KiB |  00m00s
+[184/233] Installing fontconfig-0:2.17. 100% | 768.1 KiB/s | 795.8 KiB |  00m01s
+[185/233] Installing cairo-0:1.18.4-6.f 100% | 365.4 MiB/s |   1.8 MiB |  00m00s
+[186/233] Installing cairo-gobject-0:1. 100% |   0.0   B/s |  31.8 KiB |  00m00s
+[187/233] Installing libXft-0:2.3.8-10. 100% | 165.8 MiB/s | 169.8 KiB |  00m00s
+[188/233] Installing pango-0:1.57.1-1.f 100% |  50.8 MiB/s |   1.0 MiB |  00m00s
+[189/233] Installing librsvg2-0:2.62.0- 100% | 383.2 MiB/s |   5.0 MiB |  00m00s
+[190/233] Installing glycin-loaders-0:2 100% | 482.5 MiB/s |  14.0 MiB |  00m00s
+[191/233] Installing glycin-libs-0:2.1. 100% | 426.4 MiB/s |   4.3 MiB |  00m00s
+[192/233] Installing gdk-pixbuf2-0:2.44 100% | 103.4 MiB/s |   2.6 MiB |  00m00s
+[193/233] Installing gtk-update-icon-ca 100% |   3.8 MiB/s |  63.0 KiB |  00m00s
+[194/233] Installing cups-filesystem-1: 100% |   0.0   B/s |   1.8 KiB |  00m00s
+[195/233] Installing cups-libs-1:2.4.18 100% | 207.1 MiB/s | 636.1 KiB |  00m00s
+[196/233] Installing gtk3-0:3.24.52-3.f 100% | 325.6 MiB/s |  22.8 MiB |  00m00s
+[197/233] Installing libdecor-0:0.2.5-2 100% | 167.4 MiB/s | 171.4 KiB |  00m00s
+[198/233] Installing SDL3-0:3.4.0-3.fc4 100% | 396.5 MiB/s |   3.2 MiB |  00m00s
+[199/233] Installing sdl2-compat-0:2.32 100% | 200.2 MiB/s | 409.9 KiB |  00m00s
+[200/233] Installing tslib-0:1.24-2.fc4 100% |  21.6 MiB/s | 419.4 KiB |  00m00s
+[201/233] Installing cups-devel-1:2.4.1 100% |  11.5 MiB/s | 189.0 KiB |  00m00s
+[202/233] Installing duktape-0:2.7.0-11 100% | 305.4 MiB/s | 625.6 KiB |  00m00s
+[203/233] Installing libproxy-0:0.5.12- 100% | 101.9 MiB/s | 104.4 KiB |  00m00s
+[204/233] Installing libpq-0:18.0-4.fc4 100% | 338.5 MiB/s |   1.0 MiB |  00m00s
+[205/233] Installing unixODBC-0:2.3.14- 100% |  50.7 MiB/s |   1.0 MiB |  00m00s
+[206/233] Installing qt6-filesystem-0:6 100% |   0.0   B/s |   3.5 KiB |  00m00s
+[207/233] Installing libb2-0:0.98.1-15. 100% |   0.0   B/s |  43.0 KiB |  00m00s
+[208/233] Installing double-conversion- 100% | 101.1 MiB/s | 103.5 KiB |  00m00s
+[209/233] Installing qt6-qtbase-0:6.11. 100% | 267.5 MiB/s |  13.9 MiB |  00m00s
+[210/233] Installing qt6-qtbase-common- 100% | 343.8 KiB/s | 352.0   B |  00m00s
+[211/233] Installing qt6-qtbase-gui-0:6 100% | 411.0 MiB/s |  27.5 MiB |  00m00s
+[212/233] Installing qt6-qtsvg-0:6.11.0 100% | 130.4 MiB/s | 934.6 KiB |  00m00s
+[213/233] Installing qt6-qtdeclarative- 100% | 419.3 MiB/s |  59.5 MiB |  00m00s
+[214/233] Installing qt6-qtbase-ibase-0 100% | 159.7 MiB/s | 163.5 KiB |  00m00s
+[215/233] Installing qt6-qtbase-mysql-0 100% | 116.7 MiB/s | 119.5 KiB |  00m00s
+[216/233] Installing qt6-qtbase-odbc-0: 100% | 151.3 MiB/s | 154.9 KiB |  00m00s
+[217/233] Installing qt6-qtbase-postgre 100% | 136.1 MiB/s | 139.3 KiB |  00m00s
+[218/233] Installing libwayland-server- 100% |  85.5 MiB/s |  87.6 KiB |  00m00s
+[219/233] Installing wayland-devel-0:1. 100% |  38.0 MiB/s | 700.3 KiB |  00m00s
+[220/233] Installing rhash-0:1.4.5-4.fc 100% |  20.7 MiB/s | 360.1 KiB |  00m00s
+[221/233] Installing libuv-1:1.52.1-1.f 100% | 291.0 MiB/s | 596.0 KiB |  00m00s
+[222/233] Installing jsoncpp-0:1.9.6-3. 100% | 280.4 MiB/s | 287.1 KiB |  00m00s
+[223/233] Installing cmake-0:4.3.0-1.fc 100% | 334.7 MiB/s |  40.5 MiB |  00m00s
+[224/233] Installing cmake-data-0:4.3.0 100% | 130.8 MiB/s |  10.1 MiB |  00m00s
+[225/233] Installing qt6-rpm-macros-0:6 100% | 170.1 KiB/s |   4.1 KiB |  00m00s
+[226/233] Installing qt6-qtbase-devel-0 100% | 203.7 MiB/s |  23.2 MiB |  00m00s
+[227/233] Installing qt6-qtdeclarative- 100% | 227.8 MiB/s |  26.2 MiB |  00m00s
+[228/233] Installing qt6-qtbase-private 100% | 218.3 MiB/s |   6.1 MiB |  00m00s
+[229/233] Installing annobin-plugin-gcc 100% |  52.7 MiB/s | 701.1 KiB |  00m00s
+[230/233] Installing gcc-plugin-annobin 100% |   4.8 MiB/s |  58.6 KiB |  00m00s
+[231/233] Installing hyprutils-devel-0: 100% |  54.0 MiB/s | 110.5 KiB |  00m00s
+[232/233] Installing desktop-file-utils 100% |  11.4 MiB/s | 221.7 KiB |  00m00s
+[233/233] Installing systemd-rpm-macros 100% |  20.8 KiB/s |   8.9 KiB |  00m00s
+Warning: skipped OpenPGP checks for 2 packages from repository: copr_base
 Complete!
 Building target platforms: x86_64
 Building for target x86_64
 setting SOURCE_DATE_EPOCH=1777334400
-Wrote: /builddir/build/SRPMS/hyprlauncher-0.1.6-1.fc45.src.rpm
+Wrote: /builddir/build/SRPMS/hyprsysteminfo-0.2.0-1.fc45.src.rpm
 Updating and loading repositories:
- fedora                                 100% | 236.2 KiB/s |  24.8 KiB |  00m00s
- Copr repository                        100% | 214.5 KiB/s |   2.1 KiB |  00m00s
+ fedora                                 100% |   3.9 KiB/s |  24.8 KiB |  00m06s
+ Copr repository                        100% | 350.0   B/s |   2.1 KiB |  00m06s
 Repositories loaded.
 Package "cmake-4.3.0-1.fc45.x86_64" is already installed.
+Package "qt6-qtdeclarative-devel-6.11.0-1.fc45.x86_64" is already installed.
+Package "qt6-qtdeclarative-devel-6.11.0-1.fc45.x86_64" is already installed.
+Package "qt6-qtbase-devel-6.11.0-2.fc45.x86_64" is already installed.
+Package "qt6-qtbase-devel-6.11.0-2.fc45.x86_64" is already installed.
+Package "desktop-file-utils-0.28-5.fc44.x86_64" is already installed.
 Package "gcc-c++-16.0.1-0.11.fc45.x86_64" is already installed.
-Package "ninja-build-1.13.2-2.fc44.x86_64" is already installed.
-Package "fontconfig-devel-2.17.0-4.fc44.x86_64" is already installed.
-Package "hyprlang-devel-0.6.8-1.fc45.x86_64" is already installed.
-Package "hyprtoolkit-devel-0.5.3-1.fc45.x86_64" is already installed.
 Package "hyprutils-devel-0.12.0-1.fc45.x86_64" is already installed.
-Package "hyprwire-devel-0.3.1-1.fc45.x86_64" is already installed.
-Package "libicu-devel-77.1-2.fc44.x86_64" is already installed.
-Package "libdrm-devel-2.4.131-1.fc44.x86_64" is already installed.
-Package "libqalculate-devel-5.9.0-1.fc44.x86_64" is already installed.
-Package "pixman-devel-0.46.2-3.fc44.x86_64" is already installed.
-Package "libxkbcommon-devel-1.13.1-2.fc44.x86_64" is already installed.
+Package "qt6-qtbase-private-devel-6.11.0-2.fc45.x86_64" is already installed.
+Package "wayland-devel-1.24.0-3.fc44.x86_64" is already installed.
 
 Nothing to do.
-Finish: build setup for hyprlauncher-0.1.6-1.fc45.src.rpm
-Start: rpmbuild hyprlauncher-0.1.6-1.fc45.src.rpm
+Finish: build setup for hyprsysteminfo-0.2.0-1.fc45.src.rpm
+Start: rpmbuild hyprsysteminfo-0.2.0-1.fc45.src.rpm
 Building target platforms: x86_64
 Building for target x86_64
 setting SOURCE_DATE_EPOCH=1777334400
-Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.7gQXl3
-Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.DuP8BD
+Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.qbwQGC
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.FAfqow
 + umask 022
-+ cd /builddir/build/BUILD/hyprlauncher-0.1.6-build
-+ cd /builddir/build/BUILD/hyprlauncher-0.1.6-build
-+ rm -rf hyprlauncher-0.1.6
-+ /usr/lib/rpm/rpmuncompress -x /builddir/build/SOURCES/hyprlauncher-0.1.6.tar.gz
++ cd /builddir/build/BUILD/hyprsysteminfo-0.2.0-build
++ cd /builddir/build/BUILD/hyprsysteminfo-0.2.0-build
++ rm -rf hyprsysteminfo-0.2.0
++ /usr/lib/rpm/rpmuncompress -x /builddir/build/SOURCES/hyprsysteminfo-0.2.0.tar.gz
 + STATUS=0
 + '[' 0 -ne 0 ']'
-+ cd hyprlauncher-0.1.6
++ cd hyprsysteminfo-0.2.0
 + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
-+ /usr/lib/rpm/rpmuncompress /builddir/build/SOURCES/compile-fix.patch
-+ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
-1 out of 1 hunk FAILED -- saving rejects to file src/config/ConfigManager.cpp.rej
-1 out of 1 hunk FAILED -- saving rejects to file src/finders/desktop/DesktopFinder.cpp.rej
-error: Bad exit status from /var/tmp/rpm-tmp.DuP8BD (%prep)
-    Bad exit status from /var/tmp/rpm-tmp.DuP8BD (%prep)
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.4GgjDo
++ umask 022
++ cd /builddir/build/BUILD/hyprsysteminfo-0.2.0-build
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ cd hyprsysteminfo-0.2.0
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ /usr/bin/cmake -S . -B redhat-linux-build -G Ninja -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_DO_STRIP:BOOL=OFF -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_FULL_SBINDIR:PATH=/usr/bin -DCMAKE_INSTALL_SBINDIR:PATH=bin -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX=64 -DBUILD_SHARED_LIBS:BOOL=ON
+-- The C compiler identification is GNU 16.0.1
+-- The CXX compiler identification is GNU 16.0.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- glaze dependency not found, retrieving v6.1.0 with FetchContent
+CMake Error at /usr/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake:928 (message):
+  error: could not find git for clone of glaze-populate
+Call Stack (most recent call first):
+  /usr/share/cmake/Modules/ExternalProject.cmake:3258 (_ep_add_download_command)
+  CMakeLists.txt:29 (ExternalProject_Add)
+
+
+-- Configuring incomplete, errors occurred!
+
+CMake Error at /usr/share/cmake/Modules/FetchContent.cmake:1919 (message):
+  CMake step for glaze failed: 1
+Call Stack (most recent call first):
+  /usr/share/cmake/Modules/FetchContent.cmake:1622 (__FetchContent_populateSubbuild)
+  /usr/share/cmake/Modules/FetchContent.cmake:2158:EVAL:2 (__FetchContent_doPopulation)
+  /usr/share/cmake/Modules/FetchContent.cmake:2158 (cmake_language)
+  /usr/share/cmake/Modules/FetchContent.cmake:2399 (__FetchContent_Populate)
+  CMakeLists.txt:32 (FetchContent_MakeAvailable)
+
+
+-- Configuring incomplete, errors occurred!
+error: Bad exit status from /var/tmp/rpm-tmp.4GgjDo (%build)
 
 RPM build errors:
-Finish: rpmbuild hyprlauncher-0.1.6-1.fc45.src.rpm
-Finish: build phase for hyprlauncher-0.1.6-1.fc45.src.rpm
+    Bad exit status from /var/tmp/rpm-tmp.4GgjDo (%build)
+Finish: rpmbuild hyprsysteminfo-0.2.0-1.fc45.src.rpm
+Finish: build phase for hyprsysteminfo-0.2.0-1.fc45.src.rpm
 INFO: chroot_scan: 1 files copied to /var/lib/copr-rpmbuild/results/chroot_scan
-INFO: /var/lib/mock/fedora-rawhide-x86_64-1777375978.637734/root/var/log/dnf5.log
+INFO: /var/lib/mock/fedora-rawhide-x86_64-1777378520.549170/root/var/log/dnf5.log
 INFO: chroot_scan: creating tarball /var/lib/copr-rpmbuild/results/chroot_scan.tar.gz
 /bin/tar: Removing leading `/' from member names
-ERROR: Exception(/var/lib/copr-rpmbuild/results/hyprlauncher-0.1.6-1.fc45.src.rpm) Config(fedora-rawhide-x86_64) 0 minutes 17 seconds
+ERROR: Exception(/var/lib/copr-rpmbuild/results/hyprsysteminfo-0.2.0-1.fc45.src.rpm) Config(fedora-rawhide-x86_64) 0 minutes 25 seconds
 INFO: Results and/or logs in: /var/lib/copr-rpmbuild/results
 INFO: Cleaning up build root ('cleanup_on_failure=True')
 Start: clean chroot
 INFO: unmounting tmpfs.
 Finish: clean chroot
 ERROR: Command failed: 
- # /usr/bin/systemd-nspawn -q -M 9c4a0a67d9504e478e68c34465430a27 -D /var/lib/mock/fedora-rawhide-x86_64-1777375978.637734/root -a -u mockbuild --capability=cap_ipc_lock --capability=cap_ipc_lock --bind=/tmp/mock-resolv.jw27xzic:/etc/resolv.conf --bind=/dev/btrfs-control --bind=/dev/mapper/control --bind=/dev/fuse --bind=/dev/loop-control --bind=/dev/loop0 --bind=/dev/loop1 --bind=/dev/loop2 --bind=/dev/loop3 --bind=/dev/loop4 --bind=/dev/loop5 --bind=/dev/loop6 --bind=/dev/loop7 --bind=/dev/loop8 --bind=/dev/loop9 --bind=/dev/loop10 --bind=/dev/loop11 --console=pipe --setenv=TERM=vt100 --setenv=SHELL=/bin/bash --setenv=HOME=/builddir --setenv=HOSTNAME=mock --setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin '--setenv=PROMPT_COMMAND=printf "\033]0;<mock-chroot>\007"' '--setenv=PS1=<mock-chroot> \s-\v\$ ' --setenv=LANG=C.UTF-8 --resolv-conf=off bash --login -c '/usr/bin/rpmbuild -bb  --target x86_64 --nodeps /builddir/build/originals/hyprlauncher.spec'
+ # /usr/bin/systemd-nspawn -q -M 7a5240493fbf44aebe217e27c92a0f8d -D /var/lib/mock/fedora-rawhide-x86_64-1777378520.549170/root -a -u mockbuild --capability=cap_ipc_lock --capability=cap_ipc_lock --bind=/tmp/mock-resolv.g4wzess0:/etc/resolv.conf --bind=/dev/btrfs-control --bind=/dev/mapper/control --bind=/dev/fuse --bind=/dev/loop-control --bind=/dev/loop0 --bind=/dev/loop1 --bind=/dev/loop2 --bind=/dev/loop3 --bind=/dev/loop4 --bind=/dev/loop5 --bind=/dev/loop6 --bind=/dev/loop7 --bind=/dev/loop8 --bind=/dev/loop9 --bind=/dev/loop10 --bind=/dev/loop11 --console=pipe --setenv=TERM=vt100 --setenv=SHELL=/bin/bash --setenv=HOME=/builddir --setenv=HOSTNAME=mock --setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin '--setenv=PROMPT_COMMAND=printf "\033]0;<mock-chroot>\007"' '--setenv=PS1=<mock-chroot> \s-\v\$ ' --setenv=LANG=C.UTF-8 --resolv-conf=off bash --login -c '/usr/bin/rpmbuild -bb  --target x86_64 --nodeps /builddir/build/originals/hyprsysteminfo.spec'
 
 Copr build error: Build failed
