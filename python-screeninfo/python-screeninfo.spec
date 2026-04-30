@@ -24,7 +24,7 @@ Summary:        %{summary}
 %description -n python3-screeninfo %_description
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n screeninfo-%{commit0}
 
 %generate_buildrequires
 %pyproject_buildrequires
