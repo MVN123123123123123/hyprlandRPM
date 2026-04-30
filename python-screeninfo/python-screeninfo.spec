@@ -7,7 +7,7 @@ Summary:        Fetch location and size of physical screens
 
 License:        MIT
 URL:            https://github.com/rr-/screeninfo
-Source0:        %{url}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
+Source0:        https://github.com/rr-/screeninfo/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
@@ -24,7 +24,7 @@ Summary:        %{summary}
 %description -n python3-screeninfo %_description
 
 %prep
-%autosetup -p1 -n screeninfo-%{version}
+%autosetup -p1
 
 %generate_buildrequires
 %pyproject_buildrequires
