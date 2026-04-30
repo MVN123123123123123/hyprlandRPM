@@ -9,7 +9,7 @@
 Name:           quickshell-git
 Version:        %{upstream_ver}^1.git%{shortcommit}
 Release:        2%{?dist}
-Summary:        quickshell-git pinned commit and extra deps for illogical-impulse
+Summary:        A flexible QtQuick-based desktop shell toolkit
 
 License:        LGPL-3.0-only
 URL:            https://git.outfoxxed.me/quickshell/quickshell

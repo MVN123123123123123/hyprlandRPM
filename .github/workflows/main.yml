@@ -77,6 +77,11 @@ jobs:
           "elkowar/eww|eww-git/eww-git.spec"
           "stephenberry/glaze|glaze/glaze.spec"
           "jeremy-rifkin/cpptrace|cpptrace/cpptrace.spec"
+          "ful1e5/Bibata_Cursor|bibata-cursor/bibata-cursor.spec"
+          "kovidgoyal/kitty|kitty/kitty.spec"
+          "rr-/screeninfo|python-screeninfo/python-screeninfo.spec"
+          "starship/starship|starship/starship.spec"
+          "jirutka/swaylock-effects|swaylock-effects/swaylock-effects.spec"
           )
 
           # Loop through each target
