@@ -15,8 +15,8 @@
 %global goipath kitty
 
 Name:           kitty
-Version:        0.44.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
-Release:        %autorelease
+Version:        0.46.2
+Release:        1%{?dist}
 Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 
 # GPL-3.0-only: kitty
