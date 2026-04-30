@@ -1,5 +1,6 @@
 Name:           hyprutils
 Version:        0.13.0
+%define so_version %{lua: v=rpm.expand("%{version}"); m=v:match("%.(%d+)\."); print(tonumber(m)-1)}
 Release:        1%{?dist}
 Summary:        Hyprland utilities library used across the ecosystem
 
@@ -40,7 +41,7 @@ Development files for %{name}.
 %license LICENSE
 %doc README.md
 %{_libdir}/lib%{name}.so.%{version}
-%{_libdir}/lib%{name}.so.12
+%{_libdir}/lib%{name}.so.%{so_version}
 
 %files devel
 %{_includedir}/%{name}/
