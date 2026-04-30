@@ -1,11 +1,13 @@
+%global commit0 42145f765aaf1edb342719c486b0c3fe134e26f5
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 Name:           python-screeninfo
-Version:        0.8.1
-Release:        %autorelease -b6
+Version:        0.8.1.%{shortcommit0}
+Release:        1%{?dist}
 Summary:        Fetch location and size of physical screens
 
 License:        MIT
 URL:            https://github.com/rr-/screeninfo
-Source:         %{url}/archive/%{version}/screeninfo-%{version}.tar.gz
+Source0:        %{url}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
