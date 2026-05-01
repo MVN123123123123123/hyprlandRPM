@@ -4,7 +4,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name: starship
-Version:        1.25.0
+Version:        1.25.1
 Release:        1%{?dist}
 Summary: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
