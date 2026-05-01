@@ -1,5 +1,5 @@
 %global forgeurl https://github.com/kovidgoyal/kitty
-%global commit0 3b78fd646ec3cb4fa856b28b53702bb1edba4f49
+%global commit0 614a32c7900829d518a02c843744955673a8c024
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 #global bumpver 1
 
@@ -15,7 +15,7 @@
 %global goipath kitty
 
 Name:           kitty
-Version:        0.46.2
+Version:        0.46.2^%{shortcommit0}
 Release:        1%{?dist}
 Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 
@@ -52,15 +52,9 @@ Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 # howett.net/plist: BSD-2-Clause AND BSD-3-Clause
 License:        GPL-3.0-only AND LGPL-2.1-or-later AND Zlib AND (MIT AND CC0-1.0) AND BSD-2-Clause AND CC0-1.0
 URL:            https://github.com/kovidgoyal/kitty
-%if 0%{?bumpver}
 Source0:        https://github.com/kovidgoyal/kitty/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 Source6:        bundle_go_deps_for_rpm.sh
-%else
-Source0:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz
-Source4:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz.sig
-Source5:        https://calibre-ebook.com/signatures/kovid.gpg
-Source6:        bundle_go_deps_for_rpm.sh
-%endif
+
 # bash bundle_go_deps_for_rpm.sh kitty.spec
 #%if ! 0%{?epel}
 #Source6:        %{go_vendor_archive}
