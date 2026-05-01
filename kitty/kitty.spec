@@ -228,9 +228,7 @@ This package contains the documentation for %{name}.
 
 
 %prep
-%if ! 0%{?bumpver}
-%{gpgverify} --keyring='%{SOURCE5}' --signature='%{SOURCE4}' --data='%{SOURCE0}'
-%endif
+# GPG verification disabled - Source4 (signature) and Source5 (keyring) not available for snapshot builds
 %autosetup -p1 %{?bumpver:-n %{name}-%{commit0}}
 mkdir fonts
 tar -xf %{SOURCE2} -C fonts
