@@ -1,5 +1,5 @@
 Name:           pyprland
-Version:        3.3.1
+Version:        3.4.0
 Release:        1%{?dist}
 Summary:        Hyprland extensions made easy
 
