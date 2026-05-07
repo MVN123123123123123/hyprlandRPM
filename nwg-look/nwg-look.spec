@@ -8,7 +8,7 @@
 
 # https://github.com/nwg-piotr/nwg-look
 %global goipath         github.com/nwg-piotr/nwg-look
-Version:                1.0.6
+Version:        1.1.0
 
 %gometa -L -f
 
@@ -19,7 +19,7 @@ GTK3 settings editor adapted to work in the wlroots environment.}
 %global godocs          README.md
 
 Name:           nwg-look
-Release:        %autorelease -b2
+Release:        1%{?dist}
 Summary:        GTK3 settings editor adapted to work in the wlroots environment
 
 License:        MIT
