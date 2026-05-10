@@ -49,38 +49,40 @@ jobs:
           START_TIER="${{ github.event.inputs.rebuild_from }}"
 
           # Helper: build a package and extract the build ID
+          # All logging goes to stderr so $() only captures the build ID on stdout
           build_package() {
             local pkg="$1"
             local after_id="${2:-}"
 
-            echo "::group::Building $pkg"
+            echo "::group::Building $pkg" >&2
             local cmd="copr-cli build-package $PROJECT --name $pkg --nowait"
             if [ -n "$after_id" ]; then
               cmd="$cmd --after-build-id $after_id"
             fi
 
-            echo "Running: $cmd"
+            echo "Running: $cmd" >&2
             local output
             output=$(eval "$cmd" 2>&1) || true
-            echo "$output"
+            echo "$output" >&2
 
             # Extract build ID from copr-cli output
             local build_id
             build_id=$(echo "$output" | grep -oP 'Created builds: \K\d+' | head -1 || true)
             if [ -z "$build_id" ]; then
-              build_id=$(echo "$output" | grep -oP '\b\d{7,}\b' | head -1 || true)
+              # Fallback: look for build URL pattern to avoid matching --after-build-id
+              build_id=$(echo "$output" | grep -oP '/build/\K\d+' | head -1 || true)
             fi
 
             if [ -z "$build_id" ]; then
-              echo "::error::Failed to extract build ID for $pkg"
-              echo "::endgroup::"
+              echo "::error::Failed to extract build ID for $pkg" >&2
+              echo "::endgroup::" >&2
               return 1
             fi
 
-            echo "Build ID: $build_id"
-            echo "::endgroup::"
+            echo "Build ID: $build_id" >&2
+            echo "::endgroup::" >&2
 
-            # Return the build ID via a temp file (bash subshell workaround)
+            # Only the build ID goes to stdout (captured by $())
             echo "$build_id"
           }
 
@@ -112,7 +114,11 @@ jobs:
             TIER1_IDS=()
 
             for pkg in "${TIER1_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              if [ -z "$bid" ]; then
+                echo "::error::Failed to submit build for $pkg"
+                exit 1
+              fi
               TIER1_IDS+=("$bid")
             done
 
@@ -137,7 +143,11 @@ jobs:
             TIER2_IDS=()
 
             for pkg in "${TIER2_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              if [ -z "$bid" ]; then
+                echo "::error::Failed to submit build for $pkg"
+                exit 1
+              fi
               TIER2_IDS+=("$bid")
             done
 
@@ -178,7 +188,11 @@ jobs:
             TIER3_IDS=()
 
             for pkg in "${TIER3_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              if [ -z "$bid" ]; then
+                echo "::error::Failed to submit build for $pkg"
+                exit 1
+              fi
               TIER3_IDS+=("$bid")
             done
 
@@ -206,7 +220,11 @@ jobs:
             TIER4_IDS=()
 
             for pkg in "${TIER4_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              if [ -z "$bid" ]; then
+                echo "::error::Failed to submit build for $pkg"
+                exit 1
+              fi
               TIER4_IDS+=("$bid")
             done
 
