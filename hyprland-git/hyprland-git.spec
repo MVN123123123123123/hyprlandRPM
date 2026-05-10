@@ -1,8 +1,6 @@
 %global hyprland_commit f8d5aad1a1f61e1b6443c27394a38c8c54d39e9e
 %global hyprland_shortcommit %(c=%{hyprland_commit}; echo ${c:0:7})
 %global bumpver 4
-%global commits_count 6689
-%global commit_date Sat Dec 06 00:42:26 2025
 
 %global protocols_commit 3a5c2bda1c1a4e55cc1330c782547695a93f05b2
 %global protocols_shortcommit %(c=%{protocols_commit}; echo ${c:0:7})
@@ -213,10 +211,8 @@ tar -xf %{SOURCE2} -C subprojects/hyprland-protocols --strip=1
 tar -xf %{SOURCE3} -C subprojects/udis86 --strip=1
 sed -e '/GIT_COMMIT_HASH/s/unknown/%{hyprland_commit}/' \
     -e '/GIT_BRANCH/s/unknown/main/' \
-    -e '/GIT_COMMIT_DATE/s/unknown/%{commit_date}/' \
     -e '/GIT_TAG/s/unknown/%{lua:print((macros.version:gsub('[%^~].*', '')))}/' \
     -e '/GIT_DIRTY/s/unknown/clean/' \
-    -e '/GIT_COMMITS/s/0/%{commits_count}/' \
     -i CMakeLists.txt
 %endif
 

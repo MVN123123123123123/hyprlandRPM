@@ -26,7 +26,6 @@ jobs:
           # --- MODIFY THIS ARRAY ---
           # Format: "upstream_owner/upstream_repo|path/to/subdirectory/package.spec"
           TARGETS=(
-          "hyprwm/Hyprland|hyprland-git/hyprland-git.spec"
           "Alexays/Waybar|waybar-git/waybar-git.spec"
           "elkowar/eww|eww-git/eww-git.spec"
           )
