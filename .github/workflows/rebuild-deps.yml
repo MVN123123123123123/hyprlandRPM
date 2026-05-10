@@ -5,6 +5,8 @@ name: Rebuild COPR Dependency Chain
 # downstream packages wait for their dependencies to finish building.
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       rebuild_from:
