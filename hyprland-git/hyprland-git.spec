@@ -153,7 +153,7 @@ Recommends:     wofi
 Recommends:     playerctl
 Recommends:     brightnessctl
 Recommends:     hyprland-guiutils
-# Lack of graphical drivers may hurt the common use case
+# Lack of graphical drivers may hurt the common use case.
 Recommends:     mesa-dri-drivers
 # Logind needs polkit to create a graphical session
 Recommends:     polkit
