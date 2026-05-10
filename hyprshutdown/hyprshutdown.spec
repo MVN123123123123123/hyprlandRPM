@@ -1,6 +1,6 @@
 Name:           hyprshutdown
 Version:        0.1.0
-Release:        %autorelease
+Release:        2%{?dist}
 Summary:        Graceful session logout for hyprland
 # LICENSE: BSD-3-Clause
 # protocols/wlr-layer-shell-unstable-v1.xml: HPND-sell-variant

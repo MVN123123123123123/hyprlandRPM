@@ -118,7 +118,7 @@ jobs:
 
           # ============================================================
           # TIER 2: Core libraries (depend on hyprutils)
-          #   hyprlang, hyprgraphics, hyprcursor, aquamarine
+          #   hyprlang, hyprgraphics, hyprcursor, aquamarine, hyprwire
           # ============================================================
           if [ "$START_TIER" -le 2 ]; then
             echo ""

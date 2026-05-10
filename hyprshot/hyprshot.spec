@@ -1,6 +1,6 @@
 Name:           hyprshot
 Version:        1.3.0
-Release:        %autorelease
+Release:        2%{?dist}
 Summary:        Utility to easily take screenshots in Hyprland using your mouse
 BuildArch:      noarch
 
