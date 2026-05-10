@@ -1,0 +1,222 @@
+name: Rebuild COPR Dependency Chain
+
+# This workflow rebuilds packages in the correct dependency order.
+# It uses copr-cli with --after-build-id to chain builds so that
+# downstream packages wait for their dependencies to finish building.
+
+on:
+  workflow_dispatch:
+    inputs:
+      rebuild_from:
+        description: 'Rebuild starting from a specific tier (1=hyprutils, 2=hyprlang/hyprgraphics/etc, 3=hyprtoolkit/hyprpicker/etc, 4=hyprland-git/etc)'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+        default: '1'
+
+env:
+  COPR_PROJECT: "noclog/hyprlandthingswithautoupdater"
+
+jobs:
+  rebuild-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install copr-cli
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install copr-cli
+
+      - name: Configure copr-cli
+        run: |
+          mkdir -p ~/.config
+          cat > ~/.config/copr <<EOF
+          [copr-cli]
+          copr_url = https://copr.fedorainfracloud.org
+          login = fkowhdqmmomicsrlreej
+          username = noclog
+          token = yrxlcyjjykutjxkqxmsxqdcxhbjwyl
+          EOF
+
+      - name: Rebuild dependency chain
+        run: |
+          set -euo pipefail
+
+          PROJECT="${{ env.COPR_PROJECT }}"
+          START_TIER="${{ github.event.inputs.rebuild_from }}"
+
+          # Helper: build a package and extract the build ID
+          build_package() {
+            local pkg="$1"
+            local after_id="${2:-}"
+
+            echo "::group::Building $pkg"
+            local cmd="copr-cli build-package $PROJECT --name $pkg --nowait"
+            if [ -n "$after_id" ]; then
+              cmd="$cmd --after-build-id $after_id"
+            fi
+
+            echo "Running: $cmd"
+            local output
+            output=$(eval "$cmd" 2>&1) || true
+            echo "$output"
+
+            # Extract build ID from copr-cli output
+            local build_id
+            build_id=$(echo "$output" | grep -oP 'Created builds: \K\d+' | head -1 || true)
+            if [ -z "$build_id" ]; then
+              build_id=$(echo "$output" | grep -oP '\b\d{7,}\b' | head -1 || true)
+            fi
+
+            if [ -z "$build_id" ]; then
+              echo "::error::Failed to extract build ID for $pkg"
+              echo "::endgroup::"
+              return 1
+            fi
+
+            echo "Build ID: $build_id"
+            echo "::endgroup::"
+
+            # Return the build ID via a temp file (bash subshell workaround)
+            echo "$build_id"
+          }
+
+          # Helper: wait for a build to complete
+          wait_for_build() {
+            local build_id="$1"
+            local pkg="$2"
+            echo "⏳ Waiting for $pkg (build $build_id)..."
+            if copr-cli watch-build "$build_id"; then
+              echo "✅ $pkg completed successfully"
+            else
+              echo "::warning::$pkg build $build_id may have failed"
+            fi
+          }
+
+          LAST_BATCH_ID=""
+
+          # ============================================================
+          # TIER 1: Foundation (no hypr* build deps)
+          #   hyprutils, hyprwayland-scanner, hyprland-protocols
+          # ============================================================
+          if [ "$START_TIER" -le 1 ]; then
+            echo ""
+            echo "========================================"
+            echo "TIER 1: Foundation packages"
+            echo "========================================"
+
+            TIER1_PKGS=(hyprutils hyprwayland-scanner hyprland-protocols)
+            TIER1_IDS=()
+
+            for pkg in "${TIER1_PKGS[@]}"; do
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              TIER1_IDS+=("$bid")
+            done
+
+            for i in "${!TIER1_PKGS[@]}"; do
+              wait_for_build "${TIER1_IDS[$i]}" "${TIER1_PKGS[$i]}"
+            done
+
+            LAST_BATCH_ID="${TIER1_IDS[0]}"
+          fi
+
+          # ============================================================
+          # TIER 2: Core libraries (depend on hyprutils)
+          #   hyprlang, hyprgraphics, hyprcursor, aquamarine
+          # ============================================================
+          if [ "$START_TIER" -le 2 ]; then
+            echo ""
+            echo "========================================"
+            echo "TIER 2: Core libraries"
+            echo "========================================"
+
+            TIER2_PKGS=(hyprlang hyprgraphics hyprcursor aquamarine)
+            TIER2_IDS=()
+
+            for pkg in "${TIER2_PKGS[@]}"; do
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              TIER2_IDS+=("$bid")
+            done
+
+            for i in "${!TIER2_PKGS[@]}"; do
+              wait_for_build "${TIER2_IDS[$i]}" "${TIER2_PKGS[$i]}"
+            done
+
+            LAST_BATCH_ID="${TIER2_IDS[0]}"
+          fi
+
+          # ============================================================
+          # TIER 3: Tools & higher-level libs
+          #   hyprtoolkit, hyprpicker, hyprlock, etc.
+          # ============================================================
+          if [ "$START_TIER" -le 3 ]; then
+            echo ""
+            echo "========================================"
+            echo "TIER 3: Tools and higher-level packages"
+            echo "========================================"
+
+            TIER3_PKGS=(
+              hyprtoolkit
+              hyprpicker
+              hyprlock
+              hypridle
+              hyprsunset
+              hyprpaper
+              hyprpolkitagent
+              hyprpwcenter
+              hyprqt6engine
+              hyprsysteminfo
+              hyprshutdown
+              hyprland-qt-support
+              hyprland-qtutils
+              hyprland-guiutils
+              hyprlauncher
+              hyprwire
+            )
+            TIER3_IDS=()
+
+            for pkg in "${TIER3_PKGS[@]}"; do
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              TIER3_IDS+=("$bid")
+            done
+
+            for i in "${!TIER3_PKGS[@]}"; do
+              wait_for_build "${TIER3_IDS[$i]}" "${TIER3_PKGS[$i]}"
+            done
+
+            LAST_BATCH_ID="${TIER3_IDS[0]}"
+          fi
+
+          # ============================================================
+          # TIER 4: Top-level packages (hyprland, portal, plugins)
+          # ============================================================
+          if [ "$START_TIER" -le 4 ]; then
+            echo ""
+            echo "========================================"
+            echo "TIER 4: Top-level packages"
+            echo "========================================"
+
+            TIER4_PKGS=(
+              hyprland-git
+              xdg-desktop-portal-hyprland
+              hyprland-contrib
+            )
+            TIER4_IDS=()
+
+            for pkg in "${TIER4_PKGS[@]}"; do
+              bid=$(build_package "$pkg" "$LAST_BATCH_ID" | tail -1)
+              TIER4_IDS+=("$bid")
+            done
+
+            for i in "${!TIER4_PKGS[@]}"; do
+              wait_for_build "${TIER4_IDS[$i]}" "${TIER4_PKGS[$i]}"
+            done
+          fi
+
+          echo ""
+          echo "========================================"
+          echo "All rebuilds completed!"
+          echo "========================================"
