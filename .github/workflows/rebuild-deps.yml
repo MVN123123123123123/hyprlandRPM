@@ -24,6 +24,11 @@ jobs:
   rebuild-chain:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Install copr-cli
         run: |
           sudo apt-get update
@@ -40,6 +45,50 @@ jobs:
           username = noclog
           token = yrxlcyjjykutjxkqxmsxqdcxhbjwyl
           EOF
+
+      - name: Bump Release in Spec files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          START_TIER="${{ github.event.inputs.rebuild_from }}"
+          TIMESTAMP=$(date +%Y%m%d%H%M)
+
+          TIER1_PKGS=(hyprutils hyprwayland-scanner hyprland-protocols)
+          TIER2_PKGS=(hyprlang hyprgraphics hyprcursor aquamarine hyprwire)
+          TIER3_PKGS=(hyprtoolkit hyprpicker hyprlock hypridle hyprsunset hyprpaper hyprpolkitagent hyprpwcenter hyprqt6engine hyprsysteminfo hyprshutdown hyprland-qt-support hyprland-qtutils hyprland-guiutils hyprlauncher)
+          TIER4_PKGS=(hyprland-git xdg-desktop-portal-hyprland hyprland-contrib)
+
+          PKGS_TO_UPDATE=()
+
+          if [ "$START_TIER" -le 1 ]; then PKGS_TO_UPDATE+=("${TIER1_PKGS[@]}"); fi
+          if [ "$START_TIER" -le 2 ]; then PKGS_TO_UPDATE+=("${TIER2_PKGS[@]}"); fi
+          if [ "$START_TIER" -le 3 ]; then PKGS_TO_UPDATE+=("${TIER3_PKGS[@]}"); fi
+          if [ "$START_TIER" -le 4 ]; then PKGS_TO_UPDATE+=("${TIER4_PKGS[@]}"); fi
+
+          CHANGES_MADE=0
+
+          for pkg in "${PKGS_TO_UPDATE[@]}"; do
+            SPEC_FILE="$pkg/$pkg.spec"
+            if [ -f "$SPEC_FILE" ]; then
+              echo "Updating release in $SPEC_FILE to $TIMESTAMP..."
+              sed -i -E "s/^Release:.*/Release:        $TIMESTAMP%{?dist}/" "$SPEC_FILE"
+              CHANGES_MADE=1
+            else
+              echo "::warning::Spec file not found at $SPEC_FILE"
+            fi
+          done
+
+          if [ "$CHANGES_MADE" -eq 1 ]; then
+            git add .
+            git commit -m "chore: bump release numbers for rebuild starting from tier $START_TIER"
+            # Pull before push to avoid conflicts if something else was updated
+            git pull --rebase origin master
+            git push origin master
+            echo "Successfully pushed release updates to trigger copr rebuilds."
+          else
+            echo "No spec files were updated."
+          fi
 
       - name: Rebuild dependency chain
         run: |
