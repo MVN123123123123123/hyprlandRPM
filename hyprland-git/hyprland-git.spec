@@ -42,6 +42,7 @@ hyprdeps = {
     "git",
     "glaze-static",
     "glslang-devel",
+    "lcms2-devel",
     "pkgconfig(aquamarine)",
     "pkgconfig(cairo)",
     "pkgconfig(egl)",
