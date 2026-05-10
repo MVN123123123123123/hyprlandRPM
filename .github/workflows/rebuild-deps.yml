@@ -1,8 +1,8 @@
 name: Rebuild COPR Dependency Chain
 
 # This workflow rebuilds packages in the correct dependency order.
-# It uses copr-cli with --after-build-id to chain builds so that
-# downstream packages wait for their dependencies to finish building.
+# Each tier is submitted in parallel, then we wait for all builds in
+# the tier to complete before submitting the next tier.
 
 on:
   workflow_dispatch:
@@ -52,35 +52,26 @@ jobs:
           # All logging goes to stderr so $() only captures the build ID on stdout
           build_package() {
             local pkg="$1"
-            local after_id="${2:-}"
 
-            echo "::group::Building $pkg" >&2
-            local cmd="copr-cli build-package $PROJECT --name $pkg --nowait"
-            if [ -n "$after_id" ]; then
-              cmd="$cmd --after-build-id $after_id"
-            fi
-
-            echo "Running: $cmd" >&2
+            echo "Building $pkg" >&2
             local output
-            output=$(eval "$cmd" 2>&1) || true
+            output=$(copr-cli build-package "$PROJECT" --name "$pkg" --nowait 2>&1) || true
             echo "$output" >&2
 
             # Extract build ID from copr-cli output
             local build_id
             build_id=$(echo "$output" | grep -oP 'Created builds: \K\d+' | head -1 || true)
             if [ -z "$build_id" ]; then
-              # Fallback: look for build URL pattern to avoid matching --after-build-id
+              # Fallback: look for build URL pattern
               build_id=$(echo "$output" | grep -oP '/build/\K\d+' | head -1 || true)
             fi
 
             if [ -z "$build_id" ]; then
               echo "::error::Failed to extract build ID for $pkg" >&2
-              echo "::endgroup::" >&2
               return 1
             fi
 
-            echo "Build ID: $build_id" >&2
-            echo "::endgroup::" >&2
+            echo "  Build ID: $build_id" >&2
 
             # Only the build ID goes to stdout (captured by $())
             echo "$build_id"
@@ -98,8 +89,6 @@ jobs:
             fi
           }
 
-          LAST_BATCH_ID=""
-
           # ============================================================
           # TIER 1: Foundation (no hypr* build deps)
           #   hyprutils, hyprwayland-scanner, hyprland-protocols
@@ -114,7 +103,7 @@ jobs:
             TIER1_IDS=()
 
             for pkg in "${TIER1_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              bid=$(build_package "$pkg")
               if [ -z "$bid" ]; then
                 echo "::error::Failed to submit build for $pkg"
                 exit 1
@@ -125,8 +114,6 @@ jobs:
             for i in "${!TIER1_PKGS[@]}"; do
               wait_for_build "${TIER1_IDS[$i]}" "${TIER1_PKGS[$i]}"
             done
-
-            LAST_BATCH_ID="${TIER1_IDS[0]}"
           fi
 
           # ============================================================
@@ -143,7 +130,7 @@ jobs:
             TIER2_IDS=()
 
             for pkg in "${TIER2_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              bid=$(build_package "$pkg")
               if [ -z "$bid" ]; then
                 echo "::error::Failed to submit build for $pkg"
                 exit 1
@@ -154,8 +141,6 @@ jobs:
             for i in "${!TIER2_PKGS[@]}"; do
               wait_for_build "${TIER2_IDS[$i]}" "${TIER2_PKGS[$i]}"
             done
-
-            LAST_BATCH_ID="${TIER2_IDS[0]}"
           fi
 
           # ============================================================
@@ -188,7 +173,7 @@ jobs:
             TIER3_IDS=()
 
             for pkg in "${TIER3_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              bid=$(build_package "$pkg")
               if [ -z "$bid" ]; then
                 echo "::error::Failed to submit build for $pkg"
                 exit 1
@@ -199,8 +184,6 @@ jobs:
             for i in "${!TIER3_PKGS[@]}"; do
               wait_for_build "${TIER3_IDS[$i]}" "${TIER3_PKGS[$i]}"
             done
-
-            LAST_BATCH_ID="${TIER3_IDS[0]}"
           fi
 
           # ============================================================
@@ -220,7 +203,7 @@ jobs:
             TIER4_IDS=()
 
             for pkg in "${TIER4_PKGS[@]}"; do
-              bid=$(build_package "$pkg" "$LAST_BATCH_ID")
+              bid=$(build_package "$pkg")
               if [ -z "$bid" ]; then
                 echo "::error::Failed to submit build for $pkg"
                 exit 1
