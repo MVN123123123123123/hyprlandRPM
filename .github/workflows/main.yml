@@ -128,10 +128,12 @@ jobs:
               case "$SPEC_FILE" in
                 hyprutils/*|hyprwayland-scanner/*|hyprland-protocols/*)
                   echo "TIER1_CHANGED=1" >> "$GITHUB_ENV" ;;
-                hyprlang/*|hyprgraphics/*|hyprcursor/*|aquamarine/*)
+                hyprlang/*|hyprgraphics/*|hyprcursor/*|aquamarine/*|hyprwire/*)
                   echo "TIER2_CHANGED=1" >> "$GITHUB_ENV" ;;
-                hyprtoolkit/*|hyprpicker/*|hyprlock/*|hypridle/*|hyprsunset/*|hyprpaper/*|hyprpolkitagent/*)
+                hyprtoolkit/*|hyprpicker/*|hyprlock/*|hypridle/*|hyprsunset/*|hyprpaper/*|hyprpolkitagent/*|hyprpwcenter/*|hyprqt6engine/*|hyprsysteminfo/*|hyprshutdown/*|hyprland-qt-support/*|hyprland-qtutils/*|hyprland-guiutils/*|hyprlauncher/*)
                   echo "TIER3_CHANGED=1" >> "$GITHUB_ENV" ;;
+                hyprland-git/*|xdg-desktop-portal-hyprland/*|hyprland-contrib/*)
+                  echo "TIER4_CHANGED=1" >> "$GITHUB_ENV" ;;
               esac
             else
               echo "✅ Already up to date."
@@ -155,7 +157,7 @@ jobs:
           fi
 
       - name: Trigger dependency chain rebuild if needed
-        if: env.TIER1_CHANGED == '1' || env.TIER2_CHANGED == '1' || env.TIER3_CHANGED == '1'
+        if: env.TIER1_CHANGED == '1' || env.TIER2_CHANGED == '1' || env.TIER3_CHANGED == '1' || env.TIER4_CHANGED == '1'
         uses: actions/github-script@v7
         with:
           script: |
@@ -173,8 +175,7 @@ jobs:
               workflow_id: 'rebuild-deps.yml',
               ref: 'master',
               inputs: {
-                rebuild_from: startTier,
-                rebuild_all: 'false'
+                rebuild_from: startTier
               }
             });
 

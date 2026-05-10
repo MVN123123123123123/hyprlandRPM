@@ -133,7 +133,7 @@ jobs:
             echo "TIER 2: Core libraries"
             echo "========================================"
 
-            TIER2_PKGS=(hyprlang hyprgraphics hyprcursor aquamarine)
+            TIER2_PKGS=(hyprlang hyprgraphics hyprcursor aquamarine hyprwire)
             TIER2_IDS=()
 
             for pkg in "${TIER2_PKGS[@]}"; do
@@ -174,7 +174,6 @@ jobs:
               hyprland-qtutils
               hyprland-guiutils
               hyprlauncher
-              hyprwire
             )
             TIER3_IDS=()
 
