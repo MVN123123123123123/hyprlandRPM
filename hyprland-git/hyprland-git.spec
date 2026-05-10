@@ -41,6 +41,7 @@ hyprdeps = {
     "meson",
     "git",
     "glaze-static",
+    "glslang-devel",
     "pkgconfig(aquamarine)",
     "pkgconfig(cairo)",
     "pkgconfig(egl)",
