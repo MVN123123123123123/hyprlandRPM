@@ -1,0 +1,80 @@
+name: Update quickshell-git Spec Commits
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-commits:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check upstream and update quickshell-git spec
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          SPEC_FILE="quickshell-git/illogicall-impulse-ver/quickshell-git.spec"
+          CHANGES_MADE=0
+
+          if [ ! -f "$SPEC_FILE" ]; then
+            echo "❌ Error: $SPEC_FILE not found!"
+            exit 1
+          fi
+
+          echo "========================================"
+          echo "Checking quickshell-git spec file commits"
+          echo "========================================"
+
+          # --- Quickshell main commit ---
+          LATEST_COMMIT=$(git ls-remote https://git.outfoxxed.me/quickshell/quickshell.git HEAD | awk '{print $1}')
+          CURRENT_COMMIT=$(grep -E "^%global\s+commit\s+" "$SPEC_FILE" | awk '{print $3}')
+
+          echo "  Upstream: $LATEST_COMMIT"
+          echo "  Current:  $CURRENT_COMMIT"
+
+          if [ -z "$LATEST_COMMIT" ]; then
+            echo "  ⚠️  Could not fetch latest commit for quickshell. Skipping..."
+            exit 0
+          fi
+
+          if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ] && [ -n "$CURRENT_COMMIT" ]; then
+            echo "  🚀 New commit detected! Updating commit..."
+            
+            # Fetch the upstream version from CMakeLists.txt
+            CURL_URL="https://git.outfoxxed.me/quickshell/quickshell/raw/commit/$LATEST_COMMIT/CMakeLists.txt"
+            UPSTREAM_VER=$(curl -sL "$CURL_URL" | grep -i "project" | grep "VERSION" | sed -n 's/.*VERSION *"\([^"]*\)".*/\1/p')
+            
+            if [ -z "$UPSTREAM_VER" ]; then
+              echo "  ⚠️  Could not parse upstream version from CMakeLists.txt! Keeping current."
+            else
+              echo "  Upstream Version: $UPSTREAM_VER"
+              sed -i "s/^%global upstream_ver.*/%global upstream_ver    $UPSTREAM_VER/" "$SPEC_FILE"
+            fi
+            
+            sed -i "s/^%global commit.*/%global commit          $LATEST_COMMIT/" "$SPEC_FILE"
+            CHANGES_MADE=1
+          else
+            echo "  ✅ Already up to date."
+          fi
+
+          echo "========================================"
+
+          if [ "$CHANGES_MADE" -eq 1 ]; then
+            git add "$SPEC_FILE"
+            echo "Committing and pushing updated quickshell-git spec..."
+            git commit -m "chore: auto-update quickshell-git spec commit"
+
+            git pull --rebase origin master
+            git push origin master
+
+            echo "✅ Successfully pushed updates."
+          else
+            echo "No updates needed for quickshell-git."
+          fi
