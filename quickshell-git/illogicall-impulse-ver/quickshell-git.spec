@@ -1,10 +1,10 @@
 # Pinned commit from:
 # https://git.outfoxxed.me/quickshell/quickshell/commits/branch/master
-%global commit          7511545ee20664e3b8b8d3322c0ffe7567c56f7a
+%global commit          7d1c9a9c6721606b129829134d6f614f015621e2
 %global shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 # The upstream project version in CMakeLists.txt at pinned commit
-%global upstream_ver    2.1.0
+%global upstream_ver    0.3.0
 
 Name:           quickshell-git
 Version:        %{upstream_ver}^1.git%{shortcommit}
