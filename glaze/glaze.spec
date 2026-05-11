@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           glaze
-Version:        7.5.0
+Version:        7.6.0
 Release:        1%{?dist}
 Summary:        Extremely fast, in memory, JSON and interface library
 
