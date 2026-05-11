@@ -1,6 +1,6 @@
 Name:           hyprcursor
 Version:        0.1.13
-Release:        202605101118%{?dist}
+Release:        202605110958%{?dist}
 Summary:        The hyprland cursor format, library and utilities
 
 License:        BSD-3-Clause
