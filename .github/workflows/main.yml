@@ -9,7 +9,8 @@ jobs:
   update-specs:
     runs-on: ubuntu-latest
     permissions:
-      contents: write 
+      contents: write
+      actions: write
 
     steps:
       - name: Checkout repository
