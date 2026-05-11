@@ -94,7 +94,6 @@ jobs:
 
           # Reset Release if any changes were made
           if [ "$CHANGES_MADE" -eq 1 ]; then
-            sed -i "s/^Release:.*/Release:        1%{?dist}/" "$SPEC_FILE"
 
             git add "$SPEC_FILE"
             echo "Committing and pushing updated hyprland-git spec..."
