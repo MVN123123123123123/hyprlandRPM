@@ -11,7 +11,7 @@ Version:        %{upstream_ver}^1.git%{shortcommit}
 Release:        2%{?dist}
 Summary:        A flexible QtQuick-based desktop shell toolkit
 
-License:        LGPL-3.0-only
+License:        LGPL-3.0-only AND GPL-3.0-only
 URL:            https://git.outfoxxed.me/quickshell/quickshell
 Source0:        %{url}/archive/%{commit}.tar.gz#/quickshell-%{shortcommit}.tar.gz
 
