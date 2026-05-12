@@ -1,6 +1,6 @@
 Name:           hyprpicker
 Version:        0.4.7
-Release:        202605110958%{?dist}
+Release:        202605120128%{?dist}
 Summary:        A wlroots-compatible Wayland color picker
 # LICENSE: BSD-3-Clause
 # protocols/wlr-layer-shell-unstable-v1.xml: HPND-sell-variant
