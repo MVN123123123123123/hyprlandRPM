@@ -8,7 +8,7 @@
 
 Name:           quickshell-git
 Version:        %{upstream_ver}^1.git%{shortcommit}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A flexible QtQuick-based desktop shell toolkit
 
 License:        LGPL-3.0-only AND GPL-3.0-only
