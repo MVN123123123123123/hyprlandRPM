@@ -1,7 +1,7 @@
 Name:           hyprutils
 Version:        0.13.1
 %define so_version %{lua: v=rpm.expand("%{version}"); m=v:match("%.(%d+)\."); print(tonumber(m)-1)}
-Release:        202605120128%{?dist}
+Release:        202605130146%{?dist}
 Summary:        Hyprland utilities library used across the ecosystem
 
 License:        BSD-3-Clause
