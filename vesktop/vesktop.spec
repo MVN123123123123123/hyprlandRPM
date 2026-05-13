@@ -6,14 +6,9 @@ Summary:        Vesktop is a custom Discord desktop app
 License:        GPL-3.0-or-later
 URL:            https://vencord.dev/
 
-%ifarch aarch64
-%define tarball_name vesktop-%{version}-arm64.tar.gz
-%else
-%define tarball_name vesktop-%{version}.tar.gz
-%endif
-
-Source0:        https://github.com/Vencord/Vesktop/releases/download/v%{version}/%{tarball_name}
-Source1:        https://raw.githubusercontent.com/Vencord/Vesktop/v%{version}/build/icon.svg
+Source0:        https://github.com/Vencord/Vesktop/releases/download/v%{version}/vesktop-%{version}.tar.gz
+Source1:        https://github.com/Vencord/Vesktop/releases/download/v%{version}/vesktop-%{version}-arm64.tar.gz
+Source2:        https://raw.githubusercontent.com/Vencord/Vesktop/v%{version}/build/icon.svg
 
 ExclusiveArch:  x86_64 aarch64
 
@@ -36,7 +31,11 @@ This package repackages the pre-compiled tar.gz release from GitHub to integrate
 
 %prep
 %setup -c -T
+%ifarch aarch64
+tar xf %{SOURCE1} --strip-components=1
+%else
 tar xf %{SOURCE0} --strip-components=1
+%endif
 
 %build
 # Pre-compiled binaries, no build steps required
@@ -75,7 +74,7 @@ Icon=vesktop
 EOF
 
 # Install icon
-install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/scalable/apps/vesktop.svg
+install -m 644 %{SOURCE2} $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/scalable/apps/vesktop.svg
 
 %files
 /opt/vesktop
