@@ -5,9 +5,9 @@
 
 # The upstream project version in CMakeLists.txt at pinned commit
 %global upstream_ver    0.3.0
-
+%global fake_ver    3.0.0
 Name:           quickshell-git
-Version:        %{upstream_ver}^1.git%{shortcommit}
+Version:        %{fake_ver}.aka.%{upstream_ver}^1.git%{shortcommit}
 Release:        3%{?dist}
 Summary:        A flexible QtQuick-based desktop shell toolkit
 
