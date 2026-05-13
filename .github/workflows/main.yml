@@ -81,6 +81,7 @@ jobs:
           "kovidgoyal/kitty|kitty/kitty.spec"
           "starship/starship|starship/starship.spec"
           "jirutka/swaylock-effects|swaylock-effects/swaylock-effects.spec"
+          "Vencord/Vesktop|vesktop/vesktop.spec"
           )
 
           # Loop through each target
