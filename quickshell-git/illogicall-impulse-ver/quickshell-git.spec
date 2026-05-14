@@ -7,6 +7,7 @@
 %global upstream_ver    0.3.0
 %global fake_ver    3.0.0
 Name:           quickshell-git
+Epoch:          1
 Version:        %{fake_ver}.aka.%{upstream_ver}^1.git%{shortcommit}
 Release:        3%{?dist}
 Summary:        A flexible QtQuick-based desktop shell toolkit
