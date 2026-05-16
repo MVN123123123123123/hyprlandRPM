@@ -1,6 +1,6 @@
 Name:           hyprwayland-scanner
 Version:        0.4.6
-Release:        202605150147%{?dist}
+Release:        202605160127%{?dist}
 Summary:        A Hyprland implementation of wayland-scanner, in and for C++
 
 License:        BSD-3-Clause
