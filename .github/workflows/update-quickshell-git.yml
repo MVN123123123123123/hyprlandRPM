@@ -66,10 +66,20 @@ jobs:
 
           echo "========================================"
 
+          # --- Always bump Release to current date ---
+          # Qt6 packages on Rawhide update constantly, so we rebuild daily
+          # to avoid version mismatch issues even if the commit hash hasn't changed.
+          TIMESTAMP=$(date +%Y%m%d%H%M)
+          echo "Bumping Release to $TIMESTAMP to force daily rebuild against latest Qt6..."
+          sed -i -E "s/^Release:.*/Release:        $TIMESTAMP%{?dist}/" "$SPEC_FILE"
+          CHANGES_MADE=1
+
+          echo "========================================"
+
           if [ "$CHANGES_MADE" -eq 1 ]; then
             git add "$SPEC_FILE"
             echo "Committing and pushing updated quickshell-git spec..."
-            git commit -m "chore: auto-update quickshell-git spec commit"
+            git commit -m "chore: auto-update quickshell-git spec (release: $TIMESTAMP)"
 
             git pull --rebase origin master
             git push origin master
