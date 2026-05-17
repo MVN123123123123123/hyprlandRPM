@@ -6,7 +6,8 @@
 
 Name:           kitty
 Version:        0.46.2
-Release:        1%{?dist}
+Epoch:          1
+Release:        2%{?dist}
 Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 
 # GPL-3.0-only: kitty
