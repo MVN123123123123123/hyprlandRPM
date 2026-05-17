@@ -35,7 +35,6 @@ jobs:
           "imageio/imageio-ffmpeg|python-imageio-ffmpeg/python-imageio-ffmpeg.spec"
           "gabm/Satty|satty/satty.spec"
           "LGFae/swww|swww/swww.spec"
-          "Vladimir-csp/uwsm|uwsm/uwsm.spec"
           "Alexays/Waybar|waybar-git/waybar-git.spec"
           "anufrievroman/waypaper|waypaper/waypaper.spec"
           "eworm-de/xcur2png|xcur2png/xcur2png.spec"
@@ -80,7 +79,6 @@ jobs:
           "ful1e5/Bibata_Cursor|bibata-cursor/bibata-cursor.spec"
           "kovidgoyal/kitty|kitty/kitty.spec"
           "starship/starship|starship/starship.spec"
-          "jirutka/swaylock-effects|swaylock-effects/swaylock-effects.spec"
           "Vencord/Vesktop|vesktop/vesktop.spec"
           )
 
