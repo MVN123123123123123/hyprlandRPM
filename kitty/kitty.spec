@@ -84,9 +84,9 @@ Provides:       %{name}-fish-integration = %{version}-%{release}
 # without errors. It has been separated to support SSH into remote machines using
 # kitty as per the maintainers suggestion. Install the terminfo file on the remote
 # machine.
-Requires:       %{name}-terminfo = %{version}-%{release}
-Requires:       %{name}-shell-integration = %{version}-%{release}
-Requires:       %{name}-kitten%{?_isa} = %{version}-%{release}
+Requires:       %{name}-terminfo = %{?epoch:%{epoch}:}%{version}-%{release}
+Requires:       %{name}-shell-integration = %{?epoch:%{epoch}:}%{version}-%{release}
+Requires:       %{name}-kitten%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 
 # For the "Hyperlinked grep" feature
 Recommends:     ripgrep
