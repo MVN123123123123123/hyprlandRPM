@@ -1,18 +1,8 @@
 %global forgeurl https://github.com/kovidgoyal/kitty
-%global commit0 614a32c7900829d518a02c843744955673a8c024
-%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-#global bumpver 1
-
-%define go_vendor_archive %{lua: print("vendor-"..(macros.bumpver and macros.shortcommit0 or macros.version)..".tar.gz")}
-
-%bcond test 1
-%bcond bundled 1
-
-%if %{with bundled}
 %global gomodulesmode GO111MODULE=on
-%endif
-
 %global goipath kitty
+
+%bcond test 0
 
 Name:           kitty
 Version:        0.46.2
@@ -24,73 +14,47 @@ Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 # LGPL-2.1-or-later: kitty/iqsort.h
 # MIT: docs/_static/custom.css, shell-integration/ssh/bootstrap-utils.sh
 # MIT AND CC0-1.0: simde
-# CC0-1.0: c-ringbuf
-# BSD-2-Clause: base64simd
+# CC0-1.0: 3rdparty/ringbuf
+# BSD-2-Clause: 3rdparty/base64
 # MIT: NerdFontsSymbolsOnly
-# Go dependencies:
-# github.com/alecthomas/chroma: MIT
-# github.com/ALTree/bigfloat: MIT
-# github.com/bmatcuk/doublestar: MIT
-# github.com/disintegration/imaging: MIT
-# github.com/dlclark/regexp2: MIT
-# github.com/google/go-cmp/cmp: BSD-3-Clause
-# github.com/google/uuid: BSD-3-Clause
-# github.com/klauspost/cpuid: MIT
-# github.com/go-ole/go-ole: MIT
-# github.com/lufia/plan9stats: BSD-3-Clause
-# github.com/power-devops/perfstat: MIT
-# github.com/seancfoley/bintree: Apache-2.0
-# github.com/seancfoley/ipaddress-go/ipaddr: Apache-2.0
-# github.com/shirou/gopsutil: BSD-3-Clause
-# github.com/shoenig/go-m1cpu: MPL-2.0
-# github.com/tklauser/go-sysconf: BSD-3-Clause
-# github.com/tklauser/numcpus: Apache-2.0
-# github.com/zeebo/xxh3: BSD-2-Clause
-# golang.org/x/exp: BSD-3-Clause
-# golang.org/x/image: BSD-3-Clause
-# golang.org/x/sys: BSD-3-Clause
-# howett.net/plist: BSD-2-Clause AND BSD-3-Clause
-License:        GPL-3.0-only AND LGPL-2.1-or-later AND Zlib AND (MIT AND CC0-1.0) AND BSD-2-Clause AND CC0-1.0
-URL:            https://github.com/kovidgoyal/kitty
-Source0:        https://github.com/kovidgoyal/kitty/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
-Source6:        bundle_go_deps_for_rpm.sh
+# MIT: 3rdparty/verstable.h
+License:        GPL-3.0-only AND LGPL-2.1-or-later AND Zlib AND (MIT AND CC0-1.0) AND BSD-2-Clause AND CC0-1.0 AND MIT
+URL:            https://sw.kovidgoyal.net/kitty
+Source0:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz
 
-# bash bundle_go_deps_for_rpm.sh kitty.spec
-#%if ! 0%{?epel}
-#Source6:        %{go_vendor_archive}
-#%else
-#Source6:        vendor-%{version}.tar.gz
-#%endif
 # Add AppData manifest file
 # * https://github.com/kovidgoyal/kitty/pull/2088
 Source1:        https://raw.githubusercontent.com/kovidgoyal/kitty/46c0951751444e4f4994008f0d2dcb41e49389f4/kitty/data/%{name}.appdata.xml
 
-Source2:        https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.tar.xz
+Source2:        https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/NerdFontsSymbolsOnly.tar.xz
+
+# Script to bundle Go vendor dependencies for RPM builds
+Source3:        bundle_go_deps_for_rpm.sh
 
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch:    %{ix86}
 
-BuildRequires:  golang >= 1.22.0
+BuildRequires:  golang >= 1.23.0
 BuildRequires:  go-rpm-macros
 BuildRequires:  git-core
 
-BuildRequires:  gnupg2
 BuildRequires:  desktop-file-utils
 BuildRequires:  gcc
-BuildRequires:  go-rpm-macros
-BuildRequires:  python3-devel
+BuildRequires:  python3-devel >= 3.8
 BuildRequires:  lcms2-devel
 BuildRequires:  libappstream-glib
 BuildRequires:  ncurses
 BuildRequires:  wayland-devel
 BuildRequires:  simde-static
 
+BuildRequires:  pkgconfig(cairo-fc)
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(fontconfig)
 BuildRequires:  pkgconfig(gl)
-BuildRequires:  pkgconfig(harfbuzz)
+BuildRequires:  pkgconfig(harfbuzz) >= 2.2
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libpng)
+BuildRequires:  pkgconfig(libxxhash)
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  pkgconfig(xcursor)
 BuildRequires:  pkgconfig(xi)
@@ -99,15 +63,11 @@ BuildRequires:  pkgconfig(xkbcommon-x11)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(libcrypto)
-BuildRequires:  pkgconfig(libxxhash)
 
 %if %{with test}
 # For tests:
 BuildRequires:  fish
 BuildRequires:  glibc-common
-%if 0%{?epel}
-BuildRequires:  glibc-langpack-en
-%endif
 BuildRequires:  openssh-clients
 BuildRequires:  python3dist(pillow)
 BuildRequires:  ripgrep
@@ -137,7 +97,8 @@ Recommends:     ripgrep
 # "kittens" functions install separately
 Suggests:       ImageMagick%{?_isa}
 
-Provides:       bundled(font(SymbolsNFM))
+Provides:       bundled(font(SymbolsNerdFontMono)) = 3.4.0
+Provides:       bundled(font(SymbolsNerdFont)) = 3.4.0
 
 Provides:       bundled(Verstable) = 2.1.1
 # modified version of https://github.com/dhess/c-ringbuf
@@ -217,19 +178,20 @@ License:        GPL-3.0-only AND MIT
 BuildArch:      noarch
 
 BuildRequires:  python3dist(sphinx)
-%if ! 0%{?epel}
 BuildRequires:  python3dist(sphinx-copybutton)
 BuildRequires:  python3dist(sphinx-inline-tabs)
 BuildRequires:  python3dist(sphinxext-opengraph)
-%endif
 
 %description    doc
 This package contains the documentation for %{name}.
 
 
 %prep
-# GPG verification disabled - Source4 (signature) and Source5 (keyring) not available for snapshot builds
-%autosetup -p1 %{?bumpver:-n %{name}-%{commit0}}
+%autosetup -p1
+
+# Extract vendor tarball generated by bundle_go_deps_for_rpm.sh during SRPM creation
+tar xvf %{_sourcedir}/vendor-%{version}.tar.gz
+
 mkdir fonts
 tar -xf %{SOURCE2} -C fonts
 
@@ -239,26 +201,12 @@ sed "s/html_theme = 'furo'/html_theme = 'classic'/" -i docs/conf.py
 # Replace python shebangs to make them compatible with fedora
 find -type f -name "*.py" -exec sed -e 's|/usr/bin/env python3|%{python3}|g'    \
                                     -e 's|/usr/bin/env python|%{python3}|g'     \
-                                    -e 's|/usr/bin/env -S kitty|/usr/bin/kitty|g' \
+                                    -e 's|/usr/bin/env -S kitty|%{_bindir}/kitty|g' \
                                     -i "{}" \;
 
-mkdir src
-ln -s ../ src/kitty
+# rpmlint: remove shebangs from non-executable python files
+find -type f ! -executable -name "*.py" -exec sed -i '1{\@^#!%{python3}@d}' "{}" \;
 
-%if 0%{?epel}
-sed '1i \#define XKB_KEY_XF86Fn 0x100811d0' -i kitty/keys.c
-%endif
-
-%if %{without bundled}
-%generate_buildrequires
-pwd
-go mod vendor -v
-export GOPATH=$(pwd):$(pwd)/vendor:%{gopath}
-%go_generate_buildrequires
-%endif
-unset GOPATH
-bash -x %{SOURCE6} %{_specdir}/kitty.spec
-tar xvf %{_sourcedir}/vendor-%{version}.tar.gz
 
 %build
 %set_build_flags
@@ -267,38 +215,22 @@ tar xvf %{_sourcedir}/vendor-%{version}.tar.gz
     --update-check-interval=0       \
     --skip-building-kitten          \
     --verbose                       \
-    --ignore-compiler-warnings
+    --ignore-compiler-warnings      \
+    %{nil}
 
-%if %{without bundled}
-export GOPATH=$(pwd):%{gopath}
-%endif
+export %{gomodulesmode}
 unset LDFLAGS
-mkdir -p _build/bin
-%gobuild -o _build/bin/kitten %{?with_bundled:./tools/cmd}%{!?with_bundled:./src/kitty/tools/cmd}
-
-%if 0%{?bumpver}
-ln -sr _build/bin/kitten kitty/launcher/
-make docs
-%endif
+%gobuild -o _build/bin/kitten ./tools/cmd
 
 
 %install
 # rpmlint fixes
-find linux-package -type f ! -executable -name "*.py" -exec sed -i '1{\@^#!%{python3}@d}' "{}" \;
 find linux-package/%{_lib}/%{name}/shell-integration -type f ! -executable -exec sed -r -i '1{\@^#!/bin/(fish|zsh|sh|bash)@d}' "{}" \;
 
-cp -r linux-package %{buildroot}%{_prefix}
+cp -a linux-package/. %{buildroot}%{_prefix}
 install -m0755 -Dp _build/bin/kitten %{buildroot}%{_bindir}/kitten
 
 install -m0644 -Dp %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.appdata.xml
-
-%if 0%{?bumpver}
-install -m 0755 -vd %{buildroot}%{_mandir}/man{1,5}
-install -m 0644 -p docs/_build/man/*.1 %{buildroot}%{_mandir}/man1
-install -m 0644 -p docs/_build/man/*.5 %{buildroot}%{_mandir}/man5
-install -m 0755 -vd %{buildroot}%{_docdir}/%{name}
-cp -r docs/_build/html %{buildroot}%{_docdir}/%{name}
-%endif
 
 # rpmlint fixes
 rm %{buildroot}%{_datadir}/doc/%{name}/html/.buildinfo \
@@ -307,31 +239,7 @@ rm %{buildroot}%{_datadir}/doc/%{name}/html/.buildinfo \
 
 %check
 %if %{with test}
-sed '/def test_fish_integration/a \
-\        self.skipTest("Skipping a flaky test")' -i kitty_tests/shell_integration.py
-sed '/def test_ssh_shell_integration/a \
-\        self.skipTest("Skipping a flaky test")' -i kitty_tests/ssh.py
-%if 0%{?epel}
-sed '/def test_ssh_leading_data/a \
-\        self.skipTest("Skipping a failing test")' -i kitty_tests/ssh.py
-
-for test in "TestRgArgParsing" \
-; do
-awk -i inplace '/^func.*'"$test"'\(/ { print; print "\tt.Skip(\"disabled failing test\")"; next}1' $(grep -rl $test)
-done
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-%endif
-%ifarch ppc64le
-for test in test_transfer_receive test_transfer_send; do
-sed "/def $test/a \
-\        self.skipTest(\"Skipping a failing test\")" -i kitty_tests/file_transmission.py
-done
-%endif
 export %{gomodulesmode}
-%if %{without bundled}
-export GOPATH=$(pwd):%{gopath}
-%endif
 # Some tests ignores PATH env...
 mkdir -p kitty/launcher
 ln -s %{buildroot}%{_bindir}/%{name} kitty/launcher/
@@ -356,10 +264,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/*.desktop
 %{_metainfodir}/*.xml
 
 %files kitten
-%if %{with bundled}
-# Go bundled provides generator
 %license vendor/modules.txt
-%endif
 %license LICENSE
 %{_bindir}/kitten
 
@@ -374,7 +279,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/*.desktop
 %files doc
 %license LICENSE
 %doc CONTRIBUTING.md CHANGELOG.rst INSTALL.md
-%{_docdir}/%{name}/html
+%{_docdir}/%{name}/html/
 %dir %{_docdir}/%{name}
 
 

@@ -108,7 +108,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Move the tar.gz to the SPEC directory
-mv "vendor-$CHECKOUT_IDENTIFIER.tar.gz" "$SPEC_DIR/../SOURCES"
+mv "vendor-$CHECKOUT_IDENTIFIER.tar.gz" "$SPEC_DIR/"
 
 # Go back to the original directory
 popd > /dev/null
