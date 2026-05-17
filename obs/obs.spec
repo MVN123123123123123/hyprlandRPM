@@ -29,7 +29,7 @@ Summary:        Open Broadcaster Software Studio
 
 License:        GPL-2.0-or-later AND MIT AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND LGPL-2.1-or-later AND CC0-1.0 AND (CC0-1.0 OR OpenSSL OR Apache-2.0) AND LicenseRef-Fedora-Public-Domain AND (BSD-3-Clause OR GPL-2.0-only)
 URL:            https://obsproject.com/
-Source0:        https://github.com/obsproject/obs-studio/releases/download/%{version}/OBS-Studio-%{version}-Sources.tar.gz
+Source0:        https://github.com/obsproject/obs-studio/archive/%{version}/%{name}-%{version}.tar.gz
 Source1:        https://github.com/obsproject/obs-websocket/archive/%{obswebsocket_version}/obs-websocket-%{obswebsocket_version}.tar.gz
 
 ExcludeArch:    %{ix86}
