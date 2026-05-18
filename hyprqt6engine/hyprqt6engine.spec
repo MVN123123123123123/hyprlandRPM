@@ -1,6 +1,6 @@
 Name:           hyprqt6engine
 Version:        0.1.0
-Release:        202605170144%{?dist}
+Release:        202605180153%{?dist}
 Summary:        Qt6 Theme Provider for Hyprland
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprqt6engine
