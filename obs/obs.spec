@@ -129,7 +129,7 @@ Provides:       bundled(libnsgif)
 ## Cf. https://github.com/obsproject/obs-studio/pull/8327
 Provides:       bundled(intel-mediasdk)
 
-##obs hates this
+##obs and other pipewire buddy hates this
 Conflicts:      obs-studio-plugin-pwvideo
 
 %description
