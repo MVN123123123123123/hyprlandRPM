@@ -174,6 +174,10 @@ as an overlay in a video stream or recording.
 # Prepare plugins/obs-websocket
 tar -xf %{SOURCE1} -C plugins/obs-websocket --strip-components=1
 
+# Disable obs-browser plugin since ENABLE_BROWSER is OFF
+mkdir -p plugins/obs-browser
+touch plugins/obs-browser/CMakeLists.txt
+
 %if ! %{with x264}
 # disable x264 plugin
 mv plugins/obs-x264/CMakeLists.txt plugins/obs-x264/CMakeLists.txt.disabled
