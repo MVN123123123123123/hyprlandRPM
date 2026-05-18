@@ -1,6 +1,6 @@
 Name:           uwsm
-Version:        0.24.3
-Release:        %autorelease -b1
+Version:        0.26.4
+Release:        1%{?dist}
 Summary:        Universal Wayland Session Manager
 
 License:        MIT
