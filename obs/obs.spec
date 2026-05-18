@@ -129,6 +129,9 @@ Provides:       bundled(libnsgif)
 ## Cf. https://github.com/obsproject/obs-studio/pull/8327
 Provides:       bundled(intel-mediasdk)
 
+##obs hates this
+Conflicts:      obs-studio-plugin-pwvideo
+
 %description
 Open Broadcaster Software is free and open source
 software for video recording and live streaming.
