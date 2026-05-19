@@ -24,7 +24,7 @@
 
 Name:           obs-studio
 Version:        32.1.2
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Open Broadcaster Software Studio
 
 License:        GPL-2.0-or-later AND MIT AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND LGPL-2.1-or-later AND CC0-1.0 AND (CC0-1.0 OR OpenSSL OR Apache-2.0) AND LicenseRef-Fedora-Public-Domain AND (BSD-3-Clause OR GPL-2.0-only)
