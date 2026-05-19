@@ -70,7 +70,6 @@ jobs:
           "hyprwm/hyprlang|hyprlang/hyprlang.spec"
           "hyprwm/hyprlauncher|hyprlauncher/hyprlauncher.spec"
           "hyprwm/aquamarine|aquamarine/aquamarine.spec"
-          "Aylur/astal|astal/astal.spec"
           "Aylur/ags|aylurs-gtk-shell/aylurs-gtk-shell.spec"
           "sentriz/cliphist|cliphist/cliphist.spec"
           "elkowar/eww|eww-git/eww-git.spec"
