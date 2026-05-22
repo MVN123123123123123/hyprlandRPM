@@ -1,4 +1,4 @@
-%global hyprland_commit 1c0a7d180d8465a185433d395c17f5b57fc75c6b
+%global hyprland_commit 8b7110cc68662a343b6839f292ac0f44a64c3364
 %global hyprland_shortcommit %(c=%{hyprland_commit}; echo ${c:0:7})
 %global bumpver 4
 
