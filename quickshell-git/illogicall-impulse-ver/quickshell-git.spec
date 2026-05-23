@@ -1,6 +1,6 @@
 # Pinned commit from:
 # https://git.outfoxxed.me/quickshell/quickshell/commits/branch/master
-%global commit          7d1c9a9c6721606b129829134d6f614f015621e2
+%global commit          4b4fca3224ab977dc515ac0bb78d00b3dfa71e00
 %global shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 # The upstream project version in CMakeLists.txt at pinned commit
@@ -9,7 +9,7 @@
 Name:           quickshell-git
 Epoch:          1
 Version:        %{fake_ver}.aka.%{upstream_ver}^1.git%{shortcommit}
-Release:        202605220156%{?dist}
+Release:        202605230148%{?dist}
 Summary:        A flexible QtQuick-based desktop shell toolkit
 
 License:        LGPL-3.0-only AND GPL-3.0-only
