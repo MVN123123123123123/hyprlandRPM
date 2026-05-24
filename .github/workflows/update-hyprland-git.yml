@@ -109,3 +109,19 @@ jobs:
           fi
 
           echo "CHANGES_MADE=$CHANGES_MADE" >> "$GITHUB_ENV"
+
+      - name: Trigger full dependency chain rebuild
+        if: env.CHANGES_MADE == '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('Triggering rebuild-deps workflow from tier 1 (full rebuild)');
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'rebuild-deps.yml',
+              ref: 'master',
+              inputs: {
+                rebuild_from: '3'
+              }
+            });
