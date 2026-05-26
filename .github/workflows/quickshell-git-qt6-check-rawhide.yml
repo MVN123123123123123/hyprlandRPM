@@ -1,0 +1,96 @@
+name: Check Qt6 Updates (Fedora Rawhide)
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-qt6-rawhide:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for Qt6 updates on Fedora Rawhide
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          SPEC_FILE="quickshell-git/illogicall-impulse-ver/quickshell-git.spec"
+          TRACKER_FILE="quickshell-git/illogicall-impulse-ver/.qt6-last-nvr-rawhide"
+
+          if [ ! -f "$SPEC_FILE" ]; then
+            echo "❌ Error: $SPEC_FILE not found!"
+            exit 1
+          fi
+
+          echo "========================================"
+          echo "Checking Qt6 updates on Fedora Rawhide"
+          echo "========================================"
+
+          # Rawhide packages don't go through Bodhi, so we query the Koji
+          # build system for the latest qt6-qtbase build tagged in the
+          # rawhide (f45) tag.
+          KOJI_JSON=$(curl -sL "https://koji.fedoraproject.org/kojihub/call" \
+            --header "Content-Type: application/json" \
+            --data '{"method":"listTagged","params":["f45-updates-candidate","qt6-qtbase",null,true,null,null,null,null],"id":1}')
+
+          # If the above doesn't return results, try the main rawhide tag
+          LATEST_NVR=$(echo "$KOJI_JSON" | jq -r '.result[0].nvr // empty')
+
+          if [ -z "$LATEST_NVR" ]; then
+            # Fallback: query the main f45 build tag directly
+            KOJI_JSON=$(curl -sL "https://koji.fedoraproject.org/kojihub/call" \
+              --header "Content-Type: application/json" \
+              --data '{"method":"listTagged","params":["f45","qt6-qtbase",null,true,null,null,null,null],"id":1}')
+            LATEST_NVR=$(echo "$KOJI_JSON" | jq -r '.result[0].nvr // empty')
+          fi
+
+          if [ -z "$LATEST_NVR" ]; then
+            # Final fallback: use getLatestBuilds for rawhide
+            KOJI_JSON=$(curl -sL "https://koji.fedoraproject.org/kojihub/call" \
+              --header "Content-Type: application/json" \
+              --data '{"method":"getLatestBuilds","params":["f45-updates-candidate","qt6-qtbase"],"id":1}')
+            LATEST_NVR=$(echo "$KOJI_JSON" | jq -r '.result[0].nvr // empty')
+          fi
+
+          echo "  Latest Rawhide NVR: $LATEST_NVR"
+
+          if [ -z "$LATEST_NVR" ] || [ "$LATEST_NVR" = "null" ]; then
+            echo "  ⚠️  Could not fetch Qt6 NVR from Koji. Skipping..."
+            exit 0
+          fi
+
+          # Read the last known NVR
+          LAST_NVR=""
+          if [ -f "$TRACKER_FILE" ]; then
+            LAST_NVR=$(cat "$TRACKER_FILE")
+          fi
+
+          echo "  Last known NVR:    $LAST_NVR"
+
+          if [ "$LATEST_NVR" = "$LAST_NVR" ]; then
+            echo "  ✅ No Qt6 update on Rawhide. Nothing to do."
+            exit 0
+          fi
+
+          echo "  🚀 Qt6 update detected on Rawhide! Bumping release..."
+
+          # Bump Release to force rebuild
+          TIMESTAMP=$(date +%Y%m%d%H%M)
+          sed -i -E "s/^Release:.*/Release:        $TIMESTAMP%{?dist}/" "$SPEC_FILE"
+
+          # Save the new NVR
+          echo "$LATEST_NVR" > "$TRACKER_FILE"
+
+          git add "$SPEC_FILE" "$TRACKER_FILE"
+          git commit -m "chore: rebuild quickshell-git for Qt6 update on Rawhide ($LATEST_NVR)"
+
+          git pull --rebase origin master
+          git push origin master
+
+          echo "✅ Successfully pushed rebuild bump for Rawhide Qt6 update."

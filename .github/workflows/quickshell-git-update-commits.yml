@@ -1,4 +1,4 @@
-name: Update quickshell-git Spec Commits
+name: Update quickshell-git Commit
 
 on:
   schedule:
@@ -15,13 +15,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check upstream and update quickshell-git spec
+      - name: Check upstream and update quickshell-git commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           SPEC_FILE="quickshell-git/illogicall-impulse-ver/quickshell-git.spec"
-          CHANGES_MADE=0
 
           if [ ! -f "$SPEC_FILE" ]; then
             echo "❌ Error: $SPEC_FILE not found!"
@@ -29,7 +28,7 @@ jobs:
           fi
 
           echo "========================================"
-          echo "Checking quickshell-git spec file commits"
+          echo "Checking quickshell-git upstream commit"
           echo "========================================"
 
           # --- Quickshell main commit ---
@@ -46,45 +45,28 @@ jobs:
 
           if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ] && [ -n "$CURRENT_COMMIT" ]; then
             echo "  🚀 New commit detected! Updating commit..."
-            
+
             # Fetch the upstream version from CMakeLists.txt
             CURL_URL="https://git.outfoxxed.me/quickshell/quickshell/raw/commit/$LATEST_COMMIT/CMakeLists.txt"
             UPSTREAM_VER=$(curl -sL "$CURL_URL" | grep -i "project" | grep "VERSION" | sed -n 's/.*VERSION *"\([^"]*\)".*/\1/p')
-            
+
             if [ -z "$UPSTREAM_VER" ]; then
               echo "  ⚠️  Could not parse upstream version from CMakeLists.txt! Keeping current."
             else
               echo "  Upstream Version: $UPSTREAM_VER"
               sed -i "s/^%global upstream_ver.*/%global upstream_ver    $UPSTREAM_VER/" "$SPEC_FILE"
             fi
-            
+
             sed -i "s/^%global commit.*/%global commit          $LATEST_COMMIT/" "$SPEC_FILE"
-            CHANGES_MADE=1
-          else
-            echo "  ✅ Already up to date."
-          fi
 
-          echo "========================================"
-
-          # --- Always bump Release to current date ---
-          # Qt6 packages on Rawhide update constantly, so we rebuild daily
-          # to avoid version mismatch issues even if the commit hash hasn't changed.
-          TIMESTAMP=$(date +%Y%m%d%H%M)
-          echo "Bumping Release to $TIMESTAMP to force daily rebuild against latest Qt6..."
-          sed -i -E "s/^Release:.*/Release:        $TIMESTAMP%{?dist}/" "$SPEC_FILE"
-          CHANGES_MADE=1
-
-          echo "========================================"
-
-          if [ "$CHANGES_MADE" -eq 1 ]; then
             git add "$SPEC_FILE"
             echo "Committing and pushing updated quickshell-git spec..."
-            git commit -m "chore: auto-update quickshell-git spec (release: $TIMESTAMP)"
+            git commit -m "chore: auto-update quickshell-git commit to ${LATEST_COMMIT:0:7}"
 
             git pull --rebase origin master
             git push origin master
 
-            echo "✅ Successfully pushed updates."
+            echo "✅ Successfully pushed commit update."
           else
-            echo "No updates needed for quickshell-git."
+            echo "✅ Already up to date."
           fi

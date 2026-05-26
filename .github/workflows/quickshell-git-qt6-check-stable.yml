@@ -1,0 +1,76 @@
+name: Check Qt6 Updates (Fedora Stable)
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-qt6-stable:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for Qt6 updates on Fedora 44 (stable)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          SPEC_FILE="quickshell-git/illogicall-impulse-ver/quickshell-git.spec"
+          TRACKER_FILE="quickshell-git/illogicall-impulse-ver/.qt6-last-nvr-stable"
+
+          if [ ! -f "$SPEC_FILE" ]; then
+            echo "❌ Error: $SPEC_FILE not found!"
+            exit 1
+          fi
+
+          echo "========================================"
+          echo "Checking Qt6 updates on Fedora 44 (stable)"
+          echo "========================================"
+
+          # Query Bodhi API for the latest stable qt6-qtbase update on F44
+          BODHI_JSON=$(curl -sL "https://bodhi.fedoraproject.org/updates/?packages=qt6-qtbase&releases=F44&rows_per_page=1&status=stable&content_type=rpm")
+
+          # Extract the qt6-qtbase NVR from the builds array
+          LATEST_NVR=$(echo "$BODHI_JSON" | jq -r '.updates[0].builds[] | select(.nvr | startswith("qt6-qtbase-")) | .nvr' | head -1)
+
+          echo "  Latest stable NVR: $LATEST_NVR"
+
+          if [ -z "$LATEST_NVR" ] || [ "$LATEST_NVR" = "null" ]; then
+            echo "  ⚠️  Could not fetch Qt6 NVR from Bodhi. Skipping..."
+            exit 0
+          fi
+
+          # Read the last known NVR
+          LAST_NVR=""
+          if [ -f "$TRACKER_FILE" ]; then
+            LAST_NVR=$(cat "$TRACKER_FILE")
+          fi
+
+          echo "  Last known NVR:   $LAST_NVR"
+
+          if [ "$LATEST_NVR" = "$LAST_NVR" ]; then
+            echo "  ✅ No Qt6 update on Fedora 44 stable. Nothing to do."
+            exit 0
+          fi
+
+          echo "  🚀 Qt6 update detected on Fedora 44 stable! Bumping release..."
+
+          # Bump Release to force rebuild
+          TIMESTAMP=$(date +%Y%m%d%H%M)
+          sed -i -E "s/^Release:.*/Release:        $TIMESTAMP%{?dist}/" "$SPEC_FILE"
+
+          # Save the new NVR
+          echo "$LATEST_NVR" > "$TRACKER_FILE"
+
+          git add "$SPEC_FILE" "$TRACKER_FILE"
+          git commit -m "chore: rebuild quickshell-git for Qt6 update on F44 stable ($LATEST_NVR)"
+
+          git pull --rebase origin master
+          git push origin master
+
+          echo "✅ Successfully pushed rebuild bump for Fedora 44 stable Qt6 update."
