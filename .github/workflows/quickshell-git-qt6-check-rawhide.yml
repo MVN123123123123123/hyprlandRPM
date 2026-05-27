@@ -32,33 +32,28 @@ jobs:
           try:
               koji = xmlrpc.client.ServerProxy(KOJI_HUB)
 
-              # Resolve the package ID first — fast, single lookup
-              pkg = koji.getPackage(PACKAGE)
-              if not pkg:
-                  print(f"::error::Package '{PACKAGE}' not found in Koji", file=sys.stderr)
-                  sys.exit(1)
+              # xmlrpc.client only supports positional args, so pass
+              # the package name as the first positional parameter.
+              builds = koji.listBuilds(PACKAGE)
 
-              # Fetch only completed builds (state=1), newest first, capped at 50
-              builds = koji.listBuilds(
-                  pkg["id"],
-                  state=1,
-                  queryOpts={"order": "-build_id", "limit": 50},
-              )
-
-              # Find the build with the highest .fcXX tag → Rawhide
+              # Filter to completed builds (state=1), then find the
+              # highest .fcXX tag — that's the Rawhide build.
               best = None
               for b in builds:
+                  if b.get("state") != 1:
+                      continue
                   nvr = b.get("nvr", "")
                   m = re.search(r'\.fc(\d+)$', nvr)
                   if m:
                       fc_ver = int(m.group(1))
-                      if best is None or fc_ver > best[0]:
-                          best = (fc_ver, nvr)
+                      bid = b.get("build_id", 0)
+                      if best is None or (fc_ver, bid) > (best[0], best[1]):
+                          best = (fc_ver, bid, nvr)
 
               if best:
-                  print(best[1])
+                  print(best[2])
               else:
-                  print("::error::No .fcXX builds found in latest 50 results", file=sys.stderr)
+                  print("::error::No completed .fcXX builds found", file=sys.stderr)
                   sys.exit(1)
 
           except xmlrpc.client.Fault as e:
