@@ -34,33 +34,34 @@ jobs:
 
           # Rawhide packages don't go through Bodhi, so we query the Koji
           # build system via its XML-RPC API using Python's stdlib.
+          # We dynamically extract the latest completed build with the
+          # highest .fcXX (Fedora Core version) tag to avoid hardcoding.
           LATEST_NVR=$(python3 - <<'PYEOF'
 import xmlrpc.client
+import re
 
-koji = xmlrpc.client.ServerProxy("https://koji.fedoraproject.org/kojihub")
-
-# Try tags in order of likelihood for rawhide
-tags = ["f45-updates-candidate", "f45", "f45-pending"]
-nvr = None
-for tag in tags:
-    try:
-        builds = koji.listTagged(tag, None, False, None, True, None, "qt6-qtbase")
-        if builds:
-            nvr = builds[0]["nvr"]
-            break
-    except Exception:
-        continue
-
-# Final fallback: getLatestBuilds
-if not nvr:
-    try:
-        builds = koji.getLatestBuilds("f45-updates-candidate", None, "qt6-qtbase")
-        if builds:
-            nvr = builds[0]["nvr"]
-    except Exception:
-        pass
-
-print(nvr or "")
+try:
+    koji = xmlrpc.client.ServerProxy("https://koji.fedoraproject.org/kojihub")
+    builds = koji.listBuilds(packageID="qt6-qtbase")
+    
+    fc_builds = []
+    for b in builds:
+        if b.get("state") == 1:  # COMPLETE
+            nvr = b.get("nvr", "")
+            match = re.search(r'\.fc(\d+)', nvr)
+            if match:
+                fc_ver = int(match.group(1))
+                build_id = b.get("build_id", 0)
+                fc_builds.append((fc_ver, build_id, nvr))
+                
+    if fc_builds:
+        # Sort by fc version descending, then by build_id descending
+        fc_builds.sort(key=lambda x: (x[0], x[1]), reverse=True)
+        print(fc_builds[0][2])
+    else:
+        print("")
+except Exception:
+    print("")
 PYEOF
           )
 
