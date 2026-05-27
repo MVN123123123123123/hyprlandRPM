@@ -33,30 +33,37 @@ jobs:
           echo "========================================"
 
           # Rawhide packages don't go through Bodhi, so we query the Koji
-          # build system for the latest qt6-qtbase build tagged in the
-          # rawhide (f45) tag.
-          KOJI_JSON=$(curl -sL "https://koji.fedoraproject.org/kojihub/call" \
-            --header "Content-Type: application/json" \
-            --data '{"method":"listTagged","params":["f45-updates-candidate","qt6-qtbase",null,true,null,null,null,null],"id":1}')
+          # build system via its XML-RPC API (the hub does NOT support JSON).
+          pip install koji --quiet
 
-          # If the above doesn't return results, try the main rawhide tag
-          LATEST_NVR=$(echo "$KOJI_JSON" | jq -r '.result[0].nvr // empty')
+          LATEST_NVR=$(python3 - <<'PYEOF'
+          import koji
+          session = koji.ClientSession("https://koji.fedoraproject.org/kojihub")
 
-          if [ -z "$LATEST_NVR" ]; then
-            # Fallback: query the main f45 build tag directly
-            KOJI_JSON=$(curl -sL "https://koji.fedoraproject.org/kojihub/call" \
-              --header "Content-Type: application/json" \
-              --data '{"method":"listTagged","params":["f45","qt6-qtbase",null,true,null,null,null,null],"id":1}')
-            LATEST_NVR=$(echo "$KOJI_JSON" | jq -r '.result[0].nvr // empty')
-          fi
+          # Try tags in order of likelihood for rawhide
+          tags = ["f45-updates-candidate", "f45", "f45-pending"]
+          nvr = None
+          for tag in tags:
+            try:
+                builds = session.listTagged(tag, package="qt6-qtbase", latest=True)
+                if builds:
+                    nvr = builds[0]["nvr"]
+                    break
+            except Exception:
+                continue
 
-          if [ -z "$LATEST_NVR" ]; then
-            # Final fallback: use getLatestBuilds for rawhide
-            KOJI_JSON=$(curl -sL "https://koji.fedoraproject.org/kojihub/call" \
-              --header "Content-Type: application/json" \
-              --data '{"method":"getLatestBuilds","params":["f45-updates-candidate","qt6-qtbase"],"id":1}')
-            LATEST_NVR=$(echo "$KOJI_JSON" | jq -r '.result[0].nvr // empty')
-          fi
+            # Final fallback: getLatestBuilds
+            if not nvr:
+                try:
+                    builds = session.getLatestBuilds("f45-updates-candidate", package="qt6-qtbase")
+                    if builds:
+                        nvr = builds[0]["nvr"]
+                except Exception:
+                    pass
+
+            print(nvr or "")
+          PYEOF
+          )
 
           echo "  Latest Rawhide NVR: $LATEST_NVR"
 
