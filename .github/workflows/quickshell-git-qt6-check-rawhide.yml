@@ -33,36 +33,35 @@ jobs:
           echo "========================================"
 
           # Rawhide packages don't go through Bodhi, so we query the Koji
-          # build system via its XML-RPC API (the hub does NOT support JSON).
-          pip install koji --quiet
-
+          # build system via its XML-RPC API using Python's stdlib.
           LATEST_NVR=$(python3 - <<'PYEOF'
-          import koji
-          session = koji.ClientSession("https://koji.fedoraproject.org/kojihub")
+import xmlrpc.client
 
-          # Try tags in order of likelihood for rawhide
-          tags = ["f45-updates-candidate", "f45", "f45-pending"]
-          nvr = None
-          for tag in tags:
-            try:
-                builds = session.listTagged(tag, package="qt6-qtbase", latest=True)
-                if builds:
-                    nvr = builds[0]["nvr"]
-                    break
-            except Exception:
-                continue
+koji = xmlrpc.client.ServerProxy("https://koji.fedoraproject.org/kojihub")
 
-            # Final fallback: getLatestBuilds
-            if not nvr:
-                try:
-                    builds = session.getLatestBuilds("f45-updates-candidate", package="qt6-qtbase")
-                    if builds:
-                        nvr = builds[0]["nvr"]
-                except Exception:
-                    pass
+# Try tags in order of likelihood for rawhide
+tags = ["f45-updates-candidate", "f45", "f45-pending"]
+nvr = None
+for tag in tags:
+    try:
+        builds = koji.listTagged(tag, None, False, None, True, None, "qt6-qtbase")
+        if builds:
+            nvr = builds[0]["nvr"]
+            break
+    except Exception:
+        continue
 
-            print(nvr or "")
-          PYEOF
+# Final fallback: getLatestBuilds
+if not nvr:
+    try:
+        builds = koji.getLatestBuilds("f45-updates-candidate", None, "qt6-qtbase")
+        if builds:
+            nvr = builds[0]["nvr"]
+    except Exception:
+        pass
+
+print(nvr or "")
+PYEOF
           )
 
           echo "  Latest Rawhide NVR: $LATEST_NVR"
