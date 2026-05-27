@@ -15,89 +15,121 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check for Qt6 updates on Fedora Rawhide
+      - name: Fetch latest Qt6 NVR from Koji
+        id: koji
+        run: |
+          # Rawhide packages bypass Bodhi — query Koji's XML-RPC API directly.
+          # We ask for the 50 most recent completed builds of qt6-qtbase,
+          # then pick the one with the highest .fcXX tag (i.e. Rawhide).
+          LATEST_NVR=$(python3 - <<'PYEOF'
+          import sys
+          import re
+          import xmlrpc.client
+
+          KOJI_HUB = "https://koji.fedoraproject.org/kojihub"
+          PACKAGE   = "qt6-qtbase"
+
+          try:
+              koji = xmlrpc.client.ServerProxy(KOJI_HUB)
+
+              # Resolve the package ID first — fast, single lookup
+              pkg = koji.getPackage(PACKAGE)
+              if not pkg:
+                  print(f"::error::Package '{PACKAGE}' not found in Koji", file=sys.stderr)
+                  sys.exit(1)
+
+              # Fetch only completed builds (state=1), newest first, capped at 50
+              builds = koji.listBuilds(
+                  pkg["id"],
+                  state=1,
+                  queryOpts={"order": "-build_id", "limit": 50},
+              )
+
+              # Find the build with the highest .fcXX tag → Rawhide
+              best = None
+              for b in builds:
+                  nvr = b.get("nvr", "")
+                  m = re.search(r'\.fc(\d+)$', nvr)
+                  if m:
+                      fc_ver = int(m.group(1))
+                      if best is None or fc_ver > best[0]:
+                          best = (fc_ver, nvr)
+
+              if best:
+                  print(best[1])
+              else:
+                  print("::error::No .fcXX builds found in latest 50 results", file=sys.stderr)
+                  sys.exit(1)
+
+          except xmlrpc.client.Fault as e:
+              print(f"::error::Koji XML-RPC fault: {e.faultString}", file=sys.stderr)
+              sys.exit(1)
+          except Exception as e:
+              print(f"::error::Unexpected error querying Koji: {e}", file=sys.stderr)
+              sys.exit(1)
+          PYEOF
+          )
+
+          if [ -z "$LATEST_NVR" ]; then
+            echo "::error::Python script returned empty NVR"
+            exit 1
+          fi
+
+          echo "latest_nvr=$LATEST_NVR" >> "$GITHUB_OUTPUT"
+          echo "  Latest Rawhide NVR: $LATEST_NVR"
+
+      - name: Compare with last known NVR
+        id: compare
+        run: |
+          TRACKER_FILE="quickshell-git/illogicall-impulse-ver/.qt6-last-nvr-rawhide"
+          LATEST_NVR="${{ steps.koji.outputs.latest_nvr }}"
+
+          LAST_NVR=""
+          if [ -f "$TRACKER_FILE" ]; then
+            LAST_NVR=$(cat "$TRACKER_FILE")
+          fi
+
+          echo "  Latest NVR:     $LATEST_NVR"
+          echo "  Last known NVR: $LAST_NVR"
+
+          if [ "$LATEST_NVR" = "$LAST_NVR" ]; then
+            echo "  ✅ No Qt6 update on Rawhide. Nothing to do."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "  🚀 Qt6 update detected on Rawhide!"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump release and commit
+        if: steps.compare.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           SPEC_FILE="quickshell-git/illogicall-impulse-ver/quickshell-git.spec"
           TRACKER_FILE="quickshell-git/illogicall-impulse-ver/.qt6-last-nvr-rawhide"
+          LATEST_NVR="${{ steps.koji.outputs.latest_nvr }}"
 
           if [ ! -f "$SPEC_FILE" ]; then
-            echo "❌ Error: $SPEC_FILE not found!"
+            echo "::error::$SPEC_FILE not found"
             exit 1
           fi
 
-          echo "========================================"
-          echo "Checking Qt6 updates on Fedora Rawhide"
-          echo "========================================"
-
-          # Rawhide packages don't go through Bodhi, so we query the Koji
-          # build system via its XML-RPC API using Python's stdlib.
-          # We dynamically extract the latest completed build with the
-          # highest .fcXX (Fedora Core version) tag to avoid hardcoding.
-          LATEST_NVR=$(python3 - <<'PYEOF'
-import xmlrpc.client
-import re
-
-try:
-    koji = xmlrpc.client.ServerProxy("https://koji.fedoraproject.org/kojihub")
-    builds = koji.listBuilds(packageID="qt6-qtbase")
-    
-    fc_builds = []
-    for b in builds:
-        if b.get("state") == 1:  # COMPLETE
-            nvr = b.get("nvr", "")
-            match = re.search(r'\.fc(\d+)', nvr)
-            if match:
-                fc_ver = int(match.group(1))
-                build_id = b.get("build_id", 0)
-                fc_builds.append((fc_ver, build_id, nvr))
-                
-    if fc_builds:
-        # Sort by fc version descending, then by build_id descending
-        fc_builds.sort(key=lambda x: (x[0], x[1]), reverse=True)
-        print(fc_builds[0][2])
-    else:
-        print("")
-except Exception:
-    print("")
-PYEOF
-          )
-
-          echo "  Latest Rawhide NVR: $LATEST_NVR"
-
-          if [ -z "$LATEST_NVR" ] || [ "$LATEST_NVR" = "null" ]; then
-            echo "  ⚠️  Could not fetch Qt6 NVR from Koji. Skipping..."
-            exit 0
-          fi
-
-          # Read the last known NVR
-          LAST_NVR=""
-          if [ -f "$TRACKER_FILE" ]; then
-            LAST_NVR=$(cat "$TRACKER_FILE")
-          fi
-
-          echo "  Last known NVR:    $LAST_NVR"
-
-          if [ "$LATEST_NVR" = "$LAST_NVR" ]; then
-            echo "  ✅ No Qt6 update on Rawhide. Nothing to do."
-            exit 0
-          fi
-
-          echo "  🚀 Qt6 update detected on Rawhide! Bumping release..."
-
-          # Bump Release to force rebuild
+          # Bump Release with a timestamp to force a rebuild
           TIMESTAMP=$(date +%Y%m%d%H%M)
-          sed -i -E "s/^Release:.*/Release:        $TIMESTAMP%{?dist}/" "$SPEC_FILE"
+          sed -i -E "s/^Release:.*/Release:        ${TIMESTAMP}%{?dist}/" "$SPEC_FILE"
 
-          # Save the new NVR
+          # Persist the new NVR so we don't bump again until the next update
           echo "$LATEST_NVR" > "$TRACKER_FILE"
 
           git add "$SPEC_FILE" "$TRACKER_FILE"
           git commit -m "chore: rebuild quickshell-git for Qt6 update on Rawhide ($LATEST_NVR)"
 
-          git pull --rebase origin master
-          git push origin master
+          # Push with retry in case of concurrent commits
+          for attempt in 1 2 3; do
+            git pull --rebase origin master && git push origin master && break
+            echo "  ⚠️  Push attempt $attempt failed, retrying..."
+            sleep 5
+          done
 
           echo "✅ Successfully pushed rebuild bump for Rawhide Qt6 update."
