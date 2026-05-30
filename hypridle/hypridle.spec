@@ -2,7 +2,7 @@
 
 Name:           hypridle
 Version:        0.1.7
-Release:        202605290150%{?dist}
+Release:        202605300146%{?dist}
 Summary:        Hyprland's idle daemon
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hypridle
