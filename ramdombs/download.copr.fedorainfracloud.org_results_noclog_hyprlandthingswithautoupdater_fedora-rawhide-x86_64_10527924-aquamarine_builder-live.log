@@ -1,0 +1,1680 @@
+Warning: Permanently added '54.89.175.13' (ED25519) to the list of known hosts.
+
+You can reproduce this build on your computer by running:
+
+  sudo dnf install copr-rpmbuild
+  /usr/bin/copr-rpmbuild --verbose --drop-resultdir --task-url https://copr.fedorainfracloud.org/backend/get-build-task/10527924-fedora-rawhide-x86_64 --chroot fedora-rawhide-x86_64
+
+
+Version: 1.8
+PID: 12663
+Logging PID: 12665
+Task:
+{'allow_user_ssh': False,
+ 'appstream': False,
+ 'background': False,
+ 'build_id': 10527924,
+ 'buildroot_pkgs': [],
+ 'chroot': 'fedora-rawhide-x86_64',
+ 'enable_net': True,
+ 'fedora_review': False,
+ 'git_hash': '6bf8ff5486828a15dd4c96472ffa953ee37684ac',
+ 'git_repo': 'https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/aquamarine',
+ 'isolation': 'default',
+ 'memory_reqs': 2048,
+ 'package_name': 'aquamarine',
+ 'package_version': '0.12.0-1',
+ 'project_dirname': 'hyprlandthingswithautoupdater',
+ 'project_name': 'hyprlandthingswithautoupdater',
+ 'project_owner': 'noclog',
+ 'repo_priority': None,
+ 'repos': [{'baseurl': 'https://download.copr.fedorainfracloud.org/results/noclog/hyprlandthingswithautoupdater/fedora-rawhide-x86_64/',
+            'id': 'copr_base',
+            'name': 'Copr repository',
+            'priority': None}],
+ 'sandbox': 'noclog/hyprlandthingswithautoupdater--noclog',
+ 'source_json': {},
+ 'source_type': None,
+ 'ssh_public_keys': None,
+ 'storage': 0,
+ 'submitter': 'noclog',
+ 'tags': [],
+ 'task_id': '10527924-fedora-rawhide-x86_64',
+ 'timeout': 18000,
+ 'uses_devel_repo': False,
+ 'with_opts': [],
+ 'without_opts': []}
+
+Running: git clone https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/aquamarine /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine --depth 500 --no-single-branch --recursive
+
+cmd: ['git', 'clone', 'https://copr-dist-git.fedorainfracloud.org/git/noclog/hyprlandthingswithautoupdater/aquamarine', '/var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine', '--depth', '500', '--no-single-branch', '--recursive']
+cwd: .
+rc: 0
+stdout: 
+stderr: Cloning into '/var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine'...
+
+Running: git checkout 6bf8ff5486828a15dd4c96472ffa953ee37684ac --
+
+cmd: ['git', 'checkout', '6bf8ff5486828a15dd4c96472ffa953ee37684ac', '--']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine
+rc: 0
+stdout: 
+stderr: Note: switching to '6bf8ff5486828a15dd4c96472ffa953ee37684ac'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 6bf8ff5 automatic import of aquamarine
+
+Running: dist-git-client sources
+
+cmd: ['dist-git-client', 'sources']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine
+rc: 0
+stdout: 
+stderr: INFO: Reading stdout from command: git rev-parse --abbrev-ref HEAD
+INFO: Reading stdout from command: git rev-parse HEAD
+INFO: Reading sources specification file: sources
+INFO: Downloading aquamarine-0.12.0.tar.gz
+INFO: Reading stdout from command: curl --help all
+INFO: Calling: curl -H Pragma: -H 'Accept-Encoding: identity' -o aquamarine-0.12.0.tar.gz --location --connect-timeout 60 --retry 3 --retry-delay 10 --remote-time --show-error --fail --retry-all-errors https://copr-dist-git.fedorainfracloud.org/repo/pkgs/noclog/hyprlandthingswithautoupdater/aquamarine/aquamarine-0.12.0.tar.gz/md5/65617c58dbc5f91792fd2a19fd88c823/aquamarine-0.12.0.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 96368  100 96368    0     0  6308k      0 --:--:-- --:--:-- --:--:-- 6273k
+INFO: Reading stdout from command: md5sum aquamarine-0.12.0.tar.gz
+
+tail: /var/lib/copr-rpmbuild/main.log: file truncated
+Running (timeout=18000): unbuffer mock --spec /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine/aquamarine.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1780219232.128367 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
+INFO: mock.py version 6.7 starting (python version = 3.14.2, NVR = mock-6.7-1.fc43), args: /usr/libexec/mock/mock --spec /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine/aquamarine.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1780219232.128367 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
+Start(bootstrap): init plugins
+INFO: tmpfs initialized
+INFO: selinux enabled
+INFO: chroot_scan: initialized
+INFO: compress_logs: initialized
+Finish(bootstrap): init plugins
+Start: init plugins
+INFO: tmpfs initialized
+INFO: selinux enabled
+INFO: chroot_scan: initialized
+INFO: compress_logs: initialized
+Finish: init plugins
+INFO: Signal handler active
+Start: run
+INFO: Start(/var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine/aquamarine.spec)  Config(fedora-rawhide-x86_64)
+Start: clean chroot
+Finish: clean chroot
+Mock Version: 6.7
+INFO: Mock Version: 6.7
+Start(bootstrap): chroot init
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1780219232.128367/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start(bootstrap): cleaning package manager metadata
+Finish(bootstrap): cleaning package manager metadata
+INFO: Guessed host environment type: unknown
+INFO: Using container image: registry.fedoraproject.org/fedora:rawhide
+INFO: Pulling image: registry.fedoraproject.org/fedora:rawhide
+INFO: Tagging container image as mock-bootstrap-629b4cfb-e868-472b-8717-e81f65928767
+INFO: Checking that d31ffc2d3c4e6fcd99b378457a3aa26e1c7901a5b1f30a684f6efc6a68a38850 image matches host's architecture
+INFO: Copy content of container d31ffc2d3c4e6fcd99b378457a3aa26e1c7901a5b1f30a684f6efc6a68a38850 to /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1780219232.128367/root
+INFO: mounting d31ffc2d3c4e6fcd99b378457a3aa26e1c7901a5b1f30a684f6efc6a68a38850 with podman image mount
+INFO: image d31ffc2d3c4e6fcd99b378457a3aa26e1c7901a5b1f30a684f6efc6a68a38850 as /var/lib/containers/storage/overlay/acefdcce0e85bf7fe31b4aeb40151420e0f9aa3f188644ed890cb4e7fb36849d/merged
+INFO: umounting image d31ffc2d3c4e6fcd99b378457a3aa26e1c7901a5b1f30a684f6efc6a68a38850 (/var/lib/containers/storage/overlay/acefdcce0e85bf7fe31b4aeb40151420e0f9aa3f188644ed890cb4e7fb36849d/merged) with podman image umount
+INFO: Removing image mock-bootstrap-629b4cfb-e868-472b-8717-e81f65928767
+INFO: Package manager dnf5 detected and used (fallback)
+INFO: Not updating bootstrap chroot, bootstrap_image_ready=True
+Start(bootstrap): creating root cache
+Finish(bootstrap): creating root cache
+Finish(bootstrap): chroot init
+Start: chroot init
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-1780219232.128367/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start: cleaning package manager metadata
+Finish: cleaning package manager metadata
+INFO: enabled HW Info plugin
+INFO: Package manager dnf5 detected and used (direct choice)
+INFO: Buildroot is handled by package management downloaded with a bootstrap image:
+  rpm-6.0.1-5.fc45.x86_64
+  rpm-sequoia-1.10.2-2.fc45.x86_64
+  dnf5-5.4.2.1-2.fc45.x86_64
+  dnf5-plugins-5.4.2.1-2.fc45.x86_64
+Start: installing minimal buildroot with dnf5
+Updating and loading repositories:
+ Copr repository                        100% | 578.4 KiB/s | 238.3 KiB |  00m00s
+ fedora                                 100% |  21.4 MiB/s |  21.6 MiB |  00m01s
+Repositories loaded.
+Package                            Arch   Version                      Repository      Size
+Installing group/module packages:
+ bash                              x86_64 0:5.3.9-3.fc44               fedora       8.5 MiB
+ bzip2                             x86_64 0:1.0.8-23.fc44              fedora      95.0 KiB
+ coreutils                         x86_64 0:9.11-2.fc45                fedora       5.9 MiB
+ cpio                              x86_64 0:2.15-9.fc44                fedora       1.1 MiB
+ diffutils                         x86_64 0:3.12-5.fc44                fedora       1.6 MiB
+ fedora-release-common             noarch 0:45-0.8                     fedora       4.2 KiB
+ findutils                         x86_64 1:4.10.0-7.fc44              fedora       1.9 MiB
+ gawk                              x86_64 0:5.4.0-3.fc45               fedora       2.2 MiB
+ glibc-minimal-langpack            x86_64 0:2.43.9000-18.fc45          fedora       0.0   B
+ grep                              x86_64 0:3.12-3.fc44                fedora       1.0 MiB
+ gzip                              x86_64 0:1.14-2.fc44                fedora     401.6 KiB
+ info                              x86_64 0:7.3-1.fc45                 fedora     372.4 KiB
+ patch                             x86_64 0:2.8-4.fc44                 fedora     226.6 KiB
+ redhat-rpm-config                 noarch 0:344-2.fc45                 fedora     183.7 KiB
+ rpm-build                         x86_64 0:6.0.1-5.fc45               fedora     294.6 KiB
+ sed                               x86_64 0:4.10-1.fc45                fedora     939.4 KiB
+ shadow-utils                      x86_64 2:4.19.3-3.fc45              fedora       4.0 MiB
+ tar                               x86_64 2:1.35-8.fc44                fedora       3.0 MiB
+ unzip                             x86_64 0:6.0-69.fc44                fedora     445.8 KiB
+ util-linux                        x86_64 0:2.42.1-4.fc45              fedora       3.7 MiB
+ which                             x86_64 0:2.25-1.fc45                fedora      83.6 KiB
+ xz                                x86_64 1:5.8.3-1.fc45               fedora       1.4 MiB
+Installing dependencies:
+ R-srpm-macros                     noarch 0:1.3.7-2.fc45               fedora       3.5 KiB
+ add-determinism                   x86_64 0:0.7.3-2.fc45               fedora       2.2 MiB
+ alternatives                      x86_64 0:1.33-5.fc44                fedora      62.1 KiB
+ ansible-srpm-macros               noarch 0:1-20.1.fc44                fedora      35.7 KiB
+ audit-libs                        x86_64 0:4.1.4-1.fc45               fedora     390.5 KiB
+ binutils                          x86_64 0:2.46.50-9.fc45             fedora      28.2 MiB
+ build-reproducibility-srpm-macros noarch 0:0.7.3-2.fc45               fedora       1.2 KiB
+ bzip2-libs                        x86_64 0:1.0.8-23.fc44              fedora      80.5 KiB
+ ca-certificates                   noarch 0:2025.2.80_v9.0.304-7.fc45  fedora       2.7 MiB
+ cmake-srpm-macros                 noarch 0:4.3.0-1.fc45               fedora     524.0   B
+ coreutils-common                  x86_64 0:9.11-2.fc45                fedora      10.9 MiB
+ crypto-policies                   noarch 0:20251128-3.git19878fe.fc44 fedora     132.6 KiB
+ curl                              x86_64 0:8.20.0-2.fc45              fedora     483.9 KiB
+ cyrus-sasl-lib                    x86_64 0:2.1.28-35.fc44             fedora       2.3 MiB
+ debugedit                         x86_64 0:5.3-2.fc45                 fedora     220.8 KiB
+ dwz                               x86_64 0:0.16-3.fc44                fedora     290.9 KiB
+ ed                                x86_64 0:1.22.5-2.fc45              fedora     149.7 KiB
+ efi-srpm-macros                   noarch 0:6-6.fc44                   fedora      40.2 KiB
+ elfutils                          x86_64 0:0.195-1.fc45               fedora       3.0 MiB
+ elfutils-debuginfod-client        x86_64 0:0.195-1.fc45               fedora      83.8 KiB
+ elfutils-libelf                   x86_64 0:0.195-1.fc45               fedora       1.2 MiB
+ elfutils-libs                     x86_64 0:0.195-1.fc45               fedora     715.3 KiB
+ erlang-srpm-macros                noarch 0:0.3.11-1.fc45              fedora       1.9 KiB
+ fedora-gpg-keys                   noarch 0:45-0.1                     fedora     133.4 KiB
+ fedora-release                    noarch 0:45-0.8                     fedora       0.0   B
+ fedora-release-identity-basic     noarch 0:45-0.8                     fedora     664.0   B
+ fedora-repos                      noarch 0:45-0.1                     fedora       4.9 KiB
+ fedora-repos-rawhide              noarch 0:45-0.1                     fedora       2.2 KiB
+ file                              x86_64 0:5.47-2.fc45                fedora     101.2 KiB
+ file-libs                         x86_64 0:5.47-2.fc45                fedora      12.2 MiB
+ filesystem                        x86_64 0:3.18-56.fc45               fedora     112.0   B
+ filesystem-srpm-macros            noarch 0:3.18-56.fc45               fedora      38.2 KiB
+ fonts-srpm-macros                 noarch 1:5.0.0-3.fc45               fedora      55.8 KiB
+ forge-srpm-macros                 noarch 0:0.4.0-4.fc44               fedora      38.9 KiB
+ fpc-srpm-macros                   noarch 0:1.3-16.fc44                fedora     144.0   B
+ gap-srpm-macros                   noarch 0:2-2.fc44                   fedora       2.1 KiB
+ gdb-minimal                       x86_64 0:17.1-8.fc45                fedora      14.2 MiB
+ gdbm-libs                         x86_64 1:1.23-11.fc44               fedora     129.6 KiB
+ ghc-srpm-macros                   noarch 0:1.10-1.fc44                fedora     792.0   B
+ glibc                             x86_64 0:2.43.9000-18.fc45          fedora       7.0 MiB
+ glibc-common                      x86_64 0:2.43.9000-18.fc45          fedora       1.0 MiB
+ glibc-gconv-extra                 x86_64 0:2.43.9000-18.fc45          fedora       7.7 MiB
+ gmp                               x86_64 1:6.3.0-5.fc44               fedora     815.2 KiB
+ gnat-srpm-macros                  noarch 0:7-2.fc44                   fedora       1.0 KiB
+ gnome-srpm-macros                 noarch 0:1.0-1.fc45                 fedora       3.5 KiB
+ gnulib-l10n                       noarch 0:20241231-2.fc44            fedora     655.0 KiB
+ gnupg2                            x86_64 0:2.4.9-16.fc45              fedora       6.5 MiB
+ gnupg2-dirmngr                    x86_64 0:2.4.9-16.fc45              fedora     634.0 KiB
+ gnupg2-gpg-agent                  x86_64 0:2.4.9-16.fc45              fedora     686.6 KiB
+ gnupg2-gpgconf                    x86_64 0:2.4.9-16.fc45              fedora     249.7 KiB
+ gnupg2-keyboxd                    x86_64 0:2.4.9-16.fc45              fedora     201.2 KiB
+ gnupg2-verify                     x86_64 0:2.4.9-16.fc45              fedora     360.3 KiB
+ gnutls                            x86_64 0:3.8.13-1.fc45              fedora       3.8 MiB
+ go-srpm-macros                    noarch 0:3.8.0-2.fc44               fedora      61.9 KiB
+ gpgverify                         noarch 0:2.2-4.fc44                 fedora       8.7 KiB
+ ima-evm-utils-libs                x86_64 0:1.6.2-10.fc45              fedora      60.6 KiB
+ jansson                           x86_64 0:2.14-4.fc44                fedora      88.9 KiB
+ java-srpm-macros                  noarch 0:1-8.fc44                   fedora     870.0   B
+ json-c                            x86_64 0:0.18-8.fc44                fedora      82.6 KiB
+ kernel-srpm-macros                noarch 0:1.0-29.fc45                fedora       1.9 KiB
+ keyutils-libs                     x86_64 0:1.6.3-7.fc44               fedora      54.2 KiB
+ krb5-libs                         x86_64 0:1.22.2-7.fc45              fedora       2.4 MiB
+ libacl                            x86_64 0:2.3.2-6.fc44               fedora      35.8 KiB
+ libarchive                        x86_64 0:3.8.7-1.fc45               fedora       1.0 MiB
+ libassuan                         x86_64 0:2.5.7-5.fc44               fedora     163.8 KiB
+ libattr                           x86_64 0:2.5.2-8.fc44               fedora      24.3 KiB
+ libblkid                          x86_64 0:2.42.1-4.fc45              fedora     282.3 KiB
+ libbrotli                         x86_64 0:1.2.0-3.fc44               fedora     865.0 KiB
+ libcap                            x86_64 0:2.78-1.fc45                fedora     212.1 KiB
+ libcap-ng                         x86_64 0:0.9.3-1.fc45               fedora      68.8 KiB
+ libcbor                           x86_64 0:0.14.0-2.fc45              fedora      83.5 KiB
+ libcom_err                        x86_64 0:1.47.4-1.fc45              fedora      63.0 KiB
+ libcurl                           x86_64 0:8.20.0-2.fc45              fedora       1.0 MiB
+ libeconf                          x86_64 0:0.7.9-3.fc44               fedora      64.8 KiB
+ libevent                          x86_64 0:2.1.12-17.fc44             fedora     978.7 KiB
+ libfdisk                          x86_64 0:2.42.1-4.fc45              fedora     392.2 KiB
+ libffi                            x86_64 0:3.5.2-2.fc44               fedora      87.7 KiB
+ libfido2                          x86_64 0:1.17.0-2.fc45              fedora     260.5 KiB
+ libfsverity                       x86_64 0:1.7-1.fc45                 fedora      28.4 KiB
+ libgcc                            x86_64 0:16.1.1-2.fc45              fedora     270.7 KiB
+ libgcrypt                         x86_64 0:1.12.2-1.fc45              fedora       1.7 MiB
+ libgomp                           x86_64 0:16.1.1-2.fc45              fedora     577.4 KiB
+ libgpg-error                      x86_64 0:1.61-1.fc45                fedora     949.8 KiB
+ libidn2                           x86_64 0:2.3.8-3.fc44               fedora     556.4 KiB
+ libksba                           x86_64 0:1.8.0-1.fc45               fedora     431.1 KiB
+ liblastlog2                       x86_64 0:2.42.1-4.fc45              fedora      37.6 KiB
+ libmount                          x86_64 0:2.42.1-4.fc45              fedora     400.8 KiB
+ libnghttp2                        x86_64 0:1.69.0-1.fc45              fedora     166.1 KiB
+ libnghttp3                        x86_64 0:1.15.0-1.fc44              fedora     159.2 KiB
+ libpkgconf                        x86_64 0:2.5.1-1.fc45               fedora      90.1 KiB
+ libpsl                            x86_64 0:0.21.5-7.fc44              fedora      76.3 KiB
+ libselinux                        x86_64 0:3.10-1.fc44                fedora     201.0 KiB
+ libselinux-utils                  x86_64 0:3.10-1.fc44                fedora     305.7 KiB
+ libsemanage                       x86_64 0:3.10-1.fc44                fedora     312.3 KiB
+ libsepol                          x86_64 0:3.10-1.fc44                fedora     870.0 KiB
+ libsmartcols                      x86_64 0:2.42.1-4.fc45              fedora     188.5 KiB
+ libssh                            x86_64 0:0.12.0-1.fc45              fedora     719.1 KiB
+ libssh-config                     noarch 0:0.12.0-1.fc45              fedora     277.0   B
+ libstdc++                         x86_64 0:16.1.1-2.fc45              fedora       3.1 MiB
+ libtasn1                          x86_64 0:4.21.0-1.fc45              fedora     180.6 KiB
+ libtool-ltdl                      x86_64 0:2.5.4-10.fc44              fedora      70.0 KiB
+ libunistring                      x86_64 0:1.1-11.fc44                fedora       1.7 MiB
+ libusb1                           x86_64 0:1.0.30-1.fc45              fedora     180.1 KiB
+ libuuid                           x86_64 0:2.42.1-4.fc45              fedora      37.3 KiB
+ libverto                          x86_64 0:0.3.2-12.fc44              fedora      25.3 KiB
+ libxcrypt                         x86_64 0:4.5.2-3.fc44               fedora     293.2 KiB
+ libxml2                           x86_64 0:2.13.9-1.fc45              fedora       1.8 MiB
+ libzstd                           x86_64 0:1.5.7-5.fc44               fedora     956.1 KiB
+ linkdupes                         x86_64 0:0.7.3-2.fc45               fedora     780.9 KiB
+ lua-libs                          x86_64 0:5.5.0-1.fc45               fedora     297.9 KiB
+ lua-srpm-macros                   noarch 0:1-17.fc44                  fedora       1.3 KiB
+ lz4-libs                          x86_64 0:1.10.0-4.fc44              fedora     157.3 KiB
+ mpfr                              x86_64 0:4.2.2-3.fc44               fedora     849.1 KiB
+ ncurses-base                      noarch 0:6.6-2.fc45                 fedora     329.7 KiB
+ ncurses-libs                      x86_64 0:6.6-2.fc45                 fedora     968.8 KiB
+ nettle                            x86_64 0:3.10.1-3.fc44              fedora     794.3 KiB
+ ngtcp2                            x86_64 0:1.22.1-1.fc45              fedora     338.2 KiB
+ ngtcp2-crypto-ossl                x86_64 0:1.22.1-1.fc45              fedora      51.6 KiB
+ npth                              x86_64 0:1.8-4.fc44                 fedora      49.5 KiB
+ ocaml-srpm-macros                 noarch 0:11-3.fc44                  fedora       1.9 KiB
+ openblas-srpm-macros              noarch 0:2-21.fc44                  fedora     112.0   B
+ openldap                          x86_64 0:2.6.13-1.fc45              fedora     669.9 KiB
+ openssl-libs                      x86_64 1:3.5.6-1.fc45               fedora       9.2 MiB
+ p11-kit                           x86_64 0:0.26.2-1.fc45              fedora       2.6 MiB
+ p11-kit-trust                     x86_64 0:0.26.2-1.fc45              fedora     478.3 KiB
+ package-notes-srpm-macros         noarch 0:0.17-3.fc45                fedora       1.6 KiB
+ pam-libs                          x86_64 0:1.7.2-1.fc44               fedora     130.5 KiB
+ pcre2                             x86_64 0:10.47-1.fc44.1             fedora     718.6 KiB
+ pcre2-syntax                      noarch 0:10.47-1.fc44.1             fedora     281.9 KiB
+ perl-srpm-macros                  noarch 0:1-61.fc44                  fedora     861.0   B
+ pkgconf                           x86_64 0:2.5.1-1.fc45               fedora      92.7 KiB
+ pkgconf-m4                        noarch 0:2.5.1-1.fc45               fedora      14.3 KiB
+ pkgconf-pkg-config                x86_64 0:2.5.1-1.fc45               fedora     989.0   B
+ policycoreutils                   x86_64 0:3.10-4.fc45                fedora     888.7 KiB
+ popt                              x86_64 0:1.19-10.fc44               fedora     132.6 KiB
+ publicsuffix-list-dafsa           noarch 0:20260116-1.fc44            fedora      70.4 KiB
+ pyproject-srpm-macros             noarch 0:1.22.2-1.fc45              fedora       3.2 KiB
+ python-srpm-macros                noarch 0:3.14-12.fc45               fedora      51.6 KiB
+ qt5-srpm-macros                   noarch 0:5.15.18-2.fc44             fedora     500.0   B
+ qt6-srpm-macros                   noarch 0:6.11.1-1.fc45              fedora     472.0   B
+ readline                          x86_64 0:8.3-4.fc44                 fedora     519.5 KiB
+ redhat-systemd-presets            noarch 0:102-1.fc45                 fedora       1.0 KiB
+ redhat-systemd-presets-common     noarch 0:102-1.fc45                 fedora      16.6 KiB
+ rpm                               x86_64 0:6.0.1-5.fc45               fedora       3.1 MiB
+ rpm-build-libs                    x86_64 0:6.0.1-5.fc45               fedora     276.3 KiB
+ rpm-libs                          x86_64 0:6.0.1-5.fc45               fedora     961.2 KiB
+ rpm-plugin-selinux                x86_64 0:6.0.1-5.fc45               fedora      11.9 KiB
+ rpm-sequoia                       x86_64 0:1.10.2-2.fc45              fedora       2.4 MiB
+ rpm-sign-libs                     x86_64 0:6.0.1-5.fc45               fedora      39.6 KiB
+ rust-srpm-macros                  noarch 0:28.4-3.fc44                fedora       5.5 KiB
+ selinux-policy                    noarch 0:45.3-1.fc45                fedora      32.1 KiB
+ selinux-policy-targeted           noarch 0:45.3-1.fc45                fedora      18.9 MiB
+ setup                             noarch 0:2.15.0-29.fc45             fedora     724.9 KiB
+ sqlite-libs                       x86_64 0:3.53.1-1.fc45              fedora       1.6 MiB
+ systemd-libs                      x86_64 0:261~rc2-1.fc45             fedora       2.7 MiB
+ systemd-standalone-sysusers       x86_64 0:261~rc2-1.fc45             fedora     940.4 KiB
+ tpm2-tss                          x86_64 0:4.1.3-9.fc44               fedora       1.6 MiB
+ tree-sitter-srpm-macros           noarch 0:0.4.6-1.fc45               fedora       8.6 KiB
+ util-linux-core                   x86_64 0:2.42.1-4.fc45              fedora       1.5 MiB
+ xxhash-libs                       x86_64 0:0.8.3-4.fc44               fedora      94.0 KiB
+ xz-libs                           x86_64 1:5.8.3-1.fc45               fedora     217.7 KiB
+ zig-srpm-macros                   noarch 0:1-8.fc44                   fedora       1.3 KiB
+ zip                               x86_64 0:3.0-45.fc44                fedora     698.0 KiB
+ zlib-ng-compat                    x86_64 0:2.3.3-5.fc45               fedora     165.6 KiB
+ zstd                              x86_64 0:1.5.7-5.fc44               fedora     502.4 KiB
+Installing groups:
+ Buildsystem building group                                                                
+
+Transaction Summary:
+ Installing:       187 packages
+
+Total size of inbound packages is 70 MiB. Need to download 70 MiB.
+After this operation, 228 MiB extra will be used (install 228 MiB, remove 0 B).
+[  1/187] bzip2-0:1.0.8-23.fc44.x86_64  100% |  17.0 MiB/s |  52.1 KiB |  00m00s
+[  2/187] cpio-0:2.15-9.fc44.x86_64     100% |  35.8 MiB/s | 293.4 KiB |  00m00s
+[  3/187] bash-0:5.3.9-3.fc44.x86_64    100% | 118.4 MiB/s |   1.9 MiB |  00m00s
+[  4/187] diffutils-0:3.12-5.fc44.x86_6 100% |  96.5 MiB/s | 395.3 KiB |  00m00s
+[  5/187] coreutils-0:9.11-2.fc45.x86_6 100% |  66.8 MiB/s |   1.2 MiB |  00m00s
+[  6/187] fedora-release-common-0:45-0. 100% |   6.1 MiB/s |  18.6 KiB |  00m00s
+[  7/187] findutils-1:4.10.0-7.fc44.x86 100% | 134.9 MiB/s | 552.5 KiB |  00m00s
+[  8/187] grep-0:3.12-3.fc44.x86_64     100% |  58.9 MiB/s | 301.6 KiB |  00m00s
+[  9/187] glibc-minimal-langpack-0:2.43 100% |  20.6 MiB/s | 105.2 KiB |  00m00s
+[ 10/187] gzip-0:1.14-2.fc44.x86_64     100% |  43.7 MiB/s | 179.1 KiB |  00m00s
+[ 11/187] info-0:7.3-1.fc45.x86_64      100% |  62.1 MiB/s | 190.8 KiB |  00m00s
+[ 12/187] patch-0:2.8-4.fc44.x86_64     100% |  37.5 MiB/s | 115.2 KiB |  00m00s
+[ 13/187] redhat-rpm-config-0:344-2.fc4 100% |  25.4 MiB/s |  78.0 KiB |  00m00s
+[ 14/187] rpm-build-0:6.0.1-5.fc45.x86_ 100% |  68.3 MiB/s | 139.9 KiB |  00m00s
+[ 15/187] sed-0:4.10-1.fc45.x86_64      100% | 116.9 MiB/s | 359.1 KiB |  00m00s
+[ 16/187] tar-2:1.35-8.fc44.x86_64      100% | 141.3 MiB/s | 868.2 KiB |  00m00s
+[ 17/187] unzip-0:6.0-69.fc44.x86_64    100% |  39.0 MiB/s | 199.6 KiB |  00m00s
+[ 18/187] shadow-utils-2:4.19.3-3.fc45. 100% | 118.2 MiB/s |   1.4 MiB |  00m00s
+[ 19/187] which-0:2.25-1.fc45.x86_64    100% |  10.3 MiB/s |  42.0 KiB |  00m00s
+[ 20/187] gawk-0:5.4.0-3.fc45.x86_64    100% | 129.6 MiB/s |   1.2 MiB |  00m00s
+[ 21/187] util-linux-0:2.42.1-4.fc45.x8 100% | 126.3 MiB/s |   1.3 MiB |  00m00s
+[ 22/187] filesystem-0:3.18-56.fc45.x86 100% | 166.6 MiB/s |   1.8 MiB |  00m00s
+[ 23/187] xz-1:5.8.3-1.fc45.x86_64      100% |  22.1 MiB/s | 655.2 KiB |  00m00s
+[ 24/187] ncurses-libs-0:6.6-2.fc45.x86 100% |  55.9 MiB/s | 343.2 KiB |  00m00s
+[ 25/187] glibc-0:2.43.9000-18.fc45.x86 100% | 121.3 MiB/s |   2.4 MiB |  00m00s
+[ 26/187] bzip2-libs-0:1.0.8-23.fc44.x8 100% |   8.6 MiB/s |  43.8 KiB |  00m00s
+[ 27/187] coreutils-common-0:9.11-2.fc4 100% | 240.8 MiB/s |   2.2 MiB |  00m00s
+[ 28/187] libacl-0:2.3.2-6.fc44.x86_64  100% |   4.8 MiB/s |  24.8 KiB |  00m00s
+[ 29/187] gmp-1:6.3.0-5.fc44.x86_64     100% |  52.5 MiB/s | 322.5 KiB |  00m00s
+[ 30/187] libattr-0:2.5.2-8.fc44.x86_64 100% |   8.8 MiB/s |  17.9 KiB |  00m00s
+[ 31/187] libselinux-0:3.10-1.fc44.x86_ 100% |  49.8 MiB/s | 102.0 KiB |  00m00s
+[ 32/187] libcap-0:2.78-1.fc45.x86_64   100% |  29.1 MiB/s |  89.4 KiB |  00m00s
+[ 33/187] fedora-repos-0:45-0.1.noarch  100% |   4.5 MiB/s |   9.2 KiB |  00m00s
+[ 34/187] systemd-libs-0:261~rc2-1.fc45 100% | 154.2 MiB/s | 947.5 KiB |  00m00s
+[ 35/187] redhat-systemd-presets-0:102- 100% |   2.0 MiB/s |   8.3 KiB |  00m00s
+[ 36/187] openssl-libs-1:3.5.6-1.fc45.x 100% | 196.2 MiB/s |   2.7 MiB |  00m00s
+[ 37/187] pcre2-0:10.47-1.fc44.1.x86_64 100% |  38.7 MiB/s | 277.7 KiB |  00m00s
+[ 38/187] glibc-common-0:2.43.9000-18.f 100% |  48.5 MiB/s | 397.5 KiB |  00m00s
+[ 39/187] ed-0:1.22.5-2.fc45.x86_64     100% |  41.7 MiB/s |  85.4 KiB |  00m00s
+[ 40/187] R-srpm-macros-0:1.3.7-2.fc45. 100% |   5.4 MiB/s |  11.0 KiB |  00m00s
+[ 41/187] ansible-srpm-macros-0:1-20.1. 100% |   6.5 MiB/s |  20.1 KiB |  00m00s
+[ 42/187] build-reproducibility-srpm-ma 100% |   6.5 MiB/s |  13.3 KiB |  00m00s
+[ 43/187] cmake-srpm-macros-0:4.3.0-1.f 100% |  10.2 MiB/s |  10.4 KiB |  00m00s
+[ 44/187] dwz-0:0.16-3.fc44.x86_64      100% |  67.8 MiB/s | 138.9 KiB |  00m00s
+[ 45/187] efi-srpm-macros-0:6-6.fc44.no 100% |  11.0 MiB/s |  22.6 KiB |  00m00s
+[ 46/187] erlang-srpm-macros-0:0.3.11-1 100% |   4.9 MiB/s |  10.0 KiB |  00m00s
+[ 47/187] file-0:5.47-2.fc45.x86_64     100% |  24.1 MiB/s |  49.4 KiB |  00m00s
+[ 48/187] filesystem-srpm-macros-0:3.18 100% |  13.1 MiB/s |  26.8 KiB |  00m00s
+[ 49/187] fonts-srpm-macros-1:5.0.0-3.f 100% |  13.3 MiB/s |  27.2 KiB |  00m00s
+[ 50/187] fpc-srpm-macros-0:1.3-16.fc44 100% |   3.9 MiB/s |   7.9 KiB |  00m00s
+[ 51/187] forge-srpm-macros-0:0.4.0-4.f 100% |   9.8 MiB/s |  20.0 KiB |  00m00s
+[ 52/187] gap-srpm-macros-0:2-2.fc44.no 100% |   4.5 MiB/s |   9.1 KiB |  00m00s
+[ 53/187] ghc-srpm-macros-0:1.10-1.fc44 100% |   4.3 MiB/s |   8.8 KiB |  00m00s
+[ 54/187] gnat-srpm-macros-0:7-2.fc44.n 100% |   4.3 MiB/s |   8.7 KiB |  00m00s
+[ 55/187] gnome-srpm-macros-0:1.0-1.fc4 100% |   4.2 MiB/s |   8.6 KiB |  00m00s
+[ 56/187] go-srpm-macros-0:3.8.0-2.fc44 100% |  13.8 MiB/s |  28.2 KiB |  00m00s
+[ 57/187] java-srpm-macros-0:1-8.fc44.n 100% |   4.0 MiB/s |   8.1 KiB |  00m00s
+[ 58/187] kernel-srpm-macros-0:1.0-29.f 100% |   4.0 MiB/s |   8.2 KiB |  00m00s
+[ 59/187] lua-srpm-macros-0:1-17.fc44.n 100% |   8.7 MiB/s |   8.9 KiB |  00m00s
+[ 60/187] ocaml-srpm-macros-0:11-3.fc44 100% |   9.1 MiB/s |   9.3 KiB |  00m00s
+[ 61/187] openblas-srpm-macros-0:2-21.f 100% |   7.6 MiB/s |   7.8 KiB |  00m00s
+[ 62/187] package-notes-srpm-macros-0:0 100% |   9.5 MiB/s |   9.7 KiB |  00m00s
+[ 63/187] perl-srpm-macros-0:1-61.fc44. 100% |   8.2 MiB/s |   8.4 KiB |  00m00s
+[ 64/187] pyproject-srpm-macros-0:1.22. 100% |  15.1 MiB/s |  15.5 KiB |  00m00s
+[ 65/187] python-srpm-macros-0:3.14-12. 100% |  11.8 MiB/s |  24.1 KiB |  00m00s
+[ 66/187] qt5-srpm-macros-0:5.15.18-2.f 100% |   4.2 MiB/s |   8.7 KiB |  00m00s
+[ 67/187] qt6-srpm-macros-0:6.11.1-1.fc 100% |   4.5 MiB/s |   9.2 KiB |  00m00s
+[ 68/187] rust-srpm-macros-0:28.4-3.fc4 100% |   5.4 MiB/s |  11.1 KiB |  00m00s
+[ 69/187] rpm-0:6.0.1-5.fc45.x86_64     100% | 188.3 MiB/s | 578.3 KiB |  00m00s
+[ 70/187] tree-sitter-srpm-macros-0:0.4 100% |   4.5 MiB/s |  13.9 KiB |  00m00s
+[ 71/187] zig-srpm-macros-0:1-8.fc44.no 100% |   4.3 MiB/s |   8.8 KiB |  00m00s
+[ 72/187] zip-0:3.0-45.fc44.x86_64      100% |  86.1 MiB/s | 264.4 KiB |  00m00s
+[ 73/187] debugedit-0:5.3-2.fc45.x86_64 100% |  28.8 MiB/s |  88.5 KiB |  00m00s
+[ 74/187] elfutils-0:0.195-1.fc45.x86_6 100% | 143.8 MiB/s | 588.9 KiB |  00m00s
+[ 75/187] elfutils-libelf-0:0.195-1.fc4 100% |  68.4 MiB/s | 210.2 KiB |  00m00s
+[ 76/187] libarchive-0:3.8.7-1.fc45.x86 100% | 108.1 MiB/s | 442.9 KiB |  00m00s
+[ 77/187] libgcc-0:16.1.1-2.fc45.x86_64 100% |  42.6 MiB/s | 131.0 KiB |  00m00s
+[ 78/187] popt-0:1.19-10.fc44.x86_64    100% |  21.8 MiB/s |  66.9 KiB |  00m00s
+[ 79/187] libstdc++-0:16.1.1-2.fc45.x86 100% | 199.5 MiB/s |   1.0 MiB |  00m00s
+[ 80/187] readline-0:8.3-4.fc44.x86_64  100% |  56.1 MiB/s | 229.8 KiB |  00m00s
+[ 81/187] rpm-build-libs-0:6.0.1-5.fc45 100% |  43.0 MiB/s | 132.1 KiB |  00m00s
+[ 82/187] rpm-libs-0:6.0.1-5.fc45.x86_6 100% | 135.3 MiB/s | 415.5 KiB |  00m00s
+[ 83/187] zstd-0:1.5.7-5.fc44.x86_64    100% |  62.7 MiB/s | 192.5 KiB |  00m00s
+[ 84/187] audit-libs-0:4.1.4-1.fc45.x86 100% |  69.2 MiB/s | 141.7 KiB |  00m00s
+[ 85/187] libeconf-0:0.7.9-3.fc44.x86_6 100% |  17.7 MiB/s |  36.2 KiB |  00m00s
+[ 86/187] libsemanage-0:3.10-1.fc44.x86 100% |  62.1 MiB/s | 127.3 KiB |  00m00s
+[ 87/187] libxcrypt-0:4.5.2-3.fc44.x86_ 100% |  64.1 MiB/s | 131.2 KiB |  00m00s
+[ 88/187] pam-libs-0:1.7.2-1.fc44.x86_6 100% |  28.8 MiB/s |  59.1 KiB |  00m00s
+[ 89/187] setup-0:2.15.0-29.fc45.noarch 100% |  76.8 MiB/s | 157.3 KiB |  00m00s
+[ 90/187] xz-libs-1:5.8.3-1.fc45.x86_64 100% |  56.8 MiB/s | 116.4 KiB |  00m00s
+[ 91/187] mpfr-0:4.2.2-3.fc44.x86_64    100% | 116.5 MiB/s | 357.8 KiB |  00m00s
+[ 92/187] libblkid-0:2.42.1-4.fc45.x86_ 100% |  32.6 MiB/s | 133.4 KiB |  00m00s
+[ 93/187] libcap-ng-0:0.9.3-1.fc45.x86_ 100% |  11.2 MiB/s |  34.3 KiB |  00m00s
+[ 94/187] libfdisk-0:2.42.1-4.fc45.x86_ 100% |  55.0 MiB/s | 169.1 KiB |  00m00s
+[ 95/187] liblastlog2-0:2.42.1-4.fc45.x 100% |   8.0 MiB/s |  24.5 KiB |  00m00s
+[ 96/187] libmount-0:2.42.1-4.fc45.x86_ 100% |  57.1 MiB/s | 175.5 KiB |  00m00s
+[ 97/187] libsmartcols-0:2.42.1-4.fc45. 100% |  28.7 MiB/s |  88.2 KiB |  00m00s
+[ 98/187] libuuid-0:2.42.1-4.fc45.x86_6 100% |  13.3 MiB/s |  27.3 KiB |  00m00s
+[ 99/187] util-linux-core-0:2.42.1-4.fc 100% | 188.6 MiB/s | 579.5 KiB |  00m00s
+[100/187] zlib-ng-compat-0:2.3.3-5.fc45 100% |  22.3 MiB/s |  91.2 KiB |  00m00s
+[101/187] ncurses-base-0:6.6-2.fc45.noa 100% |  21.5 MiB/s |  88.1 KiB |  00m00s
+[102/187] gnulib-l10n-0:20241231-2.fc44 100% |  48.9 MiB/s | 150.3 KiB |  00m00s
+[103/187] libsepol-0:3.10-1.fc44.x86_64 100% |  89.8 MiB/s | 367.6 KiB |  00m00s
+[104/187] ca-certificates-0:2025.2.80_v 100% | 135.2 MiB/s | 968.8 KiB |  00m00s
+[105/187] crypto-policies-0:20251128-3. 100% |  24.0 MiB/s |  98.3 KiB |  00m00s
+[106/187] fedora-repos-rawhide-0:45-0.1 100% |   4.3 MiB/s |   8.8 KiB |  00m00s
+[107/187] fedora-gpg-keys-0:45-0.1.noar 100% |  46.0 MiB/s | 141.3 KiB |  00m00s
+[108/187] redhat-systemd-presets-common 100% |   6.3 MiB/s |  12.9 KiB |  00m00s
+[109/187] pcre2-syntax-0:10.47-1.fc44.1 100% |  53.6 MiB/s | 164.7 KiB |  00m00s
+[110/187] add-determinism-0:0.7.3-2.fc4 100% | 166.9 MiB/s | 854.6 KiB |  00m00s
+[111/187] linkdupes-0:0.7.3-2.fc45.x86_ 100% |  84.2 MiB/s | 344.7 KiB |  00m00s
+[112/187] file-libs-0:5.47-2.fc45.x86_6 100% | 170.3 MiB/s | 872.0 KiB |  00m00s
+[113/187] curl-0:8.20.0-2.fc45.x86_64   100% |  47.3 MiB/s | 242.2 KiB |  00m00s
+[114/187] elfutils-libs-0:0.195-1.fc45. 100% |  92.2 MiB/s | 283.2 KiB |  00m00s
+[115/187] elfutils-debuginfod-client-0: 100% |  22.7 MiB/s |  46.5 KiB |  00m00s
+[116/187] libzstd-0:1.5.7-5.fc44.x86_64 100% | 118.5 MiB/s | 364.2 KiB |  00m00s
+[117/187] libxml2-0:2.13.9-1.fc45.x86_6 100% | 174.5 MiB/s | 714.7 KiB |  00m00s
+[118/187] lz4-libs-0:1.10.0-4.fc44.x86_ 100% |  37.9 MiB/s |  77.7 KiB |  00m00s
+[119/187] libgomp-0:16.1.1-2.fc45.x86_6 100% | 127.6 MiB/s | 392.0 KiB |  00m00s
+[120/187] lua-libs-0:5.5.0-1.fc45.x86_6 100% |  46.8 MiB/s | 143.6 KiB |  00m00s
+[121/187] rpm-sign-libs-0:6.0.1-5.fc45. 100% |  13.6 MiB/s |  27.9 KiB |  00m00s
+[122/187] rpm-sequoia-0:1.10.2-2.fc45.x 100% | 177.9 MiB/s | 910.8 KiB |  00m00s
+[123/187] sqlite-libs-0:3.53.1-1.fc45.x 100% | 131.5 MiB/s | 808.2 KiB |  00m00s
+[124/187] glibc-gconv-extra-0:2.43.9000 100% |  30.7 MiB/s |   1.7 MiB |  00m00s
+[125/187] json-c-0:0.18-8.fc44.x86_64   100% |  11.3 MiB/s |  46.3 KiB |  00m00s
+[126/187] ima-evm-utils-libs-0:1.6.2-10 100% |   5.9 MiB/s |  30.4 KiB |  00m00s
+[127/187] gnupg2-0:2.4.9-16.fc45.x86_64 100% | 183.8 MiB/s |   1.7 MiB |  00m00s
+[128/187] gpgverify-0:2.2-4.fc44.noarch 100% |   5.5 MiB/s |  11.2 KiB |  00m00s
+[129/187] libfsverity-0:1.7-1.fc45.x86_ 100% |   2.3 MiB/s |  19.0 KiB |  00m00s
+[130/187] gnupg2-dirmngr-0:2.4.9-16.fc4 100% |  91.6 MiB/s | 281.4 KiB |  00m00s
+[131/187] gnupg2-gpg-agent-0:2.4.9-16.f 100% |  91.6 MiB/s | 281.3 KiB |  00m00s
+[132/187] gnupg2-gpgconf-0:2.4.9-16.fc4 100% |  28.5 MiB/s | 116.7 KiB |  00m00s
+[133/187] gnupg2-keyboxd-0:2.4.9-16.fc4 100% |  47.3 MiB/s |  96.8 KiB |  00m00s
+[134/187] gnupg2-verify-0:2.4.9-16.fc45 100% |  43.1 MiB/s | 176.4 KiB |  00m00s
+[135/187] libassuan-0:2.5.7-5.fc44.x86_ 100% |  16.8 MiB/s |  68.9 KiB |  00m00s
+[136/187] libgcrypt-0:1.12.2-1.fc45.x86 100% | 153.7 MiB/s | 629.8 KiB |  00m00s
+[137/187] npth-0:1.8-4.fc44.x86_64      100% |  12.6 MiB/s |  25.8 KiB |  00m00s
+[138/187] libgpg-error-0:1.61-1.fc45.x8 100% |  61.9 MiB/s | 253.4 KiB |  00m00s
+[139/187] tpm2-tss-0:4.1.3-9.fc44.x86_6 100% |  86.1 MiB/s | 440.9 KiB |  00m00s
+[140/187] libksba-0:1.8.0-1.fc45.x86_64 100% |  42.0 MiB/s | 172.0 KiB |  00m00s
+[141/187] gnutls-0:3.8.13-1.fc45.x86_64 100% | 158.5 MiB/s |   1.4 MiB |  00m00s
+[142/187] openldap-0:2.6.13-1.fc45.x86_ 100% |  53.1 MiB/s | 272.0 KiB |  00m00s
+[143/187] libusb1-0:1.0.30-1.fc45.x86_6 100% |  20.4 MiB/s |  83.7 KiB |  00m00s
+[144/187] libidn2-0:2.3.8-3.fc44.x86_64 100% |  57.1 MiB/s | 175.5 KiB |  00m00s
+[145/187] libunistring-0:1.1-11.fc44.x8 100% | 133.7 MiB/s | 547.8 KiB |  00m00s
+[146/187] libtasn1-0:4.21.0-1.fc45.x86_ 100% |  18.6 MiB/s |  76.0 KiB |  00m00s
+[147/187] nettle-0:3.10.1-3.fc44.x86_64 100% |  83.6 MiB/s | 428.0 KiB |  00m00s
+[148/187] p11-kit-0:0.26.2-1.fc45.x86_6 100% | 135.7 MiB/s | 555.9 KiB |  00m00s
+[149/187] libevent-0:2.1.12-17.fc44.x86 100% |  93.5 MiB/s | 287.4 KiB |  00m00s
+[150/187] cyrus-sasl-lib-0:2.1.28-35.fc 100% | 111.7 MiB/s | 800.7 KiB |  00m00s
+[151/187] libtool-ltdl-0:2.5.4-10.fc44. 100% |   9.0 MiB/s |  37.0 KiB |  00m00s
+[152/187] libffi-0:3.5.2-2.fc44.x86_64  100% |  20.7 MiB/s |  42.4 KiB |  00m00s
+[153/187] gdbm-libs-1:1.23-11.fc44.x86_ 100% |  28.7 MiB/s |  58.8 KiB |  00m00s
+[154/187] alternatives-0:1.33-5.fc44.x8 100% |  13.3 MiB/s |  40.8 KiB |  00m00s
+[155/187] jansson-0:2.14-4.fc44.x86_64  100% |  23.0 MiB/s |  47.1 KiB |  00m00s
+[156/187] pkgconf-pkg-config-0:2.5.1-1. 100% |   4.6 MiB/s |   9.5 KiB |  00m00s
+[157/187] pkgconf-0:2.5.1-1.fc45.x86_64 100% |  15.8 MiB/s |  48.7 KiB |  00m00s
+[158/187] pkgconf-m4-0:2.5.1-1.fc45.noa 100% |   4.5 MiB/s |  13.8 KiB |  00m00s
+[159/187] libpkgconf-0:2.5.1-1.fc45.x86 100% |  10.4 MiB/s |  42.7 KiB |  00m00s
+[160/187] p11-kit-trust-0:0.26.2-1.fc45 100% |  35.7 MiB/s | 146.4 KiB |  00m00s
+[161/187] binutils-0:2.46.50-9.fc45.x86 100% | 281.2 MiB/s |   6.2 MiB |  00m00s
+[162/187] fedora-release-0:45-0.8.noarc 100% |   1.4 MiB/s |  12.7 KiB |  00m00s
+[163/187] systemd-standalone-sysusers-0 100% |  44.8 MiB/s | 412.6 KiB |  00m00s
+[164/187] xxhash-libs-0:0.8.3-4.fc44.x8 100% |  10.1 MiB/s |  41.2 KiB |  00m00s
+[165/187] fedora-release-identity-basic 100% |   4.4 MiB/s |  13.4 KiB |  00m00s
+[166/187] libcurl-0:8.20.0-2.fc45.x86_6 100% |  91.3 MiB/s | 467.6 KiB |  00m00s
+[167/187] krb5-libs-0:1.22.2-7.fc45.x86 100% | 112.1 MiB/s | 803.3 KiB |  00m00s
+[168/187] libbrotli-0:1.2.0-3.fc44.x86_ 100% |  84.9 MiB/s | 347.8 KiB |  00m00s
+[169/187] gdb-minimal-0:17.1-8.fc45.x86 100% | 225.6 MiB/s |   4.7 MiB |  00m00s
+[170/187] libnghttp2-0:1.69.0-1.fc45.x8 100% |   8.4 MiB/s |  77.2 KiB |  00m00s
+[171/187] libnghttp3-0:1.15.0-1.fc44.x8 100% |  10.3 MiB/s |  73.9 KiB |  00m00s
+[172/187] libpsl-0:0.21.5-7.fc44.x86_64 100% |  31.9 MiB/s |  65.3 KiB |  00m00s
+[173/187] ngtcp2-0:1.22.1-1.fc45.x86_64 100% |  76.8 MiB/s | 157.4 KiB |  00m00s
+[174/187] libssh-0:0.12.0-1.fc45.x86_64 100% |  95.6 MiB/s | 293.7 KiB |  00m00s
+[175/187] ngtcp2-crypto-ossl-0:1.22.1-1 100% |  13.5 MiB/s |  27.7 KiB |  00m00s
+[176/187] keyutils-libs-0:1.6.3-7.fc44. 100% |  15.4 MiB/s |  31.5 KiB |  00m00s
+[177/187] libcom_err-0:1.47.4-1.fc45.x8 100% |  13.0 MiB/s |  26.6 KiB |  00m00s
+[178/187] libverto-0:0.3.2-12.fc44.x86_ 100% |  10.3 MiB/s |  21.1 KiB |  00m00s
+[179/187] libfido2-0:1.17.0-2.fc45.x86_ 100% |  52.2 MiB/s | 106.9 KiB |  00m00s
+[180/187] publicsuffix-list-dafsa-0:202 100% |  19.6 MiB/s |  60.3 KiB |  00m00s
+[181/187] libssh-config-0:0.12.0-1.fc45 100% |   4.6 MiB/s |   9.4 KiB |  00m00s
+[182/187] libcbor-0:0.14.0-2.fc45.x86_6 100% |  17.9 MiB/s |  36.6 KiB |  00m00s
+[183/187] policycoreutils-0:3.10-4.fc45 100% |  63.7 MiB/s | 260.9 KiB |  00m00s
+[184/187] selinux-policy-0:45.3-1.fc45. 100% |  24.3 MiB/s |  74.6 KiB |  00m00s
+[185/187] libselinux-utils-0:3.10-1.fc4 100% |  29.2 MiB/s | 119.6 KiB |  00m00s
+[186/187] rpm-plugin-selinux-0:6.0.1-5. 100% |   4.7 MiB/s |  19.1 KiB |  00m00s
+[187/187] selinux-policy-targeted-0:45. 100% | 227.9 MiB/s |   6.8 MiB |  00m00s
+--------------------------------------------------------------------------------
+[187/187] Total                         100% | 196.9 MiB/s |  70.5 MiB |  00m00s
+Running transaction
+Importing OpenPGP key 0xF577861E:
+ UserID     : "Fedora (45) <fedora-45-primary@fedoraproject.org>"
+ Fingerprint: 4F50A6114CD5C6976A7F1179655A4B02F577861E
+ From       : file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-45-primary
+The key was successfully imported.
+Importing OpenPGP key 0xF577861E:
+ UserID     : "Fedora (45) <fedora-45-primary@fedoraproject.org>"
+ Fingerprint: 4F50A6114CD5C6976A7F1179655A4B02F577861E
+ From       : file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-45-primary
+The key was successfully imported.
+Importing OpenPGP key 0x6D9F90A6:
+ UserID     : "Fedora (44) <fedora-44-primary@fedoraproject.org>"
+ Fingerprint: 36F612DCF27F7D1A48A835E4DBFCF71C6D9F90A6
+ From       : file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-44-primary
+The key was successfully imported.
+Importing OpenPGP key 0x91211FCE:
+ UserID     : "Fedora (46) <fedora-46-primary@fedoraproject.org>"
+ Fingerprint: D924B10D3E810DABDD8B56B596E7E91491211FCE
+ From       : file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-46-primary
+The key was successfully imported.
+[  1/189] Verify package files          100% | 642.0   B/s | 187.0   B |  00m00s
+[  2/189] Prepare transaction           100% |   2.9 KiB/s | 187.0   B |  00m00s
+[  3/189] Installing libgcc-0:16.1.1-2. 100% | 133.0 MiB/s | 272.4 KiB |  00m00s
+[  4/189] Installing redhat-systemd-pre 100% |   0.0   B/s |   1.5 KiB |  00m00s
+[  5/189] Installing redhat-systemd-pre 100% |   0.0   B/s |  17.8 KiB |  00m00s
+[  6/189] Installing libssh-config-0:0. 100% |   0.0   B/s | 816.0   B |  00m00s
+[  7/189] Installing publicsuffix-list- 100% |   0.0   B/s |  71.1 KiB |  00m00s
+[  8/189] Installing fedora-release-ide 100% | 898.4 KiB/s | 920.0   B |  00m00s
+[  9/189] Installing fedora-gpg-keys-0: 100% |  44.5 MiB/s | 182.1 KiB |  00m00s
+[ 10/189] Installing fedora-repos-rawhi 100% |   0.0   B/s |   2.4 KiB |  00m00s
+[ 11/189] Installing fedora-repos-0:45- 100% |   0.0   B/s |   5.7 KiB |  00m00s
+[ 12/189] Installing fedora-release-com 100% |   7.3 MiB/s |   7.4 KiB |  00m00s
+[ 13/189] Installing fedora-release-0:4 100% |  13.5 KiB/s | 124.0   B |  00m00s
+>>> Running sysusers scriptlet: setup-0:2.15.0-29.fc45.noarch
+>>> Finished sysusers scriptlet: setup-0:2.15.0-29.fc45.noarch
+>>> Scriptlet output:
+>>> Creating group 'adm' with GID 4.
+>>> Creating group 'audio' with GID 63.
+>>> Creating group 'cdrom' with GID 11.
+>>> Creating group 'clock' with GID 103.
+>>> Creating group 'dialout' with GID 18.
+>>> Creating group 'disk' with GID 6.
+>>> Creating group 'floppy' with GID 19.
+>>> Creating group 'ftp' with GID 50.
+>>> Creating group 'games' with GID 20.
+>>> Creating group 'input' with GID 104.
+>>> Creating group 'kmem' with GID 9.
+>>> Creating group 'kvm' with GID 36.
+>>> Creating group 'lock' with GID 54.
+>>> Creating group 'lp' with GID 7.
+>>> Creating group 'mail' with GID 12.
+>>> Creating group 'man' with GID 15.
+>>> Creating group 'mem' with GID 8.
+>>> Creating group 'nobody' with GID 65534.
+>>> Creating group 'render' with GID 105.
+>>> Creating group 'root' with GID 0.
+>>> Creating group 'sgx' with GID 106.
+>>> Creating group 'sys' with GID 3.
+>>> Creating group 'tape' with GID 33.
+>>> Creating group 'tty' with GID 5.
+>>> Creating group 'users' with GID 100.
+>>> Creating group 'utmp' with GID 22.
+>>> Creating group 'video' with GID 39.
+>>> Creating group 'wheel' with GID 10.
+>>> Creating user 'adm' (adm) with UID 3 and GID 4.
+>>> Creating group 'bin' with GID 1.
+>>> Creating user 'bin' (bin) with UID 1 and GID 1.
+>>> Creating group 'daemon' with GID 2.
+>>> Creating user 'daemon' (daemon) with UID 2 and GID 2.
+>>> Creating user 'ftp' (FTP User) with UID 14 and GID 50.
+>>> Creating user 'games' (games) with UID 12 and GID 100.
+>>> Creating user 'halt' (halt) with UID 7 and GID 0.
+>>> Creating user 'lp' (lp) with UID 4 and GID 7.
+>>> Creating user 'mail' (mail) with UID 8 and GID 12.
+>>> Creating user 'nobody' (Kernel Overflow User) with UID 65534 and GID 65534.
+>>> Creating user 'operator' (operator) with UID 11 and GID 0.
+>>> Creating user 'root' (Super User) with UID 0 and GID 0.
+>>> Creating user 'shutdown' (shutdown) with UID 6 and GID 0.
+>>> Creating user 'sync' (sync) with UID 5 and GID 0.
+>>> 
+[ 14/189] Installing setup-0:2.15.0-29. 100% |  34.0 MiB/s | 730.6 KiB |  00m00s
+[ 15/189] Installing filesystem-0:3.18- 100% |   2.2 MiB/s | 289.4 KiB |  00m00s
+[ 16/189] Installing pkgconf-m4-0:2.5.1 100% |  14.4 MiB/s |  14.7 KiB |  00m00s
+[ 17/189] Installing pcre2-syntax-0:10. 100% | 277.7 MiB/s | 284.3 KiB |  00m00s
+[ 18/189] Installing gnulib-l10n-0:2024 100% | 161.6 MiB/s | 661.9 KiB |  00m00s
+[ 19/189] Installing coreutils-common-0 100% | 342.4 MiB/s |  11.0 MiB |  00m00s
+[ 20/189] Installing ncurses-base-0:6.6 100% |  86.7 MiB/s | 355.3 KiB |  00m00s
+[ 21/189] Installing bash-0:5.3.9-3.fc4 100% | 180.5 MiB/s |   8.5 MiB |  00m00s
+[ 22/189] Installing glibc-common-0:2.4 100% |  36.8 MiB/s |   1.0 MiB |  00m00s
+[ 23/189] Installing glibc-gconv-extra- 100% | 277.1 MiB/s |   7.8 MiB |  00m00s
+[ 24/189] Installing glibc-0:2.43.9000- 100% | 130.0 MiB/s |   7.0 MiB |  00m00s
+[ 25/189] Installing ncurses-libs-0:6.6 100% | 238.0 MiB/s | 974.7 KiB |  00m00s
+[ 26/189] Installing glibc-minimal-lang 100% |   0.0   B/s | 124.0   B |  00m00s
+[ 27/189] Installing zlib-ng-compat-0:2 100% | 162.5 MiB/s | 166.4 KiB |  00m00s
+[ 28/189] Installing bzip2-libs-0:1.0.8 100% |  79.7 MiB/s |  81.6 KiB |  00m00s
+[ 29/189] Installing libgpg-error-0:1.6 100% |  33.3 MiB/s | 955.7 KiB |  00m00s
+[ 30/189] Installing libstdc++-0:16.1.1 100% | 343.3 MiB/s |   3.1 MiB |  00m00s
+[ 31/189] Installing libassuan-0:2.5.7- 100% | 161.8 MiB/s | 165.7 KiB |  00m00s
+[ 32/189] Installing libgcrypt-0:1.12.2 100% | 331.7 MiB/s |   1.7 MiB |  00m00s
+[ 33/189] Installing readline-0:8.3-4.f 100% | 254.7 MiB/s | 521.6 KiB |  00m00s
+[ 34/189] Installing gmp-1:6.3.0-5.fc44 100% | 266.1 MiB/s | 817.5 KiB |  00m00s
+[ 35/189] Installing systemd-libs-0:261 100% | 303.0 MiB/s |   2.7 MiB |  00m00s
+[ 36/189] Installing xz-libs-1:5.8.3-1. 100% | 213.7 MiB/s | 218.8 KiB |  00m00s
+[ 37/189] Installing libuuid-0:2.42.1-4 100% |   0.0   B/s |  38.4 KiB |  00m00s
+[ 38/189] Installing libzstd-0:1.5.7-5. 100% | 311.6 MiB/s | 957.4 KiB |  00m00s
+[ 39/189] Installing elfutils-libelf-0: 100% | 387.3 MiB/s |   1.2 MiB |  00m00s
+[ 40/189] Installing popt-0:1.19-10.fc4 100% |  68.0 MiB/s | 139.3 KiB |  00m00s
+[ 41/189] Installing npth-0:1.8-4.fc44. 100% |   0.0   B/s |  50.6 KiB |  00m00s
+[ 42/189] Installing elfutils-libs-0:0. 100% | 233.4 MiB/s | 717.1 KiB |  00m00s
+[ 43/189] Installing libblkid-0:2.42.1- 100% | 276.7 MiB/s | 283.4 KiB |  00m00s
+[ 44/189] Installing libattr-0:2.5.2-8. 100% |   0.0   B/s |  25.2 KiB |  00m00s
+[ 45/189] Installing libacl-0:2.3.2-6.f 100% |   0.0   B/s |  36.6 KiB |  00m00s
+[ 46/189] Installing libsepol-0:3.10-1. 100% | 283.5 MiB/s | 871.0 KiB |  00m00s
+[ 47/189] Installing sqlite-libs-0:3.53 100% | 322.2 MiB/s |   1.6 MiB |  00m00s
+[ 48/189] Installing gnupg2-gpgconf-0:2 100% |   9.5 MiB/s | 251.8 KiB |  00m00s
+[ 49/189] Installing pcre2-0:10.47-1.fc 100% | 234.4 MiB/s | 720.0 KiB |  00m00s
+[ 50/189] Installing libselinux-0:3.10- 100% | 197.5 MiB/s | 202.3 KiB |  00m00s
+[ 51/189] Installing grep-0:3.12-3.fc44 100% |  34.6 MiB/s |   1.0 MiB |  00m00s
+[ 52/189] Installing sed-0:4.10-1.fc45. 100% |  31.9 MiB/s | 947.8 KiB |  00m00s
+[ 53/189] Installing findutils-1:4.10.0 100% |  60.3 MiB/s |   1.9 MiB |  00m00s
+[ 54/189] Installing libxcrypt-0:4.5.2- 100% | 144.5 MiB/s | 295.9 KiB |  00m00s
+[ 55/189] Installing libtasn1-0:4.21.0- 100% | 178.2 MiB/s | 182.4 KiB |  00m00s
+[ 56/189] Installing libunistring-0:1.1 100% | 346.9 MiB/s |   1.7 MiB |  00m00s
+[ 57/189] Installing libidn2-0:2.3.8-3. 100% |  54.9 MiB/s | 562.6 KiB |  00m00s
+[ 58/189] Installing crypto-policies-0: 100% |  30.8 MiB/s | 157.7 KiB |  00m00s
+[ 59/189] Installing xz-1:5.8.3-1.fc45. 100% |  43.9 MiB/s |   1.4 MiB |  00m00s
+[ 60/189] Installing libmount-0:2.42.1- 100% | 196.2 MiB/s | 401.8 KiB |  00m00s
+[ 61/189] Installing gnupg2-verify-0:2. 100% |  13.6 MiB/s | 361.7 KiB |  00m00s
+[ 62/189] Installing dwz-0:0.16-3.fc44. 100% |  11.0 MiB/s | 292.3 KiB |  00m00s
+[ 63/189] Installing mpfr-0:4.2.2-3.fc4 100% | 276.9 MiB/s | 850.8 KiB |  00m00s
+[ 64/189] Installing gawk-0:5.4.0-3.fc4 100% |  67.4 MiB/s |   2.2 MiB |  00m00s
+[ 65/189] Installing libksba-0:1.8.0-1. 100% | 211.8 MiB/s | 433.7 KiB |  00m00s
+[ 66/189] Installing unzip-0:6.0-69.fc4 100% |  16.3 MiB/s | 449.3 KiB |  00m00s
+[ 67/189] Installing file-libs-0:5.47-2 100% | 580.5 MiB/s |  12.2 MiB |  00m00s
+[ 68/189] Installing file-0:5.47-2.fc45 100% |   3.9 MiB/s | 102.6 KiB |  00m00s
+[ 69/189] Installing diffutils-0:3.12-5 100% |  50.7 MiB/s |   1.6 MiB |  00m00s
+[ 70/189] Installing libeconf-0:0.7.9-3 100% |  64.9 MiB/s |  66.4 KiB |  00m00s
+[ 71/189] Installing libcap-ng-0:0.9.3- 100% |  69.0 MiB/s |  70.6 KiB |  00m00s
+[ 72/189] Installing audit-libs-0:4.1.4 100% | 191.9 MiB/s | 393.0 KiB |  00m00s
+[ 73/189] Installing pam-libs-0:1.7.2-1 100% | 129.8 MiB/s | 132.9 KiB |  00m00s
+[ 74/189] Installing libcap-0:2.78-1.fc 100% |   7.9 MiB/s | 217.2 KiB |  00m00s
+[ 75/189] Installing libsemanage-0:3.10 100% | 153.4 MiB/s | 314.1 KiB |  00m00s
+[ 76/189] Installing libsmartcols-0:2.4 100% | 185.2 MiB/s | 189.6 KiB |  00m00s
+[ 77/189] Installing lua-libs-0:5.5.0-1 100% | 292.4 MiB/s | 299.4 KiB |  00m00s
+[ 78/189] Installing json-c-0:0.18-8.fc 100% |  81.9 MiB/s |  83.9 KiB |  00m00s
+[ 79/189] Installing libffi-0:3.5.2-2.f 100% |  87.0 MiB/s |  89.1 KiB |  00m00s
+[ 80/189] Installing p11-kit-0:0.26.2-1 100% |  76.3 MiB/s |   2.6 MiB |  00m00s
+[ 81/189] Installing alternatives-0:1.3 100% |   2.5 MiB/s |  63.6 KiB |  00m00s
+[ 82/189] Installing p11-kit-trust-0:0. 100% |  13.8 MiB/s | 480.0 KiB |  00m00s
+[ 83/189] Installing ngtcp2-0:1.22.1-1. 100% | 165.9 MiB/s | 339.7 KiB |  00m00s
+[ 84/189] Installing openssl-libs-1:3.5 100% | 340.3 MiB/s |   9.2 MiB |  00m00s
+[ 85/189] Installing coreutils-0:9.11-2 100% | 115.7 MiB/s |   5.9 MiB |  00m00s
+[ 86/189] Installing ca-certificates-0: 100% |   1.8 MiB/s |   2.5 MiB |  00m01s
+[ 87/189] Installing gzip-0:1.14-2.fc44 100% |  14.2 MiB/s | 407.1 KiB |  00m00s
+[ 88/189] Installing rpm-sequoia-0:1.10 100% | 294.4 MiB/s |   2.4 MiB |  00m00s
+[ 89/189] Installing libfsverity-0:1.7- 100% |  28.7 MiB/s |  29.4 KiB |  00m00s
+[ 90/189] Installing libevent-0:2.1.12- 100% | 319.8 MiB/s | 982.4 KiB |  00m00s
+[ 91/189] Installing ngtcp2-crypto-ossl 100% |  51.3 MiB/s |  52.5 KiB |  00m00s
+[ 92/189] Installing util-linux-core-0: 100% |  45.4 MiB/s |   1.5 MiB |  00m00s
+[ 93/189] Installing liblastlog2-0:2.42 100% |   5.6 MiB/s |  39.8 KiB |  00m00s
+[ 94/189] Installing zip-0:3.0-45.fc44. 100% |  20.8 MiB/s | 701.9 KiB |  00m00s
+[ 95/189] Installing gnupg2-keyboxd-0:2 100% |  28.2 MiB/s | 202.5 KiB |  00m00s
+[ 96/189] Installing libpsl-0:0.21.5-7. 100% |  75.6 MiB/s |  77.4 KiB |  00m00s
+[ 97/189] Installing tar-2:1.35-8.fc44. 100% |  85.1 MiB/s |   3.0 MiB |  00m00s
+[ 98/189] Installing linkdupes-0:0.7.3- 100% |  27.3 MiB/s | 782.3 KiB |  00m00s
+[ 99/189] Installing libselinux-utils-0 100% |  11.6 MiB/s | 320.1 KiB |  00m00s
+[100/189] Installing libfdisk-0:2.42.1- 100% | 128.0 MiB/s | 393.2 KiB |  00m00s
+[101/189] Installing util-linux-0:2.42. 100% |  73.5 MiB/s |   3.7 MiB |  00m00s
+[102/189] Installing policycoreutils-0: 100% |  23.0 MiB/s | 917.2 KiB |  00m00s
+[103/189] Installing selinux-policy-0:4 100% |   1.6 MiB/s |  34.6 KiB |  00m00s
+[104/189] Installing selinux-policy-tar 100% | 179.6 MiB/s |  15.1 MiB |  00m00s
+[105/189] Installing zstd-0:1.5.7-5.fc4 100% |  17.6 MiB/s | 506.0 KiB |  00m00s
+[106/189] Installing libxml2-0:2.13.9-1 100% |  58.5 MiB/s |   1.8 MiB |  00m00s
+[107/189] Installing libusb1-0:1.0.30-1 100% |  22.2 MiB/s | 181.8 KiB |  00m00s
+>>> Running sysusers scriptlet: tpm2-tss-0:4.1.3-9.fc44.x86_64
+>>> Finished sysusers scriptlet: tpm2-tss-0:4.1.3-9.fc44.x86_64
+>>> Scriptlet output:
+>>> Creating group 'tss' with GID 59.
+>>> Creating user 'tss' (Account used for TPM access) with UID 59 and GID 59.
+>>> 
+[108/189] Installing tpm2-tss-0:4.1.3-9 100% | 233.3 MiB/s |   1.6 MiB |  00m00s
+[109/189] Installing ima-evm-utils-libs 100% |  60.5 MiB/s |  61.9 KiB |  00m00s
+[110/189] Installing gnupg2-gpg-agent-0 100% |  20.4 MiB/s | 690.6 KiB |  00m00s
+[111/189] Installing nettle-0:3.10.1-3. 100% | 259.6 MiB/s | 797.4 KiB |  00m00s
+[112/189] Installing gnutls-0:3.8.13-1. 100% | 320.8 MiB/s |   3.8 MiB |  00m00s
+[113/189] Installing bzip2-0:1.0.8-23.f 100% |   3.7 MiB/s |  99.5 KiB |  00m00s
+[114/189] Installing add-determinism-0: 100% |  70.4 MiB/s |   2.2 MiB |  00m00s
+[115/189] Installing build-reproducibil 100% |   0.0   B/s |   1.5 KiB |  00m00s
+[116/189] Installing cpio-0:2.15-9.fc44 100% |  39.4 MiB/s |   1.1 MiB |  00m00s
+[117/189] Installing ed-0:1.22.5-2.fc45 100% |   5.9 MiB/s | 152.0 KiB |  00m00s
+[118/189] Installing patch-0:2.8-4.fc44 100% |   8.9 MiB/s | 228.1 KiB |  00m00s
+[119/189] Installing lz4-libs-0:1.10.0- 100% | 154.6 MiB/s | 158.4 KiB |  00m00s
+[120/189] Installing libarchive-0:3.8.7 100% | 244.5 MiB/s |   1.0 MiB |  00m00s
+[121/189] Installing libgomp-0:16.1.1-2 100% | 282.6 MiB/s | 578.8 KiB |  00m00s
+[122/189] Installing libtool-ltdl-0:2.5 100% |  69.5 MiB/s |  71.1 KiB |  00m00s
+[123/189] Installing gdbm-libs-1:1.23-1 100% | 128.3 MiB/s | 131.3 KiB |  00m00s
+[124/189] Installing cyrus-sasl-lib-0:2 100% |  74.5 MiB/s |   2.3 MiB |  00m00s
+[125/189] Installing openldap-0:2.6.13- 100% | 219.3 MiB/s | 673.7 KiB |  00m00s
+[126/189] Installing gnupg2-dirmngr-0:2 100% |  18.8 MiB/s | 636.7 KiB |  00m00s
+[127/189] Installing gnupg2-0:2.4.9-16. 100% | 151.3 MiB/s |   6.5 MiB |  00m00s
+[128/189] Installing gpgverify-0:2.2-4. 100% |   0.0   B/s |   9.4 KiB |  00m00s
+[129/189] Installing jansson-0:2.14-4.f 100% |  88.2 MiB/s |  90.3 KiB |  00m00s
+[130/189] Installing libpkgconf-0:2.5.1 100% |  89.1 MiB/s |  91.3 KiB |  00m00s
+[131/189] Installing pkgconf-0:2.5.1-1. 100% |   3.7 MiB/s |  95.2 KiB |  00m00s
+[132/189] Installing pkgconf-pkg-config 100% |  73.9 KiB/s |   1.8 KiB |  00m00s
+[133/189] Installing systemd-standalone 100% |  34.0 MiB/s | 940.9 KiB |  00m00s
+[134/189] Installing rpm-libs-0:6.0.1-5 100% | 235.0 MiB/s | 962.8 KiB |  00m00s
+[135/189] Installing rpm-sign-libs-0:6. 100% |  39.4 MiB/s |  40.3 KiB |  00m00s
+[136/189] Installing rpm-build-libs-0:6 100% | 270.7 MiB/s | 277.2 KiB |  00m00s
+[137/189] Installing xxhash-libs-0:0.8. 100% |  93.2 MiB/s |  95.4 KiB |  00m00s
+[138/189] Installing libbrotli-0:1.2.0- 100% | 282.3 MiB/s | 867.3 KiB |  00m00s
+[139/189] Installing libnghttp2-0:1.69. 100% | 163.3 MiB/s | 167.3 KiB |  00m00s
+[140/189] Installing libnghttp3-0:1.15. 100% | 156.8 MiB/s | 160.6 KiB |  00m00s
+[141/189] Installing keyutils-libs-0:1. 100% |  54.3 MiB/s |  55.6 KiB |  00m00s
+[142/189] Installing libcom_err-0:1.47. 100% |  62.5 MiB/s |  64.0 KiB |  00m00s
+[143/189] Installing libverto-0:0.3.2-1 100% |  26.4 MiB/s |  27.1 KiB |  00m00s
+[144/189] Installing krb5-libs-0:1.22.2 100% | 266.1 MiB/s |   2.4 MiB |  00m00s
+[145/189] Installing libcbor-0:0.14.0-2 100% |  82.9 MiB/s |  84.9 KiB |  00m00s
+[146/189] Installing libfido2-0:1.17.0- 100% | 255.9 MiB/s | 262.0 KiB |  00m00s
+[147/189] Installing libssh-0:0.12.0-1. 100% | 234.8 MiB/s | 721.2 KiB |  00m00s
+[148/189] Installing libcurl-0:8.20.0-2 100% | 254.6 MiB/s |   1.0 MiB |  00m00s
+[149/189] Installing elfutils-debuginfo 100% |   3.4 MiB/s |  86.1 KiB |  00m00s
+[150/189] Installing elfutils-0:0.195-1 100% |  90.2 MiB/s |   3.0 MiB |  00m00s
+[151/189] Installing binutils-0:2.46.50 100% | 285.6 MiB/s |  28.3 MiB |  00m00s
+[152/189] Installing gdb-minimal-0:17.1 100% | 221.2 MiB/s |  14.2 MiB |  00m00s
+[153/189] Installing debugedit-0:5.3-2. 100% |   8.1 MiB/s | 224.1 KiB |  00m00s
+[154/189] Installing curl-0:8.20.0-2.fc 100% |  13.6 MiB/s | 486.5 KiB |  00m00s
+[155/189] Installing rpm-0:6.0.1-5.fc45 100% |  56.7 MiB/s |   2.6 MiB |  00m00s
+[156/189] Installing cmake-srpm-macros- 100% |   0.0   B/s | 804.0   B |  00m00s
+[157/189] Installing efi-srpm-macros-0: 100% |  40.2 MiB/s |  41.2 KiB |  00m00s
+[158/189] Installing java-srpm-macros-0 100% |   0.0   B/s |   1.1 KiB |  00m00s
+[159/189] Installing lua-srpm-macros-0: 100% | 380.5 KiB/s |   1.9 KiB |  00m00s
+[160/189] Installing tree-sitter-srpm-m 100% |   0.0   B/s |   9.6 KiB |  00m00s
+[161/189] Installing zig-srpm-macros-0: 100% |   0.0   B/s |   1.9 KiB |  00m00s
+[162/189] Installing filesystem-srpm-ma 100% |   0.0   B/s |  38.9 KiB |  00m00s
+[163/189] Installing rust-srpm-macros-0 100% |   0.0   B/s |   6.4 KiB |  00m00s
+[164/189] Installing qt6-srpm-macros-0: 100% |   0.0   B/s | 748.0   B |  00m00s
+[165/189] Installing qt5-srpm-macros-0: 100% |   0.0   B/s | 776.0   B |  00m00s
+[166/189] Installing perl-srpm-macros-0 100% |   0.0   B/s |   1.1 KiB |  00m00s
+[167/189] Installing package-notes-srpm 100% |   0.0   B/s |   2.1 KiB |  00m00s
+[168/189] Installing openblas-srpm-macr 100% |   0.0   B/s | 392.0   B |  00m00s
+[169/189] Installing ocaml-srpm-macros- 100% |   0.0   B/s |   2.1 KiB |  00m00s
+[170/189] Installing kernel-srpm-macros 100% |   0.0   B/s |   2.3 KiB |  00m00s
+[171/189] Installing gnome-srpm-macros- 100% |   0.0   B/s |   4.1 KiB |  00m00s
+[172/189] Installing gnat-srpm-macros-0 100% |   0.0   B/s |   1.3 KiB |  00m00s
+[173/189] Installing ghc-srpm-macros-0: 100% |   0.0   B/s |   1.0 KiB |  00m00s
+[174/189] Installing gap-srpm-macros-0: 100% |   0.0   B/s |   2.7 KiB |  00m00s
+[175/189] Installing fpc-srpm-macros-0: 100% |   0.0   B/s | 420.0   B |  00m00s
+[176/189] Installing ansible-srpm-macro 100% |  35.4 MiB/s |  36.2 KiB |  00m00s
+[177/189] Installing redhat-rpm-config- 100% |  92.7 MiB/s | 189.9 KiB |  00m00s
+[178/189] Installing forge-srpm-macros- 100% |  39.3 MiB/s |  40.3 KiB |  00m00s
+[179/189] Installing rpm-build-0:6.0.1- 100% |  10.2 MiB/s | 303.7 KiB |  00m00s
+[180/189] Installing erlang-srpm-macros 100% |   0.0   B/s |   2.5 KiB |  00m00s
+[181/189] Installing pyproject-srpm-mac 100% |   0.0   B/s |   3.8 KiB |  00m00s
+[182/189] Installing fonts-srpm-macros- 100% |  55.7 MiB/s |  57.0 KiB |  00m00s
+[183/189] Installing go-srpm-macros-0:3 100% |  61.6 MiB/s |  63.0 KiB |  00m00s
+[184/189] Installing R-srpm-macros-0:1. 100% |   0.0   B/s |   4.4 KiB |  00m00s
+[185/189] Installing python-srpm-macros 100% |  51.7 MiB/s |  52.9 KiB |  00m00s
+[186/189] Installing rpm-plugin-selinux 100% |  12.6 MiB/s |  12.9 KiB |  00m00s
+[187/189] Installing which-0:2.25-1.fc4 100% |   3.1 MiB/s |  85.8 KiB |  00m00s
+[188/189] Installing shadow-utils-2:4.1 100% |  89.4 MiB/s |   4.1 MiB |  00m00s
+[189/189] Installing info-0:7.3-1.fc45. 100% |  46.4 KiB/s | 372.8 KiB |  00m08s
+Complete!
+Finish: installing minimal buildroot with dnf5
+Start: creating root cache
+Finish: creating root cache
+Finish: chroot init
+INFO: Installed packages:
+INFO: R-srpm-macros-1.3.7-2.fc45.noarch
+add-determinism-0.7.3-2.fc45.x86_64
+alternatives-1.33-5.fc44.x86_64
+ansible-srpm-macros-1-20.1.fc44.noarch
+audit-libs-4.1.4-1.fc45.x86_64
+bash-5.3.9-3.fc44.x86_64
+binutils-2.46.50-9.fc45.x86_64
+build-reproducibility-srpm-macros-0.7.3-2.fc45.noarch
+bzip2-1.0.8-23.fc44.x86_64
+bzip2-libs-1.0.8-23.fc44.x86_64
+ca-certificates-2025.2.80_v9.0.304-7.fc45.noarch
+cmake-srpm-macros-4.3.0-1.fc45.noarch
+coreutils-9.11-2.fc45.x86_64
+coreutils-common-9.11-2.fc45.x86_64
+cpio-2.15-9.fc44.x86_64
+crypto-policies-20251128-3.git19878fe.fc44.noarch
+curl-8.20.0-2.fc45.x86_64
+cyrus-sasl-lib-2.1.28-35.fc44.x86_64
+debugedit-5.3-2.fc45.x86_64
+diffutils-3.12-5.fc44.x86_64
+dwz-0.16-3.fc44.x86_64
+ed-1.22.5-2.fc45.x86_64
+efi-srpm-macros-6-6.fc44.noarch
+elfutils-0.195-1.fc45.x86_64
+elfutils-debuginfod-client-0.195-1.fc45.x86_64
+elfutils-libelf-0.195-1.fc45.x86_64
+elfutils-libs-0.195-1.fc45.x86_64
+erlang-srpm-macros-0.3.11-1.fc45.noarch
+fedora-gpg-keys-45-0.1.noarch
+fedora-release-45-0.8.noarch
+fedora-release-common-45-0.8.noarch
+fedora-release-identity-basic-45-0.8.noarch
+fedora-repos-45-0.1.noarch
+fedora-repos-rawhide-45-0.1.noarch
+file-5.47-2.fc45.x86_64
+file-libs-5.47-2.fc45.x86_64
+filesystem-3.18-56.fc45.x86_64
+filesystem-srpm-macros-3.18-56.fc45.noarch
+findutils-4.10.0-7.fc44.x86_64
+fonts-srpm-macros-5.0.0-3.fc45.noarch
+forge-srpm-macros-0.4.0-4.fc44.noarch
+fpc-srpm-macros-1.3-16.fc44.noarch
+gap-srpm-macros-2-2.fc44.noarch
+gawk-5.4.0-3.fc45.x86_64
+gdb-minimal-17.1-8.fc45.x86_64
+gdbm-libs-1.23-11.fc44.x86_64
+ghc-srpm-macros-1.10-1.fc44.noarch
+glibc-2.43.9000-18.fc45.x86_64
+glibc-common-2.43.9000-18.fc45.x86_64
+glibc-gconv-extra-2.43.9000-18.fc45.x86_64
+glibc-minimal-langpack-2.43.9000-18.fc45.x86_64
+gmp-6.3.0-5.fc44.x86_64
+gnat-srpm-macros-7-2.fc44.noarch
+gnome-srpm-macros-1.0-1.fc45.noarch
+gnulib-l10n-20241231-2.fc44.noarch
+gnupg2-2.4.9-16.fc45.x86_64
+gnupg2-dirmngr-2.4.9-16.fc45.x86_64
+gnupg2-gpg-agent-2.4.9-16.fc45.x86_64
+gnupg2-gpgconf-2.4.9-16.fc45.x86_64
+gnupg2-keyboxd-2.4.9-16.fc45.x86_64
+gnupg2-verify-2.4.9-16.fc45.x86_64
+gnutls-3.8.13-1.fc45.x86_64
+go-srpm-macros-3.8.0-2.fc44.noarch
+gpg-pubkey-36f612dcf27f7d1a48a835e4dbfcf71c6d9f90a6-6786af3b
+gpg-pubkey-4f50a6114cd5c6976a7f1179655a4b02f577861e-6888bc98
+gpg-pubkey-d924b10d3e810dabdd8b56b596e7e91491211fce-697c9899
+gpgverify-2.2-4.fc44.noarch
+grep-3.12-3.fc44.x86_64
+gzip-1.14-2.fc44.x86_64
+ima-evm-utils-libs-1.6.2-10.fc45.x86_64
+info-7.3-1.fc45.x86_64
+jansson-2.14-4.fc44.x86_64
+java-srpm-macros-1-8.fc44.noarch
+json-c-0.18-8.fc44.x86_64
+kernel-srpm-macros-1.0-29.fc45.noarch
+keyutils-libs-1.6.3-7.fc44.x86_64
+krb5-libs-1.22.2-7.fc45.x86_64
+libacl-2.3.2-6.fc44.x86_64
+libarchive-3.8.7-1.fc45.x86_64
+libassuan-2.5.7-5.fc44.x86_64
+libattr-2.5.2-8.fc44.x86_64
+libblkid-2.42.1-4.fc45.x86_64
+libbrotli-1.2.0-3.fc44.x86_64
+libcap-2.78-1.fc45.x86_64
+libcap-ng-0.9.3-1.fc45.x86_64
+libcbor-0.14.0-2.fc45.x86_64
+libcom_err-1.47.4-1.fc45.x86_64
+libcurl-8.20.0-2.fc45.x86_64
+libeconf-0.7.9-3.fc44.x86_64
+libevent-2.1.12-17.fc44.x86_64
+libfdisk-2.42.1-4.fc45.x86_64
+libffi-3.5.2-2.fc44.x86_64
+libfido2-1.17.0-2.fc45.x86_64
+libfsverity-1.7-1.fc45.x86_64
+libgcc-16.1.1-2.fc45.x86_64
+libgcrypt-1.12.2-1.fc45.x86_64
+libgomp-16.1.1-2.fc45.x86_64
+libgpg-error-1.61-1.fc45.x86_64
+libidn2-2.3.8-3.fc44.x86_64
+libksba-1.8.0-1.fc45.x86_64
+liblastlog2-2.42.1-4.fc45.x86_64
+libmount-2.42.1-4.fc45.x86_64
+libnghttp2-1.69.0-1.fc45.x86_64
+libnghttp3-1.15.0-1.fc44.x86_64
+libpkgconf-2.5.1-1.fc45.x86_64
+libpsl-0.21.5-7.fc44.x86_64
+libselinux-3.10-1.fc44.x86_64
+libselinux-utils-3.10-1.fc44.x86_64
+libsemanage-3.10-1.fc44.x86_64
+libsepol-3.10-1.fc44.x86_64
+libsmartcols-2.42.1-4.fc45.x86_64
+libssh-0.12.0-1.fc45.x86_64
+libssh-config-0.12.0-1.fc45.noarch
+libstdc++-16.1.1-2.fc45.x86_64
+libtasn1-4.21.0-1.fc45.x86_64
+libtool-ltdl-2.5.4-10.fc44.x86_64
+libunistring-1.1-11.fc44.x86_64
+libusb1-1.0.30-1.fc45.x86_64
+libuuid-2.42.1-4.fc45.x86_64
+libverto-0.3.2-12.fc44.x86_64
+libxcrypt-4.5.2-3.fc44.x86_64
+libxml2-2.13.9-1.fc45.x86_64
+libzstd-1.5.7-5.fc44.x86_64
+linkdupes-0.7.3-2.fc45.x86_64
+lua-libs-5.5.0-1.fc45.x86_64
+lua-srpm-macros-1-17.fc44.noarch
+lz4-libs-1.10.0-4.fc44.x86_64
+mpfr-4.2.2-3.fc44.x86_64
+ncurses-base-6.6-2.fc45.noarch
+ncurses-libs-6.6-2.fc45.x86_64
+nettle-3.10.1-3.fc44.x86_64
+ngtcp2-1.22.1-1.fc45.x86_64
+ngtcp2-crypto-ossl-1.22.1-1.fc45.x86_64
+npth-1.8-4.fc44.x86_64
+ocaml-srpm-macros-11-3.fc44.noarch
+openblas-srpm-macros-2-21.fc44.noarch
+openldap-2.6.13-1.fc45.x86_64
+openssl-libs-3.5.6-1.fc45.x86_64
+p11-kit-0.26.2-1.fc45.x86_64
+p11-kit-trust-0.26.2-1.fc45.x86_64
+package-notes-srpm-macros-0.17-3.fc45.noarch
+pam-libs-1.7.2-1.fc44.x86_64
+patch-2.8-4.fc44.x86_64
+pcre2-10.47-1.fc44.1.x86_64
+pcre2-syntax-10.47-1.fc44.1.noarch
+perl-srpm-macros-1-61.fc44.noarch
+pkgconf-2.5.1-1.fc45.x86_64
+pkgconf-m4-2.5.1-1.fc45.noarch
+pkgconf-pkg-config-2.5.1-1.fc45.x86_64
+policycoreutils-3.10-4.fc45.x86_64
+popt-1.19-10.fc44.x86_64
+publicsuffix-list-dafsa-20260116-1.fc44.noarch
+pyproject-srpm-macros-1.22.2-1.fc45.noarch
+python-srpm-macros-3.14-12.fc45.noarch
+qt5-srpm-macros-5.15.18-2.fc44.noarch
+qt6-srpm-macros-6.11.1-1.fc45.noarch
+readline-8.3-4.fc44.x86_64
+redhat-rpm-config-344-2.fc45.noarch
+redhat-systemd-presets-102-1.fc45.noarch
+redhat-systemd-presets-common-102-1.fc45.noarch
+rpm-6.0.1-5.fc45.x86_64
+rpm-build-6.0.1-5.fc45.x86_64
+rpm-build-libs-6.0.1-5.fc45.x86_64
+rpm-libs-6.0.1-5.fc45.x86_64
+rpm-plugin-selinux-6.0.1-5.fc45.x86_64
+rpm-sequoia-1.10.2-2.fc45.x86_64
+rpm-sign-libs-6.0.1-5.fc45.x86_64
+rust-srpm-macros-28.4-3.fc44.noarch
+sed-4.10-1.fc45.x86_64
+selinux-policy-45.3-1.fc45.noarch
+selinux-policy-targeted-45.3-1.fc45.noarch
+setup-2.15.0-29.fc45.noarch
+shadow-utils-4.19.3-3.fc45.x86_64
+sqlite-libs-3.53.1-1.fc45.x86_64
+systemd-libs-261~rc2-1.fc45.x86_64
+systemd-standalone-sysusers-261~rc2-1.fc45.x86_64
+tar-1.35-8.fc44.x86_64
+tpm2-tss-4.1.3-9.fc44.x86_64
+tree-sitter-srpm-macros-0.4.6-1.fc45.noarch
+unzip-6.0-69.fc44.x86_64
+util-linux-2.42.1-4.fc45.x86_64
+util-linux-core-2.42.1-4.fc45.x86_64
+which-2.25-1.fc45.x86_64
+xxhash-libs-0.8.3-4.fc44.x86_64
+xz-5.8.3-1.fc45.x86_64
+xz-libs-5.8.3-1.fc45.x86_64
+zig-srpm-macros-1-8.fc44.noarch
+zip-3.0-45.fc44.x86_64
+zlib-ng-compat-2.3.3-5.fc45.x86_64
+zstd-1.5.7-5.fc44.x86_64
+Start: buildsrpm
+Start: rpmbuild -bs
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1780185600
+Wrote: /builddir/build/SRPMS/aquamarine-0.12.0-1.fc45.src.rpm
+Finish: rpmbuild -bs
+INFO: chroot_scan: 1 files copied to /var/lib/copr-rpmbuild/results/chroot_scan
+INFO: /var/lib/mock/fedora-rawhide-x86_64-1780219232.128367/root/var/log/dnf5.log
+INFO: chroot_scan: creating tarball /var/lib/copr-rpmbuild/results/chroot_scan.tar.gz
+/bin/tar: Removing leading `/' from member names
+Finish: buildsrpm
+INFO: Done(/var/lib/copr-rpmbuild/workspace/workdir-vgq23_sw/aquamarine/aquamarine.spec) Config(child) 0 minutes 26 seconds
+INFO: Results and/or logs in: /var/lib/copr-rpmbuild/results
+INFO: Cleaning up build root ('cleanup_on_success=True')
+Start: clean chroot
+INFO: unmounting tmpfs.
+Finish: clean chroot
+INFO: Start(/var/lib/copr-rpmbuild/results/aquamarine-0.12.0-1.fc45.src.rpm)  Config(fedora-rawhide-x86_64)
+Start(bootstrap): chroot init
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1780219232.128367/root.
+INFO: reusing tmpfs at /var/lib/mock/fedora-rawhide-x86_64-bootstrap-1780219232.128367/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start(bootstrap): cleaning package manager metadata
+Finish(bootstrap): cleaning package manager metadata
+Finish(bootstrap): chroot init
+Start: chroot init
+INFO: mounting tmpfs at /var/lib/mock/fedora-rawhide-x86_64-1780219232.128367/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+Start: unpacking root cache
+Finish: unpacking root cache
+INFO: enabled package manager cache
+Start: cleaning package manager metadata
+Finish: cleaning package manager metadata
+INFO: enabled HW Info plugin
+INFO: Buildroot is handled by package management downloaded with a bootstrap image:
+  rpm-6.0.1-5.fc45.x86_64
+  rpm-sequoia-1.10.2-2.fc45.x86_64
+  dnf5-5.4.2.1-2.fc45.x86_64
+  dnf5-plugins-5.4.2.1-2.fc45.x86_64
+Finish: chroot init
+Start: build phase for aquamarine-0.12.0-1.fc45.src.rpm
+Start: build setup for aquamarine-0.12.0-1.fc45.src.rpm
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1780185600
+Wrote: /builddir/build/SRPMS/aquamarine-0.12.0-1.fc45.src.rpm
+Updating and loading repositories:
+ fedora                                 100% | 264.8 KiB/s |  28.1 KiB |  00m00s
+ Copr repository                        100% |  33.1 KiB/s |   2.1 KiB |  00m00s
+Repositories loaded.
+Package                    Arch   Version                    Repository      Size
+Installing:
+ cmake                     x86_64 0:4.3.0-1.fc45             fedora      40.5 MiB
+ gcc-c++                   x86_64 0:16.1.1-2.fc45            fedora      46.4 MiB
+ hwdata-devel              noarch 0:0.407-1.fc45             fedora     210.0   B
+ hyprutils-devel           x86_64 0:0.13.1-202605190153.fc45 copr_base  108.6 KiB
+ hyprwayland-scanner-devel x86_64 0:0.4.6-202605190153.fc45  copr_base  236.1 KiB
+ libdisplay-info-devel     x86_64 0:0.3.0-1.fc45             fedora     102.4 KiB
+ libdrm-devel              x86_64 0:2.4.133-1.fc45           fedora     742.7 KiB
+ libinput-devel            x86_64 0:1.31.2-1.fc45            fedora     239.5 KiB
+ libseat-devel             x86_64 0:0.9.3-1.fc45             fedora       5.9 KiB
+ mesa-libEGL-devel         x86_64 0:26.1.1-1.fc45            fedora      21.5 KiB
+ mesa-libgbm-devel         x86_64 0:26.1.1-1.fc45            fedora      30.1 KiB
+ pixman-devel              x86_64 0:0.46.2-3.fc44            fedora      56.1 KiB
+ systemd-devel             x86_64 0:261~rc2-1.fc45           fedora     621.1 KiB
+ wayland-devel             x86_64 0:1.24.0-3.fc44            fedora     691.8 KiB
+ wayland-protocols-devel   noarch 0:1.48-1.fc45              fedora       1.0 MiB
+Installing dependencies:
+ annobin-docs              noarch 0:13.18-1.fc45             fedora      99.3 KiB
+ annobin-plugin-gcc        x86_64 0:13.18-1.fc45             fedora     701.9 KiB
+ cmake-data                noarch 0:4.3.0-1.fc45             fedora       9.4 MiB
+ cmake-filesystem          x86_64 0:4.3.0-1.fc45             fedora       0.0   B
+ cmake-rpm-macros          noarch 0:4.3.0-1.fc45             fedora       8.4 KiB
+ cpp                       x86_64 0:16.1.1-2.fc45            fedora      42.1 MiB
+ emacs-filesystem          x86_64 1:30.2-2.fc44              fedora       0.0   B
+ expat                     x86_64 0:2.8.1-1.fc45             fedora     327.4 KiB
+ gcc                       x86_64 0:16.1.1-2.fc45            fedora     120.8 MiB
+ gcc-plugin-annobin        x86_64 0:16.1.1-2.fc45            fedora      57.0 KiB
+ glib2                     x86_64 0:2.89.0-1.fc45            fedora      15.3 MiB
+ glibc-devel               x86_64 0:2.43.9000-18.fc45        fedora       2.3 MiB
+ hwdata                    noarch 0:0.407-1.fc45             fedora       9.9 MiB
+ hyprutils                 x86_64 0:0.13.1-202605190153.fc45 copr_base  391.1 KiB
+ jsoncpp                   x86_64 0:1.9.6-3.fc44             fedora     285.6 KiB
+ kernel-headers            x86_64 0:7.1.0-0.rc5.35.fc45      fedora       6.9 MiB
+ libX11                    x86_64 0:1.8.13-1.fc45            fedora       1.3 MiB
+ libX11-common             noarch 0:1.8.13-1.fc45            fedora       1.1 MiB
+ libX11-devel              x86_64 0:1.8.13-1.fc45            fedora       1.0 MiB
+ libX11-xcb                x86_64 0:1.8.13-1.fc45            fedora      10.8 KiB
+ libXau                    x86_64 0:1.0.12-4.fc44            fedora      72.8 KiB
+ libXau-devel              x86_64 0:1.0.12-4.fc44            fedora       7.3 KiB
+ libXext                   x86_64 0:1.3.6-5.fc44             fedora      89.8 KiB
+ libXxf86vm                x86_64 0:1.1.6-4.fc44             fedora      25.1 KiB
+ libatomic                 x86_64 0:16.1.1-2.fc45            fedora      45.6 KiB
+ libdisplay-info           x86_64 0:0.3.0-1.fc45             fedora     226.5 KiB
+ libdrm                    x86_64 0:2.4.133-1.fc45           fedora     405.8 KiB
+ libedit                   x86_64 0:3.1-59.20260512cvs.fc45  fedora     248.3 KiB
+ libevdev                  x86_64 0:1.13.6-2.fc44            fedora      89.9 KiB
+ libffi-devel              x86_64 0:3.5.2-2.fc44             fedora      33.9 KiB
+ libglvnd                  x86_64 1:1.7.0-9.fc44             fedora     526.5 KiB
+ libglvnd-core-devel       x86_64 1:1.7.0-9.fc44             fedora      40.3 KiB
+ libglvnd-devel            x86_64 1:1.7.0-9.fc44             fedora       2.1 MiB
+ libglvnd-egl              x86_64 1:1.7.0-9.fc44             fedora      68.6 KiB
+ libglvnd-gles             x86_64 1:1.7.0-9.fc44             fedora      97.7 KiB
+ libglvnd-glx              x86_64 1:1.7.0-9.fc44             fedora     601.0 KiB
+ libglvnd-opengl           x86_64 1:1.7.0-9.fc44             fedora     144.7 KiB
+ libgudev                  x86_64 0:238-9.fc44               fedora      91.7 KiB
+ libinput                  x86_64 0:1.31.2-1.fc45            fedora     701.4 KiB
+ libmpc                    x86_64 0:1.4.1-1.fc45             fedora     168.7 KiB
+ libpciaccess              x86_64 0:0.16-17.fc44             fedora      48.4 KiB
+ libpciaccess-devel        x86_64 0:0.16-17.fc44             fedora      15.3 KiB
+ libseat                   x86_64 0:0.9.3-1.fc45             fedora      51.4 KiB
+ libstdc++-devel           x86_64 0:16.1.1-2.fc45            fedora      41.2 MiB
+ libuv                     x86_64 1:1.52.1-1.fc45            fedora     593.2 KiB
+ libwacom                  x86_64 0:2.19.0-1.fc45            fedora     106.1 KiB
+ libwacom-data             noarch 0:2.19.0-1.fc45            fedora       1.4 MiB
+ libwayland-client         x86_64 0:1.24.0-3.fc44            fedora      61.9 KiB
+ libwayland-cursor         x86_64 0:1.24.0-3.fc44            fedora      37.2 KiB
+ libwayland-egl            x86_64 0:1.24.0-3.fc44            fedora      12.3 KiB
+ libwayland-server         x86_64 0:1.24.0-3.fc44            fedora      86.4 KiB
+ libxcb                    x86_64 0:1.17.0-7.fc44            fedora       1.1 MiB
+ libxcb-devel              x86_64 0:1.17.0-7.fc44            fedora       2.6 MiB
+ libxcrypt-devel           x86_64 0:4.5.2-3.fc44             fedora      31.0 KiB
+ libxshmfence              x86_64 0:1.3.2-8.fc44             fedora      12.3 KiB
+ llvm-filesystem           x86_64 0:22.1.6-1.fc45            fedora       0.0   B
+ llvm-libs                 x86_64 0:22.1.6-1.fc45            fedora     140.5 MiB
+ lm_sensors-libs           x86_64 0:3.6.0-24.fc44            fedora      85.7 KiB
+ make                      x86_64 1:4.4.1-12.fc44            fedora       1.8 MiB
+ mesa-dri-drivers          x86_64 0:26.1.1-1.fc45            fedora      52.3 MiB
+ mesa-filesystem           x86_64 0:26.1.1-1.fc45            fedora       3.6 KiB
+ mesa-libEGL               x86_64 0:26.1.1-1.fc45            fedora     390.4 KiB
+ mesa-libGL                x86_64 0:26.1.1-1.fc45            fedora     370.1 KiB
+ mesa-libgbm               x86_64 0:26.1.1-1.fc45            fedora      19.5 KiB
+ mpdecimal                 x86_64 0:4.0.1-3.fc44             fedora     217.1 KiB
+ mtdev                     x86_64 0:1.1.6-12.fc44            fedora      29.1 KiB
+ ninja-build               x86_64 0:1.13.2-2.fc44            fedora     496.5 KiB
+ pixman                    x86_64 0:0.46.2-3.fc44            fedora     718.2 KiB
+ pugixml                   x86_64 0:1.15-2.fc44              fedora     278.6 KiB
+ python-pip-wheel          noarch 0:26.1.1-3.fc45            fedora       1.2 MiB
+ python3                   x86_64 0:3.14.5-1.fc45            fedora      28.7 KiB
+ python3-libs              x86_64 0:3.14.5-1.fc45            fedora      43.8 MiB
+ rhash                     x86_64 0:1.4.5-4.fc44             fedora     354.8 KiB
+ spirv-tools-libs          x86_64 0:2026.1-1.fc45            fedora       6.1 MiB
+ systemd-rpm-macros        noarch 0:261~rc2-1.fc45           fedora       8.5 KiB
+ tzdata                    noarch 0:2026b-1.fc45             fedora       1.2 MiB
+ vim-filesystem            noarch 2:9.2.530-1.fc45           fedora      40.0   B
+ xorg-x11-proto-devel      noarch 0:2025.1-2.fc44            fedora       1.8 MiB
+
+Transaction Summary:
+ Installing:        93 packages
+
+Total size of inbound packages is 177 MiB. Need to download 177 MiB.
+After this operation, 607 MiB extra will be used (install 607 MiB, remove 0 B).
+[ 1/93] hwdata-devel-0:0.407-1.fc45.noa 100% |   3.0 MiB/s |   9.1 KiB |  00m00s
+[ 2/93] wayland-protocols-devel-0:1.48- 100% |  30.1 MiB/s | 185.1 KiB |  00m00s
+[ 3/93] mesa-libEGL-devel-0:26.1.1-1.fc 100% |   1.7 MiB/s |  16.0 KiB |  00m00s
+[ 4/93] mesa-libgbm-devel-0:26.1.1-1.fc 100% |   1.6 MiB/s |  18.0 KiB |  00m00s
+[ 5/93] hyprutils-devel-0:0.13.1-202605 100% |  14.8 MiB/s |  30.3 KiB |  00m00s
+[ 6/93] hyprwayland-scanner-devel-0:0.4 100% |  52.5 MiB/s | 107.4 KiB |  00m00s
+[ 7/93] cmake-0:4.3.0-1.fc45.x86_64     100% | 272.3 MiB/s |  14.4 MiB |  00m00s
+[ 8/93] libdisplay-info-devel-0:0.3.0-1 100% |   1.6 MiB/s |  30.3 KiB |  00m00s
+[ 9/93] gcc-c++-0:16.1.1-2.fc45.x86_64  100% | 242.0 MiB/s |  17.2 MiB |  00m00s
+[10/93] libdrm-devel-0:2.4.133-1.fc45.x 100% |   8.3 MiB/s | 187.3 KiB |  00m00s
+[11/93] libinput-devel-0:1.31.2-1.fc45. 100% |   2.1 MiB/s |  43.9 KiB |  00m00s
+[12/93] libseat-devel-0:0.9.3-1.fc45.x8 100% |   5.1 MiB/s |  10.3 KiB |  00m00s
+[13/93] systemd-devel-0:261~rc2-1.fc45. 100% | 178.7 MiB/s | 732.0 KiB |  00m00s
+[14/93] pixman-devel-0:0.46.2-3.fc44.x8 100% |   4.4 MiB/s |  17.9 KiB |  00m00s
+[15/93] wayland-devel-0:1.24.0-3.fc44.x 100% |  50.3 MiB/s | 154.6 KiB |  00m00s
+[16/93] hwdata-0:0.407-1.fc45.noarch    100% | 338.8 MiB/s |   1.7 MiB |  00m00s
+[17/93] cmake-data-0:4.3.0-1.fc45.noarc 100% | 243.7 MiB/s |   2.7 MiB |  00m00s
+[18/93] cmake-filesystem-0:4.3.0-1.fc45 100% |   1.3 MiB/s |  15.0 KiB |  00m00s
+[19/93] expat-0:2.8.1-1.fc45.x86_64     100% |  25.4 MiB/s | 129.9 KiB |  00m00s
+[20/93] jsoncpp-0:1.9.6-3.fc44.x86_64   100% |  53.7 MiB/s | 110.0 KiB |  00m00s
+[21/93] libuv-1:1.52.1-1.fc45.x86_64    100% |  89.2 MiB/s | 273.9 KiB |  00m00s
+[22/93] make-1:4.4.1-12.fc44.x86_64     100% | 143.7 MiB/s | 588.7 KiB |  00m00s
+[23/93] rhash-0:1.4.5-4.fc44.x86_64     100% |  65.7 MiB/s | 201.9 KiB |  00m00s
+[24/93] libmpc-0:1.4.1-1.fc45.x86_64    100% |   8.2 MiB/s |  75.6 KiB |  00m00s
+[25/93] libglvnd-devel-1:1.7.0-9.fc44.x 100% |  17.6 MiB/s | 162.1 KiB |  00m00s
+[26/93] mesa-libgbm-0:26.1.1-1.fc45.x86 100% |   3.7 MiB/s |  18.9 KiB |  00m00s
+[27/93] pugixml-0:1.15-2.fc44.x86_64    100% |   9.9 MiB/s | 112.1 KiB |  00m00s
+[28/93] libdisplay-info-0:0.3.0-1.fc45. 100% |   8.0 MiB/s |  89.6 KiB |  00m00s
+[29/93] libdrm-0:2.4.133-1.fc45.x86_64  100% |  23.2 MiB/s | 166.6 KiB |  00m00s
+[30/93] libinput-0:1.31.2-1.fc45.x86_64 100% |  54.2 MiB/s | 277.3 KiB |  00m00s
+[31/93] pixman-0:0.46.2-3.fc44.x86_64   100% |  36.3 MiB/s | 297.4 KiB |  00m00s
+[32/93] libseat-0:0.9.3-1.fc45.x86_64   100% |   2.0 MiB/s |  30.8 KiB |  00m00s
+[33/93] libwayland-client-0:1.24.0-3.fc 100% |   4.8 MiB/s |  34.3 KiB |  00m00s
+[34/93] libwayland-cursor-0:1.24.0-3.fc 100% |   2.7 MiB/s |  19.2 KiB |  00m00s
+[35/93] libwayland-egl-0:1.24.0-3.fc44. 100% |   2.0 MiB/s |  12.5 KiB |  00m00s
+[36/93] libwayland-server-0:1.24.0-3.fc 100% |   6.9 MiB/s |  42.6 KiB |  00m00s
+[37/93] emacs-filesystem-1:30.2-2.fc44. 100% |   1.3 MiB/s |   8.0 KiB |  00m00s
+[38/93] vim-filesystem-2:9.2.530-1.fc45 100% |   3.1 MiB/s |  15.9 KiB |  00m00s
+[39/93] libX11-devel-0:1.8.13-1.fc45.x8 100% |  54.2 MiB/s |   1.1 MiB |  00m00s
+[40/93] libglvnd-1:1.7.0-9.fc44.x86_64  100% |  12.4 MiB/s | 114.7 KiB |  00m00s
+[41/93] libglvnd-core-devel-1:1.7.0-9.f 100% |   1.7 MiB/s |  17.2 KiB |  00m00s
+[42/93] libglvnd-egl-1:1.7.0-9.fc44.x86 100% |   4.0 MiB/s |  37.2 KiB |  00m00s
+[43/93] cpp-0:16.1.1-2.fc45.x86_64      100% | 190.3 MiB/s |  14.5 MiB |  00m00s
+[44/93] libglvnd-gles-1:1.7.0-9.fc44.x8 100% |   1.2 MiB/s |  28.6 KiB |  00m00s
+[45/93] gcc-0:16.1.1-2.fc45.x86_64      100% | 230.5 MiB/s |  43.1 MiB |  00m00s
+[46/93] libglvnd-glx-1:1.7.0-9.fc44.x86 100% |   2.7 MiB/s | 132.5 KiB |  00m00s
+[47/93] libglvnd-opengl-1:1.7.0-9.fc44. 100% | 774.0 KiB/s |  37.2 KiB |  00m00s
+[48/93] libpciaccess-0:0.16-17.fc44.x86 100% |  13.3 MiB/s |  27.2 KiB |  00m00s
+[49/93] libevdev-0:1.13.6-2.fc44.x86_64 100% |  38.3 MiB/s |  39.2 KiB |  00m00s
+[50/93] libwacom-0:2.19.0-1.fc45.x86_64 100% |  17.1 MiB/s |  52.7 KiB |  00m00s
+[51/93] mtdev-0:1.1.6-12.fc44.x86_64    100% |   6.9 MiB/s |  21.2 KiB |  00m00s
+[52/93] libX11-0:1.8.13-1.fc45.x86_64   100% | 165.1 MiB/s | 676.2 KiB |  00m00s
+[53/93] libX11-xcb-0:1.8.13-1.fc45.x86_ 100% |   3.6 MiB/s |  11.0 KiB |  00m00s
+[54/93] xorg-x11-proto-devel-0:2025.1-2 100% |  98.4 MiB/s | 302.2 KiB |  00m00s
+[55/93] mesa-libEGL-0:26.1.1-1.fc45.x86 100% |  69.9 MiB/s | 143.1 KiB |  00m00s
+[56/93] libXext-0:1.3.6-5.fc44.x86_64   100% |  19.9 MiB/s |  40.7 KiB |  00m00s
+[57/93] mesa-libGL-0:26.1.1-1.fc45.x86_ 100% |  68.6 MiB/s | 140.5 KiB |  00m00s
+[58/93] libgudev-0:238-9.fc44.x86_64    100% |   4.9 MiB/s |  35.2 KiB |  00m00s
+[59/93] glib2-0:2.89.0-1.fc45.x86_64    100% | 287.8 MiB/s |   3.2 MiB |  00m00s
+[60/93] libwacom-data-0:2.19.0-1.fc45.n 100% |  30.8 MiB/s | 346.9 KiB |  00m00s
+[61/93] libX11-common-0:1.8.13-1.fc45.n 100% |  34.3 MiB/s | 175.5 KiB |  00m00s
+[62/93] libxcb-0:1.17.0-7.fc44.x86_64   100% | 232.4 MiB/s | 238.0 KiB |  00m00s
+[63/93] libXxf86vm-0:1.1.6-4.fc44.x86_6 100% |   2.2 MiB/s |  18.2 KiB |  00m00s
+[64/93] libXau-0:1.0.12-4.fc44.x86_64   100% |   2.5 MiB/s |  33.7 KiB |  00m00s
+[65/93] libxshmfence-0:1.3.2-8.fc44.x86 100% |   1.4 MiB/s |  13.2 KiB |  00m00s
+[66/93] lm_sensors-libs-0:3.6.0-24.fc44 100% |   2.7 MiB/s |  41.9 KiB |  00m00s
+[67/93] mesa-filesystem-0:26.1.1-1.fc45 100% |   1.1 MiB/s |  12.9 KiB |  00m00s
+[68/93] mesa-dri-drivers-0:26.1.1-1.fc4 100% | 201.9 MiB/s |  13.5 MiB |  00m00s
+[69/93] spirv-tools-libs-0:2026.1-1.fc4 100% |  64.5 MiB/s |   1.7 MiB |  00m00s
+[70/93] libedit-0:3.1-59.20260512cvs.fc 100% |   4.3 MiB/s | 110.5 KiB |  00m00s
+[71/93] hyprutils-0:0.13.1-202605190153 100% |  55.3 MiB/s | 170.0 KiB |  00m00s
+[72/93] llvm-filesystem-0:22.1.6-1.fc45 100% | 439.4 KiB/s |   9.7 KiB |  00m00s
+[73/93] libffi-devel-0:3.5.2-2.fc44.x86 100% |   3.6 MiB/s |  29.7 KiB |  00m00s
+[74/93] python3-0:3.14.5-1.fc45.x86_64  100% |   3.5 MiB/s |  28.7 KiB |  00m00s
+[75/93] mpdecimal-0:4.0.1-3.fc44.x86_64 100% |   7.4 MiB/s |  99.1 KiB |  00m00s
+[76/93] llvm-libs-0:22.1.6-1.fc45.x86_6 100% | 233.5 MiB/s |  34.1 MiB |  00m00s
+[77/93] python-pip-wheel-0:26.1.1-3.fc4 100% |  25.5 MiB/s |   1.2 MiB |  00m00s
+[78/93] python3-libs-0:3.14.5-1.fc45.x8 100% | 134.9 MiB/s |  10.1 MiB |  00m00s
+[79/93] tzdata-0:2026b-1.fc45.noarch    100% |  33.2 MiB/s | 713.5 KiB |  00m00s
+[80/93] kernel-headers-0:7.1.0-0.rc5.35 100% |  91.8 MiB/s |   1.7 MiB |  00m00s
+[81/93] libpciaccess-devel-0:0.16-17.fc 100% |   2.4 MiB/s |  12.5 KiB |  00m00s
+[82/93] libxcb-devel-0:1.17.0-7.fc44.x8 100% | 238.8 MiB/s |   1.4 MiB |  00m00s
+[83/93] glibc-devel-0:2.43.9000-18.fc45 100% |  89.4 MiB/s | 641.0 KiB |  00m00s
+[84/93] libxcrypt-devel-0:4.5.2-3.fc44. 100% |   2.9 MiB/s |  30.0 KiB |  00m00s
+[85/93] libstdc++-devel-0:16.1.1-2.fc45 100% | 271.2 MiB/s |   6.0 MiB |  00m00s
+[86/93] libatomic-0:16.1.1-2.fc45.x86_6 100% |   3.3 MiB/s |  50.2 KiB |  00m00s
+[87/93] libXau-devel-0:1.0.12-4.fc44.x8 100% |   1.5 MiB/s |  14.0 KiB |  00m00s
+[88/93] annobin-plugin-gcc-0:13.18-1.fc 100% | 167.8 MiB/s | 687.4 KiB |  00m00s
+[89/93] gcc-plugin-annobin-0:16.1.1-2.f 100% |  13.1 MiB/s |  53.7 KiB |  00m00s
+[90/93] annobin-docs-0:13.18-1.fc45.noa 100% |  21.2 MiB/s |  86.8 KiB |  00m00s
+[91/93] systemd-rpm-macros-0:261~rc2-1. 100% |   8.6 MiB/s |  17.7 KiB |  00m00s
+[92/93] cmake-rpm-macros-0:4.3.0-1.fc45 100% |   6.7 MiB/s |  13.8 KiB |  00m00s
+[93/93] ninja-build-0:1.13.2-2.fc44.x86 100% |  99.6 MiB/s | 203.9 KiB |  00m00s
+--------------------------------------------------------------------------------
+[93/93] Total                           100% | 326.5 MiB/s | 177.3 MiB |  00m01s
+Running transaction
+[ 1/95] Verify package files            100% | 140.0   B/s |  93.0   B |  00m01s
+[ 2/95] Prepare transaction             100% | 948.0   B/s |  93.0   B |  00m00s
+[ 3/95] Installing expat-0:2.8.1-1.fc45 100% |  11.1 MiB/s | 329.5 KiB |  00m00s
+[ 4/95] Installing libglvnd-1:1.7.0-9.f 100% | 257.7 MiB/s | 527.8 KiB |  00m00s
+[ 5/95] Installing libX11-xcb-0:1.8.13- 100% |   0.0   B/s |  11.6 KiB |  00m00s
+[ 6/95] Installing libwayland-client-0: 100% |  61.6 MiB/s |  63.1 KiB |  00m00s
+[ 7/95] Installing libmpc-0:1.4.1-1.fc4 100% | 166.4 MiB/s | 170.4 KiB |  00m00s
+[ 8/95] Installing cmake-filesystem-0:4 100% |   2.3 MiB/s |   9.4 KiB |  00m00s
+[ 9/95] Installing kernel-headers-0:7.1 100% | 177.5 MiB/s |   7.1 MiB |  00m00s
+[10/95] Installing glibc-devel-0:2.43.9 100% | 159.2 MiB/s |   2.4 MiB |  00m00s
+[11/95] Installing libxcrypt-devel-0:4. 100% |  32.5 MiB/s |  33.3 KiB |  00m00s
+[12/95] Installing libXau-0:1.0.12-4.fc 100% |  72.6 MiB/s |  74.3 KiB |  00m00s
+[13/95] Installing libxcb-0:1.17.0-7.fc 100% | 179.6 MiB/s |   1.1 MiB |  00m00s
+[14/95] Installing glib2-0:2.89.0-1.fc4 100% | 215.5 MiB/s |  15.3 MiB |  00m00s
+[15/95] Installing xorg-x11-proto-devel 100% | 224.5 MiB/s |   1.8 MiB |  00m00s
+[16/95] Installing libevdev-0:1.13.6-2. 100% |  88.8 MiB/s |  91.0 KiB |  00m00s
+[17/95] Installing vim-filesystem-2:9.2 100% |   4.7 MiB/s |   4.8 KiB |  00m00s
+[18/95] Installing pixman-0:0.46.2-3.fc 100% | 234.1 MiB/s | 719.3 KiB |  00m00s
+[19/95] Installing make-1:4.4.1-12.fc44 100% |  56.2 MiB/s |   1.8 MiB |  00m00s
+[20/95] Installing hwdata-0:0.407-1.fc4 100% | 413.0 MiB/s |   9.9 MiB |  00m00s
+[21/95] Installing libpciaccess-0:0.16- 100% |  48.6 MiB/s |  49.8 KiB |  00m00s
+[22/95] Installing libdrm-0:2.4.133-1.f 100% | 100.0 MiB/s | 409.7 KiB |  00m00s
+[23/95] Installing systemd-devel-0:261~ 100% |  62.1 MiB/s | 763.0 KiB |  00m00s
+[24/95] Installing libpciaccess-devel-0 100% |   0.0   B/s |  15.9 KiB |  00m00s
+[25/95] Installing hyprutils-0:0.13.1-2 100% | 191.6 MiB/s | 392.5 KiB |  00m00s
+[26/95] Installing libXau-devel-0:1.0.1 100% |   1.3 MiB/s |   9.1 KiB |  00m00s
+[27/95] Installing libxcb-devel-0:1.17. 100% |  73.6 MiB/s |   3.0 MiB |  00m00s
+[28/95] Installing libgudev-0:238-9.fc4 100% |  91.0 MiB/s |  93.2 KiB |  00m00s
+[29/95] Installing cpp-0:16.1.1-2.fc45. 100% | 271.5 MiB/s |  42.1 MiB |  00m00s
+[30/95] Installing libwayland-cursor-0: 100% |  37.4 MiB/s |  38.3 KiB |  00m00s
+[31/95] Installing libglvnd-opengl-1:1. 100% | 142.1 MiB/s | 145.5 KiB |  00m00s
+[32/95] Installing annobin-docs-0:13.18 100% |  98.1 MiB/s | 100.5 KiB |  00m00s
+[33/95] Installing libatomic-0:16.1.1-2 100% |  22.8 MiB/s |  46.7 KiB |  00m00s
+[34/95] Installing gcc-0:16.1.1-2.fc45. 100% | 337.7 MiB/s | 120.9 MiB |  00m00s
+[35/95] Installing libstdc++-devel-0:16 100% | 405.1 MiB/s |  41.3 MiB |  00m00s
+[36/95] Installing tzdata-0:2026b-1.fc4 100% |  43.2 MiB/s |   1.5 MiB |  00m00s
+[37/95] Installing python-pip-wheel-0:2 100% | 415.1 MiB/s |   1.2 MiB |  00m00s
+[38/95] Installing mpdecimal-0:4.0.1-3. 100% |  30.5 MiB/s | 218.6 KiB |  00m00s
+[39/95] Installing python3-libs-0:3.14. 100% | 298.7 MiB/s |  44.2 MiB |  00m00s
+[40/95] Installing python3-0:3.14.5-1.f 100% |   1.1 MiB/s |  30.5 KiB |  00m00s
+[41/95] Installing ninja-build-0:1.13.2 100% |  16.8 MiB/s | 499.6 KiB |  00m00s
+[42/95] Installing cmake-rpm-macros-0:4 100% |   8.8 MiB/s |   9.0 KiB |  00m00s
+[43/95] Installing libffi-devel-0:3.5.2 100% |  34.7 MiB/s |  35.6 KiB |  00m00s
+[44/95] Installing llvm-filesystem-0:22 100% |   0.0   B/s |   1.1 KiB |  00m00s
+[45/95] Installing libedit-0:3.1-59.202 100% | 244.1 MiB/s | 250.0 KiB |  00m00s
+[46/95] Installing llvm-libs-0:22.1.6-1 100% | 389.1 MiB/s | 140.5 MiB |  00m00s
+[47/95] Installing spirv-tools-libs-0:2 100% | 338.7 MiB/s |   6.1 MiB |  00m00s
+[48/95] Installing mesa-filesystem-0:26 100% |   0.0   B/s |   4.3 KiB |  00m00s
+[49/95] Installing lm_sensors-libs-0:3. 100% |  84.8 MiB/s |  86.8 KiB |  00m00s
+[50/95] Installing libxshmfence-0:1.3.2 100% |  13.1 MiB/s |  13.4 KiB |  00m00s
+[51/95] Installing mesa-dri-drivers-0:2 100% | 390.3 MiB/s |  52.3 MiB |  00m00s
+[52/95] Installing mesa-libgbm-0:26.1.1 100% |  19.9 MiB/s |  20.3 KiB |  00m00s
+[53/95] Installing libX11-common-0:1.8. 100% | 131.7 MiB/s |   1.2 MiB |  00m00s
+[54/95] Installing libX11-0:1.8.13-1.fc 100% | 269.6 MiB/s |   1.3 MiB |  00m00s
+[55/95] Installing mesa-libEGL-0:26.1.1 100% | 191.1 MiB/s | 391.4 KiB |  00m00s
+[56/95] Installing libglvnd-egl-1:1.7.0 100% |  68.6 MiB/s |  70.2 KiB |  00m00s
+[57/95] Installing libXext-0:1.3.6-5.fc 100% |  88.9 MiB/s |  91.1 KiB |  00m00s
+[58/95] Installing libXxf86vm-0:1.1.6-4 100% |   0.0   B/s |  26.4 KiB |  00m00s
+[59/95] Installing mesa-libGL-0:26.1.1- 100% | 181.2 MiB/s | 371.1 KiB |  00m00s
+[60/95] Installing libglvnd-glx-1:1.7.0 100% | 294.1 MiB/s | 602.4 KiB |  00m00s
+[61/95] Installing libglvnd-gles-1:1.7. 100% |  32.3 MiB/s |  99.1 KiB |  00m00s
+[62/95] Installing libX11-devel-0:1.8.1 100% |  69.1 MiB/s |   1.1 MiB |  00m00s
+[63/95] Installing libwacom-data-0:2.19 100% |  91.8 MiB/s |   1.6 MiB |  00m00s
+[64/95] Installing libwacom-0:2.19.0-1. 100% |   3.8 MiB/s | 108.2 KiB |  00m00s
+[65/95] Installing mtdev-0:1.1.6-12.fc4 100% |  29.6 MiB/s |  30.3 KiB |  00m00s
+[66/95] Installing libinput-0:1.31.2-1. 100% |  19.9 MiB/s | 714.5 KiB |  00m00s
+[67/95] Installing libglvnd-core-devel- 100% |  40.1 MiB/s |  41.1 KiB |  00m00s
+[68/95] Installing libglvnd-devel-1:1.7 100% | 424.1 MiB/s |   2.1 MiB |  00m00s
+[69/95] Installing emacs-filesystem-1:3 100% |   0.0   B/s | 812.0   B |  00m00s
+[70/95] Installing libwayland-server-0: 100% |  85.5 MiB/s |  87.6 KiB |  00m00s
+[71/95] Installing libwayland-egl-0:1.2 100% |   0.0   B/s |  13.4 KiB |  00m00s
+[72/95] Installing libseat-0:0.9.3-1.fc 100% |  51.4 MiB/s |  52.7 KiB |  00m00s
+[73/95] Installing libdisplay-info-0:0. 100% | 222.6 MiB/s | 227.9 KiB |  00m00s
+[74/95] Installing pugixml-0:1.15-2.fc4 100% | 136.7 MiB/s | 280.0 KiB |  00m00s
+[75/95] Installing rhash-0:1.4.5-4.fc44 100% |  12.1 MiB/s | 360.1 KiB |  00m00s
+[76/95] Installing libuv-1:1.52.1-1.fc4 100% | 194.0 MiB/s | 596.0 KiB |  00m00s
+[77/95] Installing jsoncpp-0:1.9.6-3.fc 100% | 140.2 MiB/s | 287.1 KiB |  00m00s
+[78/95] Installing cmake-0:4.3.0-1.fc45 100% | 256.3 MiB/s |  40.5 MiB |  00m00s
+[79/95] Installing cmake-data-0:4.3.0-1 100% | 108.3 MiB/s |  10.1 MiB |  00m00s
+[80/95] Installing hyprwayland-scanner- 100% |   8.3 MiB/s | 238.1 KiB |  00m00s
+[81/95] Installing libdisplay-info-deve 100% | 101.7 MiB/s | 104.1 KiB |  00m00s
+[82/95] Installing libseat-devel-0:0.9. 100% |   6.3 MiB/s |   6.5 KiB |  00m00s
+[83/95] Installing wayland-devel-0:1.24 100% |  23.6 MiB/s | 700.3 KiB |  00m00s
+[84/95] Installing mesa-libEGL-devel-0: 100% |  21.6 MiB/s |  22.1 KiB |  00m00s
+[85/95] Installing libinput-devel-0:1.3 100% | 234.4 MiB/s | 240.0 KiB |  00m00s
+[86/95] Installing mesa-libgbm-devel-0: 100% |  30.1 MiB/s |  30.8 KiB |  00m00s
+[87/95] Installing gcc-c++-0:16.1.1-2.f 100% | 276.2 MiB/s |  46.4 MiB |  00m00s
+[88/95] Installing annobin-plugin-gcc-0 100% |  45.8 MiB/s | 703.6 KiB |  00m00s
+[89/95] Installing gcc-plugin-annobin-0 100% |   3.8 MiB/s |  58.6 KiB |  00m00s
+[90/95] Installing hyprutils-devel-0:0. 100% |  56.3 MiB/s | 115.3 KiB |  00m00s
+[91/95] Installing libdrm-devel-0:2.4.1 100% | 244.7 MiB/s | 751.8 KiB |  00m00s
+[92/95] Installing hwdata-devel-0:0.407 100% |   0.0   B/s | 480.0   B |  00m00s
+[93/95] Installing pixman-devel-0:0.46. 100% |   0.0   B/s |  56.9 KiB |  00m00s
+[94/95] Installing systemd-rpm-macros-0 100% |   8.7 MiB/s |   8.9 KiB |  00m00s
+[95/95] Installing wayland-protocols-de 100% |   6.8 MiB/s |   1.0 MiB |  00m00s
+Warning: skipped OpenPGP checks for 3 packages from repository: copr_base
+Complete!
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1780185600
+Wrote: /builddir/build/SRPMS/aquamarine-0.12.0-1.fc45.src.rpm
+Updating and loading repositories:
+ fedora                                 100% | 127.6 KiB/s |  28.1 KiB |  00m00s
+ Copr repository                        100% |  29.8 KiB/s |   2.1 KiB |  00m00s
+Repositories loaded.
+Nothing to do.
+Package "cmake-4.3.0-1.fc45.x86_64" is already installed.
+Package "gcc-c++-16.1.1-2.fc45.x86_64" is already installed.
+Package "mesa-libEGL-devel-26.1.1-1.fc45.x86_64" is already installed.
+Package "mesa-libgbm-devel-26.1.1-1.fc45.x86_64" is already installed.
+Package "hwdata-devel-0.407-1.fc45.noarch" is already installed.
+Package "hyprutils-devel-0.13.1-202605190153.fc45.x86_64" is already installed.
+Package "hyprwayland-scanner-devel-0.4.6-202605190153.fc45.x86_64" is already installed.
+Package "libdisplay-info-devel-0.3.0-1.fc45.x86_64" is already installed.
+Package "libdrm-devel-2.4.133-1.fc45.x86_64" is already installed.
+Package "libinput-devel-1.31.2-1.fc45.x86_64" is already installed.
+Package "libseat-devel-0.9.3-1.fc45.x86_64" is already installed.
+Package "systemd-devel-261~rc2-1.fc45.x86_64" is already installed.
+Package "pixman-devel-0.46.2-3.fc44.x86_64" is already installed.
+Package "wayland-devel-1.24.0-3.fc44.x86_64" is already installed.
+Package "wayland-protocols-devel-1.48-1.fc45.noarch" is already installed.
+
+Finish: build setup for aquamarine-0.12.0-1.fc45.src.rpm
+Start: rpmbuild aquamarine-0.12.0-1.fc45.src.rpm
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1780185600
+Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.ZBxDrI
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.4o5S2P
++ umask 022
++ cd /builddir/build/BUILD/aquamarine-0.12.0-build
++ cd /builddir/build/BUILD/aquamarine-0.12.0-build
++ rm -rf aquamarine-0.12.0
++ /usr/lib/rpm/rpmuncompress -x /builddir/build/SOURCES/aquamarine-0.12.0.tar.gz
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd aquamarine-0.12.0
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.Rp3A9F
++ umask 022
++ cd /builddir/build/BUILD/aquamarine-0.12.0-build
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ cd aquamarine-0.12.0
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ /usr/bin/cmake -S . -B redhat-linux-build -G Ninja -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_DO_STRIP:BOOL=OFF -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_FULL_SBINDIR:PATH=/usr/bin -DCMAKE_INSTALL_SBINDIR:PATH=bin -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX=64 -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release
+-- The C compiler identification is GNU 16.1.1
+-- The CXX compiler identification is GNU 16.1.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version "2.5.1")
+-- Found OpenGL: /usr/lib64/libOpenGL.so  found components: GLES3
+-- Checking for modules 'libseat>=0.8.0;libinput>=1.26.0;wayland-client;wayland-protocols;hyprutils>=0.8.0;pixman-1;libdrm;gbm;libudev;libdisplay-info;hwdata'
+--   Found libseat, version 0.9.3
+--   Found libinput, version 1.31.2
+--   Found wayland-client, version 1.24.0
+--   Found wayland-protocols, version 1.48
+--   Found hyprutils, version 0.13.1
+--   Found pixman-1, version 0.46.2
+--   Found libdrm, version 2.4.133
+--   Found gbm, version 26.1.1
+--   Found libudev, version 261
+--   Found libdisplay-info, version 0.3.0
+--   Found hwdata, version 0.407
+-- Configuring aquamarine in Release
+-- Looking for sys/timerfd.h
+-- Looking for sys/timerfd.h - found
+-- Checking for module 'epoll-shim'
+--   Package 'epoll-shim' not found
+-- Found wayland-protocols at //usr/share/wayland-protocols
+-- Found wayland-scanner pkgdatadir at //usr/share/wayland
+-- Running /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/data/hwdata.sh < //usr/share/hwdata/pnp.ids
+-- Configuring done (1.6s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_C_FLAGS_RELEASE
+    CMAKE_Fortran_FLAGS_RELEASE
+    CMAKE_INSTALL_DO_STRIP
+    CMAKE_VERBOSE_MAKEFILE
+    INCLUDE_INSTALL_DIR
+    LIB_INSTALL_DIR
+    LIB_SUFFIX
+    SHARE_INSTALL_PREFIX
+    SYSCONF_INSTALL_DIR
+
+
+-- Build files have been written to: /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build
++ /usr/bin/cmake --build redhat-linux-build -j4 --verbose
+Change Dir: '/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build'
+
+Run Build Command(s): /usr/bin/ninja-build -v -j 4
+[0/2] /usr/bin/cmake -P /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build/CMakeFiles/VerifyGlobs.cmake
+[1/35] cd /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0 && hyprwayland-scanner --client //usr/share/wayland-protocols/stable/xdg-shell/xdg-shell.xml /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/protocols/
+[2/35] cd /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0 && hyprwayland-scanner --client //usr/share/wayland-protocols/stable/linux-dmabuf/linux-dmabuf-v1.xml /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/protocols/
+[3/35] cd /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0 && hyprwayland-scanner --wayland-enums --client //usr/share/wayland/wayland.xml /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/protocols/
+[4/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/allocator/Allocator.cpp.o -MF CMakeFiles/aquamarine.dir/src/allocator/Allocator.cpp.o.d -o CMakeFiles/aquamarine.dir/src/allocator/Allocator.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/allocator/Allocator.cpp
+[5/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/allocator/Swapchain.cpp.o -MF CMakeFiles/aquamarine.dir/src/allocator/Swapchain.cpp.o.d -o CMakeFiles/aquamarine.dir/src/allocator/Swapchain.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/allocator/Swapchain.cpp
+[6/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/allocator/DRMDumb.cpp.o -MF CMakeFiles/aquamarine.dir/src/allocator/DRMDumb.cpp.o.d -o CMakeFiles/aquamarine.dir/src/allocator/DRMDumb.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/allocator/DRMDumb.cpp
+[7/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/allocator/GBM.cpp.o -MF CMakeFiles/aquamarine.dir/src/allocator/GBM.cpp.o.d -o CMakeFiles/aquamarine.dir/src/allocator/GBM.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/allocator/GBM.cpp
+[8/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/Logger.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/Logger.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/Logger.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Logger.cpp
+[9/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/Backend.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/Backend.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/Backend.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Backend.cpp
+/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Backend.cpp: In member function ‘void Aquamarine::CBackend::dispatchIdle()’:
+/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Backend.cpp:290:13: warning: ignoring return value of ‘ssize_t read(int, void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  290 |         read(idle.fd, &expirations, sizeof(expirations));
+      |         ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[10/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/Null.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/Null.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/Null.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Null.cpp
+[11/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/Headless.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/Headless.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/Headless.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Headless.cpp
+[12/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/drm/Math.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/drm/Math.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/drm/Math.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/drm/Math.cpp
+[13/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/drm/Props.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/drm/Props.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/drm/Props.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/drm/Props.cpp
+[14/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/Session.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/Session.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/Session.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Session.cpp
+[15/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/Wayland.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/Wayland.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/Wayland.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/Wayland.cpp
+[16/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/drm/impl/Atomic.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/drm/impl/Atomic.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/drm/impl/Atomic.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/drm/impl/Atomic.cpp
+[17/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/drm/impl/Legacy.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/drm/impl/Legacy.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/drm/impl/Legacy.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/drm/impl/Legacy.cpp
+[18/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/input/Input.cpp.o -MF CMakeFiles/aquamarine.dir/src/input/Input.cpp.o.d -o CMakeFiles/aquamarine.dir/src/input/Input.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/input/Input.cpp
+[19/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/drm/Renderer.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/drm/Renderer.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/drm/Renderer.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/drm/Renderer.cpp
+[20/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/misc/Attachment.cpp.o -MF CMakeFiles/aquamarine.dir/src/misc/Attachment.cpp.o.d -o CMakeFiles/aquamarine.dir/src/misc/Attachment.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/misc/Attachment.cpp
+[21/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/utils/FormatUtils.cpp.o -MF CMakeFiles/aquamarine.dir/src/utils/FormatUtils.cpp.o.d -o CMakeFiles/aquamarine.dir/src/utils/FormatUtils.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/utils/FormatUtils.cpp
+[22/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/buffer/Buffer.cpp.o -MF CMakeFiles/aquamarine.dir/src/buffer/Buffer.cpp.o.d -o CMakeFiles/aquamarine.dir/src/buffer/Buffer.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/buffer/Buffer.cpp
+[23/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/output/Output.cpp.o -MF CMakeFiles/aquamarine.dir/src/output/Output.cpp.o.d -o CMakeFiles/aquamarine.dir/src/output/Output.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/output/Output.cpp
+[24/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/utils/Shared.cpp.o -MF CMakeFiles/aquamarine.dir/src/utils/Shared.cpp.o.d -o CMakeFiles/aquamarine.dir/src/utils/Shared.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/utils/Shared.cpp
+[25/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/protocols/linux-dmabuf-v1.cpp.o -MF CMakeFiles/aquamarine.dir/protocols/linux-dmabuf-v1.cpp.o.d -o CMakeFiles/aquamarine.dir/protocols/linux-dmabuf-v1.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/protocols/linux-dmabuf-v1.cpp
+[26/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/protocols/xdg-shell.cpp.o -MF CMakeFiles/aquamarine.dir/protocols/xdg-shell.cpp.o.d -o CMakeFiles/aquamarine.dir/protocols/xdg-shell.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/protocols/xdg-shell.cpp
+[27/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/protocols/wayland.cpp.o -MF CMakeFiles/aquamarine.dir/protocols/wayland.cpp.o.d -o CMakeFiles/aquamarine.dir/protocols/wayland.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/protocols/wayland.cpp
+[28/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/attachments.dir/tests/Attachments.cpp.o -MF CMakeFiles/attachments.dir/tests/Attachments.cpp.o.d -o CMakeFiles/attachments.dir/tests/Attachments.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/tests/Attachments.cpp
+[29/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -Daquamarine_EXPORTS -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./src/include -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./protocols -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/aquamarine.dir/src/backend/drm/DRM.cpp.o -MF CMakeFiles/aquamarine.dir/src/backend/drm/DRM.cpp.o.d -o CMakeFiles/aquamarine.dir/src/backend/drm/DRM.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/src/backend/drm/DRM.cpp
+[30/35] /usr/bin/g++ -DAQUAMARINE_VERSION=\"0.12.0\" -I/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/./include -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -std=gnu++23 -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wpedantic -O3 -MD -MT CMakeFiles/simpleWindow.dir/tests/SimpleWindow.cpp.o -MF CMakeFiles/simpleWindow.dir/tests/SimpleWindow.cpp.o.d -o CMakeFiles/simpleWindow.dir/tests/SimpleWindow.cpp.o -c /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/tests/SimpleWindow.cpp
+[31/35] : && /usr/bin/g++ -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG  -shared -Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes -Wl,--dependency-file=CMakeFiles/aquamarine.dir/link.d -Wl,-soname,libaquamarine.so.11 -o libaquamarine.so.0.12.0 CMakeFiles/aquamarine.dir/src/allocator/Allocator.cpp.o CMakeFiles/aquamarine.dir/src/allocator/DRMDumb.cpp.o CMakeFiles/aquamarine.dir/src/allocator/GBM.cpp.o CMakeFiles/aquamarine.dir/src/allocator/Swapchain.cpp.o CMakeFiles/aquamarine.dir/src/backend/Backend.cpp.o CMakeFiles/aquamarine.dir/src/backend/Headless.cpp.o CMakeFiles/aquamarine.dir/src/backend/Logger.cpp.o CMakeFiles/aquamarine.dir/src/backend/Null.cpp.o CMakeFiles/aquamarine.dir/src/backend/Session.cpp.o CMakeFiles/aquamarine.dir/src/backend/Wayland.cpp.o CMakeFiles/aquamarine.dir/src/backend/drm/DRM.cpp.o CMakeFiles/aquamarine.dir/src/backend/drm/Math.cpp.o CMakeFiles/aquamarine.dir/src/backend/drm/Props.cpp.o CMakeFiles/aquamarine.dir/src/backend/drm/Renderer.cpp.o CMakeFiles/aquamarine.dir/src/backend/drm/impl/Atomic.cpp.o CMakeFiles/aquamarine.dir/src/backend/drm/impl/Legacy.cpp.o CMakeFiles/aquamarine.dir/src/buffer/Buffer.cpp.o CMakeFiles/aquamarine.dir/src/input/Input.cpp.o CMakeFiles/aquamarine.dir/src/misc/Attachment.cpp.o CMakeFiles/aquamarine.dir/src/output/Output.cpp.o CMakeFiles/aquamarine.dir/src/utils/FormatUtils.cpp.o CMakeFiles/aquamarine.dir/src/utils/Shared.cpp.o CMakeFiles/aquamarine.dir/protocols/wayland.cpp.o CMakeFiles/aquamarine.dir/protocols/xdg-shell.cpp.o CMakeFiles/aquamarine.dir/protocols/linux-dmabuf-v1.cpp.o  /usr/lib64/libEGL.so  /usr/lib64/libOpenGL.so  /usr/lib64/libGLESv2.so  /usr/lib64/libseat.so  /usr/lib64/libinput.so  /usr/lib64/libwayland-client.so  -lm  /usr/lib64/libhyprutils.so  /usr/lib64/libpixman-1.so  /usr/lib64/libdrm.so  /usr/lib64/libgbm.so  /usr/lib64/libudev.so  /usr/lib64/libdisplay-info.so && :
+[32/35] /usr/bin/cmake -E cmake_symlink_library libaquamarine.so.0.12.0  libaquamarine.so.11 libaquamarine.so && :
+[33/35] : && /usr/bin/g++ -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes -Wl,--dependency-file=CMakeFiles/attachments.dir/link.d CMakeFiles/attachments.dir/tests/Attachments.cpp.o -o attachments  -Wl,-rpath,/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build  libaquamarine.so.0.12.0  /usr/lib64/libseat.so  /usr/lib64/libinput.so  /usr/lib64/libwayland-client.so  -lm  /usr/lib64/libhyprutils.so  /usr/lib64/libpixman-1.so  /usr/lib64/libdrm.so  /usr/lib64/libgbm.so  /usr/lib64/libudev.so  /usr/lib64/libdisplay-info.so  /usr/lib64/libEGL.so  /usr/lib64/libGLESv2.so  /usr/lib64/libOpenGL.so && :
+[34/35] : && /usr/bin/g++ -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -DNDEBUG -Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes -Wl,--dependency-file=CMakeFiles/simpleWindow.dir/link.d CMakeFiles/simpleWindow.dir/tests/SimpleWindow.cpp.o -o simpleWindow  -Wl,-rpath,/builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/redhat-linux-build  libaquamarine.so.0.12.0  /usr/lib64/libseat.so  /usr/lib64/libinput.so  /usr/lib64/libwayland-client.so  -lm  /usr/lib64/libhyprutils.so  /usr/lib64/libpixman-1.so  /usr/lib64/libdrm.so  /usr/lib64/libgbm.so  /usr/lib64/libudev.so  /usr/lib64/libdisplay-info.so  /usr/lib64/libEGL.so  /usr/lib64/libGLESv2.so  /usr/lib64/libOpenGL.so && :
+
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.sbgRyj
++ umask 022
++ cd /builddir/build/BUILD/aquamarine-0.12.0-build
++ '[' /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT '!=' / ']'
++ rm -rf /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT
+++ dirname /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT
++ mkdir -p /builddir/build/BUILD/aquamarine-0.12.0-build
++ mkdir /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ cd aquamarine-0.12.0
++ DESTDIR=/builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT
++ /usr/bin/cmake --install redhat-linux-build
+-- Install configuration: "Release"
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/lib64/libaquamarine.so.0.12.0
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/lib64/libaquamarine.so.11
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/lib64/libaquamarine.so
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/output
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/output/Output.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/misc
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/misc/Attachment.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/input
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/input/Input.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/buffer
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/buffer/Buffer.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/drm
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/drm/Legacy.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/drm/Atomic.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/Wayland.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/Session.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/Null.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/Misc.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/Headless.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/DRM.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/backend/Backend.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/allocator
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/allocator/Swapchain.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/allocator/GBM.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/allocator/DRMDumb.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/include/aquamarine/allocator/Allocator.hpp
+-- Installing: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/lib64/pkgconfig/aquamarine.pc
++ /usr/bin/find-debuginfo -j4 --strict-build-id -m -i --build-id-seed 0.12.0-1.fc45 --unique-debug-suffix -0.12.0-1.fc45.x86_64 --unique-debug-src-base aquamarine-0.12.0-1.fc45.x86_64 --run-dwz --dwz-low-mem-die-limit 10000000 --dwz-max-die-limit 110000000 --remove-section .gnu.build.attributes -S debugsourcefiles.list /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0
+find-debuginfo: starting
+Extracting debug info from 1 files
+DWARF-compressing 1 files
+sepdebugcrcfix: Updated 1 CRC32s, 0 CRC32s did match.
+Creating .debug symlinks for symlinks to ELF files
+Copying sources found by 'debugedit -l' to /usr/src/debug/aquamarine-0.12.0-1.fc45.x86_64
+find-debuginfo: done
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/redhat/brp-ldconfig
++ COMPRESS='gzip -9 -n'
++ COMPRESS_EXT=.gz
++ /usr/lib/rpm/brp-compress
++ /usr/lib/rpm/redhat/brp-strip-lto /usr/bin/strip
++ /usr/lib/rpm/check-rpaths
++ /usr/lib/rpm/redhat/brp-mangle-shebangs
++ /usr/lib/rpm/brp-remove-la-files
++ /usr/lib/rpm/redhat/brp-python-rpm-in-distinfo
++ env /usr/lib/rpm/redhat/brp-python-bytecompile '' 1 0 -j4
++ /usr/lib/rpm/redhat/brp-python-hardlink
++ /usr/bin/add-det --brp -j4 /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT
+Scanned 42 directories and 74 files,
+    processed 0 inodes,
+    0 modified (0 replaced + 0 rewritten),
+    0 unsupported format, 0 errors
++ /usr/bin/linkdupes --brp /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr
+Scanned 41 directories and 74 files,
+    considered 72 files, read 34 files, linked 17 files, 0 errors
+    sum of sizes of linked files: 96481 bytes
+Reading /builddir/build/BUILD/aquamarine-0.12.0-build/SPECPARTS/rpm-debuginfo.specpart
+Processing files: aquamarine-0.12.0-1.fc45.x86_64
+error: File not found: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/lib64/libaquamarine.so.10
+Executing(%doc): /bin/sh -e /var/tmp/rpm-tmp.lNTETo
++ umask 022
++ cd /builddir/build/BUILD/aquamarine-0.12.0-build
++ cd aquamarine-0.12.0
++ DOCDIR=/builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/share/doc/aquamarine
++ export LC_ALL=C.UTF-8
++ LC_ALL=C.UTF-8
++ export DOCDIR
++ /usr/bin/mkdir -p /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/share/doc/aquamarine
++ cp -pr /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/README.md /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/share/doc/aquamarine
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%license): /bin/sh -e /var/tmp/rpm-tmp.rXfDVk
++ umask 022
++ cd /builddir/build/BUILD/aquamarine-0.12.0-build
++ cd aquamarine-0.12.0
++ LICENSEDIR=/builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/share/licenses/aquamarine
++ export LC_ALL=C.UTF-8
++ LC_ALL=C.UTF-8
++ export LICENSEDIR
++ /usr/bin/mkdir -p /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/share/licenses/aquamarine
++ cp -pr /builddir/build/BUILD/aquamarine-0.12.0-build/aquamarine-0.12.0/LICENSE /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/share/licenses/aquamarine
++ RPM_EC=0
+++ jobs -p
++ exit 0
+
+RPM build errors:
+    File not found: /builddir/build/BUILD/aquamarine-0.12.0-build/BUILDROOT/usr/lib64/libaquamarine.so.10
+Finish: rpmbuild aquamarine-0.12.0-1.fc45.src.rpm
+Finish: build phase for aquamarine-0.12.0-1.fc45.src.rpm
+INFO: chroot_scan: 1 files copied to /var/lib/copr-rpmbuild/results/chroot_scan
+INFO: /var/lib/mock/fedora-rawhide-x86_64-1780219232.128367/root/var/log/dnf5.log
+INFO: chroot_scan: creating tarball /var/lib/copr-rpmbuild/results/chroot_scan.tar.gz
+/bin/tar: Removing leading `/' from member names
+ERROR: Exception(/var/lib/copr-rpmbuild/results/aquamarine-0.12.0-1.fc45.src.rpm) Config(fedora-rawhide-x86_64) 1 minutes 11 seconds
+INFO: Results and/or logs in: /var/lib/copr-rpmbuild/results
+INFO: Cleaning up build root ('cleanup_on_failure=True')
+Start: clean chroot
+INFO: unmounting tmpfs.
+Finish: clean chroot
+ERROR: Command failed: 
+ # /usr/bin/systemd-nspawn -q -M 1c59cd0158944fddad6060c06df2c6e6 -D /var/lib/mock/fedora-rawhide-x86_64-1780219232.128367/root -a -u mockbuild --capability=cap_ipc_lock --capability=cap_ipc_lock --bind=/tmp/mock-resolv.6d_k16kw:/etc/resolv.conf --bind=/dev/btrfs-control --bind=/dev/mapper/control --bind=/dev/fuse --bind=/dev/loop-control --bind=/dev/loop0 --bind=/dev/loop1 --bind=/dev/loop2 --bind=/dev/loop3 --bind=/dev/loop4 --bind=/dev/loop5 --bind=/dev/loop6 --bind=/dev/loop7 --bind=/dev/loop8 --bind=/dev/loop9 --bind=/dev/loop10 --bind=/dev/loop11 --console=pipe --setenv=TERM=vt100 --setenv=SHELL=/bin/bash --setenv=HOME=/builddir --setenv=HOSTNAME=mock --setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin '--setenv=PROMPT_COMMAND=printf "\033]0;<mock-chroot>\007"' '--setenv=PS1=<mock-chroot> \s-\v\$ ' --setenv=LANG=C.UTF-8 --resolv-conf=off bash --login -c '/usr/bin/rpmbuild -bb  --target x86_64 --nodeps /builddir/build/originals/aquamarine.spec'
+
+Copr build error: Build failed

@@ -44,20 +44,21 @@ Development files for %{name}.
 %install
 %cmake_install
 
-# Calculate SO versions from the minor component of Version (X.MINOR.Z)
-# The library ships two SO symlinks: .MINOR and .(MINOR-1)
+# Calculate SO version (soname) from the minor component of Version (X.MINOR.Z)
+# CMake sets soname = MINOR - 1, so the installed files are:
+#   libaquamarine.so.VERSION  (the actual library)
+#   libaquamarine.so.SONAME   (soname symlink, where SONAME = MINOR - 1)
 %{lua:
   local ver = rpm.expand("%{version}")
   local minor = tonumber(ver:match("^%d+%.(%d+)%."))
-  rpm.define("so_major " .. minor)
-  rpm.define("so_lower " .. (minor - 1))
+  rpm.define("so_version " .. (minor - 1))
 }
 
 %files
 %license LICENSE
 %doc README.md
-%{_libdir}/lib%{name}.so.%{so_major}
-%{_libdir}/lib%{name}.so.%{so_lower}
+%{_libdir}/lib%{name}.so.%{version}
+%{_libdir}/lib%{name}.so.%{so_version}
 
 %files devel
 %{_includedir}/%{name}/
