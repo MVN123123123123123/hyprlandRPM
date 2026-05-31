@@ -17,6 +17,8 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Check upstreams and update specs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Set up git right away
           git config user.name "github-actions[bot]"
@@ -95,8 +97,8 @@ jobs:
               continue
             fi
 
-            # Fetch the latest release tag
-            LATEST_TAG=$(curl -sL "https://api.github.com/repos/$UPSTREAM_REPO/releases/latest" | jq -r .tag_name)
+            # Fetch the latest release tag (authenticated to avoid 60 req/hr rate limit)
+            LATEST_TAG=$(curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/$UPSTREAM_REPO/releases/latest" | jq -r .tag_name)
             
             # Safety check for API limits or missing releases
             if [ "$LATEST_TAG" == "null" ] || [ -z "$LATEST_TAG" ]; then
