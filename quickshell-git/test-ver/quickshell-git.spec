@@ -40,7 +40,7 @@ BuildRequires:      pkgconfig(pam)
 BuildRequires:      pkgconfig(polkit-agent-1)
 BuildRequires:      pkgconfig(wayland-client)
 BuildRequires:      pkgconfig(wayland-protocols)
-BuildRequires:      cpptrace
+BuildRequires:      cpptrace-devel
 BuildRequires:      qt6-qtbase-private-devel
 BuildRequires:      spirv-tools
 
