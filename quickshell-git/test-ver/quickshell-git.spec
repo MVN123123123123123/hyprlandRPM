@@ -8,7 +8,7 @@
 %global snapdate    20260327
 %global tag         0.2.1
 
-Name:               quickshell-git
+Name:               quickshell-git-beta
 Version:            %{tag}^%{commits}.git%{shortcommit}
 Release:            0%{?dist}
 Summary:            Flexible QtQuick based desktop shell toolkit
