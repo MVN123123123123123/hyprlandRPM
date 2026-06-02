@@ -41,6 +41,8 @@ BuildRequires:      pkgconfig(polkit-agent-1)
 BuildRequires:      pkgconfig(wayland-client)
 BuildRequires:      pkgconfig(wayland-protocols)
 BuildRequires:      cpptrace-devel
+BuildRequires:      libunwind-devel
+BuildRequires:      libzstd-devel
 BuildRequires:      qt6-qtbase-private-devel
 BuildRequires:      spirv-tools
 
