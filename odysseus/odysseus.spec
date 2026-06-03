@@ -139,13 +139,9 @@ Group=odysseus
 WorkingDirectory=%{appdir}
 
 # Run first-time setup (skips if already done, non-interactive)
-ExecStartPre=/bin/bash -c '\
-    export HOME=%{_sharedstatedir}/odysseus; \
-    export DATABASE_URL=sqlite:///%{_sharedstatedir}/odysseus/data/app.db; \
-    export ODYSSEUS_SKIP_ADMIN_PROMPT=1; \
-    %{_sharedstatedir}/odysseus/venv/bin/python %{appdir}/setup.py'
+ExecStartPre=%{_sharedstatedir}/odysseus/venv/bin/python %{appdir}/setup.py
 
-ExecStart=%{_sharedstatedir}/odysseus/venv/bin/uvicorn app:app \
+ExecStart=%{_sharedstatedir}/odysseus/venv/bin/python -m uvicorn app:app \
     --host 127.0.0.1 --port 7000
 
 Restart=on-failure
@@ -194,8 +190,10 @@ if [ ! -f %{_sharedstatedir}/odysseus/venv/bin/python ]; then
     python3 -m venv %{_sharedstatedir}/odysseus/venv
     %{_sharedstatedir}/odysseus/venv/bin/pip install --no-cache-dir \
         -r %{appdir}/requirements.txt
-    chown -R odysseus:odysseus %{_sharedstatedir}/odysseus/venv
 fi
+# Ensure the odysseus user owns and can execute everything in the venv
+chown -R odysseus:odysseus %{_sharedstatedir}/odysseus
+chmod -R u+rwX,g+rX,o+rX %{_sharedstatedir}/odysseus/venv
 
 %preun
 %systemd_preun odysseus.service
