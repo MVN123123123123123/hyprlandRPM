@@ -2,18 +2,23 @@
 # https://github.com/pewdiepie-archdaemon/odysseus
 #
 # This is a web application (FastAPI + uvicorn), not a traditional Python
-# library.  It has no pyproject-based packaging, so we bundle it to /opt
-# with a self-contained virtualenv and a systemd service.
+# library.  It has no pyproject-based packaging, so we install it under
+# /var/lib/odysseus/app/ (writable by the odysseus user) with a
+# self-contained virtualenv and a systemd service.
+#
+# The app writes cache/, data/, logs/ relative to its own source tree
+# using Path(__file__), so the entire app tree must be writable.
 
 %global         commit          41a928f21bb2907f696dcbb6173b72b62c5a3ae2
 %global         shortcommit     %(c=%{commit}; echo ${c:0:7})
 %global         date            20260603
 
-%global         appdir          %{_prefix}/lib/odysseus
+%global         odysseus_home   %{_sharedstatedir}/odysseus
+%global         appdir          %{odysseus_home}/app
 
 Name:           odysseus
 Version:        1.0.0^%{date}git%{shortcommit}
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
@@ -48,7 +53,7 @@ email triage, notes and tasks, and a CalDAV-syncing calendar.
 # Nothing to compile — pure Python web application
 
 %install
-# -- application tree ---------------------------------------------------
+# -- application tree (under /var/lib/odysseus/app) ----------------------
 install -d %{buildroot}%{appdir}
 
 # Copy the application source
@@ -60,9 +65,6 @@ for d in core companion config docker docs licenses mcp_servers \
          routes scripts services src static tests; do
     [ -d "$d" ] && cp -a "$d" %{buildroot}%{appdir}/
 done
-
-# -- writable data dir (StateDirectory managed by systemd) --------------
-install -d %{buildroot}%{_sharedstatedir}/odysseus
 
 # -- config --------------------------------------------------------------
 install -d %{buildroot}%{_sysconfdir}/odysseus
@@ -139,20 +141,19 @@ Group=odysseus
 WorkingDirectory=%{appdir}
 
 # Run first-time setup (skips if already done, non-interactive)
-ExecStartPre=%{_sharedstatedir}/odysseus/venv/bin/python %{appdir}/setup.py
+ExecStartPre=%{odysseus_home}/venv/bin/python %{appdir}/setup.py
 
-ExecStart=%{_sharedstatedir}/odysseus/venv/bin/python -m uvicorn app:app \
+ExecStart=%{odysseus_home}/venv/bin/python -m uvicorn app:app \
     --host 127.0.0.1 --port 7000
 
 Restart=on-failure
 RestartSec=5
 
-ReadWritePaths=%{_sharedstatedir}/odysseus %{appdir}
+ReadWritePaths=%{odysseus_home}
 EnvironmentFile=-%{_sysconfdir}/odysseus/env
 
-# Data lives under /var/lib/odysseus
-Environment=HOME=%{_sharedstatedir}/odysseus
-Environment=DATABASE_URL=sqlite:///%{_sharedstatedir}/odysseus/data/app.db
+Environment=HOME=%{odysseus_home}
+Environment=DATABASE_URL=sqlite:///%{odysseus_home}/app/data/app.db
 Environment=ODYSSEUS_SKIP_ADMIN_PROMPT=1
 
 [Install]
@@ -162,16 +163,14 @@ EOF
 # -- sysusers.d ----------------------------------------------------------
 install -d %{buildroot}%{_sysusersdir}
 cat > %{buildroot}%{_sysusersdir}/odysseus.conf << 'EOF'
-u odysseus - "Odysseus AI Workspace" %{_sharedstatedir}/odysseus -
+u odysseus - "Odysseus AI Workspace" %{odysseus_home} -
 EOF
 
-# -- tmpfiles.d (ensure data dir ownership) ------------------------------
+# -- tmpfiles.d (ensure dir ownership) ----------------------------------
 install -d %{buildroot}%{_tmpfilesdir}
 cat > %{buildroot}%{_tmpfilesdir}/odysseus.conf << 'EOF'
-d %{_sharedstatedir}/odysseus 0750 odysseus odysseus -
-d %{_sharedstatedir}/odysseus/data 0750 odysseus odysseus -
-d %{_sharedstatedir}/odysseus/logs 0750 odysseus odysseus -
-d %{_sharedstatedir}/odysseus/venv 0750 odysseus odysseus -
+d %{odysseus_home} 0750 odysseus odysseus -
+d %{odysseus_home}/venv 0750 odysseus odysseus -
 EOF
 
 %pre
@@ -181,19 +180,16 @@ EOF
 %systemd_post odysseus.service
 %tmpfiles_create %{_tmpfilesdir}/odysseus.conf
 
-# Symlink the writable data dir into the app tree so the app finds it
-ln -sf %{_sharedstatedir}/odysseus/data %{appdir}/data 2>/dev/null || :
-ln -sf %{_sharedstatedir}/odysseus/logs %{appdir}/logs 2>/dev/null || :
+# The entire app tree must be writable by the odysseus user
+chown -R odysseus:odysseus %{odysseus_home}
 
 # Create virtualenv and install Python deps (one-time, on first install)
-if [ ! -f %{_sharedstatedir}/odysseus/venv/bin/python ]; then
-    python3 -m venv %{_sharedstatedir}/odysseus/venv
-    %{_sharedstatedir}/odysseus/venv/bin/pip install --no-cache-dir \
+if [ ! -f %{odysseus_home}/venv/bin/python ]; then
+    python3 -m venv %{odysseus_home}/venv
+    %{odysseus_home}/venv/bin/pip install --no-cache-dir \
         -r %{appdir}/requirements.txt
+    chown -R odysseus:odysseus %{odysseus_home}/venv
 fi
-# Ensure the odysseus user owns and can execute everything in the venv
-chown -R odysseus:odysseus %{_sharedstatedir}/odysseus
-chmod -R u+rwX,g+rX,o+rX %{_sharedstatedir}/odysseus/venv
 
 %preun
 %systemd_preun odysseus.service
@@ -208,7 +204,8 @@ chmod -R u+rwX,g+rX,o+rX %{_sharedstatedir}/odysseus/venv
 # CLI wrapper
 %{_bindir}/odysseus
 
-# Application
+# Application + state (all under /var/lib/odysseus, owned by odysseus user)
+%dir %attr(0750,odysseus,odysseus) %{odysseus_home}
 %{appdir}/
 
 # Config
@@ -219,9 +216,6 @@ chmod -R u+rwX,g+rX,o+rX %{_sharedstatedir}/odysseus/venv
 %{_unitdir}/odysseus.service
 %{_sysusersdir}/odysseus.conf
 %{_tmpfilesdir}/odysseus.conf
-
-# State directory
-%dir %attr(0750,odysseus,odysseus) %{_sharedstatedir}/odysseus
 
 %changelog
 %autochangelog
