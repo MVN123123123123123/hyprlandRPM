@@ -18,7 +18,7 @@
 
 Name:           odysseus
 Version:        1.0.0^%{date}git%{shortcommit}
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
@@ -104,12 +104,28 @@ usage() {
 
 case "${1:-start}" in
     start)
+        START_TIME=$(date +"%Y-%m-%d %H:%M:%S")
         sudo systemctl start odysseus.service
         echo -n "Waiting for Odysseus to start (first launch downloads AI models and may take up to a minute)..."
         for i in {1..60}; do
             # Use curl to check if the port is responding
             if curl -s -o /dev/null -I -w "%{http_code}" "$URL" 2>/dev/null | grep -E "200|302|401|403|404|301" >/dev/null; then
                 echo " Ready!"
+                
+                # Retrieve temporary password if created in this run
+                PASSWORD_LINE=$( (journalctl -u odysseus.service --since="$START_TIME" --no-pager 2>/dev/null || sudo journalctl -u odysseus.service --since="$START_TIME" --no-pager 2>/dev/null) | grep -o "Temporary password:.*" | head -n 1 )
+                if [ -n "$PASSWORD_LINE" ]; then
+                    echo ""
+                    echo "=========================================================="
+                    echo "  Odysseus Initial Admin Credentials"
+                    echo "=========================================================="
+                    echo "  Username: admin"
+                    echo "  ${PASSWORD_LINE}"
+                    echo "  (Please change your password immediately after logging in)"
+                    echo "=========================================================="
+                    echo ""
+                fi
+                
                 xdg-open "${URL}" 2>/dev/null || echo "Open ${URL} in your browser."
                 exit 0
             fi
