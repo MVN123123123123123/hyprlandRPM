@@ -13,7 +13,7 @@
 
 Name:           odysseus
 Version:        1.0.0^%{date}git%{shortcommit}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
@@ -138,14 +138,12 @@ User=odysseus
 Group=odysseus
 WorkingDirectory=%{appdir}
 
-# Use the app-local virtualenv
+# Run first-time setup (skips if already done, non-interactive)
 ExecStartPre=/bin/bash -c '\
-    if [ ! -d %{_sharedstatedir}/odysseus/venv ]; then \
-        python3 -m venv %{_sharedstatedir}/odysseus/venv && \
-        %{_sharedstatedir}/odysseus/venv/bin/pip install --no-cache-dir \
-            -r %{appdir}/requirements.txt; \
-    fi'
-ExecStartPre=%{_sharedstatedir}/odysseus/venv/bin/python %{appdir}/setup.py
+    export HOME=%{_sharedstatedir}/odysseus; \
+    export DATABASE_URL=sqlite:///%{_sharedstatedir}/odysseus/data/app.db; \
+    export ODYSSEUS_SKIP_ADMIN_PROMPT=1; \
+    %{_sharedstatedir}/odysseus/venv/bin/python %{appdir}/setup.py'
 
 ExecStart=%{_sharedstatedir}/odysseus/venv/bin/uvicorn app:app \
     --host 127.0.0.1 --port 7000
@@ -153,14 +151,13 @@ ExecStart=%{_sharedstatedir}/odysseus/venv/bin/uvicorn app:app \
 Restart=on-failure
 RestartSec=5
 
-# Sandboxing
-ProtectSystem=strict
-ReadWritePaths=%{_sharedstatedir}/odysseus
+ReadWritePaths=%{_sharedstatedir}/odysseus %{appdir}
 EnvironmentFile=-%{_sysconfdir}/odysseus/env
 
 # Data lives under /var/lib/odysseus
 Environment=HOME=%{_sharedstatedir}/odysseus
 Environment=DATABASE_URL=sqlite:///%{_sharedstatedir}/odysseus/data/app.db
+Environment=ODYSSEUS_SKIP_ADMIN_PROMPT=1
 
 [Install]
 WantedBy=multi-user.target
@@ -189,11 +186,15 @@ EOF
 %tmpfiles_create %{_tmpfilesdir}/odysseus.conf
 
 # Symlink the writable data dir into the app tree so the app finds it
-if [ ! -e %{appdir}/data ]; then
-    ln -sf %{_sharedstatedir}/odysseus/data %{appdir}/data
-fi
-if [ ! -e %{appdir}/logs ]; then
-    ln -sf %{_sharedstatedir}/odysseus/logs %{appdir}/logs
+ln -sf %{_sharedstatedir}/odysseus/data %{appdir}/data 2>/dev/null || :
+ln -sf %{_sharedstatedir}/odysseus/logs %{appdir}/logs 2>/dev/null || :
+
+# Create virtualenv and install Python deps (one-time, on first install)
+if [ ! -f %{_sharedstatedir}/odysseus/venv/bin/python ]; then
+    python3 -m venv %{_sharedstatedir}/odysseus/venv
+    %{_sharedstatedir}/odysseus/venv/bin/pip install --no-cache-dir \
+        -r %{appdir}/requirements.txt
+    chown -R odysseus:odysseus %{_sharedstatedir}/odysseus/venv
 fi
 
 %preun
