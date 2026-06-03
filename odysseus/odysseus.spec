@@ -104,7 +104,7 @@ usage() {
 
 case "${1:-start}" in
     start)
-        START_TIME=$(date +"%Y-%m-%d %H:%M:%S")
+        START_TIME=$(date +"%%Y-%%m-%%d %%H:%%M:%%S")
         sudo systemctl start odysseus.service
         echo -n "Waiting for Odysseus to start (first launch downloads AI models and may take up to a minute)..."
         for i in {1..60}; do
