@@ -70,6 +70,60 @@ install -Dpm0644 .env.example %{buildroot}%{_sysconfdir}/odysseus/env
 # Symlink so the app picks up .env from its working directory
 ln -sf %{_sysconfdir}/odysseus/env %{buildroot}%{appdir}/.env
 
+# -- CLI wrapper ---------------------------------------------------------
+install -d %{buildroot}%{_bindir}
+cat > %{buildroot}%{_bindir}/odysseus << 'WRAPPER'
+#!/usr/bin/bash
+PORT=${ODYSSEUS_PORT:-7000}
+HOST=${ODYSSEUS_HOST:-127.0.0.1}
+URL="http://${HOST}:${PORT}"
+
+usage() {
+    echo "Usage: odysseus [start|stop|restart|status|log]"
+    echo
+    echo "  start    Start Odysseus (opens browser)"
+    echo "  stop     Stop Odysseus"
+    echo "  restart  Restart Odysseus"
+    echo "  status   Show service status"
+    echo "  log      Follow the live log"
+    echo
+    echo "  Running without arguments starts the service."
+}
+
+case "${1:-start}" in
+    start)
+        sudo systemctl start odysseus.service
+        echo "Odysseus starting at ${URL}"
+        # Give uvicorn a moment to bind
+        sleep 2
+        xdg-open "${URL}" 2>/dev/null || echo "Open ${URL} in your browser."
+        ;;
+    stop)
+        sudo systemctl stop odysseus.service
+        echo "Odysseus stopped."
+        ;;
+    restart)
+        sudo systemctl restart odysseus.service
+        echo "Odysseus restarted at ${URL}"
+        ;;
+    status)
+        systemctl status odysseus.service
+        ;;
+    log|logs)
+        journalctl -u odysseus.service -f
+        ;;
+    -h|--help|help)
+        usage
+        ;;
+    *)
+        echo "Unknown command: $1"
+        usage
+        exit 1
+        ;;
+esac
+WRAPPER
+chmod 755 %{buildroot}%{_bindir}/odysseus
+
 # -- systemd service ----------------------------------------------------
 install -d %{buildroot}%{_unitdir}
 cat > %{buildroot}%{_unitdir}/odysseus.service << 'EOF'
@@ -151,6 +205,9 @@ fi
 %files
 %license LICENSE
 %doc README.md CONTRIBUTING.md ROADMAP.md SECURITY.md THREAT_MODEL.md ACKNOWLEDGMENTS.md
+
+# CLI wrapper
+%{_bindir}/odysseus
 
 # Application
 %{appdir}/
