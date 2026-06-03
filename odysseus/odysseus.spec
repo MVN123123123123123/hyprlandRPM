@@ -18,7 +18,7 @@
 
 Name:           odysseus
 Version:        1.0.0^%{date}git%{shortcommit}
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
@@ -76,14 +76,24 @@ ln -sf %{_sysconfdir}/odysseus/env %{buildroot}%{appdir}/.env
 install -d %{buildroot}%{_bindir}
 cat > %{buildroot}%{_bindir}/odysseus << 'WRAPPER'
 #!/usr/bin/bash
-PORT=${ODYSSEUS_PORT:-7000}
-HOST=${ODYSSEUS_HOST:-127.0.0.1}
-URL="http://${HOST}:${PORT}"
+if [ -f /etc/odysseus/env ]; then
+    # Source the env file but filter out comments
+    eval "$(grep -v '^#' /etc/odysseus/env | xargs -d '\n')"
+fi
+PORT=${APP_PORT:-7000}
+HOST=${APP_BIND:-0.0.0.0}
+
+if [ "$HOST" = "0.0.0.0" ]; then
+    BROWSER_HOST="127.0.0.1"
+else
+    BROWSER_HOST="$HOST"
+fi
+URL="http://${BROWSER_HOST}:${PORT}"
 
 usage() {
     echo "Usage: odysseus [start|stop|restart|status|log]"
     echo
-    echo "  start    Start Odysseus (opens browser)"
+    echo "  start    Start Odysseus (opens browser once ready)"
     echo "  stop     Stop Odysseus"
     echo "  restart  Restart Odysseus"
     echo "  status   Show service status"
@@ -95,10 +105,18 @@ usage() {
 case "${1:-start}" in
     start)
         sudo systemctl start odysseus.service
-        echo "Odysseus starting at ${URL}"
-        # Give uvicorn a moment to bind
-        sleep 2
-        xdg-open "${URL}" 2>/dev/null || echo "Open ${URL} in your browser."
+        echo -n "Waiting for Odysseus to start (first launch downloads AI models and may take up to a minute)..."
+        for i in {1..60}; do
+            # Use curl to check if the port is responding
+            if curl -s -o /dev/null -I -w "%{http_code}" "$URL" 2>/dev/null | grep -E "200|302|401|403|404|301" >/dev/null; then
+                echo " Ready!"
+                xdg-open "${URL}" 2>/dev/null || echo "Open ${URL} in your browser."
+                exit 0
+            fi
+            echo -n "."
+            sleep 1
+        done
+        echo " Timeout waiting for service to bind. Please check logs with: odysseus log"
         ;;
     stop)
         sudo systemctl stop odysseus.service
@@ -106,7 +124,7 @@ case "${1:-start}" in
         ;;
     restart)
         sudo systemctl restart odysseus.service
-        echo "Odysseus restarted at ${URL}"
+        echo "Odysseus restarted."
         ;;
     status)
         systemctl status odysseus.service
@@ -144,7 +162,7 @@ WorkingDirectory=%{appdir}
 ExecStartPre=%{odysseus_home}/venv/bin/python %{appdir}/setup.py
 
 ExecStart=%{odysseus_home}/venv/bin/python -m uvicorn app:app \
-    --host 127.0.0.1 --port 7000
+    --host ${APP_BIND} --port ${APP_PORT}
 
 Restart=on-failure
 RestartSec=5
@@ -152,6 +170,9 @@ RestartSec=5
 ReadWritePaths=%{odysseus_home}
 EnvironmentFile=-%{_sysconfdir}/odysseus/env
 
+# Defaults
+Environment=APP_BIND=0.0.0.0
+Environment=APP_PORT=7000
 Environment=HOME=%{odysseus_home}
 Environment=DATABASE_URL=sqlite:///%{odysseus_home}/app/data/app.db
 Environment=ODYSSEUS_SKIP_ADMIN_PROMPT=1
