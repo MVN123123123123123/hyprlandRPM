@@ -18,7 +18,7 @@
 
 Name:           odysseus
 Version:        1.0.0^%{date}git%{shortcommit}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
@@ -200,7 +200,7 @@ EOF
 # -- sysusers.d ----------------------------------------------------------
 install -d %{buildroot}%{_sysusersdir}
 cat > %{buildroot}%{_sysusersdir}/odysseus.conf << 'EOF'
-u odysseus - "Odysseus AI Workspace" %{odysseus_home} -
+u odysseus - "Odysseus AI Workspace" %{odysseus_home} /bin/bash
 EOF
 
 # -- tmpfiles.d (ensure dir ownership) ----------------------------------
@@ -216,6 +216,10 @@ EOF
 %post
 %systemd_post odysseus.service
 %tmpfiles_create %{_tmpfilesdir}/odysseus.conf
+
+# Cookbook spawns tmux sessions that rely on $SHELL being a real shell.
+# Ensure the odysseus user has /bin/bash (fixes upgrades from nologin).
+usermod -s /bin/bash odysseus 2>/dev/null || true
 
 # The entire app tree must be writable by the odysseus user
 chown -R odysseus:odysseus %{odysseus_home}
