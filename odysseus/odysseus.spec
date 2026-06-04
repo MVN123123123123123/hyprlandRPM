@@ -18,7 +18,7 @@
 
 Name:           odysseus
 Version:        1.0.0^%{date}git%{shortcommit}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
