@@ -28,6 +28,7 @@ jobs:
           TARGETS=(
           "Alexays/Waybar|waybar-git/waybar-git.spec"
           "elkowar/eww|eww-git/eww-git.spec"
+          "pewdiepie-archdaemon/odysseus|odysseus/odysseus.spec"
           )
 
           # Loop through each target
