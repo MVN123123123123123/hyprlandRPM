@@ -54,8 +54,12 @@ jobs:
               continue
             fi
 
-            # Extract the current commit hash (assumes standard '%global commit <hash>' format)
-            CURRENT_COMMIT=$(grep -E "^%global\s+commit\s+" "$SPEC_FILE" | awk '{print $3}')
+            # Extract the commit variable name (e.g. commit, commit0) and the current commit hash
+            COMMIT_VAR=$(grep -E "^%global\s+commit[0-9]*\s+" "$SPEC_FILE" | awk '{print $2}')
+            CURRENT_COMMIT=""
+            if [ -n "$COMMIT_VAR" ]; then
+              CURRENT_COMMIT=$(grep -E "^%global\s+$COMMIT_VAR\s+" "$SPEC_FILE" | awk '{print $3}')
+            fi
 
             echo "Upstream Commit: $LATEST_COMMIT"
             echo "Current Commit:  $CURRENT_COMMIT"
@@ -64,9 +68,9 @@ jobs:
             if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ] && [ -n "$CURRENT_COMMIT" ]; then
               echo "🚀 New commit detected! Updating $SPEC_FILE..."
 
-              # Replace %global commit and reset Release
-              sed -i "s/^%global commit.*/%global commit          $LATEST_COMMIT/" "$SPEC_FILE"
-              sed -i "s/^Release:.*/Release:        1%{?dist}/" "$SPEC_FILE"
+              # Replace %global commit/commit0 while preserving spacing, and reset Release number
+              sed -i -E "s/^(%global[[:space:]]+$COMMIT_VAR[[:space:]]+)[0-9a-fA-F]+/\1$LATEST_COMMIT/" "$SPEC_FILE"
+              sed -i -E "s/^(Release:[[:space:]]*)[0-9]+/\11/" "$SPEC_FILE"
 
               # Stage the changed file
               git add "$SPEC_FILE"
