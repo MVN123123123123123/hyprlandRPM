@@ -9,7 +9,7 @@
 # The app writes cache/, data/, logs/ relative to its own source tree
 # using Path(__file__), so the entire app tree must be writable.
 
-%global         commit          41a928f21bb2907f696dcbb6173b72b62c5a3ae2
+%global         commit          1f40fbe1401b8bc816a3c7aff3324d6cf61654fc
 %global         shortcommit     %(c=%{commit}; echo ${c:0:7})
 %global         date            20260603
 

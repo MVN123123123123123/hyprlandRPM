@@ -1,6 +1,6 @@
 %bcond wireplumber %[0%{?fedora} > 39]
 
-%global commit0 161367d9617673a4ef9caf8299411dc5153464d1
+%global commit0 05945748dccce28bf96d26d8f64a9e69a8dd49ba
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global bumpver 6
 
