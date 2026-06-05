@@ -12,7 +12,7 @@
 
 Name:           hyprland-git
 Version:        0.55.2
-Release:        202606040213%{?dist}
+Release:        202606050157%{?dist}
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 
 # hyprland: BSD-3-Clause
