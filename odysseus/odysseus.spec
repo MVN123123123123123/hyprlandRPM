@@ -239,9 +239,8 @@ case "${1:-start}" in
         done
 
         # Remove existing auth.json so setup.py recreates the admin user
-        if [ -f "$AUTH_JSON" ]; then
-            sudo rm -f "$AUTH_JSON"
-        fi
+        # (always attempt — rm -f handles non-existence gracefully)
+        sudo rm -f "$AUTH_JSON"
 
         # Write new credentials to env file
         sudo sed -i '/^ODYSSEUS_ADMIN_USER=/d; /^ODYSSEUS_ADMIN_PASSWORD=/d' "$ENV_FILE"
