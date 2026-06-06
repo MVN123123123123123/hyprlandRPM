@@ -17,7 +17,7 @@
 
 Name:           odysseus
 Version:        1.0.0^git%{shortcommit}
-Release:        202606060031%{?dist}
+Release:        202606060032%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
@@ -90,19 +90,77 @@ fi
 URL="http://${BROWSER_HOST}:${PORT}"
 
 usage() {
-    echo "Usage: odysseus [start|stop|restart|status|log]"
+    echo "Usage: odysseus [start|stop|restart|status|log|reset-password]"
     echo
-    echo "  start    Start Odysseus (opens browser once ready)"
-    echo "  stop     Stop Odysseus"
-    echo "  restart  Restart Odysseus"
-    echo "  status   Show service status"
-    echo "  log      Follow the live log"
+    echo "  start           Start Odysseus (opens browser once ready)"
+    echo "  stop            Stop Odysseus"
+    echo "  restart         Restart Odysseus"
+    echo "  status          Show service status"
+    echo "  log             Follow the live log"
+    echo "  reset-password  Reset the admin password"
     echo
+    echo "  On first start, you will be prompted to set an admin password."
     echo "  Running without arguments starts the service."
 }
 
 case "${1:-start}" in
     start)
+        # -- First-run password setup ----------------------------------------
+        # If auth.json doesn't exist yet, this is the very first launch.
+        # Give the user the choice to set a permanent admin password now,
+        # or let the system auto-generate one.
+        AUTH_JSON="/var/lib/odysseus/app/data/auth.json"
+        ENV_FILE="/etc/odysseus/env"
+
+        if [ ! -f "$AUTH_JSON" ] && [ -t 0 ]; then
+            echo ""
+            echo "=========================================================="
+            echo "  Odysseus — First-Time Setup"
+            echo "=========================================================="
+            echo ""
+            echo "  No admin account exists yet."
+            echo "  Would you like to set a permanent admin password now?"
+            echo ""
+            read -r -p "  Set password now? [Y/n]: " SET_PW
+            SET_PW="${SET_PW:-Y}"
+
+            if [[ "$SET_PW" =~ ^[Yy]$ ]]; then
+                while true; do
+                    read -r -s -p "  Enter admin password: " ADMIN_PW
+                    echo
+                    if [ -z "$ADMIN_PW" ]; then
+                        echo "  Password cannot be empty. Try again."
+                        continue
+                    fi
+                    read -r -s -p "  Confirm admin password: " ADMIN_PW_CONFIRM
+                    echo
+                    if [ "$ADMIN_PW" != "$ADMIN_PW_CONFIRM" ]; then
+                        echo "  Passwords do not match. Try again."
+                        continue
+                    fi
+                    break
+                done
+
+                # Write credentials to the env file so setup.py picks them up
+                sudo sed -i '/^ODYSSEUS_ADMIN_USER=/d; /^ODYSSEUS_ADMIN_PASSWORD=/d' "$ENV_FILE"
+                echo "ODYSSEUS_ADMIN_USER=admin" | sudo tee -a "$ENV_FILE" >/dev/null
+                echo "ODYSSEUS_ADMIN_PASSWORD=${ADMIN_PW}" | sudo tee -a "$ENV_FILE" >/dev/null
+                echo ""
+                echo "  Password saved. Your admin credentials:"
+                echo "    Username: admin"
+                echo "    Password: (the one you just entered)"
+                echo ""
+                USER_SET_PASSWORD=1
+            else
+                echo ""
+                echo "  OK — a temporary password will be auto-generated."
+                echo "  It will be shown here after Odysseus starts."
+                echo ""
+                USER_SET_PASSWORD=0
+            fi
+        fi
+
+        # -- Start the service -----------------------------------------------
         START_TIME=$(date +"%%Y-%%m-%%d %%H:%%M:%%S")
         sudo systemctl start odysseus.service
         echo -n "Waiting for Odysseus to start (first launch downloads AI models and may take up to a minute)..."
@@ -111,18 +169,21 @@ case "${1:-start}" in
             if curl -s -o /dev/null -I -w "%{http_code}" "$URL" 2>/dev/null | grep -E "200|302|401|403|404|301" >/dev/null; then
                 echo " Ready!"
                 
-                # Retrieve temporary password if created in this run
-                PASSWORD_LINE=$( (journalctl -u odysseus.service --since="$START_TIME" --no-pager 2>/dev/null || sudo journalctl -u odysseus.service --since="$START_TIME" --no-pager 2>/dev/null) | grep -o "Temporary password:.*" | head -n 1 )
-                if [ -n "$PASSWORD_LINE" ]; then
-                    echo ""
-                    echo "=========================================================="
-                    echo "  Odysseus Initial Admin Credentials"
-                    echo "=========================================================="
-                    echo "  Username: admin"
-                    echo "  ${PASSWORD_LINE}"
-                    echo "  (Please change your password immediately after logging in)"
-                    echo "=========================================================="
-                    echo ""
+                # Show temporary password only if the user didn't set one
+                if [ "${USER_SET_PASSWORD:-0}" != "1" ]; then
+                    # Retrieve temporary password if created in this run
+                    PASSWORD_LINE=$( (journalctl -u odysseus.service --since="$START_TIME" --no-pager 2>/dev/null || sudo journalctl -u odysseus.service --since="$START_TIME" --no-pager 2>/dev/null) | grep -o "Temporary password:.*" | head -n 1 )
+                    if [ -n "$PASSWORD_LINE" ]; then
+                        echo ""
+                        echo "=========================================================="
+                        echo "  Odysseus Initial Admin Credentials"
+                        echo "=========================================================="
+                        echo "  Username: admin"
+                        echo "  ${PASSWORD_LINE}"
+                        echo "  (Please change your password immediately after logging in)"
+                        echo "=========================================================="
+                        echo ""
+                    fi
                 fi
                 
                 xdg-open "${URL}" 2>/dev/null || echo "Open ${URL} in your browser."
@@ -146,6 +207,45 @@ case "${1:-start}" in
         ;;
     log|logs)
         journalctl -u odysseus.service -f
+        ;;
+    reset-password)
+        AUTH_JSON="/var/lib/odysseus/app/data/auth.json"
+        ENV_FILE="/etc/odysseus/env"
+        echo ""
+        echo "========================================================="
+        echo "  Odysseus — Reset Admin Password"
+        echo "========================================================="
+        echo ""
+        while true; do
+            read -r -s -p "  Enter new admin password: " ADMIN_PW
+            echo
+            if [ -z "$ADMIN_PW" ]; then
+                echo "  Password cannot be empty. Try again."
+                continue
+            fi
+            read -r -s -p "  Confirm new admin password: " ADMIN_PW_CONFIRM
+            echo
+            if [ "$ADMIN_PW" != "$ADMIN_PW_CONFIRM" ]; then
+                echo "  Passwords do not match. Try again."
+                continue
+            fi
+            break
+        done
+
+        # Remove existing auth.json so setup.py recreates the admin user
+        if [ -f "$AUTH_JSON" ]; then
+            sudo rm -f "$AUTH_JSON"
+        fi
+
+        # Write new credentials to env file
+        sudo sed -i '/^ODYSSEUS_ADMIN_USER=/d; /^ODYSSEUS_ADMIN_PASSWORD=/d' "$ENV_FILE"
+        echo "ODYSSEUS_ADMIN_USER=admin" | sudo tee -a "$ENV_FILE" >/dev/null
+        echo "ODYSSEUS_ADMIN_PASSWORD=${ADMIN_PW}" | sudo tee -a "$ENV_FILE" >/dev/null
+
+        echo ""
+        echo "  Password will be applied on next restart."
+        echo "  Run: odysseus restart"
+        echo ""
         ;;
     -h|--help|help)
         usage
