@@ -22,7 +22,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           CHANGES_MADE=0
-
+          TIMESTAMP=$(date +%Y%m%d%H%M)
           # --- MODIFY THIS ARRAY ---
           # Format: "upstream_owner/upstream_repo|path/to/subdirectory/package.spec"
           TARGETS=(
