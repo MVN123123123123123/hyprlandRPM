@@ -16,7 +16,7 @@
 %global         appdir          %{odysseus_home}/app
 
 Name:           odysseus
-Version:        1.0.0^%{date}git%{shortcommit}
+Version:        1.0.0^git%{shortcommit}
 Release:        202606060031%{?dist}
 Summary:        Self-hosted AI workspace
 
