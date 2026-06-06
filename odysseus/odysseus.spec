@@ -16,7 +16,7 @@
 %global         appdir          %{odysseus_home}/app
 
 Name:           odysseus
-Version:        1.0.1^git%{shortcommit}
+Version:        1.0.2^git%{shortcommit}
 Release:        202606060032%{?dist}
 Summary:        Self-hosted AI workspace
 
@@ -109,10 +109,13 @@ case "${1:-start}" in
         # If auth.json doesn't exist yet, this is the very first launch.
         # Give the user the choice to set a permanent admin password now,
         # or let the system auto-generate one.
+        #
+        # NOTE: /var/lib/odysseus is 0750 odysseus:odysseus, so we must
+        # use sudo to check whether auth.json exists.
         AUTH_JSON="/var/lib/odysseus/app/data/auth.json"
         ENV_FILE="/etc/odysseus/env"
 
-        if [ ! -f "$AUTH_JSON" ] && [ -t 0 ]; then
+        if ! sudo test -f "$AUTH_JSON" && [ -t 0 ]; then
             echo ""
             echo "=========================================================="
             echo "  Odysseus — First-Time Setup"
@@ -140,6 +143,9 @@ case "${1:-start}" in
                     fi
                     break
                 done
+
+                # Remove stale auth.json so setup.py recreates the admin
+                sudo rm -f "$AUTH_JSON"
 
                 # Write credentials to the env file so setup.py picks them up
                 sudo sed -i '/^ODYSSEUS_ADMIN_USER=/d; /^ODYSSEUS_ADMIN_PASSWORD=/d' "$ENV_FILE"
