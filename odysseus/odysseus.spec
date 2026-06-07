@@ -16,7 +16,7 @@
 %global         appdir          %{odysseus_home}/app
 
 Name:           odysseus
-Version:        1.1.1^git%{shortcommit}
+Version:        1.1.2^git%{shortcommit}
 Release:        202606060032%{?dist}
 Summary:        Self-hosted AI workspace
 
@@ -37,6 +37,7 @@ Requires:       acl
 Requires(pre):  shadow-utils
 
 %description
+pewdipie fav opensource ai workspace.
 A self-hosted AI workspace — the self-hosted version of the UI experience
 you get from ChatGPT and Claude. Running on your own hardware, with your
 own data — local-first, privacy-first.
