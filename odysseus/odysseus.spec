@@ -9,7 +9,7 @@
 # The app writes cache/, data/, logs/ relative to its own source tree
 # using Path(__file__), so the entire app tree must be writable.
 
-%global         commit          463713c2c6a15e7d020997826bd97e71fac25138
+%global         commit          a3cb15d0a192bf684dac2075cf86a79af3884c1e
 %global         shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 %global         odysseus_home   %{_sharedstatedir}/odysseus
