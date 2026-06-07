@@ -33,6 +33,7 @@ BuildRequires:  systemd-rpm-macros
 Requires:       python3 >= 3.11
 Requires:       python3-pip
 Requires:       tmux
+Requires:       acl
 Requires(pre):  shadow-utils
 
 %description
@@ -90,14 +91,16 @@ fi
 URL="http://${BROWSER_HOST}:${PORT}"
 
 usage() {
-    echo "Usage: odysseus [start|stop|restart|status|log|reset-password]"
+    echo "Usage: odysseus [start|stop|restart|status|log|reset-password|setup-workspace|remove-workspace]"
     echo
-    echo "  start           Start Odysseus (opens browser once ready)"
-    echo "  stop            Stop Odysseus"
-    echo "  restart         Restart Odysseus"
-    echo "  status          Show service status"
-    echo "  log             Follow the live log"
-    echo "  reset-password  Reset the admin password"
+    echo "  start                       Start Odysseus (opens browser once ready)"
+    echo "  stop                        Stop Odysseus"
+    echo "  restart                     Restart Odysseus"
+    echo "  status                      Show service status"
+    echo "  log                         Follow the live log"
+    echo "  reset-password              Reset the admin password"
+    echo "  setup-workspace <path>      Grant the AI model read+write access to a directory"
+    echo "  remove-workspace <path>     Revoke AI model access from a directory"
     echo
     echo "  On first start, you will be prompted to set an admin password."
     echo "  Running without arguments starts the service."
@@ -252,6 +255,88 @@ case "${1:-start}" in
         echo "  Run: odysseus restart"
         echo ""
         ;;
+    setup-workspace)
+        WS_PATH="${2:?Usage: odysseus setup-workspace /path/to/directory}"
+        if [ ! -d "$WS_PATH" ]; then
+            echo "Error: '$WS_PATH' is not a directory."
+            exit 1
+        fi
+        WS_REAL=$(realpath "$WS_PATH")
+        echo ""
+        echo "=========================================================="
+        echo "  Odysseus — Workspace Setup"
+        echo "=========================================================="
+        echo ""
+        echo "  Granting the AI model read+write access to:"
+        echo "    $WS_REAL"
+        echo ""
+
+        # Walk up the directory tree and grant traverse-only (execute)
+        # on each ancestor so the odysseus user can reach the workspace.
+        # This does NOT grant read (listing) — only the ability to cd
+        # through the directory.
+        _DIR="$WS_REAL"
+        _ANCESTORS=""
+        while [ "$_DIR" != "/" ]; do
+            _DIR=$(dirname "$_DIR")
+            _ANCESTORS="$_DIR $_ANCESTORS"
+        done
+        for _A in $_ANCESTORS; do
+            # Skip filesystem roots that are already world-traversable
+            if [ "$_A" = "/" ] || [ "$_A" = "/home" ]; then
+                continue
+            fi
+            sudo setfacl -m u:odysseus:x "$_A" 2>/dev/null && \
+                echo "  ✓ traverse: $_A" || \
+                echo "  ✗ failed:   $_A (may need manual chmod)"
+        done
+
+        # Grant recursive read+write+traverse on the workspace itself
+        sudo setfacl -R -m u:odysseus:rwX "$WS_REAL" && \
+            echo "  ✓ read+write: $WS_REAL (recursive)" || \
+            echo "  ✗ failed: $WS_REAL"
+
+        # Set default ACL so new files/dirs created by the user inside
+        # the workspace are also accessible to odysseus
+        sudo setfacl -R -d -m u:odysseus:rwX "$WS_REAL" && \
+            echo "  ✓ default ACL: $WS_REAL (new files inherit access)" || \
+            echo "  ✗ failed: default ACL on $WS_REAL"
+
+        echo ""
+        echo "  Done. The AI model can now read and edit files in:"
+        echo "    $WS_REAL"
+        echo ""
+        echo "  To revoke access later:"
+        echo "    odysseus remove-workspace $WS_REAL"
+        echo ""
+        ;;
+    remove-workspace)
+        WS_PATH="${2:?Usage: odysseus remove-workspace /path/to/directory}"
+        if [ ! -d "$WS_PATH" ]; then
+            echo "Error: '$WS_PATH' is not a directory."
+            exit 1
+        fi
+        WS_REAL=$(realpath "$WS_PATH")
+        echo ""
+        echo "=========================================================="
+        echo "  Odysseus — Revoke Workspace Access"
+        echo "=========================================================="
+        echo ""
+
+        # Remove all ACL entries for odysseus on the workspace
+        sudo setfacl -R -x u:odysseus "$WS_REAL" 2>/dev/null && \
+            echo "  ✓ Removed odysseus ACL entries from: $WS_REAL" || \
+            echo "  ✗ Failed to remove ACL entries from: $WS_REAL"
+
+        # Remove default ACLs for odysseus
+        sudo setfacl -R -d -x u:odysseus "$WS_REAL" 2>/dev/null && \
+            echo "  ✓ Removed default ACL entries from: $WS_REAL" || \
+            echo "  ✗ Failed to remove default ACL entries from: $WS_REAL"
+
+        echo ""
+        echo "  Done. AI model access to $WS_REAL has been revoked."
+        echo ""
+        ;;
     -h|--help|help)
         usage
         ;;
@@ -327,6 +412,18 @@ usermod -s /bin/bash odysseus 2>/dev/null || true
 
 # The entire app tree must be writable by the odysseus user
 chown -R odysseus:odysseus %{odysseus_home}
+
+# Grant odysseus traverse access to the primary user's home directory so
+# the workspace browser can see subdirectories. This only grants execute
+# (traverse) — NOT read — so odysseus cannot list the home directory
+# contents, only enter it when given an exact child path.
+_REAL_USER=$(getent passwd 1000 2>/dev/null | cut -d: -f1) || true
+if [ -n "$_REAL_USER" ]; then
+    _REAL_HOME=$(getent passwd "$_REAL_USER" | cut -d: -f6)
+    if [ -d "$_REAL_HOME" ]; then
+        setfacl -m u:odysseus:x "$_REAL_HOME" 2>/dev/null || true
+    fi
+fi
 
 # Create virtualenv and install Python deps (one-time, on first install)
 if [ ! -f %{odysseus_home}/venv/bin/python ]; then
