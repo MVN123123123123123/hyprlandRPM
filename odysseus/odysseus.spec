@@ -96,7 +96,7 @@ fi
 URL="http://${BROWSER_HOST}:${PORT}"
 
 usage() {
-    echo "Usage: odysseus [start|stop|restart|status|log|reset-password|setup-workspace|remove-workspace]"
+    echo "Usage: odysseus [start|stop|restart|status|log|reset-password|setup-workspace|remove-workspace|clear-data]"
     echo
     echo "  start                       Start Odysseus (opens browser once ready)"
     echo "  stop                        Stop Odysseus"
@@ -106,6 +106,7 @@ usage() {
     echo "  reset-password              Reset the admin password"
     echo "  setup-workspace <path>      Grant the AI model read+write access to a directory"
     echo "  remove-workspace <path>     Revoke AI model access from a directory"
+    echo "  clear-data                  Delete all downloaded models, cache, and uploads"
     echo
     echo "  On first start, you will be prompted to set an admin password."
     echo "  Running without arguments starts the service."
@@ -340,6 +341,43 @@ case "${1:-start}" in
 
         echo ""
         echo "  Done. AI model access to $WS_REAL has been revoked."
+        echo ""
+        ;;
+    clear-data)
+        echo ""
+        echo "=========================================================="
+        echo "  Odysseus — Clear Downloaded Data"
+        echo "=========================================================="
+        echo ""
+        echo "  This will delete all downloaded models, cache, and uploads."
+        echo "  Your database (chats, settings, users) will NOT be affected."
+        echo ""
+        read -r -p "  Are you sure you want to proceed? [y/N]: " CONFIRM
+        CONFIRM="${CONFIRM:-N}"
+        if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
+            echo "  Cancelled."
+            exit 0
+        fi
+
+        echo "  Stopping Odysseus service..."
+        sudo systemctl stop odysseus.service
+
+        echo "  Cleaning cache and downloaded data..."
+        sudo rm -rf /var/lib/odysseus/.cache
+        sudo rm -rf /var/lib/odysseus/cache
+        sudo rm -rf /var/lib/odysseus/data/uploads
+        sudo rm -rf /var/lib/odysseus/data/personal_docs
+        sudo rm -rf /var/lib/odysseus/data/personal_uploads
+        sudo rm -rf /var/lib/odysseus/data/tts_cache
+        sudo rm -rf /var/lib/odysseus/data/generated_images
+        sudo rm -rf /var/lib/odysseus/data/deep_research
+        sudo rm -rf /var/lib/odysseus/data/chroma
+        sudo rm -rf /var/lib/odysseus/data/rag
+        sudo rm -rf /var/lib/odysseus/data/memory_vectors
+        sudo rm -rf /var/lib/odysseus/logs
+
+        echo "  Done. Restarting Odysseus (this will recreate directory structure)..."
+        sudo systemctl start odysseus.service
         echo ""
         ;;
     -h|--help|help)
