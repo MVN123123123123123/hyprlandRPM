@@ -72,6 +72,11 @@ install -Dpm0644 .env.example %{buildroot}%{_sysconfdir}/odysseus/env
 # Symlink so the app picks up .env from its working directory
 ln -sf %{_sysconfdir}/odysseus/env %{buildroot}%{appdir}/.env
 
+# Symlinks for persistent runtime directories
+ln -sf ../data %{buildroot}%{appdir}/data
+ln -sf ../logs %{buildroot}%{appdir}/logs
+ln -sf ../cache %{buildroot}%{appdir}/cache
+
 # -- CLI wrapper ---------------------------------------------------------
 install -d %{buildroot}%{_bindir}
 cat > %{buildroot}%{_bindir}/odysseus << 'WRAPPER'
@@ -397,10 +402,29 @@ install -d %{buildroot}%{_tmpfilesdir}
 cat > %{buildroot}%{_tmpfilesdir}/odysseus.conf << 'EOF'
 d %{odysseus_home} 0750 odysseus odysseus -
 d %{odysseus_home}/venv 0750 odysseus odysseus -
+d %{odysseus_home}/data 0750 odysseus odysseus -
+d %{odysseus_home}/logs 0750 odysseus odysseus -
+d %{odysseus_home}/cache 0750 odysseus odysseus -
 EOF
 
 %pre
 %sysusers_create_compat %{_sysusersdir}/odysseus.conf
+
+# Migrate existing data/logs/cache from appdir to odysseus_home before unpacking the symlinks
+for dir in data logs cache; do
+    OLD_DIR="%{appdir}/$dir"
+    NEW_DIR="%{odysseus_home}/$dir"
+    if [ -d "$OLD_DIR" ] && [ ! -L "$OLD_DIR" ]; then
+        # Ensure the destination directory exists
+        mkdir -p "$NEW_DIR"
+        # Move files if any exist
+        if [ "$(ls -A "$OLD_DIR" 2>/dev/null)" ]; then
+            cp -a "$OLD_DIR"/* "$NEW_DIR"/
+        fi
+        # Remove the old directory so RPM can unpack the symlink cleanly
+        rm -rf "$OLD_DIR"
+    fi
+done
 
 %post
 %systemd_post odysseus.service
