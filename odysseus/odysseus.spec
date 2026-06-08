@@ -16,7 +16,7 @@
 %global         appdir          %{odysseus_home}/app
 
 Name:           odysseus
-Version:        1.1.3^git%{shortcommit}
+Version:        1.1.4^git%{shortcommit}
 Release:        202606060032%{?dist}
 Summary:        Self-hosted AI workspace
 
@@ -35,6 +35,11 @@ Requires:       python3-pip
 Requires:       tmux
 Requires:       acl
 Requires(pre):  shadow-utils
+# Pre-compiled system packages to avoid compilation on newer Python versions
+Requires:       python3-lxml
+Requires:       python3-cryptography
+Requires:       python3-bcrypt
+Requires:       python3-numpy
 
 %description
 pewdipie fav opensource ai workspace.
@@ -513,11 +518,16 @@ fi
 
 if [ "$RECREATE_VENV" -eq 1 ]; then
     rm -rf "$VENV_DIR"
-    python3 -m venv "$VENV_DIR"
+    python3 -m venv --system-site-packages "$VENV_DIR"
 fi
 
 # Always install/update dependencies to ensure they are up to date on upgrade
-"$VENV_DIR/bin/pip" install --no-cache-dir -r "%{appdir}/requirements.txt"
+if ! "$VENV_DIR/bin/pip" install --no-cache-dir -r "%{appdir}/requirements.txt"; then
+    echo "Initial dependency installation failed. Retrying without fastembed (unsupported on this Python version)..."
+    grep -v "fastembed" "%{appdir}/requirements.txt" > "%{appdir}/requirements-compat.txt"
+    "$VENV_DIR/bin/pip" install --no-cache-dir -r "%{appdir}/requirements-compat.txt"
+    rm -f "%{appdir}/requirements-compat.txt"
+fi
 chown -R odysseus:odysseus "$VENV_DIR"
 
 %preun
