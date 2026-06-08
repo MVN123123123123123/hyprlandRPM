@@ -70,7 +70,7 @@ cargo vendor
 %cargo_prep -v vendor
 
 %build
-%cargo_build
+%cargo_build -f ci-release
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
