@@ -16,7 +16,7 @@
 %global         appdir          %{odysseus_home}/app
 
 Name:           odysseus
-Version:        1.1.2^git%{shortcommit}
+Version:        1.1.3^git%{shortcommit}
 Release:        202606060032%{?dist}
 Summary:        Self-hosted AI workspace
 
@@ -377,6 +377,11 @@ case "${1:-start}" in
         sudo rm -rf /var/lib/odysseus/data/memory_vectors
         sudo rm -rf /var/lib/odysseus/logs
 
+        # Recreate logs and cache directories to avoid broken symlinks in the app directory
+        sudo mkdir -p /var/lib/odysseus/.cache /var/lib/odysseus/cache /var/lib/odysseus/logs
+        sudo chown -R odysseus:odysseus /var/lib/odysseus/.cache /var/lib/odysseus/cache /var/lib/odysseus/logs
+        sudo chmod 0750 /var/lib/odysseus/.cache /var/lib/odysseus/cache /var/lib/odysseus/logs
+
         echo "  Done. Restarting Odysseus (this will recreate directory structure)..."
         sudo systemctl start odysseus.service
         echo ""
@@ -488,13 +493,32 @@ if [ -n "$_REAL_USER" ]; then
     fi
 fi
 
-# Create virtualenv and install Python deps (one-time, on first install)
-if [ ! -f %{odysseus_home}/venv/bin/python ]; then
-    python3 -m venv %{odysseus_home}/venv
-    %{odysseus_home}/venv/bin/pip install --no-cache-dir \
-        -r %{appdir}/requirements.txt
-    chown -R odysseus:odysseus %{odysseus_home}/venv
+# Create or update virtualenv and install Python deps (runs on install and upgrade)
+VENV_DIR="%{odysseus_home}/venv"
+RECREATE_VENV=0
+if [ -d "$VENV_DIR" ]; then
+    VENV_PYTHON="$VENV_DIR/bin/python"
+    if [ ! -f "$VENV_PYTHON" ]; then
+        RECREATE_VENV=1
+    else
+        SYS_VER=$(python3 -c 'import sys; print(sys.version_info[:2])')
+        VENV_VER=$("$VENV_PYTHON" -c 'import sys; print(sys.version_info[:2])' 2>/dev/null || echo "error")
+        if [ "$SYS_VER" != "$VENV_VER" ]; then
+            RECREATE_VENV=1
+        fi
+    fi
+else
+    RECREATE_VENV=1
 fi
+
+if [ "$RECREATE_VENV" -eq 1 ]; then
+    rm -rf "$VENV_DIR"
+    python3 -m venv "$VENV_DIR"
+fi
+
+# Always install/update dependencies to ensure they are up to date on upgrade
+"$VENV_DIR/bin/pip" install --no-cache-dir -r "%{appdir}/requirements.txt"
+chown -R odysseus:odysseus "$VENV_DIR"
 
 %preun
 %systemd_preun odysseus.service
