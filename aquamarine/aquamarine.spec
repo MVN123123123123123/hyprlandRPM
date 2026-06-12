@@ -1,6 +1,6 @@
 Name:           aquamarine
-Version:        0.12.0
-Release:        202605310900%{?dist}
+Version:        0.12.1
+Release:        1%{?dist}
 Summary:        A very light linux rendering backend library
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/aquamarine
