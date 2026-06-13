@@ -1,6 +1,6 @@
 Name:           hyprpolkitagent
 Version:        0.1.3
-Release:        202606120354%{?dist}
+Release:        202606130157%{?dist}
 Summary:        A simple polkit authentication agent for Hyprland
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprpolkitagent
