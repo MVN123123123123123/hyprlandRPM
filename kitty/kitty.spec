@@ -5,7 +5,7 @@
 %bcond test 0
 
 Name:           kitty
-Version:        0.47.2
+Version:        0.47.3
 Epoch:          1
 Release:        1%{?dist}
 Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
