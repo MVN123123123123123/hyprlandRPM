@@ -1,6 +1,6 @@
 Name:           hyprpwcenter
 Version:        0.1.2
-Release:        202606130157%{?dist}
+Release:        202606140206%{?dist}
 Summary:        A GUI Pipewire control center
 
 License:        BSD-3-Clause
