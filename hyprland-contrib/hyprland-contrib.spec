@@ -4,7 +4,7 @@
 
 Name:           hyprland-contrib
 Version:        0.1
-Release:        202606280159%{?dist}
+Release:        202606290200%{?dist}
 Summary:        Community scripts and utilities for Hypr projects
 BuildArch:      noarch
 
