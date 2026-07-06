@@ -1,10 +1,10 @@
-%global commit          865cf631d5bbb5f9fccc99b3f4cc80b9eeada18c
+%global commit          4ded06345553e4c2bcf8179fc7438e53c5e54d89
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global bumpver 38
 
 Name:           eww-git
 Version:        0.6.0
-Release:        1%{?dist}.%{shortcommit}
+Release:        202607060326%{?dist}
 Summary:        ElKowars wacky widgets
 
 License:        MIT
