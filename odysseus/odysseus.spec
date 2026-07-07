@@ -9,7 +9,7 @@
 # The app writes cache/, data/, logs/ relative to its own source tree
 # using Path(__file__), so the entire app tree must be writable.
 
-%global         commit          35f867c959191c7a0d638ba6cd82156634890703
+%global         commit          c67deaa60aa1b66fb6aa4abb979599e8d903ca37
 %global         shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 %global         odysseus_home   %{_sharedstatedir}/odysseus
@@ -17,7 +17,7 @@
 
 Name:           odysseus
 Version:        1.1.4^git%{shortcommit}
-Release:        202607060326%{?dist}
+Release:        202607070317%{?dist}
 Summary:        Self-hosted AI workspace
 
 License:        MIT
