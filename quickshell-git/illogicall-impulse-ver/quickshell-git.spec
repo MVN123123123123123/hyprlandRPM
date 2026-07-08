@@ -1,6 +1,6 @@
 # Pinned commit from:
 # https://git.outfoxxed.me/quickshell/quickshell/commits/branch/master
-%global commit          4f2c62486b0c939f7fc1f7cea68037173813dbfe
+%global commit          ead3b00afdf603bb6d4c30fc9c9f582d8f712168
 %global shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 # The upstream project version in CMakeLists.txt at pinned commit
