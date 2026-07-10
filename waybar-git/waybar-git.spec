@@ -62,7 +62,7 @@ BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(xkbregistry)
 BuildRequires:  python3dist(packaging)
 BuildRequires:  pkgconfig(libgps)
-BuildRequires:  glibmm-devel
+BuildRequires:  glibmm2.4-devel
 Conflicts:      waybar
 Provides:       waybar
 
