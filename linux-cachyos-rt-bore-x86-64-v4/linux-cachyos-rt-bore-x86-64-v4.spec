@@ -11,7 +11,7 @@ Source2:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/
 Source3:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/misc/0001-rt-i915.patch
 Source4:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/misc/dkms-clang.patch
 
-BuildRequires:  gcc, make, bc, binutils, elfutils-libelf-devel, openssl-devel, perl, python3, flex, bison, zstd, rsync, kmod, tar, xz, patch
+BuildRequires:  gcc, make, bc, binutils, elfutils-libelf-devel, openssl, openssl-devel, perl, python3, flex, bison, zstd, rsync, kmod, tar, xz, patch
 BuildRequires:  clang, llvm, lld
 
 # Prevent stripping by rpmbuild to avoid breaking kernel modules
