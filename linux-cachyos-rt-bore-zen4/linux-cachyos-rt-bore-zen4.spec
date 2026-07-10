@@ -1,3 +1,6 @@
+%global commit0 0000000000000000000000000000000000000000
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+
 Name:           linux-cachyos-rt-bore-zen4
 Version:        7.1.3
 Release:        1%{?dist}
@@ -6,7 +9,7 @@ License:        GPLv2
 URL:            https://github.com/CachyOS/linux-cachyos
 
 Source0:        https://github.com/CachyOS/linux/releases/download/cachyos-%{version}-1/cachyos-%{version}-1.tar.gz
-Source1:        config
+Source1:        https://raw.githubusercontent.com/cachyos/linux-cachyos/master/linux-cachyos-rt-bore/config
 Source2:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/sched/0001-bore-cachy.patch
 Source3:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/misc/0001-rt-i915.patch
 Source4:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/misc/dkms-clang.patch

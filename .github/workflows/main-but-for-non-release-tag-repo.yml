@@ -29,6 +29,8 @@ jobs:
           "Alexays/Waybar|waybar-git/waybar-git.spec"
           "elkowar/eww|eww-git/eww-git.spec"
           "pewdiepie-archdaemon/odysseus|odysseus/odysseus.spec"
+          "CachyOS/linux-cachyos|linux-cachyos-rt-bore-zen4/linux-cachyos-rt-bore-zen4.spec"
+          "CachyOS/linux-cachyos|linux-cachyos-rt-bore-x86-64-v4/linux-cachyos-rt-bore-x86-64-v4.spec"
           )
 
           # Loop through each target
