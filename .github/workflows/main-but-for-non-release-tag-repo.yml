@@ -31,6 +31,8 @@ jobs:
           "pewdiepie-archdaemon/odysseus|odysseus/odysseus.spec"
           "CachyOS/linux-cachyos|linux-cachyos-rt-bore-zen4/linux-cachyos-rt-bore-zen4.spec"
           "CachyOS/linux-cachyos|linux-cachyos-rt-bore-x86-64-v4/linux-cachyos-rt-bore-x86-64-v4.spec"
+          "CachyOS/linux-cachyos|linux-cachyos-bore-x86-64-v4/linux-cachyos-bore-x86-64-v4.spec"
+          "CachyOS/linux-cachyos|linux-cachyos-bore-zen4/linux-cachyos-bore-zen4.spec"
           )
 
           # Loop through each target
