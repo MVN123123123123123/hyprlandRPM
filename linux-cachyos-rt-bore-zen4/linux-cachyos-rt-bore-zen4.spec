@@ -1,9 +1,9 @@
-%global commit0 4065d7e175fb182a2e30b982b0d8121c97c8d46b
+%global commit0 43bb73574ba4108df8b453486752e2b070c946be
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           linux-cachyos-rt-bore-zen4
 Version:        7.1.3
-Release:        202607110233%{?dist}
+Release:        202607140224%{?dist}
 Summary:        Linux BORE-RT + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
 URL:            https://github.com/CachyOS/linux-cachyos
