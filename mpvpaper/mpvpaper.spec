@@ -1,6 +1,6 @@
 Name:           mpvpaper
-Version:        1.8
-Release:        %autorelease
+Version:        1.9
+Release:        1%{?dist}
 Summary:        A video wallpaper program
 
 License:        GPL-3.0-or-later
