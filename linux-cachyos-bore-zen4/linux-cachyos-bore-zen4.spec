@@ -65,11 +65,12 @@ install -m 644 .config %{buildroot}/boot/config-${KVER}
 
 %post
 KVER=$(ls /usr/lib/modules/ | grep "cachyos-zen4" | head -n 1)
+/usr/sbin/depmod -a ${KVER}
 if [ -x /usr/bin/dracut ]; then
     /usr/bin/dracut --force /boot/initramfs-${KVER}.img ${KVER}
 fi
 if [ -x /usr/sbin/grubby ]; then
-    /usr/sbin/grubby --add-kernel=/boot/vmlinuz-${KVER} --title="CachyOS BORE Zen4" --initrd=/boot/initramfs-${KVER}.img
+    /usr/sbin/grubby --add-kernel=/boot/vmlinuz-${KVER} --title="CachyOS BORE Zen4" --initrd=/boot/initramfs-${KVER}.img --copy-default
 fi
 
 %preun
