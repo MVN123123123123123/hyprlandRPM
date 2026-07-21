@@ -11,8 +11,8 @@
 %global libxkbcommon_version 1.11.0
 
 Name:           hyprland-git
-Version:        0.55.4
-Release:        202607210114%{?dist}
+Version:        0.56.0
+Release:        1%{?dist}
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 
 # hyprland: BSD-3-Clause
