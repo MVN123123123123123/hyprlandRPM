@@ -2,7 +2,8 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           linux-cachyos-bore-zen4
-Version:        7.1.3^%{release}
+Version:        7.1.3
+Epoch:          1
 Release:        202607200318%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
