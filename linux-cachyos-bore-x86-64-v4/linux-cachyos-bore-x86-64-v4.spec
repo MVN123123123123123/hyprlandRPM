@@ -1,10 +1,10 @@
-%global commit0 fc29f6a9d1e48e0d5db29b4d53e0dbfadd0d75b0
+%global commit0 74d5bae1a1598c188ca6df932d8db15cdbf41975
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           linux-cachyos-bore-x86-64-v4
 Epoch:          1
 Version:        7.1.3
-Release:        202607260240%{?dist}
+Release:        202607280227%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
 URL:            https://github.com/CachyOS/linux-cachyos
