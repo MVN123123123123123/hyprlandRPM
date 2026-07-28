@@ -1,4 +1,8 @@
-%bcond wireplumber %[0%{?fedora} > 39]
+%if 0%{?fedora} > 39
+%bcond_without wireplumber
+%else
+%bcond_with wireplumber
+%endif
 
 %global commit0 30610d3b68f109e950d924bc7d9c42b8cbbc5df8
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
@@ -28,7 +32,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  meson >= 0.49.0
 BuildRequires:  scdoc
 BuildRequires:  systemd-rpm-macros
-%if %{fedora} >= 40
+%if 0%{?fedora} >= 40
 BuildRequires:  pkgconfig(catch2)
 %endif
 BuildRequires:  pkgconfig(date)
@@ -63,7 +67,7 @@ BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(xkbregistry)
 BuildRequires:  python3dist(packaging)
 BuildRequires:  pkgconfig(libgps)
-BuildRequires:  glibmm2.4-devel
+BuildRequires:  pkgconfig(glibmm-2.4)
 Conflicts:      waybar
 Provides:       waybar
 
@@ -78,7 +82,7 @@ Recommends:     (font(fontawesome6free) or font(fontawesome5free))
 
 %build
 %meson \
-%if %{fedora} < 40
+%if 0%{?fedora} < 40
     -Dtests=disabled \
 %endif
     -Dsndio=disabled \
