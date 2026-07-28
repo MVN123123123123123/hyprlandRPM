@@ -71,6 +71,7 @@ hyprdeps = {
     "pkgconfig(pixman-1)",
     "pkgconfig(re2)",
     "pkgconfig(readline)",
+    "pkgconfig(sdbus-c++) >= 2.0.0",
     "pkgconfig(systemd)",
     "pkgconfig(tomlplusplus)",
     "pkgconfig(uuid)",
