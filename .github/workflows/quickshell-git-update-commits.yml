@@ -23,7 +23,7 @@ jobs:
           SPEC_FILE="quickshell-git/illogicall-impulse-ver/quickshell-git.spec"
 
           if [ ! -f "$SPEC_FILE" ]; then
-            echo "❌ Error: $SPEC_FILE not found!"
+            echo " Error: $SPEC_FILE not found!"
             exit 1
           fi
 
@@ -39,19 +39,19 @@ jobs:
           echo "  Current:  $CURRENT_COMMIT"
 
           if [ -z "$LATEST_COMMIT" ]; then
-            echo "  ⚠️  Could not fetch latest commit for quickshell. Skipping..."
+            echo "  Could not fetch latest commit for quickshell. Skipping..."
             exit 0
           fi
 
           if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ] && [ -n "$CURRENT_COMMIT" ]; then
-            echo "  🚀 New commit detected! Updating commit..."
+            echo "  New commit detected! Updating commit..."
 
             # Fetch the upstream version from CMakeLists.txt
             CURL_URL="https://git.outfoxxed.me/quickshell/quickshell/raw/commit/$LATEST_COMMIT/CMakeLists.txt"
             UPSTREAM_VER=$(curl -sL "$CURL_URL" | grep -i "project" | grep "VERSION" | sed -n 's/.*VERSION *"\([^"]*\)".*/\1/p')
 
             if [ -z "$UPSTREAM_VER" ]; then
-              echo "  ⚠️  Could not parse upstream version from CMakeLists.txt! Keeping current."
+              echo "  Could not parse upstream version from CMakeLists.txt! Keeping current."
             else
               echo "  Upstream Version: $UPSTREAM_VER"
               sed -i -E "s/^(%global[[:space:]]+upstream_ver[[:space:]]+)[0-9.]+/\1$UPSTREAM_VER/" "$SPEC_FILE"
@@ -66,7 +66,7 @@ jobs:
             git pull --rebase origin master
             git push origin master
 
-            echo "✅ Successfully pushed commit update."
+            echo "  Successfully pushed commit update."
           else
-            echo "✅ Already up to date."
+            echo "  Already up to date."
           fi

@@ -88,10 +88,10 @@ jobs:
           echo "  Last known NVR: $LAST_NVR"
 
           if [ "$LATEST_NVR" = "$LAST_NVR" ]; then
-            echo "  ✅ No Qt6 update on Rawhide. Nothing to do."
+            echo "   No Qt6 update on Rawhide. Nothing to do."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            echo "  🚀 Qt6 update detected on Rawhide!"
+            echo "   Qt6 update detected on Rawhide!"
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -123,8 +123,8 @@ jobs:
           # Push with retry in case of concurrent commits
           for attempt in 1 2 3; do
             git pull --rebase origin master && git push origin master && break
-            echo "  ⚠️  Push attempt $attempt failed, retrying..."
+            echo "    Push attempt $attempt failed, retrying..."
             sleep 5
           done
 
-          echo "✅ Successfully pushed rebuild bump for Rawhide Qt6 update."
+          echo " Successfully pushed rebuild bump for Rawhide Qt6 update."

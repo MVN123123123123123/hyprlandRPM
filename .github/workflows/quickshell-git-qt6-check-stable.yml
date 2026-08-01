@@ -24,7 +24,7 @@ jobs:
           TRACKER_FILE="quickshell-git/illogicall-impulse-ver/.qt6-last-nvr-stable"
 
           if [ ! -f "$SPEC_FILE" ]; then
-            echo "❌ Error: $SPEC_FILE not found!"
+            echo "Error: $SPEC_FILE not found!"
             exit 1
           fi
 
@@ -41,7 +41,7 @@ jobs:
           echo "  Latest stable NVR: $LATEST_NVR"
 
           if [ -z "$LATEST_NVR" ] || [ "$LATEST_NVR" = "null" ]; then
-            echo "  ⚠️  Could not fetch Qt6 NVR from Bodhi. Skipping..."
+            echo "  Could not fetch Qt6 NVR from Bodhi. Skipping..."
             exit 0
           fi
 
@@ -54,11 +54,11 @@ jobs:
           echo "  Last known NVR:   $LAST_NVR"
 
           if [ "$LATEST_NVR" = "$LAST_NVR" ]; then
-            echo "  ✅ No Qt6 update on Fedora 44 stable. Nothing to do."
+            echo "No Qt6 update on Fedora 44 stable. Nothing to do."
             exit 0
           fi
 
-          echo "  🚀 Qt6 update detected on Fedora 44 stable! Bumping release..."
+          echo "   Qt6 update detected on Fedora 44 stable! Bumping release..."
 
           # Bump Release to force rebuild
           TIMESTAMP=$(date +%Y%m%d%H%M)
@@ -73,4 +73,4 @@ jobs:
           git pull --rebase origin master
           git push origin master
 
-          echo "✅ Successfully pushed rebuild bump for Fedora 44 stable Qt6 update."
+          echo " Successfully pushed rebuild bump for Fedora 44 stable Qt6 update."

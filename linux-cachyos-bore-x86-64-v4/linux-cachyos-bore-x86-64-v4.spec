@@ -1,15 +1,16 @@
 %global commit0 74d5bae1a1598c188ca6df932d8db15cdbf41975
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+%global fake_version 7.2-rc5
 
 Name:           linux-cachyos-bore-x86-64-v4
 Epoch:          1
-Version:        7.2-rc5
+Version:        7.2rc5
 Release:        1%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
 URL:            https://github.com/CachyOS/linux-cachyos
 
-Source0:        https://github.com/CachyOS/linux/releases/download/cachyos-%{version}-1/cachyos-%{version}-1.tar.gz
+Source0:        https://github.com/CachyOS/linux/releases/download/cachyos-%{fake_version}-1/cachyos-%{fake_version}-1.tar.gz
 Source1:        https://raw.githubusercontent.com/cachyos/linux-cachyos/master/linux-cachyos-bore/config
 Source2:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/sched/0001-bore-cachy.patch
 Source3:        https://raw.githubusercontent.com/cachyos/kernel-patches/master/7.1/misc/dkms-clang.patch
@@ -26,7 +27,7 @@ Linux kernel with CachyOS patches and BORE scheduler, optimized for x86-64-v4.
 Compiled with LLVM/Clang ThinLTO.
 
 %prep
-%setup -q -n cachyos-%{version}-1
+%setup -q -n cachyos-%{fake_version}-1
 # Apply patches
 patch -Np1 < %{SOURCE2}
 patch -Np1 < %{SOURCE3}

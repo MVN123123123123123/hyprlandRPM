@@ -1,0 +1,91 @@
+name: Update CachyOS Bore Kernels
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-specs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check upstream and update specs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          CHANGES_MADE=0
+
+          TARGETS=(
+          "CachyOS/linux|linux-cachyos-bore-zen4/linux-cachyos-bore-zen4.spec"
+          "CachyOS/linux|linux-cachyos-bore-x86-64-v4/linux-cachyos-bore-x86-64-v4.spec"
+          )
+
+          for TARGET in "${TARGETS[@]}"; do
+            IFS='|' read -r UPSTREAM_REPO SPEC_FILE <<< "$TARGET"
+            
+            echo "----------------------------------------"
+            echo "Checking: $SPEC_FILE"
+            
+            if [ ! -f "$SPEC_FILE" ]; then
+              echo "  Warning: File $SPEC_FILE not found! Skipping..."
+              continue
+            fi
+
+            LATEST_TAG=$(curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/$UPSTREAM_REPO/releases/latest" | jq -r .tag_name)
+            
+            if [ "$LATEST_TAG" == "null" ] || [ -z "$LATEST_TAG" ]; then
+              echo "  Warning: Could not fetch latest release for $UPSTREAM_REPO. Skipping..."
+              continue
+            fi
+
+            LATEST_VERSION=${LATEST_TAG#v}
+            LATEST_VERSION=${LATEST_VERSION#cachyos-}
+            if [[ "$LATEST_TAG" =~ ^cachyos- ]]; then
+              LATEST_VERSION=${LATEST_VERSION%-*}
+            fi
+            
+            FAKE_VERSION=$LATEST_VERSION
+            REAL_VERSION=${FAKE_VERSION//-/}
+
+            CURRENT_FAKE_VERSION=$(grep -E "^%global fake_version\s+" "$SPEC_FILE" | awk '{print $3}')
+
+            echo "Upstream Fake Version: $FAKE_VERSION"
+            echo "Current Fake Version:  $CURRENT_FAKE_VERSION"
+
+            if [ "$FAKE_VERSION" != "$CURRENT_FAKE_VERSION" ] && [ -n "$CURRENT_FAKE_VERSION" ]; then
+              echo " New version detected! Updating $SPEC_FILE..."
+
+              sed -i "s/^%global fake_version.*/%global fake_version $FAKE_VERSION/" "$SPEC_FILE"
+              sed -i "s/^Version:.*/Version:        $REAL_VERSION/" "$SPEC_FILE"
+              sed -i "s/^Release:.*/Release:        1%{?dist}/" "$SPEC_FILE"
+
+              git add "$SPEC_FILE"
+              CHANGES_MADE=1
+            else
+              echo " Already up to date."
+            fi
+          done
+
+          echo "----------------------------------------"
+
+          if [ "$CHANGES_MADE" -eq 1 ]; then
+            echo "Committing and pushing all updated spec files..."
+            git commit -m "chore: auto-update cachyos bore spec file versions"
+            
+            git pull --rebase origin master
+            git push origin master
+            
+            echo "Successfully pushed updates."
+          else
+            echo "No updates needed across all spec files."
+          fi

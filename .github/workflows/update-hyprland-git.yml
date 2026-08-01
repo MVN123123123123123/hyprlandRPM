@@ -25,7 +25,7 @@ jobs:
           CHANGES_MADE=0
 
           if [ ! -f "$SPEC_FILE" ]; then
-            echo "❌ Error: $SPEC_FILE not found!"
+            echo " Error: $SPEC_FILE not found!"
             exit 1
           fi
 
@@ -43,13 +43,13 @@ jobs:
           echo "  Current:  $CURRENT_HYPRLAND"
 
           if [ "$LATEST_HYPRLAND" == "null" ] || [ -z "$LATEST_HYPRLAND" ]; then
-            echo "  ⚠️  Could not fetch latest commit for hyprwm/Hyprland. Skipping..."
+            echo "    Could not fetch latest commit for hyprwm/Hyprland. Skipping..."
           elif [ "$LATEST_HYPRLAND" != "$CURRENT_HYPRLAND" ] && [ -n "$CURRENT_HYPRLAND" ]; then
-            echo "  🚀 New commit detected! Updating hyprland_commit..."
+            echo "   New commit detected! Updating hyprland_commit..."
             sed -i "s/^%global hyprland_commit.*/%global hyprland_commit $LATEST_HYPRLAND/" "$SPEC_FILE"
             CHANGES_MADE=1
           else
-            echo "  ✅ Already up to date."
+            echo "   Already up to date."
           fi
 
           # --- 2. hyprland-protocols commit (hyprwm/hyprland-protocols) ---
@@ -62,13 +62,13 @@ jobs:
           echo "  Current:  $CURRENT_PROTOCOLS"
 
           if [ "$LATEST_PROTOCOLS" == "null" ] || [ -z "$LATEST_PROTOCOLS" ]; then
-            echo "  ⚠️  Could not fetch latest commit for hyprwm/hyprland-protocols. Skipping..."
+            echo "    Could not fetch latest commit for hyprwm/hyprland-protocols. Skipping..."
           elif [ "$LATEST_PROTOCOLS" != "$CURRENT_PROTOCOLS" ] && [ -n "$CURRENT_PROTOCOLS" ]; then
-            echo "  🚀 New commit detected! Updating protocols_commit..."
+            echo "   New commit detected! Updating protocols_commit..."
             sed -i "s/^%global protocols_commit.*/%global protocols_commit $LATEST_PROTOCOLS/" "$SPEC_FILE"
             CHANGES_MADE=1
           else
-            echo "  ✅ Already up to date."
+            echo "   Already up to date."
           fi
 
           # --- 3. udis86 commit (canihavesomecoffee/udis86) ---
@@ -81,13 +81,13 @@ jobs:
           echo "  Current:  $CURRENT_UDIS86"
 
           if [ "$LATEST_UDIS86" == "null" ] || [ -z "$LATEST_UDIS86" ]; then
-            echo "  ⚠️  Could not fetch latest commit for canihavesomecoffee/udis86. Skipping..."
+            echo "   Could not fetch latest commit for canihavesomecoffee/udis86. Skipping..."
           elif [ "$LATEST_UDIS86" != "$CURRENT_UDIS86" ] && [ -n "$CURRENT_UDIS86" ]; then
-            echo "  🚀 New commit detected! Updating udis86_commit..."
+            echo "   New commit detected! Updating udis86_commit..."
             sed -i "s/^%global udis86_commit.*/%global udis86_commit $LATEST_UDIS86/" "$SPEC_FILE"
             CHANGES_MADE=1
           else
-            echo "  ✅ Already up to date."
+            echo "   Already up to date."
           fi
 
           echo ""
@@ -103,7 +103,7 @@ jobs:
             git pull --rebase origin master
             git push origin master
 
-            echo "✅ Successfully pushed updates."
+            echo " Successfully pushed updates."
           else
             echo "No updates needed for hyprland-git."
           fi

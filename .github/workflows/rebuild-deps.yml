@@ -130,9 +130,9 @@ jobs:
           wait_for_build() {
             local build_id="$1"
             local pkg="$2"
-            echo "⏳ Waiting for $pkg (build $build_id)..."
+            echo " Waiting for $pkg (build $build_id)..."
             if copr-cli watch-build "$build_id"; then
-              echo "✅ $pkg completed successfully"
+              echo " $pkg completed successfully"
             else
               echo "::warning::$pkg build $build_id may have failed"
             fi

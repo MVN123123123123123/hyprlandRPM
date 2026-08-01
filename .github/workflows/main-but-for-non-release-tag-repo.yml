@@ -45,7 +45,7 @@ jobs:
             
             # Check if the spec file actually exists in that subdirectory
             if [ ! -f "$SPEC_FILE" ]; then
-              echo "⚠️  Warning: File $SPEC_FILE not found! Skipping..."
+              echo "  Warning: File $SPEC_FILE not found! Skipping..."
               continue
             fi
 
@@ -54,7 +54,7 @@ jobs:
             
             # Safety check for API limits or missing commits
             if [ "$LATEST_COMMIT" == "null" ] || [ -z "$LATEST_COMMIT" ]; then
-              echo "⚠️  Warning: Could not fetch latest commit for $UPSTREAM_REPO. Skipping..."
+              echo "  Warning: Could not fetch latest commit for $UPSTREAM_REPO. Skipping..."
               continue
             fi
 
@@ -70,7 +70,7 @@ jobs:
 
             # Compare and update
             if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ] && [ -n "$CURRENT_COMMIT" ]; then
-              echo "🚀 New commit detected! Updating $SPEC_FILE..."
+              echo " New commit detected! Updating $SPEC_FILE..."
 
               # Replace %global commit/commit0 while preserving spacing, and reset Release number
               sed -i -E "s/^(%global[[:space:]]+$COMMIT_VAR[[:space:]]+)[0-9a-fA-F]+/\1$LATEST_COMMIT/" "$SPEC_FILE"
@@ -80,7 +80,7 @@ jobs:
               git add "$SPEC_FILE"
               CHANGES_MADE=1
             else
-              echo "✅ Already up to date."
+              echo " Already up to date."
             fi
           done
 
