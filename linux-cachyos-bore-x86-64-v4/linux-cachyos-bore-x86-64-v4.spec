@@ -3,8 +3,8 @@
 
 Name:           linux-cachyos-bore-x86-64-v4
 Epoch:          1
-Version:        7.1.3
-Release:        202607280227%{?dist}
+Version:        7.2-rc5
+Release:        1%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
 URL:            https://github.com/CachyOS/linux-cachyos
