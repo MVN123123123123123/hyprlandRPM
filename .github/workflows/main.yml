@@ -81,6 +81,8 @@ jobs:
           "kovidgoyal/kitty|kitty/kitty.spec"
           "starship/starship|starship/starship.spec"
           "Vencord/Vesktop|vesktop/vesktop.spec"
+          "CachyOS/linux|linux-cachyos-bore-zen4/linux-cachyos-bore-zen4.spec"
+          "CachyOS/linux|linux-cachyos-bore-x86-64-v4/linux-cachyos-bore-x86-64-v4.spec"
           )
 
           # Loop through each target
@@ -107,6 +109,10 @@ jobs:
             fi
 
             LATEST_VERSION=${LATEST_TAG#v}
+            LATEST_VERSION=${LATEST_VERSION#cachyos-}
+            if [[ "$LATEST_TAG" =~ ^cachyos- ]]; then
+              LATEST_VERSION=${LATEST_VERSION%-*}
+            fi
             CURRENT_VERSION=$(grep -E "^Version:\s+" "$SPEC_FILE" | awk '{print $2}')
 
             echo "Upstream Version: $LATEST_VERSION"
