@@ -1,9 +1,9 @@
 %global commit0 74d5bae1a1598c188ca6df932d8db15cdbf41975
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global fake_version 7.2-rc5
+%global fake_version 6.18.42
 
 Name:           linux-cachyos-bore-zen4
-Version:        7.2rc5
+Version:        6.18.42
 Epoch:          1
 Release:        1%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
