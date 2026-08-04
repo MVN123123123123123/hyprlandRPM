@@ -1,11 +1,11 @@
-%global commit0 74d5bae1a1598c188ca6df932d8db15cdbf41975
+%global commit0 972d31fe2cbfda19208501a9518152ab90cfa2cc
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global fake_version 6.18.42
 
 Name:           linux-cachyos-bore-zen4
 Version:        6.18.42
 Epoch:          1
-Release:        1%{?dist}
+Release:        202608040225%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
 URL:            https://github.com/CachyOS/linux-cachyos

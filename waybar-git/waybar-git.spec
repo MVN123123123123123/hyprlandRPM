@@ -4,13 +4,13 @@
 %bcond_with wireplumber
 %endif
 
-%global commit0 d44a27af1023b5c68f6f61435ba550bf03f69938
+%global commit0 084d87401d0a91182c16aa7e5f674a7dde767185
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global bumpver 6
 
 Name:           waybar-git
 Version:        0.15.0
-Release:        202607310242%{?dist}
+Release:        202608040225%{?dist}
 Summary:        Highly customizable Wayland bar for Sway and Wlroots based compositors, with workspaces support for Hyprland
 # Source files/overall project licensed as MIT, but
 # - BSL-1.0
