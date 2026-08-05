@@ -2,7 +2,7 @@
 
 Name:           hyprlock
 Version:        0.9.6
-Release:        202608040111%{?dist}
+Release:        202608050112%{?dist}
 Summary:        GPU-accelerated screen locking utility for Hyprland
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprlock
