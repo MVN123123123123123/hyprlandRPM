@@ -1,10 +1,10 @@
 %global commit0 972d31fe2cbfda19208501a9518152ab90cfa2cc
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global fake_version 7.1.7
+%global fake_version 7.1.8
 
 Name:           linux-cachyos-bore-x86-64-v4
 Epoch:          1
-Version:        7.1.7
+Version:        7.1.8
 Release:        1%{?dist}
 Summary:        Linux BORE + Cachy Sauce Kernel by CachyOS
 License:        GPLv2
