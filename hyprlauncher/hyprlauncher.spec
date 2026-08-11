@@ -1,6 +1,6 @@
 Name:           hyprlauncher
 Version:        0.1.6
-Release:        202608100040%{?dist}
+Release:        202608110040%{?dist}
 Summary:        A multipurpose and versatile launcher / picker for Hyprland
 
 License:        BSD-3-Clause

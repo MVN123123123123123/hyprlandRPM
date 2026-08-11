@@ -1,6 +1,6 @@
 Name:           hyprland-guiutils
 Version:        0.2.2
-Release:        202608100040%{?dist}
+Release:        202608110040%{?dist}
 Summary:        Hyprland utility apps
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprland-guiutils
